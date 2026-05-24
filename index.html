@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>An honest update — refunds and what's next</title>
+<title>For 24 hours, 600,000 people watch you — Chase Reiner</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="theme-color" content="#1d7a4d">
-<meta name="description" content="An honest letter after ten years of making videos — where cash.bot stands, the refund commitment, and exactly what I'm doing next.">
+<meta name="description" content="For 24 hours, my audience stops watching me — and watches you. Live interview, custom landing page, 600k email blast, Instagram + Shorts. From $2,000. Already bought cash.bot? Your purchase counts as credit toward the $2k slot.">
 <link rel="canonical" href="https://cash.bot/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cash.bot/">
-<meta property="og:title" content="An honest update — refunds and what's next">
-<meta property="og:description" content="An honest letter after ten years of making videos — where cash.bot stands, the refund commitment, and exactly what I'm doing next.">
+<meta property="og:title" content="For 24 hours, 600,000 people stop watching me — and watch you">
+<meta property="og:description" content="I step out of frame. The interview is yours. From $2,000. Cash.bot customers — what you already paid counts as credit.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="An honest update — refunds and what's next">
-<meta name="twitter:description" content="An honest letter after ten years of making videos — where cash.bot stands, the refund commitment, and exactly what I'm doing next.">
+<meta name="twitter:title" content="For 24 hours, 600,000 people stop watching me — and watch you">
+<meta name="twitter:description" content="I step out of frame. The interview is yours. From $2,000. Cash.bot customers — what you already paid counts as credit.">
 <style>
   :root{
     --bg:#faf9f6;
@@ -24,6 +24,8 @@
     --line:#e7e3da;
     --accent:#1d7a4d;
     --accent-dark:#155c3a;
+    --gold:#a87a1f;
+    --gold-soft:#fff4dc;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{-webkit-text-size-adjust:100%;}
@@ -32,187 +34,714 @@
     color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     font-size:clamp(16px,2.4vw,18px);
-    line-height:1.7;
+    line-height:1.65;
     padding:0 16px;
   }
-  .post{max-width:660px;width:100%;margin:0 auto;padding:48px 0 72px;}
+  .wrap{max-width:720px;width:100%;margin:0 auto;padding:40px 0 72px;}
   .kicker{
     text-transform:uppercase;letter-spacing:.14em;
     font-size:13px;font-weight:700;color:var(--accent);margin-bottom:12px;
   }
-  h1{font-size:clamp(30px,7vw,46px);line-height:1.15;letter-spacing:-.02em;margin-bottom:10px;}
-  h2{font-size:clamp(21px,4.5vw,27px);line-height:1.25;letter-spacing:-.01em;margin:40px 0 14px;}
+  h1{font-size:clamp(30px,7vw,46px);line-height:1.12;letter-spacing:-.02em;margin-bottom:14px;}
+  h2{font-size:clamp(22px,4.6vw,28px);line-height:1.22;letter-spacing:-.01em;margin:44px 0 14px;}
   h3{font-size:clamp(18px,3.4vw,21px);line-height:1.3;margin-bottom:8px;}
-  p{margin:0 0 18px;}
-  .lead{color:var(--muted);font-size:clamp(16px,2.6vw,19px);}
+  p{margin:0 0 16px;}
+  .lead{color:var(--muted);font-size:clamp(16px,2.7vw,19px);margin-bottom:24px;}
   strong{font-weight:700;}
-  hr{border:0;border-top:1px solid var(--line);margin:40px 0;}
+  hr{border:0;border-top:1px solid var(--line);margin:36px 0;}
 
-  .commitment{
+  .proof{
     background:var(--surface);border:1px solid var(--line);
     border-left:4px solid var(--accent);border-radius:10px;
-    padding:20px 22px;margin:8px 0;
+    padding:18px 22px;margin:8px 0 28px;
   }
-  .commitment p:last-child{margin-bottom:0;}
+  .proof p:last-child{margin-bottom:0;}
 
-  .offer{
-    background:var(--surface);border:1px solid var(--line);
-    border-radius:14px;padding:22px;margin:24px 0;
+  .stat-row{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+    margin:18px 0 28px;
   }
-  ul.why-list{list-style:none;}
-  ul.why-list li{position:relative;padding-left:26px;margin-bottom:13px;}
-  ul.why-list li:last-child{margin-bottom:0;}
-  ul.why-list li::before{
+  .stat{
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;text-align:center;
+  }
+  .stat-n{font-size:clamp(20px,4.6vw,26px);font-weight:800;color:var(--accent);line-height:1.1;}
+  .stat-l{font-size:13px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
+  @media (min-width:560px){
+    .stat-row{grid-template-columns:repeat(4,1fr);}
+  }
+
+  ul.bullets{list-style:none;margin:0 0 16px;}
+  ul.bullets li{position:relative;padding-left:24px;margin-bottom:10px;}
+  ul.bullets li::before{
     content:"";position:absolute;left:0;top:10px;
     width:9px;height:9px;background:var(--accent);border-radius:3px;
   }
 
-  .bonus{
-    background:#eef6f0;border:1px solid #cfe6d8;border-radius:14px;
-    padding:22px;margin:24px 0;
+  .tier{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:22px;margin:14px 0;
   }
-  .bonus-tag{
-    display:inline-block;background:var(--accent);color:#fff;
-    font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-    padding:5px 11px;border-radius:6px;margin-bottom:12px;
-  }
-  .bonus p:last-child{margin-bottom:0;}
+  .tier.featured{border:2px solid var(--accent);}
+  .tier-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px;}
+  .tier-name{font-size:clamp(19px,3.8vw,23px);font-weight:800;letter-spacing:-.01em;}
+  .tier-price{font-size:clamp(22px,5vw,28px);font-weight:800;color:var(--accent);}
+  .tier-price small{font-size:.55em;color:var(--muted);font-weight:600;}
+  .tier-desc{color:var(--muted);font-size:15px;margin-bottom:14px;}
+  .tier ul.bullets{margin-bottom:18px;}
+  .tier ul.bullets li{font-size:15px;}
 
-  .steps{margin:24px 0;}
-  ol.steps-list{list-style:none;counter-reset:step;margin:14px 0 20px;}
-  ol.steps-list li{
-    position:relative;padding:5px 0 5px 48px;margin-bottom:14px;min-height:34px;
-  }
-  ol.steps-list li:last-child{margin-bottom:0;}
-  ol.steps-list li::before{
-    counter-increment:step;content:counter(step);
-    position:absolute;left:0;top:0;
-    width:34px;height:34px;display:flex;align-items:center;justify-content:center;
-    background:var(--accent);color:#fff;font-weight:800;border-radius:9px;font-size:16px;
+  .featured-tag{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    padding:3px 9px;border-radius:5px;margin-bottom:10px;
   }
 
   .btn{
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    display:flex;align-items:center;justify-content:center;gap:8px;
     width:100%;min-height:48px;padding:13px 18px;
     background:var(--accent);color:#fff;text-decoration:none;
-    font-weight:600;border-radius:10px;
+    font-weight:700;border-radius:10px;font-size:16px;
     transition:background .15s ease,transform .05s ease;
   }
   .btn:hover{background:var(--accent-dark);}
   .btn:active{transform:translateY(1px);}
-  .btn .arrow{font-weight:700;opacity:.85;}
-  .btn-lg{justify-content:center;min-height:56px;font-size:clamp(16px,2.8vw,18px);padding:16px 22px;}
-
-  .disclosure{
-    font-size:14px;color:var(--muted);background:var(--surface);
-    border:1px dashed var(--line);border-radius:10px;
-    padding:14px 18px;margin:18px 0;line-height:1.6;
+  .btn-ghost{
+    background:transparent;color:var(--accent);border:1px solid var(--accent);
   }
-  .fineprint{font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 18px;}
+  .btn-ghost:hover{background:var(--accent);color:#fff;}
+  .btn-lg{min-height:56px;font-size:clamp(16px,2.8vw,18px);padding:16px 22px;}
 
-  .optional{
-    background:#eef6f0;border:1px solid #cfe6d8;border-radius:10px;
-    padding:16px 20px;margin:18px 0;
+  .cta-row{display:flex;flex-direction:column;gap:10px;}
+  @media (min-width:560px){
+    .cta-row{flex-direction:row;}
+    .cta-row .btn{flex:1;}
   }
-  .optional p{margin:0;}
 
-  footer{margin-top:40px;padding-top:28px;border-top:1px solid var(--line);color:var(--muted);}
-  footer p{margin:0 0 12px;}
-  .thanks{font-size:clamp(18px,3vw,22px);font-weight:700;color:var(--ink);margin-top:18px;}
-  .sign{font-size:clamp(16px,2.6vw,18px);margin-top:6px;}
+  .winwin{
+    background:var(--gold-soft);border:1px solid #f0d9a4;border-radius:14px;
+    padding:22px;margin:24px 0;
+  }
+  .winwin-tag{
+    display:inline-block;background:var(--gold);color:#fff;
+    font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    padding:3px 9px;border-radius:5px;margin-bottom:12px;
+  }
+  .winwin p:last-child{margin-bottom:0;}
+
+  .risk{
+    background:#eef6f0;border:1px solid #cfe6d8;border-radius:14px;
+    padding:18px 22px;margin:24px 0;
+  }
+  .risk strong{color:var(--accent-dark);}
+
+  .notfor{
+    background:#fdf4f0;border:1px solid #f0d3c5;border-radius:10px;
+    padding:16px 20px;margin:20px 0;font-size:15px;color:#7a3f23;
+  }
+  .notfor strong{color:#5a2e16;}
+
+  .faq{margin:20px 0;}
+  .faq details{
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:14px 18px;margin-bottom:10px;
+  }
+  .faq summary{
+    font-weight:700;cursor:pointer;list-style:none;display:flex;
+    justify-content:space-between;align-items:center;gap:12px;
+    font-size:16px;line-height:1.4;
+  }
+  .faq summary::after{content:"+";font-size:22px;color:var(--accent);font-weight:400;}
+  .faq details[open] summary::after{content:"−";}
+  .faq details[open] summary{margin-bottom:10px;}
+  .faq p{margin:0;color:var(--muted);font-size:15px;line-height:1.6;}
+
+  .booknow{
+    background:var(--ink);color:#fff;border-radius:14px;
+    padding:28px 22px;margin:32px 0 16px;text-align:center;
+  }
+  .booknow h2{color:#fff;margin-top:0;}
+  .booknow p{color:#cfc9c0;margin-bottom:18px;}
+  .booknow .btn{background:var(--accent);}
+  .booknow .btn:hover{background:#34a06b;}
+
+  footer{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
 
   @media (min-width:640px){
-    .post{padding:64px 0 88px;}
-    .offer,.bonus{padding:26px 28px;}
-    .commitment{padding:24px 26px;}
+    .wrap{padding:56px 0 88px;}
+    .tier{padding:26px 28px;}
+    .winwin{padding:24px 28px;}
+  }
+
+  .countdown{
+    background:var(--accent);color:#fff;border-radius:12px;
+    padding:14px 18px;margin:0 0 22px;display:flex;flex-wrap:wrap;
+    align-items:center;justify-content:space-between;gap:10px;
+  }
+  .countdown-label{font-size:14px;font-weight:600;letter-spacing:.01em;line-height:1.35;}
+  .countdown-time{
+    font-variant-numeric:tabular-nums;font-weight:800;
+    font-size:clamp(20px,4.6vw,26px);letter-spacing:.04em;
+    display:inline-flex;align-items:baseline;gap:4px;
+  }
+  .countdown-time small{font-size:.55em;font-weight:600;opacity:.85;margin-left:4px;}
+  .countdown.expired{background:#7a3f23;}
+  .countdown.expired .countdown-label{font-size:15px;}
+
+  .brands{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:22px;margin:8px 0 28px;
+  }
+  .brands h3{font-size:clamp(17px,3.4vw,20px);margin-bottom:6px;}
+  .brands-intro{color:var(--muted);font-size:15px;margin-bottom:14px;}
+  .brand-row{
+    display:grid;grid-template-columns:1fr;gap:6px;
+    border-top:1px solid var(--line);padding:14px 0 0;margin-top:14px;
+  }
+  .brand-row:first-of-type{border-top:0;padding-top:0;margin-top:0;}
+  .brand-name{font-weight:700;font-size:15px;color:var(--ink);}
+  .brand-quote{color:var(--muted);font-size:14px;line-height:1.55;}
+  @media (min-width:560px){
+    .brand-row{grid-template-columns:200px 1fr;gap:18px;align-items:start;}
+  }
+  .brands-kicker{
+    margin-top:18px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:15px;color:var(--ink);
+  }
+  .brands-kicker strong{color:var(--accent-dark);}
+
+  .scheduler{
+    background:#fff9ec;border:1px solid #f0d9a4;border-radius:14px;
+    padding:22px;margin:24px 0;
+  }
+  .scheduler h2{margin-top:0;}
+  .scheduler-intro{color:#5a4014;font-size:15px;margin-bottom:14px;}
+  .scheduler-grid{
+    display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 16px;
+  }
+  .scheduler-field label{
+    display:block;font-size:12px;font-weight:700;color:#5a4014;
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;
+  }
+  .scheduler-field select,.scheduler-field input{
+    width:100%;min-height:48px;padding:12px 14px;
+    background:#fff;border:1px solid #e5d8b6;border-radius:10px;
+    font-size:16px;font-family:inherit;color:var(--ink);
+    -webkit-appearance:none;appearance:none;
+  }
+  .scheduler-field select{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23a87a1f' d='M6 8L0 0h12z'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:34px;
+  }
+  .scheduler-field select:focus,.scheduler-field input:focus{
+    outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,122,77,.18);
+  }
+  .scheduler-note{color:#7a5a14;font-size:14px;margin:14px 0 0;}
+  .scheduler .btn{background:var(--gold);}
+  .scheduler .btn:hover{background:#8a6418;}
+  @media (min-width:560px){
+    .scheduler-grid{grid-template-columns:1.1fr 1fr 1fr;}
+  }
+
+  .receipts{margin:28px 0 8px;}
+  .receipts-head{
+    background:#0e1d15;color:#fff;border-radius:14px 14px 0 0;
+    padding:22px 22px 18px;border:1px solid #0e1d15;
+  }
+  .receipts-head .kicker-inv{
+    color:#7be0a9;text-transform:uppercase;letter-spacing:.14em;
+    font-size:12px;font-weight:700;margin-bottom:8px;
+  }
+  .receipts-head h2{
+    color:#fff;margin:0 0 6px;font-size:clamp(22px,4.8vw,30px);line-height:1.2;
+  }
+  .receipts-head p{color:#cfd8d2;font-size:15px;margin:0;line-height:1.55;}
+  .receipts-grid{
+    display:grid;grid-template-columns:1fr;gap:0;
+    background:var(--surface);border:1px solid var(--line);border-top:0;
+    border-radius:0 0 14px 14px;overflow:hidden;
+  }
+  .receipt{padding:18px;border-top:1px solid var(--line);}
+  .receipt:first-child{border-top:0;}
+  .receipt-shot{
+    background:#f4f1ea;border:1px solid var(--line);border-radius:8px;
+    overflow:hidden;margin-bottom:12px;
+  }
+  .receipt-shot img{display:block;width:100%;height:auto;}
+  .receipt-stat{
+    font-weight:800;color:var(--accent-dark);font-size:clamp(18px,3.6vw,22px);
+    line-height:1.2;margin:0 0 6px;letter-spacing:-.01em;
+  }
+  .receipt-stat .src{color:var(--muted);font-weight:600;font-size:.7em;letter-spacing:0;}
+  .receipt-cap{color:var(--ink);font-size:14px;line-height:1.5;margin:0;}
+  .receipts-foot{
+    background:#f4f1ea;border:1px solid var(--line);border-top:0;
+    border-radius:0 0 14px 14px;padding:18px 22px;margin-top:-1px;
+    font-size:15px;color:var(--ink);text-align:center;
+  }
+  .receipts-foot strong{color:var(--accent-dark);}
+  @media (min-width:640px){
+    .receipts-grid{grid-template-columns:1fr 1fr;}
+    .receipt{border-top:1px solid var(--line);border-left:1px solid var(--line);}
+    .receipt:nth-child(2n+1){border-left:0;}
+    .receipt:nth-child(1),.receipt:nth-child(2){border-top:0;}
+  }
+  @media (min-width:960px){
+    .receipts-grid{grid-template-columns:1fr 1fr 1fr;}
+    .receipt:nth-child(2n+1){border-left:1px solid var(--line);}
+    .receipt:nth-child(3n+1){border-left:0;}
+    .receipt:nth-child(3){border-top:0;}
+  }
+
+  .lead-2{
+    color:var(--ink);font-size:clamp(15px,2.5vw,17px);
+    font-weight:500;margin:0 0 24px;font-style:italic;line-height:1.55;
+    padding:10px 0 10px 14px;border-left:3px solid var(--accent);
+  }
+
+  .feels{
+    background:#fff8ef;border:1px solid #f0d9a4;border-radius:14px;
+    padding:22px;margin:18px 0 28px;
+  }
+  .feels h2{margin:0;color:#5a4014;font-size:clamp(20px,4.4vw,26px);line-height:1.25;}
+  .feels-list{list-style:none;margin:14px 0 0;padding:0;}
+  .feels-list li{
+    position:relative;padding:12px 0;font-size:clamp(15px,2.6vw,17px);
+    line-height:1.55;border-top:1px solid #f0d9a4;color:var(--ink);
+  }
+  .feels-list li:first-child{border-top:0;}
+  .feels-list li em{color:#7a5a14;font-style:italic;font-weight:600;}
+  .feels-closer{
+    margin:16px 0 0;padding-top:14px;border-top:1px solid #f0d9a4;
+    font-weight:700;color:#5a4014;font-size:clamp(15px,2.6vw,17px);line-height:1.55;
+  }
+
+  .handoff{
+    background:var(--ink);color:#fff;border-radius:14px;
+    border-left:4px solid var(--accent);
+    padding:26px 22px;margin:24px 0;
+  }
+  .handoff h2{color:#fff;margin:0 0 10px;font-size:clamp(20px,4.4vw,26px);line-height:1.25;}
+  .handoff p{color:#d6d2cb;margin:0;font-size:clamp(15px,2.6vw,17px);line-height:1.65;}
+  .handoff p em{color:#7be0a9;font-style:italic;font-weight:600;}
+
+  .cb-upgrade{
+    background:#eef6f0;border:2px solid var(--accent);border-radius:14px;
+    padding:22px;margin:24px 0;
+  }
+  .cb-upgrade .cb-tag{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    padding:3px 9px;border-radius:5px;margin-bottom:12px;
+  }
+  .cb-upgrade h3{margin:0 0 8px;color:var(--accent-dark);font-size:clamp(18px,3.6vw,22px);line-height:1.3;}
+  .cb-upgrade p{color:var(--ink);margin:0 0 12px;}
+  .cb-upgrade .cb-amounts{
+    display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 16px;font-size:14px;
+  }
+  .cb-upgrade .cb-amount{
+    background:#fff;border:1px solid #cfe6d8;border-radius:6px;
+    padding:6px 10px;font-weight:700;color:var(--accent-dark);
+  }
+  .cb-upgrade .cb-refund{
+    font-size:14px;color:#5a4014;margin:14px 0 0;line-height:1.55;
+    padding-top:12px;border-top:1px solid #cfe6d8;
   }
 </style>
 </head>
 <body>
-<main class="post">
+<main class="wrap">
 
-  <p class="kicker">An honest letter</p>
-  <h1>Ten years of videos. Here's where I'm at.</h1>
-  <p class="lead">No spin — who I am, what went wrong with cash.bot, the refunds, and exactly what I'm doing next.</p>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.5;">Looking for the refund letter from a few weeks back? Still here: <a href="/update/" style="color:var(--accent);text-decoration:underline;">cash.bot/update/</a> — every refund request is being honored.</p>
 
-  <h2>The short version of a long ten years</h2>
-  <p>For about ten years, I've made YouTube videos — nearly every single day. If you found me through cash.bot, you might not know that part. But it's the part that explains everything else.</p>
-  <p>Ten years of showing up to the camera every day does something to you. I'm grateful for the life it gave me — I'm not complaining. But I was tired. Bone-tired. I wanted to build something that didn't depend on me filming another video tomorrow, and the day after that, and the day after that. Something that could help people and keep working whether I had the energy that morning or not.</p>
-  <p>That's what cash.bot was supposed to be.</p>
+  <p class="kicker">Your turn in the spotlight · From $2,000</p>
 
-  <h2>Where it went wrong</h2>
-  <p>I'm not a developer. I said that openly from the very start. I believed I could lean on AI to build, support, and market a real software product — over 122 apps, millions of lines of code — and hold the whole thing together myself. I tried as hard as I've tried at anything in my life.</p>
-  <p>I couldn't hold it together. Not at the pace you paid for and deserved. The roadblocks were bigger and far more constant than I expected, and at some point I had to be honest with myself: I'd taken on something I couldn't finish the way I promised you I would.</p>
-
-  <hr>
-
-  <h2>The bad news</h2>
-  <p>Ever since the post about needing to deploy cash.bot differently — through a checklist with step-by-step videos — a lot of you have asked for a refund rather than wait for the new deployment. I understand it completely.</p>
-
-  <div class="commitment">
-    <p><strong>Here's my commitment, plainly:</strong> every refund request is being honored, back to your original payment method. I'm processing them in the order they came in, and I'll keep going until everyone who asked is made whole.</p>
-    <p>I'm not going to give you a fake deadline — instead I'll keep you posted as the queue moves.</p>
-    <p>If you've requested a refund, reply here or message me on WhatsApp with the email you purchased under, and I'll confirm you're on the list and tell you where you stand.</p>
+  <div class="countdown" id="countdown" role="status" aria-live="polite">
+    <div class="countdown-label">Today's batch closes at midnight PT</div>
+    <div class="countdown-time" id="countdownTime"><span id="cdH">00</span>h <span id="cdM">00</span>m <span id="cdS">00</span>s <small>left</small></div>
   </div>
 
-  <p>You trusted me with your money. Making that right comes before anything else I do — full stop. I'm sorry it turned out this way.</p>
+  <h1>For 24 hours, 600,000 people stop watching me — and watch you.</h1>
+  <p class="lead">I step out of frame. The interview is yours. The landing page has your name on it. The emails go out about <em>you</em>. For one day, an audience I spent ten years building looks at one person — and that person is you, not me.</p>
+  <p class="lead-2">For the person who built something quietly and started wondering if anyone would ever notice — this is the day the answer is yes.</p>
 
-  <hr>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-n">600k</div><div class="stat-l">Email list</div></div>
+    <div class="stat"><div class="stat-n">300k</div><div class="stat-l">Instagram</div></div>
+    <div class="stat"><div class="stat-n">300k</div><div class="stat-l">Shorts</div></div>
+    <div class="stat"><div class="stat-n">10yr</div><div class="stat-l">YouTube</div></div>
+  </div>
 
-  <h2>The good news</h2>
-  <p>Here's the part that's actually hopeful — for me, and for anyone who wants to stick around.</p>
-  <p>I'm not disappearing. I'm going back to the thing I actually know how to do after ten years: making content, and affiliate marketing. The difference this time is that I'm doing all of it out in the open — documenting exactly how I promote offers, what converts, what flops, and the reasoning behind every move. No more building a black box alone. Just me, showing the work, every step.</p>
-  <p>Quick version if affiliate marketing is new to you — it's getting paid to send people to an offer. Most people do it by hand and burn out. I know that burnout better than most, so I don't do it by hand — I automate the promotion. The main way I do that is contact form marketing: getting your message in front of website owners through their own contact pages, at scale, with a tool called GSA Website Contact.</p>
-
-  <h2>First up — the Crown Coins Casino app</h2>
-  <p>I'm doing this one offer at a time, so the documentation actually means something. The offer I'm promoting right now is the Crown Coins social casino app. Here's the thinking behind starting with it.</p>
-
-  <div class="offer">
-    <h3>Why I'm starting with this one</h3>
-    <ul class="why-list">
-      <li><strong>Broad appeal.</strong> A free-to-play app with daily bonuses is an easy thing to say yes to — and that matters a lot when you're sending cold messages at scale. The wider the appeal, the better cold traffic converts.</li>
-      <li><strong>Low friction.</strong> Free to download, free daily bonuses, nothing to risk just to take a look.</li>
-      <li><strong>It pays.</strong> The referral reward is solid for how small the action is to earn it.</li>
-      <li><strong>Recurring.</strong> People open these apps daily, so engagement sticks instead of being one-and-done.</li>
+  <section class="feels" aria-label="What it actually feels like">
+    <h2>What 24 hours in front of 600,000 people actually feels like</h2>
+    <ul class="feels-list">
+      <li>You wake up to messages from people you haven't heard from in years — <em>"wait, was that you on Chase's channel?"</em></li>
+      <li>Your phone vibrates so much you flip it face-down. By dinner you've stopped trying to keep up.</li>
+      <li>Strangers tag their friends in your post. People you've never met explain what you do to other people you've never met.</li>
+      <li>Your inbox fills with messages that start with <em>"I saw your interview — I want what you sell."</em></li>
+      <li>For the first time in a long time, you're not the one trying to get someone to look. They're already looking.</li>
     </ul>
+    <p class="feels-closer">Every person who built something quietly wants this day. Most never get it. This is that day — on a calendar, with a number on it, with your name where mine used to be.</p>
+  </section>
+
+  <section class="receipts" aria-label="Affiliate revenue proof">
+    <div class="receipts-head">
+      <div class="kicker-inv">Receipts · this is the size of room about to look at you</div>
+      <h2>27,454 customers. $3.36M moved. One voice. Yours next.</h2>
+      <p>Real dashboards from my own affiliate accounts — proof these 600,000 people open their wallets and pay attention when the right person is on screen. For 24 hours, that person is you.</p>
+    </div>
+    <div class="receipts-grid">
+
+      <div class="receipt">
+        <a href="proof/stripe-336m.jpg"><div class="receipt-shot"><img src="proof/stripe-336m.jpg" alt="Stripe dashboard: $3.36M gross volume since Jan 2017, $2.94M net, 27,454 new customers." loading="lazy"></div></a>
+        <p class="receipt-stat">$3.36M <span class="src">gross · Stripe</span></p>
+        <p class="receipt-cap">Jan 2017 → May 2026. $2.94M net from sales. <strong>27,454 customers</strong> bought through me on this one processor alone.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/highlevel-313k.jpg"><div class="receipt-shot"><img src="proof/highlevel-313k.jpg" alt="HighLevel Affiliate Promoter Reports: $313,808.99 total paid, 847,753 clicks, 225,789 referrals, 1,484 customers." loading="lazy"></div></a>
+        <p class="receipt-stat">$313,808.99 <span class="src">paid · HighLevel affiliate</span></p>
+        <p class="receipt-cap">847,753 clicks · 225,789 referrals · <strong>1,484 paying customers</strong>. One affiliate program. The Lamborghini lease comes out of this.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/partnerstack-111k.jpg"><div class="receipt-shot"><img src="proof/partnerstack-111k.jpg" alt="PartnerStack dashboard: $111,283.20 paid commissions, $0.65 EPC, +100% YoY growth." loading="lazy"></div></a>
+        <p class="receipt-stat">$111,283.20 <span class="src">paid · PartnerStack</span></p>
+        <p class="receipt-cap">Paid commissions on partner offers. <strong>+100%</strong> growth vs. previous 12 months. $0.65 average earnings per click.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/warriorplus-76k.jpg"><div class="receipt-shot"><img src="proof/warriorplus-76k.jpg" alt="WarriorPlus affiliate dashboard: 19 products, 76,004 hops, 2,398 sales, $20+ earnings per sale." loading="lazy"></div></a>
+        <p class="receipt-stat">76,004 hops · 2,398 sales <span class="src">WarriorPlus</span></p>
+        <p class="receipt-cap">19 different products promoted. <strong>$20+ EPC</strong> on the top performers. Recurring Profit System: 521 sales alone.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/spotter-170k.jpg"><div class="receipt-shot"><img src="proof/spotter-170k.jpg" alt="Spotter Studio partner dashboard: 170,720 clicks in the last 12 months, +100% growth." loading="lazy"></div></a>
+        <p class="receipt-stat">170,720 clicks <span class="src">Spotter Studio · last 12 mo</span></p>
+        <p class="receipt-cap">One partner. One year. <strong>+100%</strong> vs. previous 12 months. The audience is growing, not flatlining.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/highlevel-portal.jpg"><div class="receipt-shot"><img src="proof/highlevel-portal.jpg" alt="HighLevel Affiliate Portal: Mission Specialist achievement tier with monthly revenue and active referral campaigns." loading="lazy"></div></a>
+        <p class="receipt-stat">"Mission Specialist" tier <span class="src">HighLevel</span></p>
+        <p class="receipt-cap">Top-tier achievement inside the HighLevel affiliate program. Active referrals every month. <strong>This is the receipt under the receipts.</strong></p>
+      </div>
+
+    </div>
+    <div class="receipts-foot">
+      <strong>This is what your $2k buys access to.</strong> I sell to this audience for a living — and they buy. You get the same access for 24 hours, with 100% of the revenue going to YOUR offer.
+    </div>
+  </section>
+
+  <div class="handoff">
+    <h2>This isn't my interview. It's yours.</h2>
+    <p>Ten years of daily videos got me an audience. I'm not interested in being the face of your story — I'm interested in handing you the mic, on camera, in real time, and stepping back. The thumbnail has <em>your</em> face. The landing page is <em>your</em> name. The pinned comment links to <em>your</em> offer. People sign up under <em>your</em> name and DM <em>you</em> about <em>your</em> work — not me. For one day, you stand where I've been standing. I just open the door.</p>
   </div>
 
-  <div class="bonus">
-    <span class="bonus-tag">Free · no signup</span>
-    <h3>Watch my full 4-hour course — free</h3>
-    <p>Before I point you at anything to buy, here's the whole playbook — free. I recorded a complete course, about four hours, on exactly how I promote offers like this one with GSA Website Contact: the setup, the message templates, the automation, and the mistakes that waste your time. No email signup, no upsell, no catch — it's sitting on the same YouTube channel I've posted to for ten years. Go watch it.</p>
-    <a class="btn btn-lg" href="https://www.youtube.com/watch?v=mqqZK5BF1TE" target="_blank" rel="noopener noreferrer"><span>Watch the free 4-hour course</span><span class="arrow">&rarr;</span></a>
+  <div class="brands">
+    <h3>And brands keep showing up to pay for that access</h3>
+    <p class="brands-intro">A few recent inbound offers — the kind of companies who pay flat fees and commissions for one video to my list:</p>
+
+    <div class="brand-row">
+      <div class="brand-name">Higgsfield AI</div>
+      <div class="brand-quote">"$330M run rate. 25M users. Snoop Dogg, Madonna, Will Smith have used our platform." Paid sponsorship for one tutorial video — flat fee, paid the moment it goes live.</div>
+    </div>
+
+    <div class="brand-row">
+      <div class="brand-name">Moxt · Bao Communications</div>
+      <div class="brand-quote">"Flat cash payment for one dedicated YouTube video, plus extra commission from the referral link and code." Long-term brand-partnership offer on the table.</div>
+    </div>
+
+    <div class="brand-row">
+      <div class="brand-name">Catalyst Holdings (Dylan Wilson)</div>
+      <div class="brand-quote">"Fast all-cash upfront transaction — up to $5M." Acquisition offer for the audience itself, not even the promo — that's how this list gets valued.</div>
+    </div>
+
+    <div class="brand-row">
+      <div class="brand-name">GoHighLevel (live affiliate)</div>
+      <div class="brand-quote">$10k/mo+ recurring affiliate commission from one promotion arc — paid for the Lamborghini lease. Same audience, same playbook.</div>
+    </div>
+
+    <p class="brands-kicker">Brands pay flat fees and commissions for one video to this list. <strong>You're not paying for traffic — you're paying for the same access those brands pay for, with 100% of the revenue going to YOUR offer instead of someone else's.</strong></p>
   </div>
 
-  <div class="steps">
-    <h3>Want to promote it alongside me?</h3>
-    <p>If you just want to play, grab the app through my link below — that's all you need to do. If you want to actually run this with me, here's the move:</p>
-    <ol class="steps-list">
-      <li>Get the Crown Coins app through my link below.</li>
-      <li>Make your first $20 purchase in the app to claim the reward — now you've actually used the thing you'll be recommending.</li>
-      <li>Share your own Crown Coins referral link the same way I share mine, and start earning your own referral rewards. Want help running your first campaign? Message me on WhatsApp.</li>
-    </ol>
-    <a class="btn btn-lg" href="https://crowncoinscasino.com/?utm_campaign=8a0fea69-022f-479b-8b09-48e8460469a6&amp;utm_source=friends" target="_blank" rel="sponsored noopener noreferrer"><span>Get the Crown Coins app</span><span class="arrow">&rarr;</span></a>
+  <h2>What you actually walk away with</h2>
+  <ul class="bullets">
+    <li><strong>One live interview</strong> — your story, in your words, in front of an audience that already trusts the channel it's airing on. The footage is yours forever — keep it, clip it, run ads off it.</li>
+    <li><strong>A custom landing page with your name on it</strong> — your offer, your URL, your branding. Lives on long after the 24 hours end.</li>
+    <li><strong>Email blast to 600,000 people</strong> introducing you. Most of them see your name for the first time today. Tomorrow they remember it.</li>
+    <li><strong>Repurposed to Instagram</strong> (300k followers) — posts and reels with your face, your offer, your link in bio for the window.</li>
+    <li><strong>Repurposed to Shorts</strong> (300k followers) — daily clips that keep your interview surfacing in feeds.</li>
+    <li><strong>The feeling of being seen</strong> — by people you've never met, in volume, over one concentrated day. That part isn't a deliverable; it's what actually happens.</li>
+    <li><strong>Guaranteed attention</strong> — clicks, opt-ins, DMs, comments. Converting attention to dollars is your offer's job (see FAQ).</li>
+    <li><strong>The win-win clause</strong> — if you 2x what you paid, we both have the option to keep going at a 50/50 split.</li>
+  </ul>
+
+  <h2>The three slots</h2>
+
+  <div class="tier">
+    <div class="tier-head">
+      <div class="tier-name">24-Hour Slot</div>
+      <div class="tier-price">$2,000<small> one-time</small></div>
+    </div>
+    <div class="tier-desc">The fastest, simplest way to get my audience in front of your offer. Done in a day.</div>
+    <ul class="bullets">
+      <li>One live interview (45–60 min)</li>
+      <li>One custom landing page</li>
+      <li>One email blast to 600k list</li>
+      <li>IG + Shorts repurpose during the 24-hour window</li>
+      <li>Booked usually within 7 days</li>
+    </ul>
+    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%2024-hour%20YouTube%20live%20slot.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">Book the 24-Hour Slot &nbsp;→</a>
   </div>
 
-  <p><strong>How the money works, plainly:</strong> you earn your own referral rewards directly from Crown Coins' own program — there's no downline, no middleman, and you never pay me anything. I get my normal referral credit when you use my link; you can earn yours the exact same way. That's the whole model.</p>
-
-  <div class="disclosure">
-    <strong>Honesty note:</strong> the Crown Coins link is a referral/affiliate link — if you sign up through it, I get referral credit at no extra cost to you. The course link is just my free YouTube video; there's nothing to buy to watch it.
+  <div class="tier featured">
+    <div class="featured-tag">Most popular</div>
+    <div class="tier-head">
+      <div class="tier-name">3-Day Slot</div>
+      <div class="tier-price">$5,000<small> one-time</small></div>
+    </div>
+    <div class="tier-desc">A deeper arc — three interviews over three days, two email touches, daily social. Bigger window for the audience to act.</div>
+    <ul class="bullets">
+      <li>Three live interviews across three consecutive days</li>
+      <li>Case-study landing page (longer, social-proof rich)</li>
+      <li>Two email blasts (open + close of the window)</li>
+      <li>Daily IG + Shorts content for three days</li>
+      <li><strong>Application required</strong> — I don't burn three days on a bad-fit offer</li>
+    </ul>
+    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%245%2C000%203-day%20slot.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">Apply for the 3-Day Slot &nbsp;→</a>
   </div>
 
-  <p class="fineprint">Crown Coins is a social casino meant for adults (18+), and it isn't available everywhere — check that it's offered in your area before you start. It's there to be fun; only ever spend what you're comfortable with.</p>
+  <div class="tier">
+    <div class="tier-head">
+      <div class="tier-name">30-Day Exclusive</div>
+      <div class="tier-price">$10,000<small> one-time</small></div>
+    </div>
+    <div class="tier-desc">I work with you exclusively for 30 days. Multiple interviews, full funnel, phone calls to qualified leads — I help you close.</div>
+    <ul class="bullets">
+      <li>Multiple live interviews across the month</li>
+      <li>Full custom funnel — landing page, email sequence, follow-up</li>
+      <li><strong>Phone calls to qualified leads</strong> — I help you close them personally</li>
+      <li>Weekly email touches + daily IG/Shorts</li>
+      <li>Exclusivity — I don't promote another competing offer for 30 days</li>
+      <li><strong>Application + 15-min qualifying call required</strong></li>
+    </ul>
+    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%2410%2C000%2030-day%20exclusive.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">Apply for the 30-Day Exclusive &nbsp;→</a>
+  </div>
 
-  <div class="optional">
-    <p>And a share of whatever these referrals earn goes straight into the refund queue — following along genuinely helps me make the people who asked for refunds whole, faster.</p>
+  <div class="cb-upgrade">
+    <span class="cb-tag">Already bought cash.bot? Read this.</span>
+    <h3>Your purchase counts as credit toward the $2,000 slot.</h3>
+    <p>If you paid for cash.bot at any tier below Founder ($2,000), every dollar you spent applies toward the 24-hour live slot. Message me on WhatsApp with the email you bought under and I'll apply the credit on the spot — you don't pay twice for the same thing, and you get something you can actually point at the day after.</p>
+    <div class="cb-amounts">
+      <span class="cb-amount">Spark $9</span>
+      <span class="cb-amount">Personal $113</span>
+      <span class="cb-amount">Business $497</span>
+      <span class="cb-amount">Enterprise $1,047</span>
+    </div>
+    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%E2%80%99m%20already%20a%20cash.bot%20customer.%20I%20want%20to%20apply%20what%20I%20already%20paid%20as%20credit%20toward%20the%2024-hour%20live%20slot.%20My%20purchase%20email%20is%3A%20" target="_blank" rel="noopener">Apply my cash.bot credit on WhatsApp &nbsp;→</a>
+    <p class="cb-refund">Or if you'd rather have the refund I committed to in the <a href="/update/" style="color:var(--accent-dark);text-decoration:underline;">previous letter</a> — that's still on the table. Just say the word on WhatsApp and you keep your place in the queue. No pressure either way.</p>
+  </div>
+
+  <div class="winwin">
+    <span class="winwin-tag">The win-win clause</span>
+    <h3>If you 2x your investment, we both keep winning.</h3>
+    <p>If during your promo window your sales exceed what you paid me, we have the option to activate a 50% affiliate going forward — meaning I keep promoting your offer after the window closes, and we split the revenue 50/50.</p>
+    <p>You only ever owe me the upfront fee. The affiliate is upside if it works for both of us. Your call.</p>
+  </div>
+
+  <div class="scheduler">
+    <h2>Pick when you want your slot</h2>
+    <p class="scheduler-intro">Already decided? Pick a date, time, and slot — the WhatsApp message comes pre-filled. I'll reply within an hour to confirm and send the invoice.</p>
+    <div class="scheduler-grid">
+      <div class="scheduler-field">
+        <label for="schedDate">Preferred date</label>
+        <input type="date" id="schedDate" />
+      </div>
+      <div class="scheduler-field">
+        <label for="schedTime">Start time (your zone)</label>
+        <select id="schedTime">
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="1:00 PM" selected>1:00 PM</option>
+          <option value="2:00 PM">2:00 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+        </select>
+      </div>
+      <div class="scheduler-field">
+        <label for="schedSlot">Which slot</label>
+        <select id="schedSlot">
+          <option value="24-hour ($2,000)">24-hour ($2,000)</option>
+          <option value="3-day ($5,000)" selected>3-day ($5,000)</option>
+          <option value="30-day exclusive ($10,000)">30-day exclusive ($10,000)</option>
+        </select>
+      </div>
+    </div>
+    <a class="btn btn-lg" id="schedBtn" href="https://wa.me/18054533586" target="_blank" rel="noopener">Send my preferred slot on WhatsApp &nbsp;→</a>
+    <p class="scheduler-note">No card on file, no surprise charges — WhatsApp first, invoice once we both agree.</p>
+  </div>
+
+  <h2>Why this works</h2>
+  <ul class="bullets">
+    <li>My audience is the exact kind of person who <strong>buys business, marketing, and AI tools</strong> — they're already in buying mode</li>
+    <li>I've been making YouTube videos every day for ten years — <strong>the relationship is built</strong>, the trust is there</li>
+    <li>A real human on camera + a live interview <strong>converts way higher</strong> than an ad ever will</li>
+    <li>The email list + Instagram + Shorts <strong>stack on top of each other</strong> for the same 24 hours — that's the leverage</li>
+  </ul>
+
+  <div class="notfor">
+    <p><strong>Who this isn't for:</strong> crypto-scam offers, anything gambling or illegal in the US, offers with under $10 customer LTV (the math doesn't work), or anyone who can't deliver if a few hundred people sign up at once.</p>
+  </div>
+
+  <div class="risk">
+    <p><strong>The honest refund policy:</strong> if I cancel on you, you get a full refund — no questions. If you cancel less than 48 hours before the scheduled slot, no refund (I've already prepped). Outside that window, partial refund. I'm not in the business of keeping money for nothing.</p>
+  </div>
+
+  <h2>How to book</h2>
+  <ol class="bullets" style="counter-reset:s;">
+    <li><strong>WhatsApp me</strong> at <a href="https://wa.me/18054533586" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">+1 (805) 453-3586</a> — tell me which slot you want and what offer you're promoting. Or email <a href="mailto:central@shineranker.com" style="color:var(--accent);text-decoration:underline;">central@shineranker.com</a>.</li>
+    <li><strong>We talk for 10 minutes</strong> — I decide if it's a fit for my audience and you decide if I'm the right fit for your offer.</li>
+    <li><strong>You pay</strong> via Stripe or PayPal invoice (whichever you prefer).</li>
+    <li><strong>We schedule the window</strong> — usually within 7 days for the 24-hour slot, longer lead time for the bigger ones.</li>
+  </ol>
+
+  <h2>FAQ</h2>
+  <div class="faq">
+    <details>
+      <summary>Do you guarantee sales?</summary>
+      <p>No. I guarantee <strong>traffic</strong> — clicks and opt-ins from my audience. Sales depend on your offer, your funnel, your price point, and whether your offer actually fits this audience. I only own the audience and the traffic. The conversion is on you. If you want me to help with the funnel too, that's the 30-day exclusive.</p>
+    </details>
+    <details>
+      <summary>What if my offer flops during the promo?</summary>
+      <p>I keep the upfront fee. The win-win clause only kicks in if you 2x — there's no clawback or refund if your offer underperforms. That's why I'd rather have a 10-minute call before you pay than take money for a promo that won't land.</p>
+    </details>
+    <details>
+      <summary>What kind of offers convert best to your audience?</summary>
+      <p>Business tools, marketing software, AI products, SEO services, online-business education, side-hustle systems, anything that helps the buyer make or save money. The audience is heavy on the USA, UK, Australia, and Canada, and skews entrepreneur/operator.</p>
+    </details>
+    <details>
+      <summary>How fast can I get on the calendar?</summary>
+      <p>The 24-hour slot is usually bookable within 7 days. The 3-day slot needs about 2 weeks of lead time so we can build the case-study landing page and warm the list. The 30-day exclusive starts at the top of any month if there's an open slot.</p>
+    </details>
+    <details>
+      <summary>Can I see the landing page before the promo goes live?</summary>
+      <p>Yes — every landing page gets reviewed by you before the email goes out. You approve the copy, the CTA, the pricing, the offer terms. I build it; you sign off.</p>
+    </details>
+    <details>
+      <summary>What happens to the landing page after the promo?</summary>
+      <p>You keep it. It lives on your domain (or a subdomain of cash.bot if you don't have one yet — your call). The traffic from my audience can keep landing there long after the 24 hours are up.</p>
+    </details>
+    <details>
+      <summary>Can I bring my own affiliate offer?</summary>
+      <p>Yes, with one condition — if you're promoting someone else's affiliate offer, the win-win clause changes to 50% of YOUR affiliate commission (since you don't own the product). Same idea, just adjusted for the math.</p>
+    </details>
+    <details>
+      <summary>Will this feel awkward on camera?</summary>
+      <p>Way less than you think. I do this every day — my job is to make you sound like the smart, interesting version of yourself you already are. Most people leave the interview saying <em>"I didn't realize I sounded like that."</em> If you're nervous, that's normal — it's a sign you care.</p>
+    </details>
+    <details>
+      <summary>What if I'm a nobody? Why would your audience care about me?</summary>
+      <p>The audience cares because I introduce you as someone worth their time — and they trust the introduction. You don't need to be famous. You need to have something real to say about something real you built or do. That's the whole bar.</p>
+    </details>
+    <details>
+      <summary>I already bought cash.bot — does my purchase count?</summary>
+      <p>Yes. Whatever tier you bought at — Spark, Personal, Business, Enterprise — the amount you paid applies as credit toward the 24-hour slot. Message me on WhatsApp with your purchase email and I'll apply it. Same thing if you'd rather have the refund instead — your call.</p>
+    </details>
+    <details>
+      <summary>What if I'm not sure yet?</summary>
+      <p>Just DM me. No pressure, no hard sell. I'd rather lose a sale than book a slot that wastes both our time.</p>
+    </details>
+  </div>
+
+  <div class="booknow">
+    <h2>Ready? Today is the day you stop being invisible.</h2>
+    <p>One conversation. One day. Your name in front of 600,000 people who are about to find out who you are. The timer up top is real — when it hits zero, today's batch closes and the next day's slots open at midnight Pacific.</p>
+    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20to%20take%20a%2024-hour%20YouTube%20live%20slot.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">DM Chase to take the slot &nbsp;→</a>
   </div>
 
   <footer>
-    <p>I'll post the results as they come in — how the campaign performs, response rates, conversions, and what I'd do differently next time. After ten years of doing this, the one thing I can promise is the honest version of the story — not just the highlight reel.</p>
-    <p class="thanks">Thank you for sticking around.</p>
-    <p class="sign">— Chase</p>
+    <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
+    <p style="margin-top:8px;font-size:13px;">v0.5.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
+<script>
+(function(){
+  var cdEl = document.getElementById('countdown');
+  var tEl  = document.getElementById('countdownTime');
+  var hEl  = document.getElementById('cdH');
+  var mEl  = document.getElementById('cdM');
+  var sEl  = document.getElementById('cdS');
+  if (!cdEl || !tEl) return;
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function secsToMidnightPT(){
+    var fmt = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Los_Angeles', hour12: false,
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    var h = 0, m = 0, s = 0;
+    fmt.formatToParts(new Date()).forEach(function(p){
+      if (p.type === 'hour')   h = parseInt(p.value, 10);
+      if (p.type === 'minute') m = parseInt(p.value, 10);
+      if (p.type === 'second') s = parseInt(p.value, 10);
+    });
+    if (h === 24) h = 0;
+    return 86400 - (h * 3600 + m * 60 + s);
+  }
+  function tick(){
+    var rem = secsToMidnightPT();
+    var h = Math.floor(rem / 3600);
+    var m = Math.floor((rem % 3600) / 60);
+    var s = rem % 60;
+    hEl.textContent = pad(h);
+    mEl.textContent = pad(m);
+    sEl.textContent = pad(s);
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
+(function(){
+  var dateEl = document.getElementById('schedDate');
+  var timeEl = document.getElementById('schedTime');
+  var slotEl = document.getElementById('schedSlot');
+  var btnEl  = document.getElementById('schedBtn');
+  if (!dateEl || !timeEl || !slotEl || !btnEl) return;
+
+  var defaultDate = new Date();
+  defaultDate.setDate(defaultDate.getDate() + 3);
+  dateEl.value = defaultDate.toISOString().slice(0, 10);
+  dateEl.min   = new Date().toISOString().slice(0, 10);
+
+  function fmtDate(s){
+    if (!s) return 'a day that works for you';
+    var parts = s.split('-');
+    if (parts.length !== 3) return s;
+    var dd = new Date(parseInt(parts[0],10), parseInt(parts[1],10) - 1, parseInt(parts[2],10));
+    if (isNaN(dd.getTime())) return s;
+    return dd.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+  }
+
+  function buildUrl(){
+    var msg = 'Hey Chase — I want to book the ' + slotEl.value + ' YouTube live slot. ' +
+              'My preferred time: ' + fmtDate(dateEl.value) + ' at ' + timeEl.value + ' my time. ' +
+              'My offer is: ';
+    return 'https://wa.me/18054533586?text=' + encodeURIComponent(msg);
+  }
+
+  function update(){ btnEl.href = buildUrl(); }
+  [dateEl, timeEl, slotEl].forEach(function(el){ el.addEventListener('change', update); el.addEventListener('input', update); });
+  update();
+})();
+</script>
 </body>
 </html>
