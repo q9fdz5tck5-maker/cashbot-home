@@ -551,6 +551,44 @@
   .cb-path-founder{border:2px solid var(--accent);background:#eef6f0;}
   .cb-path-founder > strong{font-size:clamp(16px,2.9vw,18px);}
 
+  /* === v0.9.0 — what-happens-after-DM walkthrough === */
+  .how-it-works{
+    background:#fdfbf6;border:1px solid #e8dec5;border-radius:14px;
+    padding:30px 24px;margin:22px 0 28px;
+  }
+  .hiw-kicker{
+    display:inline-block;background:#1a3a2a;color:#fff;
+    font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    padding:4px 10px;border-radius:5px;margin:0 0 14px;
+  }
+  .how-it-works h2{
+    margin:0 0 22px;color:var(--accent-dark);
+    font-size:clamp(22px,4.6vw,28px);line-height:1.22;letter-spacing:-.01em;
+  }
+  .hiw-steps{list-style:none;margin:0;padding:0;}
+  .hiw-step{
+    display:flex;gap:16px;align-items:flex-start;
+    padding:16px 0;border-top:1px solid #efe6cf;
+  }
+  .hiw-step:first-child{border-top:0;padding-top:0;}
+  .hiw-num{
+    flex:0 0 36px;width:36px;height:36px;border-radius:50%;
+    background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:16px;
+  }
+  .hiw-body{flex:1;color:var(--ink);font-size:clamp(15px,2.6vw,17px);line-height:1.6;}
+  .hiw-body strong{color:var(--accent-dark);}
+  .hiw-after{
+    margin:18px 0 0;padding:14px 16px;background:#fff;border-radius:8px;
+    font-size:clamp(14px,2.5vw,16px);color:var(--ink);
+    border-left:3px solid var(--accent);
+  }
+  @media (max-width: 480px){
+    .hiw-step{gap:12px;padding:14px 0;}
+    .hiw-num{flex:0 0 32px;width:32px;height:32px;font-size:14px;}
+  }
+
   .secret{
     border:1px solid var(--line);border-radius:14px;
     padding:26px 22px;margin:24px 0;background:var(--surface);
@@ -1064,6 +1102,34 @@
     </details>
   </div>
 
+  <section class="how-it-works" aria-label="What happens after you DM — exact 5-step walkthrough">
+    <span class="hiw-kicker">What happens after you DM · 5 steps · ~7 days end-to-end</span>
+    <h2>From WhatsApp message to live on my channel — exactly what the next 7 days look like.</h2>
+    <ol class="hiw-steps">
+      <li class="hiw-step">
+        <span class="hiw-num">1</span>
+        <div class="hiw-body"><strong>You DM me on WhatsApp.</strong> I reply same day, usually within the hour. You tell me what you sell and who you sell it to. I tell you which slot is open and what date we're shooting.</div>
+      </li>
+      <li class="hiw-step">
+        <span class="hiw-num">2</span>
+        <div class="hiw-body"><strong>20-minute scoping call</strong> — Zoom or WhatsApp voice. We map the angle, the one promise we lead with, and the call-to-action. I prep the questions. You prep your answers. No script — just bullet points.</div>
+      </li>
+      <li class="hiw-step">
+        <span class="hiw-num">3</span>
+        <div class="hiw-body"><strong>We shoot the interview</strong> — 45-60 minutes, Zoom HD. I run it like a real conversation, not an infomercial. Your job is to be honest about what you do, who it works for, and how to find you. I handle the edit, thumbnail, and description.</div>
+      </li>
+      <li class="hiw-step">
+        <span class="hiw-num">4</span>
+        <div class="hiw-body"><strong>Goes live on my YouTube channel</strong> within 3-5 days of shooting. Same window: I blast the 600k email list, the 300k Instagram audience, and the 300k Shorts audience. Single coordinated push, not staggered.</div>
+      </li>
+      <li class="hiw-step">
+        <span class="hiw-num">5</span>
+        <div class="hiw-body"><strong>The next 24 hours belong to you.</strong> Clicks, opt-ins, DMs, sales. I'm in your corner — if questions land in the YouTube comments, I steer them to your funnel. Day after, you get the analytics and a Loom from me walking through what moved.</div>
+      </li>
+    </ol>
+    <p class="hiw-after">Want the 3-Day or 30-Day instead? Same first three steps — then the promotion stretches across multiple sends, story rotations, and follow-up posts. Same machine, longer push.</p>
+  </section>
+
   <div class="booknow">
     <h2>Ready? Today is the day you stop being invisible.</h2>
     <p>One conversation. One day. Your name landing in 600,000 inboxes. Your face on a 10-year YouTube channel. The whole machine — pointed at you, not me. The timer up top is real — when it hits zero, today's batch closes and tomorrow's slot opens at midnight Pacific. <strong>The slot you don't take, someone else does.</strong></p>
@@ -1072,7 +1138,7 @@
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v0.8.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v0.9.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
@@ -1114,7 +1180,7 @@
 
 // reveal on scroll — IntersectionObserver toggles .is-visible
 (function(){
-  var sel = '.why-now, .story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .booknow, .receipts, .brands, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
+  var sel = '.why-now, .story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .how-it-works, .booknow, .receipts, .brands, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
   var els = document.querySelectorAll(sel);
   if (!els.length) return;
   els.forEach(function(el){ el.classList.add('is-revealable'); });
