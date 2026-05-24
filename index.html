@@ -510,6 +510,47 @@
   .story p:last-child{margin-bottom:0;}
   .story p em{color:#7a5a14;font-style:italic;font-weight:600;}
 
+  /* === v0.8.0 — why-now (pivot context) + tier-paths === */
+  .why-now{
+    background:#f4f9f6;border:1px solid var(--accent);border-radius:14px;
+    border-left:5px solid var(--accent);
+    padding:26px 22px;margin:18px 0 28px;
+  }
+  .why-kicker{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    padding:4px 10px;border-radius:5px;margin:0 0 14px;
+  }
+  .why-now h2{margin:0 0 14px;color:var(--accent-dark);font-size:clamp(22px,4.6vw,28px);line-height:1.22;letter-spacing:-.01em;}
+  .why-now p{color:var(--ink);font-size:clamp(15px,2.6vw,17px);line-height:1.7;margin:0 0 14px;}
+  .why-paths{list-style:none;margin:14px 0 0;padding:0;}
+  .why-paths li{
+    position:relative;padding:14px 0 14px 22px;margin:0;
+    font-size:clamp(15px,2.6vw,17px);line-height:1.6;
+    border-top:1px solid #cfe6d8;color:var(--ink);
+  }
+  .why-paths li:first-child{border-top:0;padding-top:6px;}
+  .why-paths li::before{
+    content:"";position:absolute;left:0;top:22px;
+    width:9px;height:9px;background:var(--accent);border-radius:3px;
+  }
+  .why-paths li:first-child::before{top:14px;}
+
+  .cb-paths{list-style:none;margin:14px 0 18px;padding:0;}
+  .cb-path{
+    background:#fff;border:1px solid #cfe6d8;border-radius:10px;
+    padding:16px 18px;margin:0 0 12px;
+  }
+  .cb-path:last-child{margin-bottom:0;}
+  .cb-path > strong{
+    display:block;color:var(--accent-dark);font-size:clamp(15px,2.7vw,17px);
+    margin:0 0 8px;letter-spacing:-.005em;
+  }
+  .cb-path p{color:var(--ink);margin:0 0 8px;font-size:clamp(14px,2.5vw,16px);line-height:1.6;}
+  .cb-path p:last-child{margin-bottom:0;}
+  .cb-path-founder{border:2px solid var(--accent);background:#eef6f0;}
+  .cb-path-founder > strong{font-size:clamp(16px,2.9vw,18px);}
+
   .secret{
     border:1px solid var(--line);border-radius:14px;
     padding:26px 22px;margin:24px 0;background:var(--surface);
@@ -629,6 +670,19 @@
     <div class="stat"><div class="stat-n" data-count="300" data-suffix="k">0</div><div class="stat-l">Shorts</div></div>
     <div class="stat"><div class="stat-n" data-count="10" data-suffix="yr">0</div><div class="stat-l">YouTube</div></div>
   </div>
+
+  <section class="why-now" aria-label="Why I'm doing this — for my people first">
+    <span class="why-kicker">Why this exists · For my people first</span>
+    <h2>The lowest-effort, highest-leverage thing I can do for the people who already bet on me.</h2>
+    <p>I've spent ten years building one thing: an audience that opens my emails, clicks links I post, and buys what I tell them to look at. The receipts below are the math — <strong>$3.36M moved on Stripe, $313k paid out by HighLevel, $111k from PartnerStack</strong>, every dollar of it from me pointing this audience at someone else's offer. <strong>I've never not seen it work.</strong></p>
+    <p>So instead of cooking another product, another funnel, another launch — I'm doing the one thing I'm objectively good at: <strong>pointing my audience at one person for 24 hours and watching what happens next.</strong></p>
+    <p>And I'm doing it for my people first — the ones who already paid for cash.bot before any of this existed. Here's how it works for you specifically:</p>
+    <ul class="why-paths">
+      <li><strong>Bought cash.bot Founder ($1,997 lifetime)?</strong> Your 24-hour slot is already paid for. <strong>Free.</strong> Or roll your $1,997 up into the 3-Day Exclusive ($5,000) or 30-Day Exclusive ($10,000) instead.</li>
+      <li><strong>Bought Spark $9 / Personal $113 / Business $497 / Enterprise $1,047?</strong> What you paid is credit toward the $2,000 slot — pay the difference, not the full $2k.</li>
+      <li><strong>New here?</strong> $2,000 to start. Pick your slot below.</li>
+    </ul>
+  </section>
 
   <section class="story" aria-label="Why this offer exists">
     <p class="story-kicker">Why this offer exists in the first place</p>
@@ -869,16 +923,28 @@
   </div>
 
   <div class="cb-upgrade">
-    <span class="cb-tag">Already bought cash.bot? Read this.</span>
-    <h3>Your purchase counts as credit toward the $2,000 slot.</h3>
-    <p>If you paid for cash.bot at any tier below Founder ($2,000), every dollar you spent applies toward the 24-hour live slot. Message me on WhatsApp with the email you bought under and I'll apply the credit on the spot — you don't pay twice for the same thing, and you get something you can actually point at the day after.</p>
-    <div class="cb-amounts">
-      <span class="cb-amount">Spark $9</span>
-      <span class="cb-amount">Personal $113</span>
-      <span class="cb-amount">Business $497</span>
-      <span class="cb-amount">Enterprise $1,047</span>
-    </div>
-    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%E2%80%99m%20already%20a%20cash.bot%20customer.%20I%20want%20to%20apply%20what%20I%20already%20paid%20as%20credit%20toward%20the%2024-hour%20live%20slot.%20My%20purchase%20email%20is%3A%20" target="_blank" rel="noopener">Apply my cash.bot credit on WhatsApp &nbsp;→</a>
+    <span class="cb-tag">Already bought cash.bot? Here's exactly what you get.</span>
+    <h3>Founder tier — your slot is already paid for. Every other tier — credit toward $2k.</h3>
+
+    <ul class="cb-paths">
+      <li class="cb-path cb-path-founder">
+        <strong>Cash.bot Founder ($1,997 lifetime)</strong>
+        <p>Your 24-hour live slot is already paid for. <strong>No additional payment.</strong> DM me on WhatsApp with the email you bought under and I'll put you on the calendar.</p>
+        <p>Want a bigger package? Apply your $1,997 toward the <strong>3-Day Exclusive ($5,000)</strong> or <strong>30-Day Exclusive ($10,000)</strong> instead — same DM, just tell me which.</p>
+      </li>
+      <li class="cb-path cb-path-other">
+        <strong>Cash.bot Spark / Personal / Business / Enterprise</strong>
+        <div class="cb-amounts">
+          <span class="cb-amount">Spark $9</span>
+          <span class="cb-amount">Personal $113</span>
+          <span class="cb-amount">Business $497</span>
+          <span class="cb-amount">Enterprise $1,047</span>
+        </div>
+        <p>Whatever you paid is <strong>credit toward the $2,000 slot</strong>. You pay the difference, not the full $2k. DM with your purchase email and I'll apply it on the spot — you don't pay twice for the same thing.</p>
+      </li>
+    </ul>
+
+    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%E2%80%99m%20already%20a%20cash.bot%20customer.%20I%20want%20to%20claim%20my%20slot%20%28or%20apply%20my%20credit%29.%20My%20purchase%20email%20is%3A%20" target="_blank" rel="noopener">Claim my slot / apply my credit &nbsp;→</a>
     <p class="cb-refund">Or if you'd rather have the refund I committed to in the previous letter — that's still on the table. Just say the word on WhatsApp and you keep your place in the queue. No pressure either way.</p>
   </div>
 
@@ -1006,7 +1072,7 @@
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v0.7.1 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v0.8.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
@@ -1048,7 +1114,7 @@
 
 // reveal on scroll — IntersectionObserver toggles .is-visible
 (function(){
-  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .booknow, .receipts, .brands, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
+  var sel = '.why-now, .story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .booknow, .receipts, .brands, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
   var els = document.querySelectorAll(sel);
   if (!els.length) return;
   els.forEach(function(el){ el.classList.add('is-revealable'); });
