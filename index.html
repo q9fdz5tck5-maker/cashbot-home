@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>For 24 hours, the spotlight is on you, not me — Chase Reiner</title>
+<title>For 24 hours, you take my audience — Chase Reiner</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="theme-color" content="#1d7a4d">
-<meta name="description" content="For 24 hours, you take my entire audience. Live interview on my YouTube. 600k-subscriber email blast. Instagram + Shorts repost. From $2,000. Already bought cash.bot? Your purchase counts as credit toward the $2k slot.">
+<meta name="description" content="Chase Reiner runs a 600,000-subscriber email list, a 10-year YouTube channel, and 300k each on Instagram and Shorts. For 24 hours, you borrow all of it — live interview, email blast, social repost. From $2,000. Cash.bot customers — your purchase counts as credit.">
 <link rel="canonical" href="https://cash.bot/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cash.bot/">
-<meta property="og:title" content="For 24 hours, you take my entire audience. I step out of frame.">
-<meta property="og:description" content="The interview runs on my YouTube. Your name lands in 600k inboxes. From $2,000. Cash.bot customers — what you already paid counts as credit.">
+<meta property="og:title" content="For 24 hours, you take my audience — Chase Reiner">
+<meta property="og:description" content="Borrow a 10-year YouTube channel + 600k email list for a day. Live interview, email blast, IG + Shorts repost. From $2,000. Cash.bot customers — what you paid counts as credit.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="For 24 hours, you take my entire audience. I step out of frame.">
-<meta name="twitter:description" content="The interview runs on my YouTube. Your name lands in 600k inboxes. From $2,000. Cash.bot customers — what you already paid counts as credit.">
+<meta name="twitter:title" content="For 24 hours, you take my audience — Chase Reiner">
+<meta name="twitter:description" content="Borrow a 10-year YouTube channel + 600k email list for a day. Live interview, email blast, IG + Shorts repost. From $2,000.">
 <style>
   :root{
     --bg:#faf9f6;
@@ -488,12 +488,131 @@
     .is-revealable{ opacity:1 !important; transform:none !important; }
     .h1-twist{ -webkit-text-fill-color:var(--accent); background:none; }
   }
+
+  /* === v0.7.0 — context-first + Russell 3-secrets framework === */
+  .context-bar{
+    background:#0e1d15;color:#cfe6d8;border-radius:10px;
+    padding:14px 18px;margin:0 0 20px;
+    font-size:clamp(13px,2.2vw,15px);line-height:1.6;
+  }
+  .context-bar strong{color:#7be0a9;}
+
+  .story{
+    background:#fffdf5;border:1px solid #f0d9a4;border-radius:14px;
+    padding:26px 22px;margin:36px 0 24px;border-left:4px solid var(--gold);
+  }
+  .story-kicker{
+    text-transform:uppercase;letter-spacing:.14em;
+    font-size:12px;font-weight:700;color:var(--gold);margin:0 0 10px;
+  }
+  .story h2{margin:0 0 14px;color:#5a4014;font-size:clamp(20px,4.4vw,26px);line-height:1.25;}
+  .story p{color:var(--ink);font-size:clamp(15px,2.5vw,17px);line-height:1.7;margin:0 0 14px;}
+  .story p:last-child{margin-bottom:0;}
+  .story p em{color:#7a5a14;font-style:italic;font-weight:600;}
+
+  .secret{
+    border:1px solid var(--line);border-radius:14px;
+    padding:26px 22px;margin:24px 0;background:var(--surface);
+    border-left:4px solid var(--accent);
+  }
+  .secret-num{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 11px;border-radius:5px;margin-bottom:14px;
+  }
+  .secret h2{margin:0 0 14px;color:var(--ink);font-size:clamp(20px,4.6vw,27px);line-height:1.24;}
+  .secret p{font-size:clamp(15px,2.5vw,17px);line-height:1.7;color:var(--ink);margin:0 0 14px;}
+  .secret p:last-child{margin-bottom:0;}
+  .secret p em{color:var(--accent-dark);font-style:italic;font-weight:600;}
+  .secret p strong{color:var(--accent-dark);}
+
+  .secret-vs{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0 18px;}
+  .secret-vs > div{
+    border:1px solid var(--line);border-radius:10px;padding:16px 16px;
+    font-size:15px;line-height:1.55;
+  }
+  .secret-vs .old{background:#fef3e9;border-color:#f0d3b8;color:#5a3014;}
+  .secret-vs .old strong{color:#8a4318;display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;font-size:12px;}
+  .secret-vs .new{background:#eef6f0;border-color:#cfe6d8;color:#1a3a26;}
+  .secret-vs .new strong{color:var(--accent-dark);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;font-size:12px;}
+  @media (min-width:560px){.secret-vs{grid-template-columns:1fr 1fr;}}
+
+  .belief-list{list-style:none;margin:12px 0 14px;padding:0;}
+  .belief-list li{
+    position:relative;padding:14px 0 14px 32px;font-size:clamp(15px,2.5vw,17px);
+    line-height:1.6;border-top:1px solid var(--line);color:var(--ink);
+  }
+  .belief-list li:first-child{border-top:0;padding-top:6px;}
+  .belief-list li::before{
+    content:"✓";position:absolute;left:0;top:14px;
+    color:var(--accent);font-weight:800;font-size:18px;
+  }
+  .belief-list li:first-child::before{top:6px;}
+  .belief-list li.x::before{content:"✕";color:#a83a18;}
+  .belief-list li strong{color:var(--accent-dark);}
+  .belief-list li.x strong{color:#8a3018;}
+
+  .future-pace{
+    background:#fafaf6;border:1px solid var(--line);border-radius:14px;
+    padding:26px 22px;margin:24px 0;
+  }
+  .future-pace h2{margin:0 0 6px;font-size:clamp(20px,4.4vw,26px);line-height:1.25;}
+  .future-pace .future-sub{color:var(--muted);font-size:15px;margin:0 0 12px;line-height:1.55;}
+  .future-timeline{list-style:none;margin:14px 0 0;padding:0;}
+  .future-timeline li{
+    position:relative;padding:16px 0 16px 70px;
+    font-size:clamp(15px,2.5vw,17px);line-height:1.55;
+    border-top:1px solid var(--line);color:var(--ink);min-height:50px;
+  }
+  .future-timeline li:first-child{border-top:0;}
+  .future-timeline li::before{
+    position:absolute;left:0;top:16px;
+    width:58px;height:30px;border-radius:15px;
+    background:var(--accent);color:#fff;font-weight:800;font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+    text-transform:uppercase;letter-spacing:.06em;
+  }
+  .future-timeline li:nth-child(1)::before{content:"Day 1";}
+  .future-timeline li:nth-child(2)::before{content:"Day 2";}
+  .future-timeline li:nth-child(3)::before{content:"Day 7";}
+  .future-timeline li:nth-child(4)::before{content:"Day 14";}
+  .future-timeline li:nth-child(5)::before{content:"Day 30";}
+  .future-timeline li strong{color:var(--accent-dark);}
+
+  .stack-section{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:26px 22px;margin:24px 0;
+  }
+  .stack-section h2{margin:0 0 6px;font-size:clamp(20px,4.4vw,26px);line-height:1.25;}
+  .stack-sub{color:var(--muted);font-size:15px;margin:0 0 16px;line-height:1.55;}
+  .stack-list{list-style:none;margin:0;padding:0;}
+  .stack-list li{
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+    padding:14px 0;border-top:1px solid var(--line);
+    font-size:clamp(14px,2.4vw,16px);line-height:1.45;
+  }
+  .stack-list li:first-child{border-top:0;}
+  .stack-list .stack-item{color:var(--ink);font-weight:500;flex:1;}
+  .stack-list .stack-value{
+    color:var(--accent-dark);font-weight:800;font-variant-numeric:tabular-nums;
+    flex-shrink:0;font-size:clamp(15px,2.6vw,17px);white-space:nowrap;
+  }
+  .stack-total{
+    margin-top:20px;padding-top:20px;border-top:2px solid var(--ink);text-align:center;
+  }
+  .stack-total-was{color:var(--muted);font-size:15px;margin-bottom:4px;}
+  .stack-total-was s{color:var(--muted);}
+  .stack-total-now{font-size:clamp(17px,3.6vw,21px);line-height:1.4;color:var(--ink);}
+  .stack-total-now strong{color:var(--accent);font-size:1.5em;font-weight:800;}
+  .stack-foot{margin:12px 0 0;color:var(--muted);font-size:14px;line-height:1.5;}
 </style>
 </head>
 <body>
 <main class="wrap">
 
   <p style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.5;">Looking for the refund letter from a few weeks back? Still here: <a href="/update/" style="color:var(--accent);text-decoration:underline;">cash.bot/update/</a> — every refund request is being honored.</p>
+
+  <p class="context-bar">I'm <strong>Chase Reiner</strong>. I post daily on YouTube, Instagram, and Shorts, and I email a <strong>600,000-subscriber list</strong>. Ten years of compound trust on one face — mine. <strong>This page is where I rent that audience to someone else for a day.</strong></p>
 
   <p class="kicker"><span class="live-dot" aria-hidden="true"></span>Your turn in the spotlight · From $2,000</p>
 
@@ -512,6 +631,31 @@
     <div class="stat"><div class="stat-n" data-count="300" data-suffix="k">0</div><div class="stat-l">Shorts</div></div>
     <div class="stat"><div class="stat-n" data-count="10" data-suffix="yr">0</div><div class="stat-l">YouTube</div></div>
   </div>
+
+  <section class="story" aria-label="Why this offer exists">
+    <p class="story-kicker">Why this offer exists in the first place</p>
+    <h2>I spent ten years trying to be the expert. Then I realized the hardest part isn't being the expert.</h2>
+    <p>Ten years ago I started posting daily — SEO videos, then marketing, then AI. Most got 12 views. Some got a million. I learned the math the slow way: when one person on a built audience says <em>"trust this one"</em>, a thousand follow.</p>
+    <p>Last year a different math hit me. I was about to record another tutorial when I caught myself: I've spent a decade trying to be the expert. The hardest part isn't being the expert — it's having the audience to tell. There are thousands of people out here who built something real, who can talk about their thing better than I can. They just have nobody listening.</p>
+    <p>That's when this page got built. For one day, I hand the channel to one of them. The interview runs in my slot. The email goes to my list. The face on the social posts is theirs. I step out of the way. They get a decade of audience-building they didn't have to do.</p>
+  </section>
+
+  <section class="secret secret-1" aria-label="Secret 1 — the new opportunity">
+    <span class="secret-num">Secret #1 · The new opportunity</span>
+    <h2>You don't have to build your own audience. You borrow mine.</h2>
+    <p>This isn't another marketing tactic. It's a different opportunity entirely.</p>
+    <div class="secret-vs">
+      <div class="old">
+        <strong>The old way</strong>
+        Post daily for 10 years. Run ads. Hire SEO help. Build an email list from zero. Hope the algorithm cooperates. Pray your offer lands. Burn 3,650+ days hoping the right strangers eventually find you.
+      </div>
+      <div class="new">
+        <strong>The new opportunity</strong>
+        Skip the 10 years. Borrow a 10-year audience for 24 hours. Walk away with 600k inboxes that know your name, a YouTube interview that lives forever on the channel, and IG + Shorts content that keeps surfacing your face for weeks.
+      </div>
+    </div>
+    <p><strong>You're not buying an ad.</strong> You're buying access to trust you didn't have to build. The audience already opens emails from this address. They already click links in the description. They already buy what I point them at — see the receipts below. For 24 hours, all of that points at you instead of me.</p>
+  </section>
 
   <section class="feels" aria-label="What it actually feels like">
     <h2>What 24 hours in front of my entire audience actually feels like</h2>
@@ -580,6 +724,17 @@
     <p>Ten years of daily videos got me an audience. I'm not interested in being the face of your story — I'm interested in handing you the mic, on camera, in real time, and stepping back. The thumbnail has <em>your</em> face. The landing page is <em>your</em> name. The pinned comment links to <em>your</em> offer. People sign up under <em>your</em> name and DM <em>you</em> about <em>your</em> work — not me. For one day, you stand where I've been standing. I just open the door.</p>
   </div>
 
+  <section class="secret secret-2" aria-label="Secret 2 — internal beliefs">
+    <span class="secret-num">Secret #2 · Internal</span>
+    <h2>"But I'm a nobody. Why would your audience care about me?"</h2>
+    <p>That's exactly who this works for. Most people watching my channel aren't celebrities either — they're operators, founders, side-hustlers, people who built one real thing and want one real day in front of an audience that listens. The reason this audience trusts a guest I introduce isn't because the guest is already famous. It's because <em>I introduce them as worth their time</em> — and they trust the introduction.</p>
+    <ul class="belief-list">
+      <li class="x"><strong>You don't need:</strong> a personal brand, 10k followers anywhere, a polished elevator pitch, TikTok-level on-camera energy, or anyone who already knows your name.</li>
+      <li><strong>You need:</strong> one real thing you built or do, willingness to talk about it on camera for 45–60 minutes, and an offer the audience can take action on the same day.</li>
+    </ul>
+    <p>That's the whole bar. By minute 5 you forget the camera. By the end you're saying <em>"I didn't realize I sounded like that."</em> The interview does the trust transfer for you — you don't have to manufacture credibility, you just have to be the smart, interesting version of yourself you already are when you talk about your work.</p>
+  </section>
+
   <div class="brands">
     <h3>And brands keep showing up to pay for that access</h3>
     <p class="brands-intro">A few recent inbound offers — the kind of companies who pay flat fees and commissions for one video to my list:</p>
@@ -607,6 +762,31 @@
     <p class="brands-kicker">Brands pay flat fees and commissions for one video to this list. <strong>You're not paying for traffic — you're paying for the same access those brands pay for, with 100% of the revenue going to YOUR offer instead of someone else's.</strong></p>
   </div>
 
+  <section class="secret secret-3" aria-label="Secret 3 — external beliefs">
+    <span class="secret-num">Secret #3 · External</span>
+    <h2>"But the algorithm / my niche / the economy won't let me." None of that applies here.</h2>
+    <p>The reasons people don't get audience are mostly external — the YouTube algorithm doesn't favor new channels, organic Instagram reach is near zero, ad costs went up, the economy spooked buyers. None of those apply to this slot. Here's why:</p>
+    <ul class="belief-list">
+      <li><strong>Algorithm:</strong> I already paid the 10-year algorithm tax. The list opens at 25–40%. The YouTube subscribers already get notifications. You inherit the distribution — you don't have to earn it.</li>
+      <li><strong>Niche:</strong> You're not pitching cold strangers. You're pitching entrepreneur-shaped buyers — USA / UK / Australia / Canada heavy, operator-skewed — who I've taught to expect business, marketing, AI, and online-business offers from this address. As long as your offer fits that universe even loosely, the niche is solved.</li>
+      <li><strong>Economy:</strong> My list bought <strong>$3.36M of stuff through Stripe alone</strong> (see receipts above). They buy when the offer is right. The economy doesn't shut off when they like what they see.</li>
+      <li><strong>Timing:</strong> The countdown at the top of the page is real. Today's batch closes at midnight Pacific because I'm not running a sale — I'm running a calendar. Slots fill, then they don't.</li>
+    </ul>
+    <p><strong>The whole reason this offer exists</strong> is that I've already done the hard part. The list is built. The trust is built. The distribution is built. You're not borrowing capability — you're borrowing the part most people never get to.</p>
+  </section>
+
+  <section class="future-pace" aria-label="What 30 days looks like">
+    <h2>30 days from now, here's what most people don't realize they're paying for.</h2>
+    <p class="future-sub">The sales matter. The recognition matters more. Here's what one day on this channel actually produces, lived out over the month after.</p>
+    <ol class="future-timeline">
+      <li><strong>Your interview goes live.</strong> Your phone vibrates ~150 times across email + DM + WhatsApp before midnight. People you haven't heard from in years message <em>"wait, was that you on Chase's channel?"</em></li>
+      <li><strong>Other podcasters in your space DM you.</strong> Your name was just in their inbox via the blast — now they want you on their show too. The downstream invitations start before the original interview is even a week old.</li>
+      <li><strong>Your IG followers grow by hundreds.</strong> People you've never met are tagging strangers in your post. The introduction keeps echoing through the second-degree network.</li>
+      <li><strong>The Shorts clips rack 50–100k more views.</strong> Strangers start quoting you back to you in DMs — <em>"I saw the clip where you said X"</em> — about a sentence you don't even remember saying.</li>
+      <li><strong>You stop checking your phone with the same dread.</strong> Income isn't even the main thing — it's that you finally have a body of work someone besides your spouse will recognize. The visibility cost you ten years' worth of compounding, paid in a single day.</li>
+    </ol>
+  </section>
+
   <h2>What you actually walk away with</h2>
   <ul class="bullets">
     <li><strong>One live interview</strong> — your story, in your words, in front of an audience that already trusts the channel it's airing on. The footage is yours forever — keep it, clip it, run ads off it.</li>
@@ -618,6 +798,25 @@
     <li><strong>Guaranteed attention</strong> — clicks, opt-ins, DMs, comments. Converting attention to dollars is your offer's job (see FAQ).</li>
     <li><strong>The win-win clause</strong> — if you 2x what you paid, we both have the option to keep going at a 50/50 split.</li>
   </ul>
+
+  <section class="stack-section" aria-label="Stack and value">
+    <h2>What this would cost if brands priced it normally.</h2>
+    <p class="stack-sub">Real going rates for sponsored content to an audience this size. The brands listed earlier on the page pay these rates — and they still come back because the math works.</p>
+    <ul class="stack-list">
+      <li><span class="stack-item">One live YouTube interview on a 10-year channel</span><span class="stack-value">$5,000</span></li>
+      <li><span class="stack-item">Custom landing page (your name, your offer, your URL)</span><span class="stack-value">$1,500</span></li>
+      <li><span class="stack-item">Email blast to my 600,000-subscriber list</span><span class="stack-value">$4,000</span></li>
+      <li><span class="stack-item">Instagram repurpose to 300k followers</span><span class="stack-value">$1,500</span></li>
+      <li><span class="stack-item">Shorts repurpose to 300k followers</span><span class="stack-value">$1,500</span></li>
+      <li><span class="stack-item">Win-win clause (50% of revenue if you 2x)</span><span class="stack-value">Pure upside</span></li>
+      <li><span class="stack-item">A 10-year audience trust transfer, in one day</span><span class="stack-value">Priceless</span></li>
+    </ul>
+    <div class="stack-total">
+      <div class="stack-total-was">Brand-rate value of the stack: <s>$13,500</s></div>
+      <div class="stack-total-now">Your price today: <strong>$2,000</strong> one-time</div>
+      <p class="stack-foot">No retainer. No subscription. No surprise upsells. Pay once, take the slot. The reason the price is this low is the goal isn't to extract — it's to fill a calendar and find people I want to keep working with via the win-win clause.</p>
+    </div>
+  </section>
 
   <h2>The three slots</h2>
 
@@ -803,13 +1002,13 @@
 
   <div class="booknow">
     <h2>Ready? Today is the day you stop being invisible.</h2>
-    <p>One conversation. One day. Your name landing in 600,000 inboxes. Your face on a 10-year YouTube channel. The whole machine — pointed at you. The timer up top is real — when it hits zero, today's batch closes and the next day's slots open at midnight Pacific.</p>
+    <p>One conversation. One day. Your name landing in 600,000 inboxes. Your face on a 10-year YouTube channel. The whole machine — pointed at you, not me. The timer up top is real — when it hits zero, today's batch closes and tomorrow's slot opens at midnight Pacific. <strong>The slot you don't take, someone else does.</strong></p>
     <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20to%20take%20a%2024-hour%20YouTube%20live%20slot.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">DM Chase to take the slot &nbsp;→</a>
   </div>
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v0.6.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v0.7.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
@@ -851,7 +1050,7 @@
 
 // reveal on scroll — IntersectionObserver toggles .is-visible
 (function(){
-  var sel = '.feels, .handoff, .cb-upgrade, .winwin, .booknow, .receipts, .brands, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
+  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .booknow, .receipts, .brands, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
   var els = document.querySelectorAll(sel);
   if (!els.length) return;
   els.forEach(function(el){ el.classList.add('is-revealable'); });
