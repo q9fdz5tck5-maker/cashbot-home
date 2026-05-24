@@ -302,8 +302,8 @@
   <p class="kicker">24-hour live promo · From $2,000</p>
 
   <div class="countdown" id="countdown" role="status" aria-live="polite">
-    <div class="countdown-label">Your 24-hour booking window</div>
-    <div class="countdown-time" id="countdownTime"><span id="cdH">24</span>h <span id="cdM">00</span>m <span id="cdS">00</span>s <small>left</small></div>
+    <div class="countdown-label">Today's batch closes at midnight PT</div>
+    <div class="countdown-time" id="countdownTime"><span id="cdH">00</span>h <span id="cdM">00</span>m <span id="cdS">00</span>s <small>left</small></div>
   </div>
 
   <h1>I'll put your offer in front of 600,000+ people for 24 hours.</h1>
@@ -573,20 +573,12 @@
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v0.3.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v0.4.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
 <script>
 (function(){
-  var KEY = 'cb_live_window_start_v1';
-  var WINDOW_MS = 24 * 60 * 60 * 1000;
-  var start = parseInt(localStorage.getItem(KEY), 10);
-  if (!start || isNaN(start) || (Date.now() - start) >= WINDOW_MS) {
-    start = Date.now();
-    try { localStorage.setItem(KEY, String(start)); } catch (e) {}
-  }
-  var end = start + WINDOW_MS;
   var cdEl = document.getElementById('countdown');
   var tEl  = document.getElementById('countdownTime');
   var hEl  = document.getElementById('cdH');
@@ -594,16 +586,25 @@
   var sEl  = document.getElementById('cdS');
   if (!cdEl || !tEl) return;
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function secsToMidnightPT(){
+    var fmt = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Los_Angeles', hour12: false,
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    var h = 0, m = 0, s = 0;
+    fmt.formatToParts(new Date()).forEach(function(p){
+      if (p.type === 'hour')   h = parseInt(p.value, 10);
+      if (p.type === 'minute') m = parseInt(p.value, 10);
+      if (p.type === 'second') s = parseInt(p.value, 10);
+    });
+    if (h === 24) h = 0;
+    return 86400 - (h * 3600 + m * 60 + s);
+  }
   function tick(){
-    var rem = end - Date.now();
-    if (rem <= 0) {
-      cdEl.classList.add('expired');
-      tEl.innerHTML = '<span style="font-weight:700;">Window closed</span> &middot; DM Chase anyway — slots reopen at the top of the hour';
-      return;
-    }
-    var h = Math.floor(rem / 3600000);
-    var m = Math.floor((rem % 3600000) / 60000);
-    var s = Math.floor((rem % 60000) / 1000);
+    var rem = secsToMidnightPT();
+    var h = Math.floor(rem / 3600);
+    var m = Math.floor((rem % 3600) / 60);
+    var s = rem % 60;
     hEl.textContent = pad(h);
     mEl.textContent = pad(m);
     sEl.textContent = pad(s);
