@@ -6,7 +6,7 @@
 <title>Get 600,000 people staring at your offer for 24 hours — Chase Reiner</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="theme-color" content="#1d7a4d">
-<meta name="description" content="A 24-hour live YouTube promo of your offer to my 600k email list and 600k Instagram + Shorts followers. From $2,000. The last person paid it and the offer sold out — book the next slot.">
+<meta name="description" content="A 24-hour live YouTube promo of your offer to my 600k email list and 600k Instagram + Shorts followers. From $2,000. Receipts: $3.36M Stripe, $313k HighLevel, $111k PartnerStack. Book the next slot.">
 <link rel="canonical" href="https://cash.bot/live/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cash.bot/live/">
@@ -244,6 +244,56 @@
   @media (min-width:560px){
     .scheduler-grid{grid-template-columns:1.1fr 1fr 1fr;}
   }
+
+  .receipts{margin:28px 0 8px;}
+  .receipts-head{
+    background:#0e1d15;color:#fff;border-radius:14px 14px 0 0;
+    padding:22px 22px 18px;border:1px solid #0e1d15;
+  }
+  .receipts-head .kicker-inv{
+    color:#7be0a9;text-transform:uppercase;letter-spacing:.14em;
+    font-size:12px;font-weight:700;margin-bottom:8px;
+  }
+  .receipts-head h2{
+    color:#fff;margin:0 0 6px;font-size:clamp(22px,4.8vw,30px);line-height:1.2;
+  }
+  .receipts-head p{color:#cfd8d2;font-size:15px;margin:0;line-height:1.55;}
+  .receipts-grid{
+    display:grid;grid-template-columns:1fr;gap:0;
+    background:var(--surface);border:1px solid var(--line);border-top:0;
+    border-radius:0 0 14px 14px;overflow:hidden;
+  }
+  .receipt{padding:18px;border-top:1px solid var(--line);}
+  .receipt:first-child{border-top:0;}
+  .receipt-shot{
+    background:#f4f1ea;border:1px solid var(--line);border-radius:8px;
+    overflow:hidden;margin-bottom:12px;
+  }
+  .receipt-shot img{display:block;width:100%;height:auto;}
+  .receipt-stat{
+    font-weight:800;color:var(--accent-dark);font-size:clamp(18px,3.6vw,22px);
+    line-height:1.2;margin:0 0 6px;letter-spacing:-.01em;
+  }
+  .receipt-stat .src{color:var(--muted);font-weight:600;font-size:.7em;letter-spacing:0;}
+  .receipt-cap{color:var(--ink);font-size:14px;line-height:1.5;margin:0;}
+  .receipts-foot{
+    background:#f4f1ea;border:1px solid var(--line);border-top:0;
+    border-radius:0 0 14px 14px;padding:18px 22px;margin-top:-1px;
+    font-size:15px;color:var(--ink);text-align:center;
+  }
+  .receipts-foot strong{color:var(--accent-dark);}
+  @media (min-width:640px){
+    .receipts-grid{grid-template-columns:1fr 1fr;}
+    .receipt{border-top:1px solid var(--line);border-left:1px solid var(--line);}
+    .receipt:nth-child(2n+1){border-left:0;}
+    .receipt:nth-child(1),.receipt:nth-child(2){border-top:0;}
+  }
+  @media (min-width:960px){
+    .receipts-grid{grid-template-columns:1fr 1fr 1fr;}
+    .receipt:nth-child(2n+1){border-left:1px solid var(--line);}
+    .receipt:nth-child(3n+1){border-left:0;}
+    .receipt:nth-child(3){border-top:0;}
+  }
 </style>
 </head>
 <body>
@@ -271,8 +321,58 @@
     <p>They paid it. The offer converted. That's the whole reason this page exists — there are more slots, and it works for the kind of offer that fits this audience.</p>
   </div>
 
+  <section class="receipts" aria-label="Affiliate revenue proof">
+    <div class="receipts-head">
+      <div class="kicker-inv">Receipts · not screenshots from a course pitch</div>
+      <h2>This is what selling to my audience actually pays.</h2>
+      <p>Real dashboards, screenshotted from my phone last week. Every one of these is revenue I've earned promoting <em>other people's</em> offers to this list. Your offer is the next one.</p>
+    </div>
+    <div class="receipts-grid">
+
+      <div class="receipt">
+        <a href="proof/stripe-336m.jpg"><div class="receipt-shot"><img src="proof/stripe-336m.jpg" alt="Stripe dashboard: $3.36M gross volume since Jan 2017, $2.94M net, 27,454 new customers." loading="lazy"></div></a>
+        <p class="receipt-stat">$3.36M <span class="src">gross · Stripe</span></p>
+        <p class="receipt-cap">Jan 2017 → May 2026. $2.94M net from sales. <strong>27,454 customers</strong> bought through me on this one processor alone.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/highlevel-313k.jpg"><div class="receipt-shot"><img src="proof/highlevel-313k.jpg" alt="HighLevel Affiliate Promoter Reports: $313,808.99 total paid, 847,753 clicks, 225,789 referrals, 1,484 customers." loading="lazy"></div></a>
+        <p class="receipt-stat">$313,808.99 <span class="src">paid · HighLevel affiliate</span></p>
+        <p class="receipt-cap">847,753 clicks · 225,789 referrals · <strong>1,484 paying customers</strong>. One affiliate program. The Lamborghini lease comes out of this.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/partnerstack-111k.jpg"><div class="receipt-shot"><img src="proof/partnerstack-111k.jpg" alt="PartnerStack dashboard: $111,283.20 paid commissions, $0.65 EPC, +100% YoY growth." loading="lazy"></div></a>
+        <p class="receipt-stat">$111,283.20 <span class="src">paid · PartnerStack</span></p>
+        <p class="receipt-cap">Paid commissions on partner offers. <strong>+100%</strong> growth vs. previous 12 months. $0.65 average earnings per click.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/warriorplus-76k.jpg"><div class="receipt-shot"><img src="proof/warriorplus-76k.jpg" alt="WarriorPlus affiliate dashboard: 19 products, 76,004 hops, 2,398 sales, $20+ earnings per sale." loading="lazy"></div></a>
+        <p class="receipt-stat">76,004 hops · 2,398 sales <span class="src">WarriorPlus</span></p>
+        <p class="receipt-cap">19 different products promoted. <strong>$20+ EPC</strong> on the top performers. Recurring Profit System: 521 sales alone.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/spotter-170k.jpg"><div class="receipt-shot"><img src="proof/spotter-170k.jpg" alt="Spotter Studio partner dashboard: 170,720 clicks in the last 12 months, +100% growth." loading="lazy"></div></a>
+        <p class="receipt-stat">170,720 clicks <span class="src">Spotter Studio · last 12 mo</span></p>
+        <p class="receipt-cap">One partner. One year. <strong>+100%</strong> vs. previous 12 months. The audience is growing, not flatlining.</p>
+      </div>
+
+      <div class="receipt">
+        <a href="proof/highlevel-portal.jpg"><div class="receipt-shot"><img src="proof/highlevel-portal.jpg" alt="HighLevel Affiliate Portal: Mission Specialist achievement tier with monthly revenue and active referral campaigns." loading="lazy"></div></a>
+        <p class="receipt-stat">"Mission Specialist" tier <span class="src">HighLevel</span></p>
+        <p class="receipt-cap">Top-tier achievement inside the HighLevel affiliate program. Active referrals every month. <strong>This is the receipt under the receipts.</strong></p>
+      </div>
+
+    </div>
+    <div class="receipts-foot">
+      <strong>This is what your $2k buys access to.</strong> I sell to this audience for a living — and they buy. You get the same access for 24 hours, with 100% of the revenue going to YOUR offer.
+    </div>
+  </section>
+
   <div class="brands">
-    <h3>Brands already pay thousands to put their stuff in front of this audience</h3>
+    <h3>And brands keep showing up to pay for that access</h3>
     <p class="brands-intro">A few recent inbound offers — the kind of companies who pay flat fees and commissions for one video to my list:</p>
 
     <div class="brand-row">
@@ -473,7 +573,7 @@
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v0.2.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v0.3.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
