@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>For 24 hours, 600,000 people watch you — Chase Reiner</title>
+<title>For 24 hours, the spotlight is on you, not me — Chase Reiner</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="theme-color" content="#1d7a4d">
-<meta name="description" content="For 24 hours, my audience stops watching me — and watches you. Live interview, custom landing page, 600k email blast, Instagram + Shorts. From $2,000. Already bought cash.bot? Your purchase counts as credit toward the $2k slot.">
+<meta name="description" content="For 24 hours, you take my entire audience. Live interview on my YouTube. 600k-subscriber email blast. Instagram + Shorts repost. From $2,000. Already bought cash.bot? Your purchase counts as credit toward the $2k slot.">
 <link rel="canonical" href="https://cash.bot/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cash.bot/">
-<meta property="og:title" content="For 24 hours, 600,000 people stop watching me — and watch you">
-<meta property="og:description" content="I step out of frame. The interview is yours. From $2,000. Cash.bot customers — what you already paid counts as credit.">
+<meta property="og:title" content="For 24 hours, you take my entire audience. I step out of frame.">
+<meta property="og:description" content="The interview runs on my YouTube. Your name lands in 600k inboxes. From $2,000. Cash.bot customers — what you already paid counts as credit.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="For 24 hours, 600,000 people stop watching me — and watch you">
-<meta name="twitter:description" content="I step out of frame. The interview is yours. From $2,000. Cash.bot customers — what you already paid counts as credit.">
+<meta name="twitter:title" content="For 24 hours, you take my entire audience. I step out of frame.">
+<meta name="twitter:description" content="The interview runs on my YouTube. Your name lands in 600k inboxes. From $2,000. Cash.bot customers — what you already paid counts as credit.">
 <style>
   :root{
     --bg:#faf9f6;
@@ -349,6 +349,145 @@
     font-size:14px;color:#5a4014;margin:14px 0 0;line-height:1.55;
     padding-top:12px;border-top:1px solid #cfe6d8;
   }
+
+  /* === motion v0.6.0 — subtle, premium, prefers-reduced-motion safe === */
+  @keyframes pulse-dot {
+    0%,100% { transform:scale(1); opacity:1; }
+    50%     { transform:scale(1.45); opacity:.5; }
+  }
+  @keyframes pulse-glow {
+    0%,100% { box-shadow:0 0 0 0 rgba(29,122,77,.45); }
+    50%     { box-shadow:0 0 0 14px rgba(29,122,77,0); }
+  }
+  @keyframes shimmer {
+    0%   { background-position:-200% 0; }
+    100% { background-position:200% 0; }
+  }
+  @keyframes fade-up {
+    from { opacity:0; transform:translateY(24px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes float-up {
+    0%   { opacity:0; transform:translateY(14px); }
+    100% { opacity:1; transform:translateY(0); }
+  }
+  @keyframes wave-bg {
+    0%   { background-position:0% 50%; }
+    50%  { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+
+  .live-dot{
+    display:inline-block;width:9px;height:9px;background:#ff3b30;
+    border-radius:50%;margin-right:7px;vertical-align:middle;
+    box-shadow:0 0 0 0 rgba(255,59,48,.55);
+    animation:pulse-dot 1.6s ease-out infinite;
+  }
+
+  /* hero entrance — sequenced (above the fold for everyone) */
+  .kicker    { animation:fade-up .55s ease both .05s; }
+  h1         { animation:fade-up .65s ease both .25s; }
+  .lead      { animation:fade-up .65s ease both .35s; }
+  .lead-2    { animation:fade-up .65s ease both .45s; }
+
+  /* countdown band — soft accent glow that breathes + slow gradient wave */
+  .countdown {
+    background-image:linear-gradient(120deg, var(--accent), #2b9c66 50%, var(--accent));
+    background-size:200% 100%;
+    animation:fade-up .55s ease both .15s, pulse-glow 3.2s ease-in-out 1.2s infinite, wave-bg 9s ease-in-out infinite;
+  }
+
+  /* H1 deposition accent — shimmering green sweep on the twist clause */
+  .h1-twist{
+    background:linear-gradient(90deg, var(--accent) 0%, #34a06b 50%, var(--accent) 100%);
+    background-size:200% 100%;
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shimmer 6.5s linear infinite;
+  }
+
+  /* primary CTAs gently breathe so they read as "live" not dormant */
+  .btn-lg{
+    box-shadow:0 0 0 0 rgba(29,122,77,.5);
+    animation:pulse-glow 3.4s ease-in-out infinite;
+  }
+
+  /* reveal-on-scroll — JS adds .is-visible on intersection */
+  .is-revealable{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .is-revealable.is-visible{ opacity:1; transform:translateY(0); }
+
+  /* staggered children inside revealed containers */
+  .is-revealable.is-visible .feels-list li,
+  .is-revealable.is-visible .receipt,
+  .is-revealable.is-visible .brand-row,
+  .is-revealable.is-visible .cb-amount,
+  .is-revealable.is-visible .stat,
+  .is-revealable.is-visible ul.bullets li{
+    animation:float-up .55s ease both;
+  }
+  .is-revealable.is-visible .feels-list li:nth-child(1){animation-delay:.05s;}
+  .is-revealable.is-visible .feels-list li:nth-child(2){animation-delay:.15s;}
+  .is-revealable.is-visible .feels-list li:nth-child(3){animation-delay:.25s;}
+  .is-revealable.is-visible .feels-list li:nth-child(4){animation-delay:.35s;}
+  .is-revealable.is-visible .feels-list li:nth-child(5){animation-delay:.45s;}
+  .is-revealable.is-visible .receipt:nth-child(1){animation-delay:.05s;}
+  .is-revealable.is-visible .receipt:nth-child(2){animation-delay:.15s;}
+  .is-revealable.is-visible .receipt:nth-child(3){animation-delay:.25s;}
+  .is-revealable.is-visible .receipt:nth-child(4){animation-delay:.35s;}
+  .is-revealable.is-visible .receipt:nth-child(5){animation-delay:.45s;}
+  .is-revealable.is-visible .receipt:nth-child(6){animation-delay:.55s;}
+  .is-revealable.is-visible .brand-row:nth-child(1){animation-delay:.05s;}
+  .is-revealable.is-visible .brand-row:nth-child(2){animation-delay:.15s;}
+  .is-revealable.is-visible .brand-row:nth-child(3){animation-delay:.25s;}
+  .is-revealable.is-visible .brand-row:nth-child(4){animation-delay:.35s;}
+  .is-revealable.is-visible .cb-amount:nth-child(1){animation-delay:.05s;}
+  .is-revealable.is-visible .cb-amount:nth-child(2){animation-delay:.13s;}
+  .is-revealable.is-visible .cb-amount:nth-child(3){animation-delay:.21s;}
+  .is-revealable.is-visible .cb-amount:nth-child(4){animation-delay:.29s;}
+  .is-revealable.is-visible .stat:nth-child(1){animation-delay:.05s;}
+  .is-revealable.is-visible .stat:nth-child(2){animation-delay:.15s;}
+  .is-revealable.is-visible .stat:nth-child(3){animation-delay:.25s;}
+  .is-revealable.is-visible .stat:nth-child(4){animation-delay:.35s;}
+  .is-revealable.is-visible ul.bullets li:nth-child(1){animation-delay:.05s;}
+  .is-revealable.is-visible ul.bullets li:nth-child(2){animation-delay:.12s;}
+  .is-revealable.is-visible ul.bullets li:nth-child(3){animation-delay:.19s;}
+  .is-revealable.is-visible ul.bullets li:nth-child(4){animation-delay:.26s;}
+  .is-revealable.is-visible ul.bullets li:nth-child(5){animation-delay:.33s;}
+  .is-revealable.is-visible ul.bullets li:nth-child(6){animation-delay:.40s;}
+  .is-revealable.is-visible ul.bullets li:nth-child(7){animation-delay:.47s;}
+  .is-revealable.is-visible ul.bullets li:nth-child(8){animation-delay:.54s;}
+
+  /* tier card hover lift */
+  .tier{ transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .tier:hover{ transform:translateY(-4px); box-shadow:0 14px 38px rgba(0,0,0,.09); border-color:var(--accent); }
+
+  /* stat hover */
+  .stat{ transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .stat:hover{ transform:translateY(-3px); border-color:var(--accent); box-shadow:0 8px 20px rgba(29,122,77,.08); }
+
+  /* receipt screenshot zoom on hover */
+  .receipt-shot img{ transition:transform .45s ease; }
+  .receipt-shot:hover img{ transform:scale(1.045); }
+
+  /* FAQ open subtle fade */
+  .faq details[open] p{ animation:float-up .35s ease both; }
+
+  /* CB-upgrade pulse to draw eye */
+  .cb-upgrade{
+    box-shadow:0 0 0 0 rgba(29,122,77,.35);
+    animation:pulse-glow 4s ease-in-out 2s infinite;
+  }
+
+  /* reduced motion safety */
+  @media (prefers-reduced-motion: reduce) {
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+    }
+    .is-revealable{ opacity:1 !important; transform:none !important; }
+    .h1-twist{ -webkit-text-fill-color:var(--accent); background:none; }
+  }
 </style>
 </head>
 <body>
@@ -356,26 +495,26 @@
 
   <p style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.5;">Looking for the refund letter from a few weeks back? Still here: <a href="/update/" style="color:var(--accent);text-decoration:underline;">cash.bot/update/</a> — every refund request is being honored.</p>
 
-  <p class="kicker">Your turn in the spotlight · From $2,000</p>
+  <p class="kicker"><span class="live-dot" aria-hidden="true"></span>Your turn in the spotlight · From $2,000</p>
 
   <div class="countdown" id="countdown" role="status" aria-live="polite">
     <div class="countdown-label">Today's batch closes at midnight PT</div>
     <div class="countdown-time" id="countdownTime"><span id="cdH">00</span>h <span id="cdM">00</span>m <span id="cdS">00</span>s <small>left</small></div>
   </div>
 
-  <h1>For 24 hours, 600,000 people stop watching me — and watch you.</h1>
-  <p class="lead">I step out of frame. The interview is yours. The landing page has your name on it. The emails go out about <em>you</em>. For one day, an audience I spent ten years building looks at one person — and that person is you, not me.</p>
+  <h1>For 24 hours, you take my entire audience. <span class="h1-twist">I step out of frame.</span></h1>
+  <p class="lead">The interview runs on <em>my</em> YouTube channel. Your name lands in <em>my</em> 600,000-subscriber email list. Instagram (300k) and Shorts (300k) repeat your face for the day. The whole ten-year machine points at one person — and that person is you, not me.</p>
   <p class="lead-2">For the person who built something quietly and started wondering if anyone would ever notice — this is the day the answer is yes.</p>
 
   <div class="stat-row">
-    <div class="stat"><div class="stat-n">600k</div><div class="stat-l">Email list</div></div>
-    <div class="stat"><div class="stat-n">300k</div><div class="stat-l">Instagram</div></div>
-    <div class="stat"><div class="stat-n">300k</div><div class="stat-l">Shorts</div></div>
-    <div class="stat"><div class="stat-n">10yr</div><div class="stat-l">YouTube</div></div>
+    <div class="stat"><div class="stat-n" data-count="600" data-suffix="k">0</div><div class="stat-l">Email list</div></div>
+    <div class="stat"><div class="stat-n" data-count="300" data-suffix="k">0</div><div class="stat-l">Instagram</div></div>
+    <div class="stat"><div class="stat-n" data-count="300" data-suffix="k">0</div><div class="stat-l">Shorts</div></div>
+    <div class="stat"><div class="stat-n" data-count="10" data-suffix="yr">0</div><div class="stat-l">YouTube</div></div>
   </div>
 
   <section class="feels" aria-label="What it actually feels like">
-    <h2>What 24 hours in front of 600,000 people actually feels like</h2>
+    <h2>What 24 hours in front of my entire audience actually feels like</h2>
     <ul class="feels-list">
       <li>You wake up to messages from people you haven't heard from in years — <em>"wait, was that you on Chase's channel?"</em></li>
       <li>Your phone vibrates so much you flip it face-down. By dinner you've stopped trying to keep up.</li>
@@ -388,9 +527,9 @@
 
   <section class="receipts" aria-label="Affiliate revenue proof">
     <div class="receipts-head">
-      <div class="kicker-inv">Receipts · this is the size of room about to look at you</div>
+      <div class="kicker-inv">Receipts · what this audience does when I point them at something</div>
       <h2>27,454 customers. $3.36M moved. One voice. Yours next.</h2>
-      <p>Real dashboards from my own affiliate accounts — proof these 600,000 people open their wallets and pay attention when the right person is on screen. For 24 hours, that person is you.</p>
+      <p>Real dashboards from my own affiliate accounts — proof this audience opens their wallets and pays attention when the right person is on screen. For 24 hours, that person is you.</p>
     </div>
     <div class="receipts-grid">
 
@@ -472,7 +611,7 @@
   <ul class="bullets">
     <li><strong>One live interview</strong> — your story, in your words, in front of an audience that already trusts the channel it's airing on. The footage is yours forever — keep it, clip it, run ads off it.</li>
     <li><strong>A custom landing page with your name on it</strong> — your offer, your URL, your branding. Lives on long after the 24 hours end.</li>
-    <li><strong>Email blast to 600,000 people</strong> introducing you. Most of them see your name for the first time today. Tomorrow they remember it.</li>
+    <li><strong>Email blast to my 600,000-subscriber list</strong> introducing you. Most see your name for the first time today. Tomorrow they remember it.</li>
     <li><strong>Repurposed to Instagram</strong> (300k followers) — posts and reels with your face, your offer, your link in bio for the window.</li>
     <li><strong>Repurposed to Shorts</strong> (300k followers) — daily clips that keep your interview surfacing in feeds.</li>
     <li><strong>The feeling of being seen</strong> — by people you've never met, in volume, over one concentrated day. That part isn't a deliverable; it's what actually happens.</li>
@@ -543,7 +682,7 @@
       <span class="cb-amount">Enterprise $1,047</span>
     </div>
     <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%E2%80%99m%20already%20a%20cash.bot%20customer.%20I%20want%20to%20apply%20what%20I%20already%20paid%20as%20credit%20toward%20the%2024-hour%20live%20slot.%20My%20purchase%20email%20is%3A%20" target="_blank" rel="noopener">Apply my cash.bot credit on WhatsApp &nbsp;→</a>
-    <p class="cb-refund">Or if you'd rather have the refund I committed to in the <a href="/update/" style="color:var(--accent-dark);text-decoration:underline;">previous letter</a> — that's still on the table. Just say the word on WhatsApp and you keep your place in the queue. No pressure either way.</p>
+    <p class="cb-refund">Or if you'd rather have the refund I committed to in the previous letter — that's still on the table. Just say the word on WhatsApp and you keep your place in the queue. No pressure either way.</p>
   </div>
 
   <div class="winwin">
@@ -664,13 +803,13 @@
 
   <div class="booknow">
     <h2>Ready? Today is the day you stop being invisible.</h2>
-    <p>One conversation. One day. Your name in front of 600,000 people who are about to find out who you are. The timer up top is real — when it hits zero, today's batch closes and the next day's slots open at midnight Pacific.</p>
+    <p>One conversation. One day. Your name landing in 600,000 inboxes. Your face on a 10-year YouTube channel. The whole machine — pointed at you. The timer up top is real — when it hits zero, today's batch closes and the next day's slots open at midnight Pacific.</p>
     <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20to%20take%20a%2024-hour%20YouTube%20live%20slot.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">DM Chase to take the slot &nbsp;→</a>
   </div>
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v0.5.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v0.6.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
@@ -708,6 +847,54 @@
     setTimeout(tick, 1000);
   }
   tick();
+})();
+
+// reveal on scroll — IntersectionObserver toggles .is-visible
+(function(){
+  var sel = '.feels, .handoff, .cb-upgrade, .winwin, .booknow, .receipts, .brands, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
+  var els = document.querySelectorAll(sel);
+  if (!els.length) return;
+  els.forEach(function(el){ el.classList.add('is-revealable'); });
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin:'0px 0px -8% 0px', threshold:0.06 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+// stat count-up — runs once when stats enter viewport
+(function(){
+  var stats = document.querySelectorAll('.stat-n[data-count]');
+  if (!stats.length) return;
+  function go(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var start  = performance.now();
+    var dur    = 1400;
+    function step(now){
+      var p = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  if (!('IntersectionObserver' in window)) { stats.forEach(go); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { go(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold:0.4 });
+  stats.forEach(function(el){ io.observe(el); });
 })();
 
 (function(){
