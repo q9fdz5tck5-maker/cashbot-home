@@ -684,6 +684,105 @@
   .stack-total-now{font-size:clamp(17px,3.6vw,21px);line-height:1.4;color:var(--ink);}
   .stack-total-now strong{color:var(--accent);font-size:1.5em;font-weight:800;}
   .stack-foot{margin:12px 0 0;color:var(--muted);font-size:14px;line-height:1.5;}
+
+  /* v1.2.0 — brand strip (credibility row above the value stack) */
+  .brand-strip{
+    margin:36px 0 28px;padding:22px 16px;border:1px solid var(--line);
+    border-radius:18px;background:linear-gradient(180deg,#fff 0%,#faf8f1 100%);
+  }
+  .brand-strip-kicker{
+    color:var(--muted);font-size:12px;text-transform:uppercase;
+    letter-spacing:.1em;font-weight:700;text-align:center;margin-bottom:16px;
+  }
+  .brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  @media (max-width:780px){.brand-grid{grid-template-columns:repeat(2,1fr);}}
+  .brand-card{
+    padding:16px 12px;border:1px solid var(--line);border-radius:12px;
+    background:#fff;text-align:center;
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  .brand-card:hover{
+    transform:translateY(-3px);border-color:var(--accent);
+    box-shadow:0 10px 24px rgba(0,0,0,.07);
+  }
+  .brand-card-name{
+    font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--ink);
+    text-transform:uppercase;margin-bottom:4px;
+  }
+  .brand-card-stat{
+    font-size:11px;color:var(--accent);font-weight:700;margin-bottom:8px;
+    text-transform:uppercase;letter-spacing:.04em;
+  }
+  .brand-card-quote{font-size:12px;color:var(--muted);line-height:1.4;}
+  .is-revealable.is-visible .brand-card{animation:fade-up .6s ease both;}
+  .is-revealable.is-visible .brand-card:nth-child(1){animation-delay:.05s;}
+  .is-revealable.is-visible .brand-card:nth-child(2){animation-delay:.15s;}
+  .is-revealable.is-visible .brand-card:nth-child(3){animation-delay:.25s;}
+  .is-revealable.is-visible .brand-card:nth-child(4){animation-delay:.35s;}
+
+  /* v1.2.0 — value stack (line-item card grid w/ animated total) */
+  .vstack{
+    margin:38px 0 32px;padding:26px 18px;border:2px solid var(--ink);
+    border-radius:20px;background:#fff;
+  }
+  .vstack-kicker{
+    color:var(--muted);font-size:12px;text-transform:uppercase;
+    letter-spacing:.1em;font-weight:700;text-align:center;margin-bottom:8px;
+  }
+  .vstack-h2{
+    text-align:center;font-size:clamp(20px,3.6vw,26px);line-height:1.3;
+    margin:0 0 22px;color:var(--ink);font-weight:800;
+  }
+  .vstack-strike{color:var(--muted);font-weight:600;}
+  .vstack-flash{color:var(--accent);white-space:nowrap;}
+  .vstack-list{list-style:none;margin:0;padding:0;}
+  .vstack-row{
+    display:flex;align-items:center;gap:12px;padding:14px 8px;
+    border-bottom:1px solid var(--line);
+    transition:background .2s ease,transform .2s ease;
+  }
+  .vstack-row:last-child{border-bottom:none;}
+  .vstack-row:hover{background:#faf8f0;transform:translateX(3px);}
+  .vstack-icon{
+    flex:0 0 36px;width:36px;height:36px;display:grid;place-items:center;
+    border-radius:10px;background:var(--accent);color:#fff;
+  }
+  .vstack-icon svg{width:20px;height:20px;}
+  .vstack-body{flex:1;min-width:0;}
+  .vstack-name{font-weight:700;font-size:15px;color:var(--ink);line-height:1.3;}
+  .vstack-sub{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.3;}
+  .vstack-price{
+    flex:0 0 auto;font-weight:800;font-size:17px;color:var(--ink);
+    text-align:right;font-variant-numeric:tabular-nums;
+  }
+  .vstack-price em{
+    font-style:normal;color:var(--accent);font-size:13px;
+    text-transform:uppercase;letter-spacing:.05em;font-weight:700;
+  }
+  .vstack-trust .vstack-icon{background:var(--ink);}
+  .vstack-total{
+    margin-top:22px;padding:22px 16px;border-radius:14px;
+    background:linear-gradient(135deg,var(--ink) 0%,#1a1a1a 100%);
+    color:#fff;text-align:center;
+    animation:pulse-glow 3.6s ease-in-out infinite;
+  }
+  .vstack-was{color:rgba(255,255,255,.55);font-size:14px;margin-bottom:6px;}
+  .vstack-was s{color:rgba(255,255,255,.5);}
+  .vstack-now{font-size:clamp(18px,3.5vw,24px);font-weight:700;margin-bottom:12px;}
+  .vstack-now strong{color:#ffd966;}
+  .vstack-saved{
+    display:inline-block;padding:8px 18px;border-radius:999px;
+    background:rgba(255,217,102,.15);font-size:14px;font-weight:700;
+    color:#ffd966;letter-spacing:.04em;
+  }
+  .is-revealable.is-visible .vstack-row{animation:fade-up .55s ease both;}
+  .is-revealable.is-visible .vstack-row:nth-child(1){animation-delay:.05s;}
+  .is-revealable.is-visible .vstack-row:nth-child(2){animation-delay:.12s;}
+  .is-revealable.is-visible .vstack-row:nth-child(3){animation-delay:.19s;}
+  .is-revealable.is-visible .vstack-row:nth-child(4){animation-delay:.26s;}
+  .is-revealable.is-visible .vstack-row:nth-child(5){animation-delay:.33s;}
+  .is-revealable.is-visible .vstack-row:nth-child(6){animation-delay:.40s;}
+  .is-revealable.is-visible .vstack-row:nth-child(7){animation-delay:.47s;}
 </style>
 </head>
 <body>
@@ -774,6 +873,104 @@
     </div>
     <div class="receipts-foot">
       <strong>This is what your $2k buys access to.</strong> I sell to this audience for a living — and they buy. You get the same access for 24 hours, with 100% of the revenue going to YOUR offer.
+    </div>
+  </section>
+
+  <!-- v1.2.0: brand-rate credibility row -->
+  <section class="brand-strip">
+    <div class="brand-strip-kicker">Brands paying $5k+ to reach this audience</div>
+    <div class="brand-grid">
+      <div class="brand-card">
+        <div class="brand-card-name">HIGGSFIELD AI</div>
+        <div class="brand-card-stat">$330M run rate · 25M users</div>
+        <div class="brand-card-quote">"Paid sponsorship for one tutorial video on Chase's channel"</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-name">MOXT</div>
+        <div class="brand-card-stat">Bao Communications</div>
+        <div class="brand-card-quote">"Flat cash + commission for one dedicated video to the list"</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-name">CATALYST HOLDINGS</div>
+        <div class="brand-card-stat">Dylan Wilson group</div>
+        <div class="brand-card-quote">"Up to $5M offered to acquire the audience outright"</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-name">GOHIGHLEVEL</div>
+        <div class="brand-card-stat">$10k+/mo recurring</div>
+        <div class="brand-card-quote">"$313k+ paid out — top-tier 'Mission Specialist' affiliate"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- v1.2.0: value stack — what $2k actually contains -->
+  <section class="vstack">
+    <div class="vstack-kicker">What this would cost if you priced it from any other channel</div>
+    <h2 class="vstack-h2">Brand-rate sticker: <s class="vstack-strike">$13,500</s>.<br>Your founder price: <span class="vstack-flash">$2,000 once.</span></h2>
+
+    <ul class="vstack-list">
+      <li class="vstack-row">
+        <span class="vstack-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
+        <div class="vstack-body">
+          <div class="vstack-name">One live YouTube interview</div>
+          <div class="vstack-sub">45–60 min on a 10-year channel</div>
+        </div>
+        <div class="vstack-price">$5,000</div>
+      </li>
+      <li class="vstack-row">
+        <span class="vstack-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16"/></svg></span>
+        <div class="vstack-body">
+          <div class="vstack-name">Custom landing page</div>
+          <div class="vstack-sub">Your name, your URL, lives forever</div>
+        </div>
+        <div class="vstack-price">$1,500</div>
+      </li>
+      <li class="vstack-row">
+        <span class="vstack-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg></span>
+        <div class="vstack-body">
+          <div class="vstack-name">Email blast to 600k list</div>
+          <div class="vstack-sub">25–40% typical open rate</div>
+        </div>
+        <div class="vstack-price">$4,000</div>
+      </li>
+      <li class="vstack-row">
+        <span class="vstack-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="0.9" fill="currentColor"/></svg></span>
+        <div class="vstack-body">
+          <div class="vstack-name">Instagram push (300k)</div>
+          <div class="vstack-sub">Story + reel during the window</div>
+        </div>
+        <div class="vstack-price">$1,500</div>
+      </li>
+      <li class="vstack-row">
+        <span class="vstack-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><polygon points="10 9 16 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></span>
+        <div class="vstack-body">
+          <div class="vstack-name">Shorts push (300k)</div>
+          <div class="vstack-sub">Daily clips across the 24-hour window</div>
+        </div>
+        <div class="vstack-price">$1,500</div>
+      </li>
+      <li class="vstack-row">
+        <span class="vstack-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14l4-4 4 4 4-4 4 4"/><path d="M4 18h16"/></svg></span>
+        <div class="vstack-body">
+          <div class="vstack-name">Win-win clause</div>
+          <div class="vstack-sub">50% affiliate after you 2x the spend</div>
+        </div>
+        <div class="vstack-price"><em>upside</em></div>
+      </li>
+      <li class="vstack-row vstack-trust">
+        <span class="vstack-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12c0-3 2.2-5 5-5s5 2 5 5-2.2 5-5 5"/><path d="M19 12c0-3-2.2-5-5-5s-5 2-5 5 2.2 5 5 5 5-2 5-5"/></svg></span>
+        <div class="vstack-body">
+          <div class="vstack-name">10-year audience trust transfer</div>
+          <div class="vstack-sub">The part nobody can recreate</div>
+        </div>
+        <div class="vstack-price"><em>priceless</em></div>
+      </li>
+    </ul>
+
+    <div class="vstack-total">
+      <div class="vstack-was">Going-rate value: <s>$<span class="vstack-num" data-count="13500" data-comma="1">0</span></s></div>
+      <div class="vstack-now">Founder price: <strong>$2,000 once</strong></div>
+      <div class="vstack-saved">You save $<span class="vstack-num" data-count="11500" data-comma="1">0</span></div>
     </div>
   </section>
 
@@ -887,7 +1084,7 @@
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v1.1.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v1.2.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
@@ -929,7 +1126,7 @@
 
 // reveal on scroll — IntersectionObserver toggles .is-visible
 (function(){
-  var sel = '.why-now, .story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .how-it-works, .booknow, .receipts, .brands, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
+  var sel = '.why-now, .story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .how-it-works, .booknow, .receipts, .brands, .brand-strip, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
   var els = document.querySelectorAll(sel);
   if (!els.length) return;
   els.forEach(function(el){ el.classList.add('is-revealable'); });
@@ -948,21 +1145,28 @@
   els.forEach(function(el){ io.observe(el); });
 })();
 
-// stat count-up — runs once when stats enter viewport
+// stat count-up — runs once when stats enter viewport (v1.2.0: + data-prefix + data-comma)
 (function(){
-  var stats = document.querySelectorAll('.stat-n[data-count]');
+  var stats = document.querySelectorAll('[data-count]');
   if (!stats.length) return;
+  function fmt(v, prefix, suffix, comma){
+    var s = String(Math.round(v));
+    if (comma) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return prefix + s + suffix;
+  }
   function go(el){
     var target = parseFloat(el.getAttribute('data-count'));
     var suffix = el.getAttribute('data-suffix') || '';
+    var prefix = el.getAttribute('data-prefix') || '';
+    var comma  = el.getAttribute('data-comma') === '1';
     var start  = performance.now();
     var dur    = 1400;
     function step(now){
       var p = Math.min(1, (now - start) / dur);
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + suffix;
+      el.textContent = fmt(target * eased, prefix, suffix, comma);
       if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target + suffix;
+      else el.textContent = fmt(target, prefix, suffix, comma);
     }
     requestAnimationFrame(step);
   }
