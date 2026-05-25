@@ -674,6 +674,15 @@
   }
   .vstack-strike{color:var(--muted);font-weight:600;}
   .vstack-flash{color:var(--accent);white-space:nowrap;}
+  .vstack-section-sub{
+    text-align:center;color:var(--muted);font-size:clamp(13px,2.4vw,15px);
+    line-height:1.5;margin:-10px auto 22px;max-width:560px;
+  }
+  .vstack-trust-pill{
+    display:inline-block;background:#d99500;color:#fff;
+    font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    padding:5px 12px;border-radius:6px;margin:0 0 14px;
+  }
   .vstack-list{list-style:none;margin:0;padding:0;}
   .vstack-row{
     display:flex;align-items:center;gap:12px;padding:14px 8px;
@@ -804,8 +813,9 @@
 
   <!-- v1.2.0: value stack — what $2k actually contains -->
   <section class="vstack">
-    <div class="vstack-kicker">What this would cost if you priced it from any other channel</div>
-    <h2 class="vstack-h2">Brand-rate sticker: <s class="vstack-strike">$13,500</s>.<br>Your founder price: <span class="vstack-flash">$2,000 once.</span></h2>
+    <div class="vstack-kicker">The math behind the shortcut</div>
+    <h2 class="vstack-h2">What <s class="vstack-strike">$13,500</s> of brand-rate work looks like — <span class="vstack-flash">$2,000 once.</span></h2>
+    <p class="vstack-section-sub">Same channel. Same list. Same week. You're skipping the 10 years that built the audience — not the audience itself.</p>
 
     <ul class="vstack-list">
       <li class="vstack-row">
@@ -867,6 +877,7 @@
     </ul>
 
     <div class="vstack-total">
+      <div class="vstack-trust-pill">10 years of trust · transferred in one day</div>
       <div class="vstack-was">Going-rate value: <s>$<span class="vstack-num" data-count="13500" data-comma="1">0</span></s></div>
       <div class="vstack-now">Founder price: <strong>$2,000 once</strong></div>
       <div class="vstack-saved">You save $<span class="vstack-num" data-count="11500" data-comma="1">0</span></div>
