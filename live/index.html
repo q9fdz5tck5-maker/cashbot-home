@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Easiest Offer · 1 Interview + Your Offer Promoted · $2,000 — Chase Reiner</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="theme-color" content="#1d7a4d">
+<meta name="theme-color" content="#0a0a0d">
 <meta name="description" content="One live interview with Chase Reiner. Have an offer? He promotes it to 600,000 people. No offer yet? You build it together on the live, free — then he promotes it. Every interview Chase has done has made way over a few thousand. $2,000 once. Cash.bot customers — your purchase counts as credit.">
 <link rel="canonical" href="https://cash.bot/">
 <meta property="og:type" content="website">
@@ -35,22 +35,30 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 <script src="https://analytics.cash.bot/tracker.js" defer></script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
   :root{
-    --bg:#faf9f6;
-    --surface:#ffffff;
-    --ink:#23201c;
-    --muted:#6f6a62;
-    --line:#e7e3da;
-    --accent:#1d7a4d;
-    --accent-dark:#155c3a;
-    --accent-amber:#d99500;
-    --gold:#a87a1f;
-    --gold-soft:#fff4dc;
+    --bg:#0a0a0d;
+    --surface:#14141a;
+    --surface-2:#1a1a22;
+    --ink:#f5f5f0;
+    --muted:#8a8a85;
+    --line:#2a2a32;
+    --accent:#00d68f;
+    --accent-dark:#00a86d;
+    --accent-amber:#ffb84a;
+    --gold:#ffb84a;
+    --gold-soft:#1a1a22;
   }
+  .mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
   *{box-sizing:border-box;margin:0;padding:0;}
   html{-webkit-text-size-adjust:100%;}
   body{
-    background:var(--bg);
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:60px 60px;
+    background-attachment:fixed;
     color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     font-size:clamp(16px,2.4vw,18px);
@@ -62,7 +70,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     text-transform:uppercase;letter-spacing:.14em;
     font-size:13px;font-weight:700;color:var(--accent);margin-bottom:12px;
   }
-  h1{font-size:clamp(30px,7vw,46px);line-height:1.12;letter-spacing:-.02em;margin-bottom:14px;}
+  h1{font-size:clamp(36px,7vw,84px);line-height:1.02;letter-spacing:-.025em;margin-bottom:14px;font-weight:700;}
   h2{font-size:clamp(22px,4.6vw,28px);line-height:1.22;letter-spacing:-.01em;margin:44px 0 14px;}
   h3{font-size:clamp(18px,3.4vw,21px);line-height:1.3;margin-bottom:8px;}
   p{margin:0 0 16px;}
@@ -256,7 +264,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     background-repeat:no-repeat;background-position:right 14px center;padding-right:34px;
   }
   .scheduler-field select:focus,.scheduler-field input:focus{
-    outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,122,77,.18);
+    outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,214,143,.18);
   }
   .scheduler-note{color:#7a5a14;font-size:14px;margin:14px 0 0;}
   .scheduler .btn{background:var(--gold);}
@@ -376,8 +384,8 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     50%     { transform:scale(1.45); opacity:.5; }
   }
   @keyframes pulse-glow {
-    0%,100% { box-shadow:0 0 0 0 rgba(29,122,77,.45); }
-    50%     { box-shadow:0 0 0 14px rgba(29,122,77,0); }
+    0%,100% { box-shadow:0 0 0 0 rgba(0,214,143,.45); }
+    50%     { box-shadow:0 0 0 14px rgba(0,214,143,0); }
   }
   @keyframes shimmer {
     0%   { background-position:-200% 0; }
@@ -428,7 +436,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
   /* primary CTAs gently breathe so they read as "live" not dormant */
   .btn-lg{
-    box-shadow:0 0 0 0 rgba(29,122,77,.5);
+    box-shadow:0 0 0 0 rgba(0,214,143,.5);
     animation:pulse-glow 3.4s ease-in-out infinite;
   }
 
@@ -479,11 +487,11 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
   /* tier card hover lift */
   .tier{ transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-  .tier:hover{ transform:translateY(-4px); box-shadow:0 14px 38px rgba(0,0,0,.09); border-color:var(--accent); }
+  .tier:hover{ transform:translateY(-1px); box-shadow:0 0 36px -12px var(--accent); border-color:var(--accent); }
 
   /* stat hover */
   .stat{ transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-  .stat:hover{ transform:translateY(-3px); border-color:var(--accent); box-shadow:0 8px 20px rgba(29,122,77,.08); }
+  .stat:hover{ transform:translateY(-1px); border-color:var(--accent); box-shadow:0 0 24px -8px var(--accent); }
 
   /* receipt screenshot zoom on hover */
   .receipt-shot img{ transition:transform .45s ease; }
@@ -494,7 +502,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
   /* CB-upgrade pulse to draw eye */
   .cb-upgrade{
-    box-shadow:0 0 0 0 rgba(29,122,77,.35);
+    box-shadow:0 0 0 0 rgba(0,214,143,.35);
     animation:pulse-glow 4s ease-in-out 2s infinite;
   }
 
@@ -992,6 +1000,111 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
   @media (max-width:560px){
     .ps-row{flex-wrap:wrap;}
     .ps-stat{margin-left:54px;font-size:12px;padding:4px 10px;}
+  }
+
+  /* === v3.0.0 dark-mode override — repaints v2.x warm surfaces dark === */
+  /* Structural rewrites land in v3.1.0+; this keeps the v2 sections legible against the new dark shell. */
+  body .winwin,
+  body .risk,
+  body .notfor,
+  body .scheduler,
+  body .feels,
+  body .cb-upgrade,
+  body .story,
+  body .how-it-works,
+  body .future-pace,
+  body .vstack,
+  body .receipts-foot,
+  body .receipt-shot,
+  body .hiw-after,
+  body .cb-path,
+  body .cb-path-founder,
+  body .secret-vs .old,
+  body .secret-vs .new,
+  body .cb-upgrade .cb-amount,
+  body .scheduler-field input,
+  body .scheduler-field select,
+  body .offer-help,
+  body .promo-stack,
+  body .ps-row,
+  body .pay-btn{
+    background:var(--surface);
+    background-image:none;
+    border-color:var(--line);
+    color:var(--ink);
+  }
+  body .receipts-head,
+  body .context-bar,
+  body .booknow,
+  body .handoff,
+  body .bonus-stack,
+  body .two-paths,
+  body .guarantee-bar{
+    background:var(--surface-2);
+    background-image:none;
+    color:var(--ink);
+  }
+  body .receipt-shot{background:var(--surface-2);}
+  body .winwin h2,body .risk h2,body .scheduler h2,body .feels h2,
+  body .cb-upgrade h2,body .cb-upgrade h3,body .story h2,
+  body .how-it-works h2,body .future-pace h2,body .vstack-h2,
+  body .cb-path > strong,body .tp-h2,body .ps-h2,body .stack-section h2,
+  body .secret h2,body .booknow h2,body .handoff h2,body .bonus-stack h2,
+  body .offer-help h3{color:var(--ink);}
+  body .winwin p,body .risk p,body .scheduler p,body .scheduler-intro,
+  body .feels-list li,body .feels-closer,body .cb-upgrade p,
+  body .cb-upgrade .cb-refund,body .story p,body .story p em,
+  body .hiw-body,body .future-pace .future-sub,body .secret-vs .old,
+  body .secret-vs .new,body .ps-sub,body .ps-name,body .tp-body,
+  body .tp-foot,body .receipts-foot,body .receipts-head p,
+  body .scheduler-note,body .notfor,body .belief-list li,
+  body .future-timeline li{color:var(--ink);}
+  body .winwin p:not(:first-of-type),body .risk p:not(:first-of-type),
+  body .scheduler p:not(:first-of-type),body .cb-upgrade p:not(:first-of-type),
+  body .story p:not(:first-of-type),body .feels-list li em,
+  body .scheduler-note,body .receipts-foot,body .tp-foot,
+  body .scheduler-intro,body .future-pace .future-sub,
+  body .receipts-head p{color:var(--muted);}
+  body .feels-list li,body .future-timeline li,body .belief-list li,
+  body .stack-list li,body .vstack-row,body .offer-help-list li,
+  body .hiw-step,body .brand-row,body .receipt,body .secret{
+    border-color:var(--line);
+  }
+  body .vstack{border:2px solid var(--line);}
+  body .stack-total{border-top:2px solid var(--line);}
+  body .vstack-strike,body .stack-total-was,body .stack-total-was s{color:var(--muted);}
+  body input,body select,body textarea{
+    background:var(--surface);
+    color:var(--ink);
+    border-color:var(--line);
+  }
+  body .scheduler-field select{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%2300d68f' d='M6 8L0 0h12z'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+  }
+  body .scheduler-field label{color:var(--muted);}
+  body footer{border-top-color:var(--line);color:var(--muted);}
+
+  /* receipts-head + context-bar were already dark — keep their accent tone but harmonize */
+  body .receipts-head .kicker-inv,body .context-bar strong,body .handoff p em{color:var(--accent);}
+  body .vstack-total{background:linear-gradient(135deg,var(--surface-2) 0%,var(--bg) 100%);color:var(--ink);}
+  body .vstack-now strong,body .vstack-saved{color:var(--accent-amber);}
+  body .vstack-saved{background:rgba(255,184,74,.14);}
+  body .bonus-tag,body .tp-num,body .offer-help-tag,body .ps-stat{color:var(--ink);}
+
+  /* tier card + receipt hover keep accent-glow already set above; ensure receipts grid frame is dark */
+  body .receipts-grid{background:var(--surface);border-color:var(--line);}
+  body .receipt-stat,body .receipts-foot strong,body .receipts-head h2{color:var(--ink);}
+  body .receipt-stat{color:var(--accent);}
+  body .brands{background:var(--surface);}
+  body .brands-kicker strong,body .receipt-stat,body .stack-list .stack-value{color:var(--accent);}
+
+  /* hero ambient glow behind h1 */
+  .wrap > .kicker + h1{
+    background:radial-gradient(ellipse at center, rgba(0,214,143,0.08) 0%, transparent 60%);
+    padding:8px 0;
+    margin:-8px 0 14px;
   }
 </style>
 </head>
