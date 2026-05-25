@@ -510,32 +510,6 @@
   .story p:last-child{margin-bottom:0;}
   .story p em{color:#7a5a14;font-style:italic;font-weight:600;}
 
-  /* === v0.8.0 — why-now (pivot context) + tier-paths === */
-  .why-now{
-    background:#f4f9f6;border:1px solid var(--accent);border-radius:14px;
-    border-left:5px solid var(--accent);
-    padding:26px 22px;margin:18px 0 28px;
-  }
-  .why-kicker{
-    display:inline-block;background:var(--accent);color:#fff;
-    font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-    padding:4px 10px;border-radius:5px;margin:0 0 14px;
-  }
-  .why-now h2{margin:0 0 14px;color:var(--accent-dark);font-size:clamp(22px,4.6vw,28px);line-height:1.22;letter-spacing:-.01em;}
-  .why-now p{color:var(--ink);font-size:clamp(15px,2.6vw,17px);line-height:1.7;margin:0 0 14px;}
-  .why-paths{list-style:none;margin:14px 0 0;padding:0;}
-  .why-paths li{
-    position:relative;padding:14px 0 14px 22px;margin:0;
-    font-size:clamp(15px,2.6vw,17px);line-height:1.6;
-    border-top:1px solid #cfe6d8;color:var(--ink);
-  }
-  .why-paths li:first-child{border-top:0;padding-top:6px;}
-  .why-paths li::before{
-    content:"";position:absolute;left:0;top:22px;
-    width:9px;height:9px;background:var(--accent);border-radius:3px;
-  }
-  .why-paths li:first-child::before{top:14px;}
-
   .cb-paths{list-style:none;margin:14px 0 18px;padding:0;}
   .cb-path{
     background:#fff;border:1px solid #cfe6d8;border-radius:10px;
@@ -685,41 +659,6 @@
   .stack-total-now strong{color:var(--accent);font-size:1.5em;font-weight:800;}
   .stack-foot{margin:12px 0 0;color:var(--muted);font-size:14px;line-height:1.5;}
 
-  /* v1.2.0 — brand strip (credibility row above the value stack) */
-  .brand-strip{
-    margin:36px 0 28px;padding:22px 16px;border:1px solid var(--line);
-    border-radius:18px;background:linear-gradient(180deg,#fff 0%,#faf8f1 100%);
-  }
-  .brand-strip-kicker{
-    color:var(--muted);font-size:12px;text-transform:uppercase;
-    letter-spacing:.1em;font-weight:700;text-align:center;margin-bottom:16px;
-  }
-  .brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-  @media (max-width:780px){.brand-grid{grid-template-columns:repeat(2,1fr);}}
-  .brand-card{
-    padding:16px 12px;border:1px solid var(--line);border-radius:12px;
-    background:#fff;text-align:center;
-    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
-  }
-  .brand-card:hover{
-    transform:translateY(-3px);border-color:var(--accent);
-    box-shadow:0 10px 24px rgba(0,0,0,.07);
-  }
-  .brand-card-name{
-    font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--ink);
-    text-transform:uppercase;margin-bottom:4px;
-  }
-  .brand-card-stat{
-    font-size:11px;color:var(--accent);font-weight:700;margin-bottom:8px;
-    text-transform:uppercase;letter-spacing:.04em;
-  }
-  .brand-card-quote{font-size:12px;color:var(--muted);line-height:1.4;}
-  .is-revealable.is-visible .brand-card{animation:fade-up .6s ease both;}
-  .is-revealable.is-visible .brand-card:nth-child(1){animation-delay:.05s;}
-  .is-revealable.is-visible .brand-card:nth-child(2){animation-delay:.15s;}
-  .is-revealable.is-visible .brand-card:nth-child(3){animation-delay:.25s;}
-  .is-revealable.is-visible .brand-card:nth-child(4){animation-delay:.35s;}
-
   /* v1.2.0 — value stack (line-item card grid w/ animated total) */
   .vstack{
     margin:38px 0 32px;padding:26px 18px;border:2px solid var(--ink);
@@ -813,19 +752,6 @@
     <div class="stat"><div class="stat-n" data-count="10" data-suffix="yr">0</div><div class="stat-l">YouTube</div></div>
   </div>
 
-  <section class="why-now" aria-label="Why I'm doing this — for my people first">
-    <span class="why-kicker">Why this exists · For my people first</span>
-    <h2>The lowest-effort, highest-leverage thing I can do for the people who already bet on me.</h2>
-    <p>I've spent ten years building one thing: an audience that opens my emails, clicks links I post, and buys what I tell them to look at. The receipts below are the math — <strong>$3.36M moved on Stripe, $313k paid out by HighLevel, $111k from PartnerStack</strong>, every dollar of it from me pointing this audience at someone else's offer. <strong>I've never not seen it work.</strong></p>
-    <p>So instead of cooking another product, another funnel, another launch — I'm doing the one thing I'm objectively good at: <strong>pointing my audience at one person for 24 hours and watching what happens next.</strong></p>
-    <p>And I'm doing it for my people first — the ones who already paid for cash.bot before any of this existed. Here's how it works for you specifically:</p>
-    <ul class="why-paths">
-      <li><strong>Bought cash.bot Founder ($1,997 lifetime)?</strong> Your 24-hour slot is already paid for. <strong>Free.</strong> Or roll your $1,997 up into the 3-Day Exclusive ($5,000) or 30-Day Exclusive ($10,000) instead.</li>
-      <li><strong>Bought Spark $9 / Personal $113 / Business $497 / Enterprise $1,047?</strong> What you paid is credit toward the $2,000 slot — pay the difference, not the full $2k.</li>
-      <li><strong>New here?</strong> $2,000 to start. Pick your slot below.</li>
-    </ul>
-  </section>
-
   <section class="receipts" aria-label="Affiliate revenue proof">
     <div class="receipts-head">
       <div class="kicker-inv">Receipts · what this audience does when I point them at something</div>
@@ -873,33 +799,6 @@
     </div>
     <div class="receipts-foot">
       <strong>This is what your $2k buys access to.</strong> I sell to this audience for a living — and they buy. You get the same access for 24 hours, with 100% of the revenue going to YOUR offer.
-    </div>
-  </section>
-
-  <!-- v1.2.0: brand-rate credibility row -->
-  <section class="brand-strip">
-    <div class="brand-strip-kicker">Brands paying $5k+ to reach this audience</div>
-    <div class="brand-grid">
-      <div class="brand-card">
-        <div class="brand-card-name">HIGGSFIELD AI</div>
-        <div class="brand-card-stat">$330M run rate · 25M users</div>
-        <div class="brand-card-quote">"Paid sponsorship for one tutorial video on Chase's channel"</div>
-      </div>
-      <div class="brand-card">
-        <div class="brand-card-name">MOXT</div>
-        <div class="brand-card-stat">Bao Communications</div>
-        <div class="brand-card-quote">"Flat cash + commission for one dedicated video to the list"</div>
-      </div>
-      <div class="brand-card">
-        <div class="brand-card-name">CATALYST HOLDINGS</div>
-        <div class="brand-card-stat">Dylan Wilson group</div>
-        <div class="brand-card-quote">"Up to $5M offered to acquire the audience outright"</div>
-      </div>
-      <div class="brand-card">
-        <div class="brand-card-name">GOHIGHLEVEL</div>
-        <div class="brand-card-stat">$10k+/mo recurring</div>
-        <div class="brand-card-quote">"$313k+ paid out — top-tier 'Mission Specialist' affiliate"</div>
-      </div>
     </div>
   </section>
 
@@ -1126,7 +1025,7 @@
 
 // reveal on scroll — IntersectionObserver toggles .is-visible
 (function(){
-  var sel = '.why-now, .story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .how-it-works, .booknow, .receipts, .brands, .brand-strip, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
+  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .how-it-works, .booknow, .receipts, .brands, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
   var els = document.querySelectorAll(sel);
   if (!els.length) return;
   els.forEach(function(el){ el.classList.add('is-revealable'); });
