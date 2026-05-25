@@ -15,6 +15,25 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The 10-Year Shortcut · $2,000 once — Chase Reiner">
 <meta name="twitter:description" content="Skip the 10 years. One day on a 10-year YouTube channel + 600k email list. Live interview, email blast, IG + Shorts repost. $2,000 once.">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7LE6ZM2RKK"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7LE6ZM2RKK', {
+  page_title: 'The 10-Year Shortcut',
+  page_path: location.pathname,
+  send_page_view: true
+});
+window.__cashbotIdentify = function(email, tier){
+  if (!email) return;
+  try { gtag('set', { user_id: String(email), user_properties: { tier: tier || 'anon' } }); } catch(e) {}
+};
+if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, window.__cashbotTier);
+</script>
+<script src="https://analytics.cash.bot/tracker.js" defer></script>
+
 <style>
   :root{
     --bg:#faf9f6;
@@ -794,6 +813,83 @@
   .wa-group-pill a:hover{
     background:rgba(37,211,102,.14);border-color:rgba(37,211,102,.6);
   }
+
+  .bonus-stack{
+    margin:48px 0;padding:32px 24px;
+    background:linear-gradient(180deg,#1a1a1a 0%,var(--ink) 100%);
+    color:#fff;border-radius:16px;
+    box-shadow:0 8px 32px rgba(0,0,0,.12);
+  }
+  .bonus-tag{
+    display:inline-block;padding:5px 14px;
+    background:var(--accent-amber);color:var(--ink);
+    border-radius:999px;font-size:11px;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .bonus-stack h2{color:#fff;margin:0 0 8px;}
+  .bonus-stack > p.bonus-intro{
+    color:rgba(255,255,255,.7);font-size:15px;margin:0 0 24px;
+  }
+  .bonus-list{list-style:none;padding:0;margin:0 0 24px;}
+  .bonus-row{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:14px 8px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transition:background .2s ease,transform .2s ease;
+  }
+  .bonus-row:last-child{border-bottom:none;}
+  .bonus-row:hover{background:rgba(255,255,255,.04);transform:translateX(3px);}
+  .bonus-num{
+    flex:0 0 36px;width:36px;height:36px;
+    display:grid;place-items:center;border-radius:10px;
+    background:var(--accent-amber);color:var(--ink);
+    font-weight:800;font-size:14px;
+  }
+  .bonus-body{flex:1;min-width:0;}
+  .bonus-title{
+    color:#fff;font-weight:700;font-size:15px;
+    line-height:1.3;margin-bottom:4px;
+  }
+  .bonus-row-sub{
+    color:rgba(255,255,255,.6);font-size:13px;
+    margin:0;line-height:1.45;
+  }
+  .bonus-val{
+    flex:0 0 auto;color:var(--accent-amber);
+    font-weight:800;font-size:16px;
+    white-space:nowrap;text-align:right;
+    font-variant-numeric:tabular-nums;
+  }
+  .bonus-total{
+    margin-top:22px;padding:18px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+  }
+  .bonus-total-row{
+    display:flex;justify-content:space-between;
+    padding:6px 0;font-size:14px;color:rgba(255,255,255,.7);
+  }
+  .bonus-total-row strong{color:#fff;font-variant-numeric:tabular-nums;}
+  .bonus-total-grand{
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:6px;padding-top:12px;
+    font-size:15px;color:#fff;
+  }
+  .bonus-total-grand strong{font-size:17px;}
+  .bonus-total-price{
+    border-top:2px solid var(--accent-amber);
+    margin-top:4px;padding-top:12px;
+    font-size:16px;color:#fff;
+  }
+  .bonus-total-price strong{font-size:22px;}
+  .is-revealable.is-visible .bonus-row{animation:fade-up .55s ease both;}
+  .is-revealable.is-visible .bonus-row:nth-child(1){animation-delay:.04s;}
+  .is-revealable.is-visible .bonus-row:nth-child(2){animation-delay:.10s;}
+  .is-revealable.is-visible .bonus-row:nth-child(3){animation-delay:.16s;}
+  .is-revealable.is-visible .bonus-row:nth-child(4){animation-delay:.22s;}
+  .is-revealable.is-visible .bonus-row:nth-child(5){animation-delay:.28s;}
+  .is-revealable.is-visible .bonus-row:nth-child(6){animation-delay:.34s;}
 </style>
 </head>
 <body>
@@ -1062,6 +1158,70 @@
     </details>
   </div>
 
+  <div class="bonus-stack">
+    <div class="bonus-tag">Plus — take the shortcut today, you also get</div>
+    <h2><span class="amber">$2,740</span> of bonuses on top.</h2>
+    <p class="bonus-intro">Same one-time $2,000. Not unlocks. Not upsells. Included with every shortcut.</p>
+
+    <ul class="bonus-list">
+      <li class="bonus-row">
+        <div class="bonus-num">#1</div>
+        <div class="bonus-body">
+          <div class="bonus-title">30-min offer-build call before your shoot</div>
+          <p class="bonus-row-sub">We'll architect the product, price point, hook, and funnel together. If your offer's locked already — skip it.</p>
+        </div>
+        <div class="bonus-val">$500</div>
+      </li>
+      <li class="bonus-row">
+        <div class="bonus-num">#2</div>
+        <div class="bonus-body">
+          <div class="bonus-title">I write your 10-second hook + interview headline</div>
+          <p class="bonus-row-sub">The line I say on camera that decides if 600k people click. I draft it, you approve.</p>
+        </div>
+        <div class="bonus-val">$300</div>
+      </li>
+      <li class="bonus-row">
+        <div class="bonus-num">#3</div>
+        <div class="bonus-body">
+          <div class="bonus-title">30-day email retargeting to clickers who didn't buy</div>
+          <p class="bonus-row-sub">Three follow-up emails go to every clicker from my list who didn't convert on day one. Free traffic, three more swings at the same fence.</p>
+        </div>
+        <div class="bonus-val">$800</div>
+      </li>
+      <li class="bonus-row">
+        <div class="bonus-num">#4</div>
+        <div class="bonus-body">
+          <div class="bonus-title">Lifetime founder WhatsApp group</div>
+          <p class="bonus-row-sub">Private group of past shortcut-takers. Direct line to me. Post wins, ask anything, swap intros.</p>
+        </div>
+        <div class="bonus-val">$240/yr</div>
+      </li>
+      <li class="bonus-row">
+        <div class="bonus-num">#5</div>
+        <div class="bonus-body">
+          <div class="bonus-title">Full ownership of your interview recording</div>
+          <p class="bonus-row-sub">Use it on your landing page, your YouTube, your sales calls. Forever yours, royalty-free.</p>
+        </div>
+        <div class="bonus-val">$400</div>
+      </li>
+      <li class="bonus-row">
+        <div class="bonus-num">#6</div>
+        <div class="bonus-body">
+          <div class="bonus-title">First-dibs slot in next year's "best founders" annual video</div>
+          <p class="bonus-row-sub">Every December I publish a "best founders I worked with this year" roundup. You get pre-booked into the next one.</p>
+        </div>
+        <div class="bonus-val">$500</div>
+      </li>
+    </ul>
+
+    <div class="bonus-total">
+      <div class="bonus-total-row"><span>10 years of channel access (the math above)</span><span><strong>$13,500</strong></span></div>
+      <div class="bonus-total-row"><span>Bonuses on top</span><span><strong class="amber">+ $2,740</strong></span></div>
+      <div class="bonus-total-row bonus-total-grand"><span>Real value</span><span><strong>$16,240</strong></span></div>
+      <div class="bonus-total-row bonus-total-price"><span>You pay</span><span><strong class="amber">$2,000 once</strong></span></div>
+    </div>
+  </div>
+
   <div class="booknow">
     <h2>Ready to take the <span class="amber">10-year</span> shortcut?</h2>
     <p>One conversation. One day. Your name in 600,000 inboxes. Your face on a 10-year YouTube channel. The whole machine — pointed at you, not me. The timer up top is real — when it hits zero, today's batch closes and tomorrow's shortcut opens at midnight Pacific. <strong>The shortcut you don't take, someone else does.</strong></p>
@@ -1081,7 +1241,7 @@
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v1.8.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v1.9.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
@@ -1123,7 +1283,7 @@
 
 // reveal on scroll — IntersectionObserver toggles .is-visible
 (function(){
-  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .offer-help, .winwin, .how-it-works, .booknow, .receipts, .brands, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row, .pay-options, .wa-group-pill';
+  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .offer-help, .bonus-stack, .winwin, .how-it-works, .booknow, .receipts, .brands, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row, .pay-options, .wa-group-pill';
   var els = document.querySelectorAll(sel);
   if (!els.length) return;
   els.forEach(function(el){ el.classList.add('is-revealable'); });
@@ -1207,6 +1367,58 @@
   function update(){ btnEl.href = buildUrl(); }
   [dateEl, timeEl, slotEl].forEach(function(el){ el.addEventListener('change', update); el.addEventListener('input', update); });
   update();
+})();
+
+// v1.9.0 — CTA click tracking via gtag events. Delegated; tags every primary CTA, pay rail, and group join.
+(function(){
+  function ev(name, params){
+    if (typeof gtag !== 'function') return;
+    try { gtag('event', name, Object.assign({page:'live'}, params || {})); } catch(e){}
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    // primary WhatsApp DM CTAs ($2k/$5k/$10k)
+    if (/wa\.me\/18054533586/.test(href)) {
+      var label = (a.textContent || '').trim().slice(0, 60);
+      var tier = /%2410%2C000|%2410000|30-day/.test(href) ? '30d_10k'
+               : /%245%2C000|%245000|3-day/.test(href)    ? '3d_5k'
+               : /PayPal|paypal/i.test(href)              ? 'pay_paypal'
+               : /Crypto|crypto|BTC|ETH/i.test(href)      ? 'pay_crypto'
+               : /WhatsApp%20checkout|whatsapp%20checkout/i.test(href) ? 'pay_whatsapp'
+               : /offer-build|don%27t%20have/i.test(href) ? 'offer_help'
+               : /claim%20my%20shortcut/i.test(href)      ? 'cb_customer_credit'
+               : '24h_2k';
+      ev('cta_click', {cta_tier: tier, cta_label: label});
+    }
+    // free WA group join
+    if (/chat\.whatsapp\.com\/GrtPRg1g6xk8Oy81Z3ktC4/.test(href)) {
+      ev('wa_group_join', {});
+    }
+  });
+  // scroll depth (25/50/75/100)
+  var marks = {25:false, 50:false, 75:false, 100:false};
+  function onScroll(){
+    var h = document.documentElement;
+    var pct = Math.round(((h.scrollTop + window.innerHeight) / h.scrollHeight) * 100);
+    [25, 50, 75, 100].forEach(function(m){
+      if (pct >= m && !marks[m]) { marks[m] = true; ev('scroll_depth', {pct: m}); }
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  // bonus-stack view (fires once when bonus-stack enters viewport)
+  if ('IntersectionObserver' in window) {
+    var bs = document.querySelector('.bonus-stack');
+    if (bs) {
+      var bsio = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if (en.isIntersecting) { ev('bonus_stack_view', {}); bsio.unobserve(en.target); }
+        });
+      }, {threshold: 0.3});
+      bsio.observe(bs);
+    }
+  }
 })();
 </script>
 </body>
