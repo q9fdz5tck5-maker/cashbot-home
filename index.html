@@ -24,6 +24,7 @@
     --line:#e7e3da;
     --accent:#1d7a4d;
     --accent-dark:#155c3a;
+    --accent-amber:#d99500;
     --gold:#a87a1f;
     --gold-soft:#fff4dc;
   }
@@ -679,7 +680,7 @@
     line-height:1.5;margin:-10px auto 22px;max-width:560px;
   }
   .vstack-trust-pill{
-    display:inline-block;background:#d99500;color:#fff;
+    display:inline-block;background:var(--accent-amber);color:#fff;
     font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
     padding:5px 12px;border-radius:6px;margin:0 0 14px;
   }
@@ -731,6 +732,68 @@
   .is-revealable.is-visible .vstack-row:nth-child(5){animation-delay:.33s;}
   .is-revealable.is-visible .vstack-row:nth-child(6){animation-delay:.40s;}
   .is-revealable.is-visible .vstack-row:nth-child(7){animation-delay:.47s;}
+
+  .amber{color:var(--accent-amber);font-weight:700;}
+
+  .offer-help{
+    margin:44px 0;padding:28px 24px;
+    background:linear-gradient(180deg,var(--gold-soft) 0%,#fff 100%);
+    border:1px solid #f0d99a;border-radius:16px;
+    box-shadow:0 4px 16px rgba(168,122,31,.08);
+  }
+  .offer-help-tag{
+    display:inline-block;padding:4px 12px;
+    background:#fff4dc;color:var(--gold);
+    border-radius:999px;font-size:12px;font-weight:800;
+    letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .offer-help h3{
+    font-size:clamp(20px,3.5vw,26px);margin:0 0 12px;color:var(--ink);
+  }
+  .offer-help-list{list-style:none;margin:14px 0 22px;padding:0;}
+  .offer-help-list li{
+    padding:9px 0;font-size:15px;color:var(--ink);
+    border-bottom:1px dashed var(--line);line-height:1.45;
+  }
+  .offer-help-list li:last-child{border-bottom:none;}
+  .offer-help-list li strong{color:var(--accent);}
+
+  .pay-options{
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+    margin:18px 0 6px;
+  }
+  .pay-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 18px;background:var(--surface);
+    border:1.5px solid var(--line);border-radius:999px;
+    color:var(--ink);text-decoration:none;
+    font-weight:600;font-size:14px;min-height:44px;
+    transition:all .2s ease;
+  }
+  .pay-btn:hover{
+    border-color:var(--accent);background:#f7faf8;transform:translateY(-1px);
+  }
+  .pay-btn-paypal{color:#0070ba;border-color:#cfe3f1;}
+  .pay-btn-paypal:hover{border-color:#0070ba;background:#f0f7fc;}
+  .pay-btn-crypto{color:#b8821b;border-color:#f0d99a;}
+  .pay-btn-crypto:hover{border-color:var(--accent-amber);background:#fff8e8;}
+  .pay-microcopy{
+    text-align:center;font-size:13px;color:var(--muted);margin:8px 0 0;
+  }
+
+  .wa-group-pill{text-align:center;margin:24px 0 36px;}
+  .wa-group-pill a{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 20px;
+    background:rgba(37,211,102,.08);
+    border:1.5px solid rgba(37,211,102,.4);
+    border-radius:999px;color:#1a9a4f;text-decoration:none;
+    font-weight:600;font-size:14px;min-height:44px;
+    transition:all .2s ease;
+  }
+  .wa-group-pill a:hover{
+    background:rgba(37,211,102,.14);border-color:rgba(37,211,102,.6);
+  }
 </style>
 </head>
 <body>
@@ -738,7 +801,7 @@
 
   <p class="context-bar">I'm <strong>Chase Reiner</strong>. Ten years on YouTube. A <strong>600,000-subscriber email list</strong>. 300k each on Instagram and Shorts. <strong>This page is the shortcut around those ten years — $2,000, one day.</strong></p>
 
-  <p class="kicker"><span class="live-dot" aria-hidden="true"></span>The 10-Year Shortcut · $2,000 once</p>
+  <p class="kicker"><span class="live-dot" aria-hidden="true"></span>The <span class="amber">10-Year</span> Shortcut · $2,000 once</p>
 
   <div class="countdown" id="countdown" role="status" aria-live="polite">
     <div class="countdown-label">Today's batch closes at midnight PT</div>
@@ -758,13 +821,13 @@
     <div class="stat"><div class="stat-n" data-count="600" data-suffix="k">0</div><div class="stat-l">Email list</div></div>
     <div class="stat"><div class="stat-n" data-count="300" data-suffix="k">0</div><div class="stat-l">Instagram</div></div>
     <div class="stat"><div class="stat-n" data-count="300" data-suffix="k">0</div><div class="stat-l">Shorts</div></div>
-    <div class="stat"><div class="stat-n" data-count="10" data-suffix="yr">0</div><div class="stat-l">YouTube</div></div>
+    <div class="stat"><div class="stat-n" data-count="10" data-suffix="yr" style="color:var(--accent-amber);">0</div><div class="stat-l">YouTube</div></div>
   </div>
 
   <section class="receipts" aria-label="Affiliate revenue proof">
     <div class="receipts-head">
-      <div class="kicker-inv">10 years of compound trust · the receipts</div>
-      <h2>$3.36M tracked through this channel — yours next.</h2>
+      <div class="kicker-inv"><span class="amber">10 years</span> of compound trust · the receipts</div>
+      <h2><span class="amber">$3.36M</span> tracked through this channel — yours next.</h2>
       <p>Stripe. PartnerStack. WarriorPlus. Spotter. Real receipts from the audience you're taking the shortcut to — opening wallets when the right person is on screen.</p>
     </div>
     <div class="receipts-grid">
@@ -962,6 +1025,19 @@
     <p class="cb-refund">Or if you'd rather have the refund I committed to in the previous letter — that's still on the table. Just say the word on WhatsApp and you keep your place in the queue. No pressure either way.</p>
   </div>
 
+  <div class="offer-help">
+    <span class="offer-help-tag">No offer yet? <span class="amber">No problem.</span></span>
+    <h3>I'll help you build the offer before your shortcut goes live.</h3>
+    <p>Every shortcut includes a <strong>free 30-minute offer-build call</strong> before your shoot. We'll architect the product, the price point, the hook, and the funnel — so when 600,000 people see it, it actually converts. Not extra. Part of what you paid for.</p>
+    <ul class="offer-help-list">
+      <li><strong>Offer positioning</strong> — what to sell, who to sell to, why now</li>
+      <li><strong>Price-point check</strong> — what your audience pays, what mine pays, where they meet</li>
+      <li><strong>Funnel review</strong> — landing page, email follow-up, retargeting (we'll fix the holes)</li>
+      <li><strong>10-second hook</strong> — the line I say on camera that decides if 600k people click</li>
+    </ul>
+    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20shortcut%20but%20I%20don%27t%20have%20an%20offer%20locked%20in%20yet.%20Help%20me%20build%20one%20first." target="_blank" rel="noopener">Take the shortcut + offer help &nbsp;→</a>
+  </div>
+
   <h2>FAQ</h2>
   <div class="faq">
     <details>
@@ -987,14 +1063,25 @@
   </div>
 
   <div class="booknow">
-    <h2>Ready to take the 10-year shortcut?</h2>
+    <h2>Ready to take the <span class="amber">10-year</span> shortcut?</h2>
     <p>One conversation. One day. Your name in 600,000 inboxes. Your face on a 10-year YouTube channel. The whole machine — pointed at you, not me. The timer up top is real — when it hits zero, today's batch closes and tomorrow's shortcut opens at midnight Pacific. <strong>The shortcut you don't take, someone else does.</strong></p>
     <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20to%20take%20the%2024-hour%20shortcut.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">Take the 10-year shortcut · DM Chase &nbsp;→</a>
   </div>
 
+  <div class="pay-options" aria-label="Payment rails">
+    <a class="pay-btn" href="https://wa.me/18054533586?text=Pay%20%242%2C000%20via%20WhatsApp%20%E2%80%94%20send%20me%20the%20checkout%20link.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">💬 WhatsApp checkout</a>
+    <a class="pay-btn pay-btn-paypal" href="https://wa.me/18054533586?text=Pay%20%242%2C000%20via%20PayPal%20%E2%80%94%20send%20me%20the%20invoice.%20My%20PayPal%20email%20is%3A%20" target="_blank" rel="noopener">💳 PayPal invoice</a>
+    <a class="pay-btn pay-btn-crypto" href="https://wa.me/18054533586?text=Pay%20%242%2C000%20via%20Crypto%20%E2%80%94%20send%20me%20the%20wallet%20%28BTC%2FETH%2FUSDC%29.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">₿ Crypto (BTC/ETH/USDC)</a>
+  </div>
+  <p class="pay-microcopy">Pick the rails you trust. Same $2,000. Same shortcut. No card upfront — DM first, pay after we lock the calendar.</p>
+
+  <div class="wa-group-pill">
+    <a href="https://chat.whatsapp.com/GrtPRg1g6xk8Oy81Z3ktC4?mode=gi_t" target="_blank" rel="noopener">💬 Not ready to buy? Join the free WhatsApp group — ask anything first →</a>
+  </div>
+
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v1.2.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v1.8.0 · Last updated 2026-05-24</p>
   </footer>
 
 </main>
@@ -1036,7 +1123,7 @@
 
 // reveal on scroll — IntersectionObserver toggles .is-visible
 (function(){
-  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .winwin, .how-it-works, .booknow, .receipts, .brands, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row';
+  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .offer-help, .winwin, .how-it-works, .booknow, .receipts, .brands, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row, .pay-options, .wa-group-pill';
   var els = document.querySelectorAll(sel);
   if (!els.length) return;
   els.forEach(function(el){ el.classList.add('is-revealable'); });
