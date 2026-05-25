@@ -378,31 +378,14 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     padding-top:12px;border-top:1px solid #cfe6d8;
   }
 
-  /* === motion v0.6.0 — subtle, premium, prefers-reduced-motion safe === */
+  /* === motion v3.5.0 — pruned: only pulse-dot (LIVE indicator) + fade-up (reveal) === */
   @keyframes pulse-dot {
     0%,100% { transform:scale(1); opacity:1; }
     50%     { transform:scale(1.45); opacity:.5; }
   }
-  @keyframes pulse-glow {
-    0%,100% { box-shadow:0 0 0 0 rgba(0,214,143,.45); }
-    50%     { box-shadow:0 0 0 14px rgba(0,214,143,0); }
-  }
-  @keyframes shimmer {
-    0%   { background-position:-200% 0; }
-    100% { background-position:200% 0; }
-  }
   @keyframes fade-up {
     from { opacity:0; transform:translateY(24px); }
     to   { opacity:1; transform:translateY(0); }
-  }
-  @keyframes float-up {
-    0%   { opacity:0; transform:translateY(14px); }
-    100% { opacity:1; transform:translateY(0); }
-  }
-  @keyframes wave-bg {
-    0%   { background-position:0% 50%; }
-    50%  { background-position:100% 50%; }
-    100% { background-position:0% 50%; }
   }
 
   .live-dot{
@@ -418,72 +401,39 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
   .lead      { animation:fade-up .65s ease both .35s; }
   .lead-2    { animation:fade-up .65s ease both .45s; }
 
-  /* countdown band — soft accent glow that breathes + slow gradient wave */
+  /* countdown band — static accent (v3.5.0: dropped pulse-glow + wave-bg keyframes) */
   .countdown {
-    background-image:linear-gradient(120deg, var(--accent), #2b9c66 50%, var(--accent));
-    background-size:200% 100%;
-    animation:fade-up .55s ease both .15s, pulse-glow 3.2s ease-in-out 1.2s infinite, wave-bg 9s ease-in-out infinite;
+    background:var(--accent);
+    animation:fade-up .55s cubic-bezier(.2,.8,.2,1) both .15s;
   }
 
-  /* H1 deposition accent — shimmering green sweep on the twist clause */
+  /* H1 accent — static gradient text (v3.5.0: dropped shimmer keyframe) */
   .h1-twist{
     background:linear-gradient(90deg, var(--accent) 0%, #34a06b 50%, var(--accent) 100%);
-    background-size:200% 100%;
     -webkit-background-clip:text;background-clip:text;
     -webkit-text-fill-color:transparent;
-    animation:shimmer 6.5s linear infinite;
   }
 
-  /* primary CTAs gently breathe so they read as "live" not dormant */
+  /* primary CTAs — static accent shadow (v3.5.0: dropped pulse-glow keyframe) */
   .btn-lg{
-    box-shadow:0 0 0 0 rgba(0,214,143,.5);
-    animation:pulse-glow 3.4s ease-in-out infinite;
+    box-shadow:0 0 32px -12px rgba(0,214,143,.6);
   }
 
   /* reveal-on-scroll — JS adds .is-visible on intersection */
   .is-revealable{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
   .is-revealable.is-visible{ opacity:1; transform:translateY(0); }
 
-  /* staggered children inside revealed containers */
+  /* staggered children inside revealed containers — v3.5.0: collapsed to CSS-var pattern.
+     JS sets --i index on each stagger child when its container becomes .is-visible. */
   .is-revealable.is-visible .feels-list li,
   .is-revealable.is-visible .receipt,
   .is-revealable.is-visible .brand-row,
   .is-revealable.is-visible .cb-amount,
   .is-revealable.is-visible .stat,
   .is-revealable.is-visible ul.bullets li{
-    animation:float-up .55s ease both;
+    animation:fade-up .55s cubic-bezier(.2,.8,.2,1) both;
+    animation-delay:calc(var(--i, 0) * 80ms);
   }
-  .is-revealable.is-visible .feels-list li:nth-child(1){animation-delay:.05s;}
-  .is-revealable.is-visible .feels-list li:nth-child(2){animation-delay:.15s;}
-  .is-revealable.is-visible .feels-list li:nth-child(3){animation-delay:.25s;}
-  .is-revealable.is-visible .feels-list li:nth-child(4){animation-delay:.35s;}
-  .is-revealable.is-visible .feels-list li:nth-child(5){animation-delay:.45s;}
-  .is-revealable.is-visible .receipt:nth-child(1){animation-delay:.05s;}
-  .is-revealable.is-visible .receipt:nth-child(2){animation-delay:.15s;}
-  .is-revealable.is-visible .receipt:nth-child(3){animation-delay:.25s;}
-  .is-revealable.is-visible .receipt:nth-child(4){animation-delay:.35s;}
-  .is-revealable.is-visible .receipt:nth-child(5){animation-delay:.45s;}
-  .is-revealable.is-visible .receipt:nth-child(6){animation-delay:.55s;}
-  .is-revealable.is-visible .brand-row:nth-child(1){animation-delay:.05s;}
-  .is-revealable.is-visible .brand-row:nth-child(2){animation-delay:.15s;}
-  .is-revealable.is-visible .brand-row:nth-child(3){animation-delay:.25s;}
-  .is-revealable.is-visible .brand-row:nth-child(4){animation-delay:.35s;}
-  .is-revealable.is-visible .cb-amount:nth-child(1){animation-delay:.05s;}
-  .is-revealable.is-visible .cb-amount:nth-child(2){animation-delay:.13s;}
-  .is-revealable.is-visible .cb-amount:nth-child(3){animation-delay:.21s;}
-  .is-revealable.is-visible .cb-amount:nth-child(4){animation-delay:.29s;}
-  .is-revealable.is-visible .stat:nth-child(1){animation-delay:.05s;}
-  .is-revealable.is-visible .stat:nth-child(2){animation-delay:.15s;}
-  .is-revealable.is-visible .stat:nth-child(3){animation-delay:.25s;}
-  .is-revealable.is-visible .stat:nth-child(4){animation-delay:.35s;}
-  .is-revealable.is-visible ul.bullets li:nth-child(1){animation-delay:.05s;}
-  .is-revealable.is-visible ul.bullets li:nth-child(2){animation-delay:.12s;}
-  .is-revealable.is-visible ul.bullets li:nth-child(3){animation-delay:.19s;}
-  .is-revealable.is-visible ul.bullets li:nth-child(4){animation-delay:.26s;}
-  .is-revealable.is-visible ul.bullets li:nth-child(5){animation-delay:.33s;}
-  .is-revealable.is-visible ul.bullets li:nth-child(6){animation-delay:.40s;}
-  .is-revealable.is-visible ul.bullets li:nth-child(7){animation-delay:.47s;}
-  .is-revealable.is-visible ul.bullets li:nth-child(8){animation-delay:.54s;}
 
   /* tier card hover lift */
   .tier{ transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
@@ -498,12 +448,11 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
   .receipt-shot:hover img{ transform:scale(1.045); }
 
   /* FAQ open subtle fade */
-  .faq details[open] p{ animation:float-up .35s ease both; }
+  .faq details[open] p{ animation:fade-up .35s ease both; }
 
-  /* CB-upgrade pulse to draw eye */
+  /* CB-upgrade — static accent (v3.5.0: dropped pulse-glow keyframe) */
   .cb-upgrade{
-    box-shadow:0 0 0 0 rgba(0,214,143,.35);
-    animation:pulse-glow 4s ease-in-out 2s infinite;
+    box-shadow:0 0 28px -10px rgba(0,214,143,.45);
   }
 
   /* reduced motion safety */
@@ -740,7 +689,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     margin-top:22px;padding:22px 16px;border-radius:14px;
     background:linear-gradient(135deg,var(--ink) 0%,#1a1a1a 100%);
     color:#fff;text-align:center;
-    animation:pulse-glow 3.6s ease-in-out infinite;
+    box-shadow:0 0 32px -10px rgba(0,214,143,.5);
   }
   .vstack-was{color:rgba(255,255,255,.55);font-size:14px;margin-bottom:6px;}
   .vstack-was s{color:rgba(255,255,255,.5);}
@@ -751,14 +700,11 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     background:rgba(255,217,102,.15);font-size:14px;font-weight:700;
     color:#ffd966;letter-spacing:.04em;
   }
-  .is-revealable.is-visible .vstack-row{animation:fade-up .55s ease both;}
-  .is-revealable.is-visible .vstack-row:nth-child(1){animation-delay:.05s;}
-  .is-revealable.is-visible .vstack-row:nth-child(2){animation-delay:.12s;}
-  .is-revealable.is-visible .vstack-row:nth-child(3){animation-delay:.19s;}
-  .is-revealable.is-visible .vstack-row:nth-child(4){animation-delay:.26s;}
-  .is-revealable.is-visible .vstack-row:nth-child(5){animation-delay:.33s;}
-  .is-revealable.is-visible .vstack-row:nth-child(6){animation-delay:.40s;}
-  .is-revealable.is-visible .vstack-row:nth-child(7){animation-delay:.47s;}
+  /* vstack-row stagger — v3.5.0: collapsed to CSS-var pattern (JS sets --i) */
+  .is-revealable.is-visible .vstack-row{
+    animation:fade-up .55s cubic-bezier(.2,.8,.2,1) both;
+    animation-delay:calc(var(--i, 0) * 70ms);
+  }
 
   .amber{color:var(--accent-amber);font-weight:700;}
 
@@ -840,7 +786,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     width:8px;height:8px;border-radius:50%;
     background:var(--accent-amber);
     box-shadow:0 0 10px var(--accent-amber);
-    animation:pulse-glow 1.4s ease-in-out infinite;
+    animation:pulse-dot 1.6s ease-out infinite;
     flex:0 0 auto;
   }
   .gb-label{letter-spacing:.01em;}
@@ -1711,7 +1657,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v2.0.0 · Last updated 2026-05-25 · "The Easy Thing"</p>
+    <p style="margin-top:8px;font-size:13px;">v3.5.0 · Last updated 2026-05-25 · "One hour. Your business. Live."</p>
   </footer>
 
 </main>
@@ -1761,9 +1707,13 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     els.forEach(function(el){ el.classList.add('is-visible'); });
     return;
   }
+  // v3.5.0 — stagger child --i pattern: set CSS-var on each direct stagger child
+  var staggerSel = '.feels-list li, .receipt, .brand-row, .cb-amount, .stat, .vstack-row, ul.bullets li';
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if (e.isIntersecting) {
+        var kids = e.target.querySelectorAll(staggerSel);
+        kids.forEach(function(k, i){ k.style.setProperty('--i', i + 1); });
         e.target.classList.add('is-visible');
         io.unobserve(e.target);
       }
