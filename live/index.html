@@ -1236,6 +1236,50 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     .format-picker{margin:40px auto 20px;}
     .format-card{min-height:auto;padding:18px;}
   }
+
+  /* === v3.3.0 two-track pricing — mono price chip + affiliate-gate note === */
+  .tier-price-mono{
+    display:flex;flex-direction:column;align-items:flex-end;gap:4px;
+    font-weight:800;line-height:1.05;
+  }
+  .tier-price-mono .tp-now{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:clamp(28px,5.6vw,36px);
+    color:var(--accent);
+    letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .tier-price-mono .tp-then{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11px;
+    color:var(--muted);
+    font-weight:500;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    text-decoration:line-through;
+    text-decoration-color:rgba(138,138,133,.6);
+  }
+  .tier .affiliate-gate-note{
+    margin:14px 0 18px;
+    padding:12px 14px;
+    background:rgba(0,214,143,.05);
+    border:1px solid rgba(0,214,143,.25);
+    border-left:3px solid var(--accent);
+    border-radius:8px;
+    color:var(--ink);
+    font-size:13px;line-height:1.55;
+  }
+  .tier .affiliate-gate-note .mono{color:var(--accent);}
+  .tier .affiliate-gate-note.founder-note{
+    background:rgba(255,184,74,.06);
+    border-color:rgba(255,184,74,.28);
+    border-left-color:var(--accent-amber);
+  }
+  .tier .affiliate-gate-note.founder-note .mono{color:var(--accent-amber);}
+  @media (max-width:600px){
+    .tier-price-mono{align-items:flex-start;margin-top:6px;}
+    .tier-price-mono .tp-then{font-size:10px;}
+  }
 </style>
 </head>
 <body>
@@ -1494,99 +1538,107 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
   <div class="tier">
     <div class="tier-head">
-      <div class="tier-name">1 Interview · 24 hours</div>
-      <div class="tier-price">$2,000<small> one-time</small></div>
+      <div class="tier-name">Hour Live · 1 day</div>
+      <div class="tier-price tier-price-mono"><span class="tp-now">$497</span><span class="tp-then">$2,000 without affiliate</span></div>
     </div>
     <div class="tier-desc"
-         data-format-text-build="The easy thing. <strong>BUILD format</strong> — we open cashbot templates and ship your offer live in the hour. Anyone — with or without an offer to start. <strong>No WhatsApp pre-screen required.</strong>"
-         data-format-text-critique="The easy thing. <strong>CRITIQUE format</strong> — bring what you've got. I audit it live and you walk out with a recorded teardown + fix list. <strong>No WhatsApp pre-screen required.</strong>">The easy thing. <strong>BUILD format</strong> — we open cashbot templates and ship your offer live in the hour. Anyone — with or without an offer to start. <strong>No WhatsApp pre-screen required.</strong></div>
+         data-format-text-build="<strong>One hour live on my YouTube.</strong> BUILD format — we open cashbot templates and ship your offer / product / funnel inside the hour. Walk out with a real working thing in front of my audience."
+         data-format-text-critique="<strong>One hour live on my YouTube.</strong> CRITIQUE format — bring what you've got. I audit it live and you walk out with a recorded teardown + fix list in front of my audience."><strong>One hour live on my YouTube.</strong> BUILD format — we open cashbot templates and ship your offer / product / funnel inside the hour. Walk out with a real working thing in front of my audience.</div>
     <ul class="bullets">
-      <li>One live 45–60 min interview on my YouTube</li>
-      <li><strong>We build your offer on the live</strong> if you don't have one — free, included</li>
-      <li>One email blast to 160k active subs (500–1k clicks)</li>
+      <li>One live 60-min stream on my YouTube channel</li>
+      <li>Email blast to 160k active subs (500–1k clicks)</li>
       <li>Auto-edited long-form repurpose + Shorts cut to 2 IGs (300k each)</li>
       <li>Recording yours forever, royalty-free</li>
       <li>Bookable within 7 days</li>
     </ul>
+    <div class="affiliate-gate-note">
+      <strong class="mono">$497 holds if I can promote an affiliate program after.</strong> Yours — or we spin one up live (PartnerStack, Rewardful, GHL — cashbot has the templates). No affiliate possible? <strong class="mono">$2,000 flat.</strong> DM me — we'll figure it out in 2 messages.
+    </div>
     <a class="btn btn-lg"
-       data-cta="tier1-2k"
-       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%201-interview%20BUILD%20package.%20My%20offer%20%28or%20what%20I%27d%20want%20to%20build%29%20is%3A%20"
-       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%201-interview%20CRITIQUE%20package.%20What%20I%20want%20audited%20is%3A%20"
-       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%201-interview%20BUILD%20package.%20My%20offer%20%28or%20what%20I%27d%20want%20to%20build%29%20is%3A%20"
-       target="_blank" rel="noopener">Get on this interview · $2,000 &nbsp;→</a>
+       data-cta="tier1-497"
+       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20BUILD%20hour.%20My%20business%20is%3A%20"
+       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20CRITIQUE%20hour.%20What%20I%20want%20audited%20is%3A%20"
+       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20BUILD%20hour.%20My%20business%20is%3A%20"
+       target="_blank" rel="noopener">Book the $497 hour · DM Chase &nbsp;→</a>
   </div>
 
   <div class="tier featured">
-    <div class="featured-tag">Most popular</div>
+    <div class="featured-tag">Founder match</div>
     <div class="tier-head">
-      <div class="tier-name">3 Interviews · 3 days</div>
-      <div class="tier-price">$5,000<small> one-time</small></div>
+      <div class="tier-name">3 Hours · 3 Days</div>
+      <div class="tier-price tier-price-mono"><span class="tp-now">$1,997</span><span class="tp-then">3 hour-lives · 3 consecutive days</span></div>
     </div>
     <div class="tier-desc"
-         data-format-text-build="<strong>Three BUILD sessions</strong> across three consecutive days. We ship multiple working pieces — offer, funnel, follow-up. Deeper arc, two email touches, daily social."
-         data-format-text-critique="<strong>Three CRITIQUE sessions</strong> across three consecutive days. Full audit of offer, funnel, pricing, hooks, traffic. Recorded teardowns + fix list, daily social pulse.">Three interviews across three consecutive days. Deeper arc, two email touches, daily social — bigger window for the audience to act.</div>
+         data-format-text-build="<strong>Three hour-long BUILD sessions</strong> across three consecutive days. We ship multiple working pieces — offer, funnel, follow-up. Three email blasts, three Shorts cycles, deeper audience activation arc."
+         data-format-text-critique="<strong>Three hour-long CRITIQUE sessions</strong> across three consecutive days. Full audit of offer, funnel, pricing, hooks, traffic. Recorded teardowns + fix list, daily social pulse."><strong>Three hour-long BUILD sessions</strong> across three consecutive days. We ship multiple working pieces — offer, funnel, follow-up. Three email blasts, three Shorts cycles, deeper audience activation arc.</div>
     <ul class="bullets">
-      <li>Three live interviews across three consecutive days</li>
+      <li>Three live hour-long streams across three consecutive days</li>
       <li>Case-study landing page (longer, social-proof rich)</li>
-      <li>Two email blasts (open + close of the window)</li>
+      <li>Three email blasts (open · mid · close of the window)</li>
       <li>Daily IG + Shorts content through the 3-day window</li>
       <li><strong>WhatsApp first</strong> — I'm not committing to 3 days promoting an offer I haven't seen</li>
     </ul>
+    <div class="affiliate-gate-note founder-note">
+      <strong class="mono">Cashbot Founder ($1,997 lifetime)?</strong> This tier is <strong>included</strong> — DM me with your purchase email and I'll book it.
+    </div>
     <a class="btn btn-lg"
-       data-cta="tier2-5k"
-       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%245%2C000%203-day%20BUILD%20package.%20My%20offer%20is%3A%20"
-       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%245%2C000%203-day%20CRITIQUE%20package.%20What%20I%20want%20audited%20is%3A%20"
-       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%245%2C000%203-day%20BUILD%20package.%20My%20offer%20is%3A%20"
-       target="_blank" rel="noopener">Apply · $5,000 &nbsp;→</a>
+       data-cta="tier2-1997"
+       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%241%2C997%203-day%20BUILD%20arc.%20My%20business%20is%3A%20"
+       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%241%2C997%203-day%20CRITIQUE%20arc.%20What%20I%20want%20audited%20is%3A%20"
+       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%241%2C997%203-day%20BUILD%20arc.%20My%20business%20is%3A%20"
+       target="_blank" rel="noopener">Get the 3-day arc · DM Chase &nbsp;→</a>
   </div>
 
   <div class="tier">
     <div class="tier-head">
-      <div class="tier-name">30-Day Exclusive · Founder-tier</div>
-      <div class="tier-price">$10,000<small> one-time</small></div>
+      <div class="tier-name">30-Day Exclusive</div>
+      <div class="tier-price tier-price-mono"><span class="tp-now">$9,997</span><span class="tp-then">multi-live · full month · exclusive</span></div>
     </div>
     <div class="tier-desc"
-         data-format-text-build="<strong>30-day exclusive BUILD</strong>. We ship multiple offers / products together over the month. Full funnel, phone calls to qualified leads — I help you close personally. The only tier that directly matches the Cash.bot Founder tier."
-         data-format-text-critique="<strong>30-day exclusive CRITIQUE</strong>. I audit and rebuild your entire stack across the month — offers, funnels, hooks, traffic, ops. Phone calls to qualified leads, exclusivity, recorded teardowns of everything.">I work with you exclusively for 30 days. <strong>BUILD format</strong> — we ship multiple offers / products together. Full funnel, phone calls to qualified leads — I help you close personally. The only tier that directly matches the Cash.bot Founder tier.</div>
+         data-format-text-build="<strong>30-day exclusive BUILD</strong>. Multiple hour-lives across the month. We ship multiple offers / products together. Full funnel, phone calls to qualified leads — I help you close personally. No competing offers promoted."
+         data-format-text-critique="<strong>30-day exclusive CRITIQUE</strong>. Multiple hour-lives across the month. I audit and rebuild your entire stack — offers, funnels, hooks, traffic, ops. Phone calls to qualified leads, exclusivity, recorded teardowns of everything."><strong>30-day exclusive BUILD</strong>. Multiple hour-lives across the month. We ship multiple offers / products together. Full funnel, phone calls to qualified leads — I help you close personally. No competing offers promoted.</div>
     <ul class="bullets">
-      <li>Multiple live interviews across the month</li>
+      <li>Multiple hour-lives across the month</li>
       <li>Full custom funnel — landing page, email sequence, follow-up</li>
       <li><strong>Phone calls to qualified leads</strong> — I help you close them personally</li>
       <li>Weekly email touches + daily IG/Shorts</li>
       <li>Exclusivity — no competing offer promoted for 30 days</li>
       <li><strong>WhatsApp first + 15-min qualifying call required</strong></li>
     </ul>
+    <div class="affiliate-gate-note founder-note">
+      <strong class="mono">Cashbot Founder ($1,997 lifetime)</strong> credits in — pay $8,000 difference.
+    </div>
     <a class="btn btn-lg"
-       data-cta="tier3-10k"
-       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%2410%2C000%2030-day%20exclusive%20BUILD.%20My%20offer%20is%3A%20"
-       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%2410%2C000%2030-day%20exclusive%20CRITIQUE.%20What%20I%20want%20audited%20is%3A%20"
-       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%2410%2C000%2030-day%20exclusive%20BUILD.%20My%20offer%20is%3A%20"
-       target="_blank" rel="noopener">Apply · $10,000 &nbsp;→</a>
+       data-cta="tier3-9997"
+       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%249%2C997%2030-day%20exclusive%20BUILD.%20My%20business%20is%3A%20"
+       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%249%2C997%2030-day%20exclusive%20CRITIQUE.%20What%20I%20want%20audited%20is%3A%20"
+       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%249%2C997%2030-day%20exclusive%20BUILD.%20My%20business%20is%3A%20"
+       target="_blank" rel="noopener">Apply for 30-day · DM Chase &nbsp;→</a>
   </div>
 
   <div class="cb-upgrade">
     <span class="cb-tag">Already bought cash.bot? Here's exactly what counts.</span>
-    <h3>Founder tier — your interview is already paid for. Every other tier — credit toward $2k.</h3>
+    <h3>Founder — the 3-day arc is included. Every other tier — credit toward whichever hour you want.</h3>
 
     <ul class="cb-paths">
       <li class="cb-path cb-path-founder">
         <strong>Cash.bot Founder ($1,997 lifetime)</strong>
-        <p>Your 1-interview package is already paid for. <strong>No additional payment.</strong> DM me on WhatsApp with the email you bought under and I'll put you on the calendar.</p>
-        <p>Want a bigger package? Apply your $1,997 toward the <strong>3 Interviews / 3-Day ($5,000)</strong> or <strong>30-Day Exclusive ($10,000)</strong> instead — same DM, just tell me which.</p>
+        <p>The <strong>3 Hours · 3 Days ($1,997) arc is included</strong> — direct match. No additional payment. DM me with your purchase email and I'll book the calendar.</p>
+        <p>Or apply your $1,997 toward the <strong>30-Day Exclusive ($9,997)</strong> — pay $8,000 difference, same DM.</p>
       </li>
       <li class="cb-path cb-path-other">
         <strong>Cash.bot Spark / Personal / Business / Enterprise</strong>
         <div class="cb-amounts">
-          <span class="cb-amount">Spark $9</span>
-          <span class="cb-amount">Personal $113</span>
-          <span class="cb-amount">Business $497</span>
-          <span class="cb-amount">Enterprise $1,047</span>
+          <span class="cb-amount mono">Spark $9</span>
+          <span class="cb-amount mono">Personal $113</span>
+          <span class="cb-amount mono">Business $497</span>
+          <span class="cb-amount mono">Enterprise $1,047</span>
         </div>
-        <p>Whatever you paid is <strong>credit toward the $2,000 interview</strong>. You pay the difference, not the full $2k. DM with your purchase email and I'll apply it on the spot — you don't pay twice for the same thing.</p>
+        <p>Whatever you paid is <strong>credit toward any hour-live tier</strong>. Pay the difference, not the full sticker. DM with your purchase email — I'll apply it on the spot. (Business tier $497 — your hour is effectively free if there's an affiliate.)</p>
       </li>
     </ul>
 
-    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%E2%80%99m%20already%20a%20cash.bot%20customer.%20I%20want%20to%20claim%20my%20interview%20%28or%20apply%20my%20credit%29.%20My%20purchase%20email%20is%3A%20" target="_blank" rel="noopener">Claim my interview / apply my credit &nbsp;→</a>
+    <a class="btn btn-lg" data-cta="cb-credit" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%E2%80%99m%20already%20a%20cash.bot%20customer.%20I%20want%20to%20claim%20my%20hour-live%20%28or%20apply%20my%20credit%29.%20My%20purchase%20email%20is%3A%20" target="_blank" rel="noopener">Claim my hour-live / apply my credit &nbsp;→</a>
     <p class="cb-refund">Or if you'd rather have the refund I committed to in the previous letter — that's <strong>still on the table</strong>. Inheritance just came in, so anyone who asks gets refunded fast. Just say the word on WhatsApp and you keep your place in the queue. No pressure either way.</p>
   </div>
 
@@ -1600,7 +1652,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       <li><strong>Funnel pulled from templates</strong> — landing page, email follow-up, retargeting, done</li>
       <li><strong>10-second hook</strong> — the line I say on camera that decides if 160k people click</li>
     </ul>
-    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20interview%20but%20I%20don%27t%20have%20an%20offer%20locked%20in%20yet.%20Build%20one%20with%20me." target="_blank" rel="noopener">Get the interview + build the offer with me &nbsp;→</a>
+    <a class="btn btn-lg" data-cta="offer-help" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20hour%20but%20I%20don%27t%20have%20an%20offer%20locked%20in%20yet.%20Build%20one%20with%20me." target="_blank" rel="noopener">Get the hour + build the offer with me &nbsp;→</a>
   </div>
 
   <h2>FAQ</h2>
@@ -1696,17 +1748,22 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
   </div>
 
   <div class="booknow" id="booknow">
-    <h2>Ready for <span class="amber">the easy thing?</span></h2>
-    <p>One interview. One hour. Your offer in front of my audience — or we build one on the live and ship it before the hour ends. Email blast to 160k. Long-form repurpose. Shorts to 600k IG followers. Recording yours forever. <strong>$2,000 once.</strong> The timer up top is real — when it hits zero, today's batch closes and tomorrow's interview opens at midnight Pacific. <strong>The easy thing you don't book, someone else does.</strong></p>
-    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%20interview.%20My%20offer%20%28or%20what%20I%27d%20want%20to%20build%29%20is%3A%20" target="_blank" rel="noopener">Get on the interview · DM Chase &nbsp;→</a>
+    <h2>Ready for <span class="amber">the hour?</span></h2>
+    <p>One hour live on my YouTube. Build OR critique — your call (toggle above). Email blast to 160k. Long-form repurpose. Shorts to 600k IG followers. Recording yours forever. <strong>$497 once if there's an affiliate I can promote after — $2,000 if not.</strong> WhatsApp first, no card upfront. <strong>The hour you don't book, someone else does.</strong></p>
+    <a class="btn btn-lg"
+       data-cta="booknow-primary"
+       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20BUILD%20hour.%20My%20business%20is%3A%20"
+       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20CRITIQUE%20hour.%20What%20I%20want%20audited%20is%3A%20"
+       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20BUILD%20hour.%20My%20business%20is%3A%20"
+       target="_blank" rel="noopener">Book the $497 hour · DM Chase &nbsp;→</a>
   </div>
 
   <div class="pay-options" aria-label="Payment rails">
-    <a class="pay-btn" href="https://wa.me/18054533586?text=Pay%20%242%2C000%20via%20WhatsApp%20%E2%80%94%20send%20me%20the%20checkout%20link.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">💬 WhatsApp checkout</a>
-    <a class="pay-btn pay-btn-paypal" href="https://wa.me/18054533586?text=Pay%20%242%2C000%20via%20PayPal%20%E2%80%94%20send%20me%20the%20invoice.%20My%20PayPal%20email%20is%3A%20" target="_blank" rel="noopener">💳 PayPal invoice</a>
-    <a class="pay-btn pay-btn-crypto" href="https://wa.me/18054533586?text=Pay%20%242%2C000%20via%20Crypto%20%E2%80%94%20send%20me%20the%20wallet%20%28BTC%2FETH%2FUSDC%29.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">₿ Crypto (BTC/ETH/USDC)</a>
+    <a class="pay-btn" data-cta="pay-wa" href="https://wa.me/18054533586?text=Pay%20%24497%20via%20WhatsApp%20%E2%80%94%20send%20me%20the%20checkout%20link.%20My%20business%20is%3A%20" target="_blank" rel="noopener">💬 WhatsApp checkout</a>
+    <a class="pay-btn pay-btn-paypal" data-cta="pay-paypal" href="https://wa.me/18054533586?text=Pay%20%24497%20via%20PayPal%20%E2%80%94%20send%20me%20the%20invoice.%20My%20PayPal%20email%20is%3A%20" target="_blank" rel="noopener">💳 PayPal invoice</a>
+    <a class="pay-btn pay-btn-crypto" data-cta="pay-crypto" href="https://wa.me/18054533586?text=Pay%20%24497%20via%20Crypto%20%E2%80%94%20send%20me%20the%20wallet%20%28BTC%2FETH%2FUSDC%29.%20My%20business%20is%3A%20" target="_blank" rel="noopener">₿ Crypto (BTC/ETH/USDC)</a>
   </div>
-  <p class="pay-microcopy">Pick the rails you trust. Same $2,000. Same interview. No card upfront — DM first, pay after we lock the calendar.</p>
+  <p class="pay-microcopy">Pick the rails you trust. <strong class="mono">$497</strong> if there's an affiliate I can promote after, <strong class="mono">$2,000</strong> if not. No card upfront — DM first, pay after we lock the calendar.</p>
 
   <div class="wa-group-pill">
     <a href="https://chat.whatsapp.com/GrtPRg1g6xk8Oy81Z3ktC4?mode=gi_t" target="_blank" rel="noopener">💬 Not ready to buy? Join the free WhatsApp group — ask anything first →</a>
@@ -1855,14 +1912,15 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     // primary WhatsApp DM CTAs ($2k/$5k/$10k)
     if (/wa\.me\/18054533586/.test(href)) {
       var label = (a.textContent || '').trim().slice(0, 60);
-      var tier = /%2410%2C000|%2410000|30-day/.test(href) ? '30d_10k'
-               : /%245%2C000|%245000|3-day/.test(href)    ? '3d_5k'
+      var tier = /%249%2C997|%249997|30-day%20exclusive/.test(href) ? '30d_9997'
+               : /%241%2C997|%241997|3-day%20BUILD%20arc|3-day%20CRITIQUE%20arc/.test(href) ? '3d_1997'
+               : /%24497%20BUILD%20hour|%24497%20CRITIQUE%20hour|%24497%20hour/.test(href)  ? 'hour_497'
                : /PayPal|paypal/i.test(href)              ? 'pay_paypal'
                : /Crypto|crypto|BTC|ETH/i.test(href)      ? 'pay_crypto'
                : /WhatsApp%20checkout|whatsapp%20checkout/i.test(href) ? 'pay_whatsapp'
                : /offer-build|don%27t%20have/i.test(href) ? 'offer_help'
-               : /claim%20my%20interview/i.test(href)     ? 'cb_customer_credit'
-               : '24h_2k';
+               : /claim%20my%20hour|claim%20my%20interview/i.test(href) ? 'cb_customer_credit'
+               : 'hour_497';
       ev('cta_click', {cta_tier: tier, cta_label: label});
     }
     // free WA group join
