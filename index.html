@@ -1156,6 +1156,86 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     padding:2px 8px;border-radius:5px;
     margin-left:6px;font-size:12px;letter-spacing:.05em;
   }
+
+  /* === v3.2.0 format selector — BUILD or CRITIQUE === */
+  .format-picker{
+    margin:56px auto 28px;max-width:920px;
+    padding:0 4px;
+  }
+  .fp-kicker{
+    text-align:center;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11px;letter-spacing:.18em;
+    color:var(--accent);
+    text-transform:uppercase;
+    margin:0 0 10px;font-weight:700;
+  }
+  .fp-h2{
+    text-align:center;
+    font-size:clamp(24px,4vw,40px);
+    letter-spacing:-.02em;line-height:1.15;
+    color:var(--ink);
+    margin:0 0 26px;font-weight:700;
+  }
+  .format-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .format-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:22px 22px 24px;
+    cursor:pointer;
+    transition:border-color .18s,box-shadow .18s,transform .18s,background .18s;
+    position:relative;
+    text-align:left;
+    color:var(--ink);
+    font:inherit;
+    width:100%;
+    min-height:140px;
+  }
+  .format-card:hover{
+    border-color:var(--accent);
+    transform:translateY(-1px);
+    box-shadow:0 0 32px -16px var(--accent);
+  }
+  .format-card:focus-visible{
+    outline:2px solid var(--accent);outline-offset:2px;
+  }
+  .format-card[aria-pressed="true"]{
+    border-color:var(--accent);
+    background:var(--surface-2);
+    box-shadow:0 0 36px -12px var(--accent), inset 0 0 0 1px var(--accent);
+  }
+  .fp-card-head{
+    display:flex;align-items:center;justify-content:space-between;
+    margin:0 0 12px;gap:10px;
+  }
+  .fp-card-name{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:15px;font-weight:700;
+    color:var(--ink);
+    letter-spacing:.05em;
+  }
+  .format-card[aria-pressed="true"] .fp-card-name{color:var(--accent);}
+  .fp-active-chip{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10px;letter-spacing:.14em;font-weight:700;
+    background:var(--accent);color:var(--bg);
+    padding:3px 8px;border-radius:4px;
+    text-transform:uppercase;
+    display:none;
+  }
+  .format-card[aria-pressed="true"] .fp-active-chip{display:inline-block;}
+  .fp-card-body{
+    color:var(--muted);font-size:14px;line-height:1.55;
+    margin:0;
+  }
+  @media (max-width:600px){
+    .format-grid{grid-template-columns:1fr;gap:10px;}
+    .format-picker{margin:40px auto 20px;}
+    .format-card{min-height:auto;padding:18px;}
+  }
 </style>
 </head>
 <body>
@@ -1183,7 +1263,12 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
   <p class="lead-2"><span class="mono">$497</span> if there's an affiliate program I can promote after. <span class="mono">$2,000</span> if not. Either price — same hour, same audience. Refund inside 30 days if it doesn't move the needle.</p>
 
   <div style="text-align:center;margin:24px 0 32px;">
-    <a class="btn btn-lg" data-cta="hero-primary" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20hour.%20My%20business%20is%3A%20" target="_blank" rel="noopener">Book the hour · DM Chase on WhatsApp &nbsp;→</a>
+    <a class="btn btn-lg"
+       data-cta="hero-primary"
+       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20BUILD%20hour.%20My%20business%20is%3A%20"
+       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20CRITIQUE%20hour.%20My%20business%20is%3A%20"
+       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20BUILD%20hour.%20My%20business%20is%3A%20"
+       target="_blank" rel="noopener">Book the hour · DM Chase on WhatsApp &nbsp;→</a>
     <p style="margin:10px 0 0;color:var(--muted);font-size:14px;">WhatsApp first · No card upfront · Refund inside 30 days</p>
   </div>
 
@@ -1384,6 +1469,27 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     </div>
   </section>
 
+  <section class="format-picker" id="formatPicker" aria-label="Pick build or critique format">
+    <p class="fp-kicker">PICK YOUR FORMAT</p>
+    <h2 class="fp-h2">Build it with me, or get it critiqued.</h2>
+    <div class="format-grid" role="group" aria-label="Format choice">
+      <button type="button" class="format-card" data-format="build" data-cta="format-toggle" aria-pressed="true">
+        <div class="fp-card-head">
+          <span class="fp-card-name">[ BUILD ]</span>
+          <span class="fp-active-chip">ACTIVE</span>
+        </div>
+        <p class="fp-card-body">I sit with you live, we open cashbot templates, and we ship your offer / product / funnel inside the hour. Walk out with a real working thing.</p>
+      </button>
+      <button type="button" class="format-card" data-format="critique" data-cta="format-toggle" aria-pressed="false">
+        <div class="fp-card-head">
+          <span class="fp-card-name">[ CRITIQUE ]</span>
+          <span class="fp-active-chip">ACTIVE</span>
+        </div>
+        <p class="fp-card-body">Bring what you've got. I audit it live — offer, funnel, pricing, hooks, traffic. You get a recorded teardown + my fix list.</p>
+      </button>
+    </div>
+  </section>
+
   <h2>The three packages</h2>
 
   <div class="tier">
@@ -1391,7 +1497,9 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       <div class="tier-name">1 Interview · 24 hours</div>
       <div class="tier-price">$2,000<small> one-time</small></div>
     </div>
-    <div class="tier-desc">The easy thing. One interview, one day. Anyone — with or without an offer. <strong>No WhatsApp pre-screen required</strong> at this tier.</div>
+    <div class="tier-desc"
+         data-format-text-build="The easy thing. <strong>BUILD format</strong> — we open cashbot templates and ship your offer live in the hour. Anyone — with or without an offer to start. <strong>No WhatsApp pre-screen required.</strong>"
+         data-format-text-critique="The easy thing. <strong>CRITIQUE format</strong> — bring what you've got. I audit it live and you walk out with a recorded teardown + fix list. <strong>No WhatsApp pre-screen required.</strong>">The easy thing. <strong>BUILD format</strong> — we open cashbot templates and ship your offer live in the hour. Anyone — with or without an offer to start. <strong>No WhatsApp pre-screen required.</strong></div>
     <ul class="bullets">
       <li>One live 45–60 min interview on my YouTube</li>
       <li><strong>We build your offer on the live</strong> if you don't have one — free, included</li>
@@ -1400,7 +1508,12 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       <li>Recording yours forever, royalty-free</li>
       <li>Bookable within 7 days</li>
     </ul>
-    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%201-interview%20package.%20My%20offer%20%28or%20what%20I%27d%20want%20to%20build%29%20is%3A%20" target="_blank" rel="noopener">Get on this interview · $2,000 &nbsp;→</a>
+    <a class="btn btn-lg"
+       data-cta="tier1-2k"
+       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%201-interview%20BUILD%20package.%20My%20offer%20%28or%20what%20I%27d%20want%20to%20build%29%20is%3A%20"
+       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%201-interview%20CRITIQUE%20package.%20What%20I%20want%20audited%20is%3A%20"
+       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%242%2C000%201-interview%20BUILD%20package.%20My%20offer%20%28or%20what%20I%27d%20want%20to%20build%29%20is%3A%20"
+       target="_blank" rel="noopener">Get on this interview · $2,000 &nbsp;→</a>
   </div>
 
   <div class="tier featured">
@@ -1409,7 +1522,9 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       <div class="tier-name">3 Interviews · 3 days</div>
       <div class="tier-price">$5,000<small> one-time</small></div>
     </div>
-    <div class="tier-desc">Three interviews across three consecutive days. Deeper arc, two email touches, daily social — bigger window for the audience to act.</div>
+    <div class="tier-desc"
+         data-format-text-build="<strong>Three BUILD sessions</strong> across three consecutive days. We ship multiple working pieces — offer, funnel, follow-up. Deeper arc, two email touches, daily social."
+         data-format-text-critique="<strong>Three CRITIQUE sessions</strong> across three consecutive days. Full audit of offer, funnel, pricing, hooks, traffic. Recorded teardowns + fix list, daily social pulse.">Three interviews across three consecutive days. Deeper arc, two email touches, daily social — bigger window for the audience to act.</div>
     <ul class="bullets">
       <li>Three live interviews across three consecutive days</li>
       <li>Case-study landing page (longer, social-proof rich)</li>
@@ -1417,7 +1532,12 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       <li>Daily IG + Shorts content through the 3-day window</li>
       <li><strong>WhatsApp first</strong> — I'm not committing to 3 days promoting an offer I haven't seen</li>
     </ul>
-    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%245%2C000%203-interview%20package.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">Apply · $5,000 &nbsp;→</a>
+    <a class="btn btn-lg"
+       data-cta="tier2-5k"
+       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%245%2C000%203-day%20BUILD%20package.%20My%20offer%20is%3A%20"
+       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%245%2C000%203-day%20CRITIQUE%20package.%20What%20I%20want%20audited%20is%3A%20"
+       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%245%2C000%203-day%20BUILD%20package.%20My%20offer%20is%3A%20"
+       target="_blank" rel="noopener">Apply · $5,000 &nbsp;→</a>
   </div>
 
   <div class="tier">
@@ -1425,7 +1545,9 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       <div class="tier-name">30-Day Exclusive · Founder-tier</div>
       <div class="tier-price">$10,000<small> one-time</small></div>
     </div>
-    <div class="tier-desc">I work with you exclusively for 30 days. Multiple interviews, full funnel, phone calls to qualified leads — I help you close personally. The only tier that directly matches the Cash.bot Founder tier.</div>
+    <div class="tier-desc"
+         data-format-text-build="<strong>30-day exclusive BUILD</strong>. We ship multiple offers / products together over the month. Full funnel, phone calls to qualified leads — I help you close personally. The only tier that directly matches the Cash.bot Founder tier."
+         data-format-text-critique="<strong>30-day exclusive CRITIQUE</strong>. I audit and rebuild your entire stack across the month — offers, funnels, hooks, traffic, ops. Phone calls to qualified leads, exclusivity, recorded teardowns of everything.">I work with you exclusively for 30 days. <strong>BUILD format</strong> — we ship multiple offers / products together. Full funnel, phone calls to qualified leads — I help you close personally. The only tier that directly matches the Cash.bot Founder tier.</div>
     <ul class="bullets">
       <li>Multiple live interviews across the month</li>
       <li>Full custom funnel — landing page, email sequence, follow-up</li>
@@ -1434,7 +1556,12 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       <li>Exclusivity — no competing offer promoted for 30 days</li>
       <li><strong>WhatsApp first + 15-min qualifying call required</strong></li>
     </ul>
-    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%2410%2C000%2030-day%20exclusive.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">Apply · $10,000 &nbsp;→</a>
+    <a class="btn btn-lg"
+       data-cta="tier3-10k"
+       data-format-href-build="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%2410%2C000%2030-day%20exclusive%20BUILD.%20My%20offer%20is%3A%20"
+       data-format-href-critique="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%2410%2C000%2030-day%20exclusive%20CRITIQUE.%20What%20I%20want%20audited%20is%3A%20"
+       href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20applying%20for%20the%20%2410%2C000%2030-day%20exclusive%20BUILD.%20My%20offer%20is%3A%20"
+       target="_blank" rel="noopener">Apply · $10,000 &nbsp;→</a>
   </div>
 
   <div class="cb-upgrade">
@@ -1765,6 +1892,42 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       bsio.observe(bs);
     }
   }
+})();
+
+// v3.2.0 — format selector (BUILD/CRITIQUE) with localStorage + GA4 + tier-card swap
+(function(){
+  var KEY = 'cb_format_choice';
+  var picker = document.getElementById('formatPicker');
+  if (!picker) return;
+  var cards = picker.querySelectorAll('.format-card');
+  function applyFormat(fmt){
+    if (fmt !== 'build' && fmt !== 'critique') fmt = 'build';
+    document.body.dataset.format = fmt;
+    cards.forEach(function(c){
+      c.setAttribute('aria-pressed', c.dataset.format === fmt ? 'true' : 'false');
+    });
+    document.querySelectorAll('[data-format-text-build]').forEach(function(el){
+      var v = el.getAttribute('data-format-text-' + fmt);
+      if (v) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-format-href-build]').forEach(function(el){
+      var v = el.getAttribute('data-format-href-' + fmt);
+      if (v) el.setAttribute('href', v);
+    });
+    try{ localStorage.setItem(KEY, fmt); }catch(e){}
+  }
+  cards.forEach(function(c){
+    c.addEventListener('click', function(){
+      var fmt = c.dataset.format;
+      applyFormat(fmt);
+      if (typeof gtag === 'function') {
+        try{ gtag('event','format_toggle',{format:fmt,page:'live'}); }catch(e){}
+      }
+    });
+  });
+  var saved = null;
+  try{ saved = localStorage.getItem(KEY); }catch(e){}
+  applyFormat(saved || 'build');
 })();
 
 // v1.10.0 — $2,000 money-back guarantee 12hr countdown (resets daily at midnight local)
