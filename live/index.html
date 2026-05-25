@@ -890,9 +890,58 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
   .is-revealable.is-visible .bonus-row:nth-child(4){animation-delay:.22s;}
   .is-revealable.is-visible .bonus-row:nth-child(5){animation-delay:.28s;}
   .is-revealable.is-visible .bonus-row:nth-child(6){animation-delay:.34s;}
+
+  /* v1.10.0 — $2,000 money-back guarantee 12hr countdown sticky bar */
+  .guarantee-bar{
+    position:sticky;top:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;
+    gap:10px;flex-wrap:wrap;
+    padding:10px 16px;min-height:44px;
+    background:linear-gradient(90deg,#1a1714 0%,#2b2218 50%,#1a1714 100%);
+    color:#fff;text-decoration:none;
+    font-size:13px;line-height:1.4;
+    border-bottom:2px solid var(--accent-amber);
+    box-shadow:0 2px 12px rgba(0,0,0,.15);
+    transition:filter .2s;
+  }
+  .guarantee-bar:hover{filter:brightness(1.18);}
+  .gb-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent-amber);
+    box-shadow:0 0 10px var(--accent-amber);
+    animation:pulse-glow 1.4s ease-in-out infinite;
+    flex:0 0 auto;
+  }
+  .gb-label{letter-spacing:.01em;}
+  .gb-label strong{color:var(--accent-amber);font-weight:700;}
+  .gb-countdown{
+    font-family:'SF Mono',Menlo,Consolas,monospace;
+    font-variant-numeric:tabular-nums;
+    background:rgba(217,149,0,.18);
+    border:1px solid var(--accent-amber);
+    border-radius:6px;
+    padding:4px 10px;
+    font-weight:700;color:var(--accent-amber);
+    font-size:13px;letter-spacing:.02em;
+  }
+  .gb-arrow{color:var(--accent-amber);font-weight:700;}
+  @media (max-width:480px){
+    .guarantee-bar{font-size:12px;padding:8px 10px;gap:8px;}
+    .gb-countdown{font-size:12px;padding:3px 8px;}
+    .gb-label{flex:1 1 100%;text-align:center;}
+  }
+  .is-revealable.is-visible .bonus-row:nth-child(6){animation-delay:.34s;}
 </style>
 </head>
 <body>
+
+<a href="#booknow" class="guarantee-bar" id="guaranteeBar" aria-label="$2,000 money-back guarantee leaving tonight — tap to lock in">
+  <span class="gb-dot" aria-hidden="true"></span>
+  <span class="gb-label"><strong>$2,000 money-back guarantee</strong> leaving tonight</span>
+  <span class="gb-countdown" id="gbCountdown">12h 00m 00s</span>
+  <span class="gb-arrow" aria-hidden="true">Lock in →</span>
+</a>
+
 <main class="wrap">
 
   <p class="context-bar">I'm <strong>Chase Reiner</strong>. Ten years on YouTube. A <strong>600,000-subscriber email list</strong>. 300k each on Instagram and Shorts. <strong>This page is the shortcut around those ten years — $2,000, one day.</strong></p>
@@ -1222,7 +1271,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     </div>
   </div>
 
-  <div class="booknow">
+  <div class="booknow" id="booknow">
     <h2>Ready to take the <span class="amber">10-year</span> shortcut?</h2>
     <p>One conversation. One day. Your name in 600,000 inboxes. Your face on a 10-year YouTube channel. The whole machine — pointed at you, not me. The timer up top is real — when it hits zero, today's batch closes and tomorrow's shortcut opens at midnight Pacific. <strong>The shortcut you don't take, someone else does.</strong></p>
     <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20to%20take%20the%2024-hour%20shortcut.%20My%20offer%20is%3A%20" target="_blank" rel="noopener">Take the 10-year shortcut · DM Chase &nbsp;→</a>
@@ -1241,7 +1290,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v1.9.0 · Last updated 2026-05-24</p>
+    <p style="margin-top:8px;font-size:13px;">v1.10.0 · Last updated 2026-05-25</p>
   </footer>
 
 </main>
@@ -1419,6 +1468,27 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       bsio.observe(bs);
     }
   }
+})();
+
+// v1.10.0 — $2,000 money-back guarantee 12hr countdown (resets daily at midnight local)
+(function(){
+  var el = document.getElementById('gbCountdown');
+  if (!el) return;
+  var CAP_MS = 12 * 60 * 60 * 1000;
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function tick(){
+    var now = new Date();
+    var end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+    var ms = end - now;
+    if (ms > CAP_MS) ms = CAP_MS;
+    if (ms < 0) ms = 0;
+    var h = Math.floor(ms / 3600000);
+    var m = Math.floor((ms % 3600000) / 60000);
+    var s = Math.floor((ms % 60000) / 1000);
+    el.textContent = h + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+  }
+  tick();
+  setInterval(tick, 1000);
 })();
 </script>
 </body>
