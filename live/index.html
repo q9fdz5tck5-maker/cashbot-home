@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Easiest Offer · 1 Interview + Your Offer Promoted · $2,000 — Chase Reiner</title>
+<title>One Hour Live · Build or Critique Your Business on YouTube · $497 — Chase Reiner</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="theme-color" content="#0a0a0d">
-<meta name="description" content="One live interview with Chase Reiner. Have an offer? He promotes it to 600,000 people. No offer yet? You build it together on the live, free — then he promotes it. Every interview Chase has done has made way over a few thousand. $2,000 once. Cash.bot customers — your purchase counts as credit.">
+<meta name="description" content="One hour live on Chase Reiner's YouTube. Build your business with him in the hour, or have him critique what you've already got — your call. $497 if there's an affiliate program he can promote after, $2,000 if not. Either price — same hour, same 600,000-person audience.">
 <link rel="canonical" href="https://cash.bot/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cash.bot/">
-<meta property="og:title" content="The Easiest Offer · 1 Interview + Your Offer Promoted · $2,000 — Chase Reiner">
-<meta property="og:description" content="One interview. You bring an offer or we build one on the live. Then I promote it to 600k people — email + YouTube + IG + Shorts. Every interview I've done made way over a few thousand. $2,000 once.">
+<meta property="og:title" content="One Hour Live · Build or Critique Your Business on YouTube · $497 — Chase Reiner">
+<meta property="og:description" content="One hour live on my YouTube. I build your business with you, or I critique what you've got. $497 if I can promote an affiliate program after, $2,000 if not. Same hour, same 600k audience either way.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Easiest Offer · 1 Interview + Audience Built · $2,000 — Chase Reiner">
-<meta name="twitter:description" content="One interview. Bring an offer or we build one on the live. Then I promote it to 600,000 people. $2,000 once.">
+<meta name="twitter:title" content="One Hour Live · Build or Critique · $497 — Chase Reiner">
+<meta name="twitter:description" content="One hour live on my YouTube. Build your business with me, or get it critiqued. $497 if there's an affiliate I can promote after.">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7LE6ZM2RKK"></script>
 <script>
@@ -22,7 +22,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-7LE6ZM2RKK', {
-  page_title: 'The Easiest Offer — 1 Interview',
+  page_title: 'One Hour Live — Build or Critique · $497',
   page_path: location.pathname,
   send_page_view: true
 });
@@ -1106,35 +1106,85 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     padding:8px 0;
     margin:-8px 0 14px;
   }
+
+  /* === v3.1.0 sticky live-bar — replaces v1.10.0 guarantee-bar === */
+  .live-bar{
+    position:sticky;top:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;
+    gap:12px;flex-wrap:wrap;
+    padding:10px 16px;min-height:44px;
+    background:var(--surface-2);
+    border-bottom:1px solid var(--accent);
+    color:var(--ink);text-decoration:none;
+    font-size:13px;line-height:1.4;
+    transition:filter .2s;
+  }
+  .live-bar:hover{filter:brightness(1.15);}
+  .lb-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 12px var(--accent);
+    animation:pulse-dot 1.6s ease-out infinite;
+    flex:0 0 auto;
+  }
+  .lb-label{letter-spacing:.01em;}
+  .lb-label strong{color:var(--accent);font-weight:700;letter-spacing:.04em;}
+  .lb-chip{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-variant-numeric:tabular-nums;
+    background:rgba(0,214,143,.10);
+    border:1px solid var(--accent);
+    border-radius:6px;
+    padding:4px 10px;
+    font-weight:700;color:var(--accent);
+    font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .lb-arrow{color:var(--accent);font-weight:700;}
+  @media (max-width:480px){
+    .live-bar{font-size:12px;padding:8px 10px;gap:8px;}
+    .lb-chip{font-size:11px;padding:3px 8px;}
+    .lb-label{flex:1 1 100%;text-align:center;}
+  }
+
+  /* hero kicker v3.1.0 — mono price chip inline */
+  .kicker .price-chip{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    background:rgba(0,214,143,.10);
+    border:1px solid var(--accent);
+    color:var(--accent);
+    padding:2px 8px;border-radius:5px;
+    margin-left:6px;font-size:12px;letter-spacing:.05em;
+  }
 </style>
 </head>
 <body>
 
-<a href="#booknow" class="guarantee-bar" id="guaranteeBar" aria-label="$2,000 money-back guarantee leaving tonight — tap to lock in">
-  <span class="gb-dot" aria-hidden="true"></span>
-  <span class="gb-label"><strong>$2,000 money-back guarantee</strong> leaving tonight</span>
-  <span class="gb-countdown" id="gbCountdown">12h 00m 00s</span>
-  <span class="gb-arrow" aria-hidden="true">Lock in →</span>
+<a href="#booknow" class="live-bar" id="liveBar" data-cta="live-bar" aria-label="Live today — the $497 hour with Chase — tap to book">
+  <span class="lb-dot" aria-hidden="true"></span>
+  <span class="lb-label"><strong>LIVE TODAY</strong> · the $497 hour with Chase</span>
+  <span class="lb-chip">49 slots</span>
+  <span class="lb-arrow" aria-hidden="true">Book →</span>
 </a>
 
 <main class="wrap">
 
-  <p class="context-bar">I'm <strong>Chase Reiner</strong>. Ten years on YouTube. <strong>600,000-subscriber email list</strong>. 300k each on Instagram + Shorts. <strong>I keep over-complicating offers — the easiest thing I've ever sold is one interview to my audience. Yours next.</strong></p>
+  <p class="context-bar">I'm <strong>Chase Reiner</strong>. Ten years on YouTube. <strong>600,000-subscriber email list</strong>. 300k each on Instagram + Shorts. <strong>I sell one hour live on my channel — I either build your business with you in the hour, or I critique what you've already got. $497 if there's an affiliate I can promote after.</strong></p>
 
-  <p class="kicker"><span class="live-dot" aria-hidden="true"></span>The <span class="amber">Easiest</span> Offer · 1 Interview · $2,000</p>
+  <p class="kicker"><span class="live-dot" aria-hidden="true"></span>Hour-long live on my YouTube <span class="price-chip mono">$497</span></p>
 
   <div class="countdown" id="countdown" role="status" aria-live="polite">
     <div class="countdown-label">Today's batch closes at midnight PT</div>
     <div class="countdown-time" id="countdownTime"><span id="cdH">00</span>h <span id="cdM">00</span>m <span id="cdS">00</span>s <small>left</small></div>
   </div>
 
-  <h1>The easiest offer I've ever sold. <span class="h1-twist">One interview. Your audience, built.</span></h1>
-  <p class="lead">One live interview with me on YouTube. <strong>Have an offer?</strong> I promote it to my list. <strong>No offer yet?</strong> We build it on the live together, free — then I promote it. Either way, your face is in front of the audience that made me <strong>$300k promoting HighLevel</strong>, <strong>$100k in one month promoting Spotter Studio</strong>, <strong>$40k from a single interview five years ago</strong>. <strong>$2,000 once.</strong></p>
-  <p class="lead-2">Every interview I've ever done made <em>way over a few thousand</em>. I keep over-complicating things — <strong>this is the easy thing.</strong> Refund inside 30 days if it doesn't move the needle.</p>
+  <h1>One hour. Your business. <span class="h1-twist">Live on my channel.</span></h1>
+  <p class="lead">I build it with you in the hour, or I critique what you've already got — your call. Either way, your face is in front of the audience that made me <strong>$300k promoting HighLevel</strong>, <strong>$100k in one month promoting Spotter Studio</strong>, <strong>$40k from a single interview five years ago</strong>. <strong>The recording is yours forever.</strong></p>
+  <p class="lead-2"><span class="mono">$497</span> if there's an affiliate program I can promote after. <span class="mono">$2,000</span> if not. Either price — same hour, same audience. Refund inside 30 days if it doesn't move the needle.</p>
 
   <div style="text-align:center;margin:24px 0 32px;">
-    <a class="btn btn-lg" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20to%20get%20on%20an%20interview%20%28%242%2C000%29.%20My%20offer%20%28or%20what%20I%27d%20want%20to%20build%29%20is%3A%20" target="_blank" rel="noopener">Get on an interview · DM Chase on WhatsApp &nbsp;→</a>
-    <p style="margin:10px 0 0;color:var(--muted);font-size:14px;">Refund inside 30 days · WhatsApp first · No card upfront</p>
+    <a class="btn btn-lg" data-cta="hero-primary" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20%24497%20hour.%20My%20business%20is%3A%20" target="_blank" rel="noopener">Book the hour · DM Chase on WhatsApp &nbsp;→</a>
+    <p style="margin:10px 0 0;color:var(--muted);font-size:14px;">WhatsApp first · No card upfront · Refund inside 30 days</p>
   </div>
 
   <div class="stat-row">
