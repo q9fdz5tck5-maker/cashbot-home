@@ -822,83 +822,6 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     background:rgba(37,211,102,.14);border-color:rgba(37,211,102,.6);
   }
 
-  .bonus-stack{
-    margin:48px 0;padding:32px 24px;
-    background:linear-gradient(180deg,#1a1a1a 0%,var(--ink) 100%);
-    color:#fff;border-radius:16px;
-    box-shadow:0 8px 32px rgba(0,0,0,.12);
-  }
-  .bonus-tag{
-    display:inline-block;padding:5px 14px;
-    background:var(--accent-amber);color:var(--ink);
-    border-radius:999px;font-size:11px;font-weight:800;
-    letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;
-  }
-  .bonus-stack h2{color:#fff;margin:0 0 8px;}
-  .bonus-stack > p.bonus-intro{
-    color:rgba(255,255,255,.7);font-size:15px;margin:0 0 24px;
-  }
-  .bonus-list{list-style:none;padding:0;margin:0 0 24px;}
-  .bonus-row{
-    display:flex;align-items:flex-start;gap:14px;
-    padding:14px 8px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    transition:background .2s ease,transform .2s ease;
-  }
-  .bonus-row:last-child{border-bottom:none;}
-  .bonus-row:hover{background:rgba(255,255,255,.04);transform:translateX(3px);}
-  .bonus-num{
-    flex:0 0 36px;width:36px;height:36px;
-    display:grid;place-items:center;border-radius:10px;
-    background:var(--accent-amber);color:var(--ink);
-    font-weight:800;font-size:14px;
-  }
-  .bonus-body{flex:1;min-width:0;}
-  .bonus-title{
-    color:#fff;font-weight:700;font-size:15px;
-    line-height:1.3;margin-bottom:4px;
-  }
-  .bonus-row-sub{
-    color:rgba(255,255,255,.6);font-size:13px;
-    margin:0;line-height:1.45;
-  }
-  .bonus-val{
-    flex:0 0 auto;color:var(--accent-amber);
-    font-weight:800;font-size:16px;
-    white-space:nowrap;text-align:right;
-    font-variant-numeric:tabular-nums;
-  }
-  .bonus-total{
-    margin-top:22px;padding:18px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:12px;
-  }
-  .bonus-total-row{
-    display:flex;justify-content:space-between;
-    padding:6px 0;font-size:14px;color:rgba(255,255,255,.7);
-  }
-  .bonus-total-row strong{color:#fff;font-variant-numeric:tabular-nums;}
-  .bonus-total-grand{
-    border-top:1px solid rgba(255,255,255,.1);
-    margin-top:6px;padding-top:12px;
-    font-size:15px;color:#fff;
-  }
-  .bonus-total-grand strong{font-size:17px;}
-  .bonus-total-price{
-    border-top:2px solid var(--accent-amber);
-    margin-top:4px;padding-top:12px;
-    font-size:16px;color:#fff;
-  }
-  .bonus-total-price strong{font-size:22px;}
-  .is-revealable.is-visible .bonus-row{animation:fade-up .55s ease both;}
-  .is-revealable.is-visible .bonus-row:nth-child(1){animation-delay:.04s;}
-  .is-revealable.is-visible .bonus-row:nth-child(2){animation-delay:.10s;}
-  .is-revealable.is-visible .bonus-row:nth-child(3){animation-delay:.16s;}
-  .is-revealable.is-visible .bonus-row:nth-child(4){animation-delay:.22s;}
-  .is-revealable.is-visible .bonus-row:nth-child(5){animation-delay:.28s;}
-  .is-revealable.is-visible .bonus-row:nth-child(6){animation-delay:.34s;}
-
   /* v1.10.0 — $2,000 money-back guarantee 12hr countdown sticky bar */
   .guarantee-bar{
     position:sticky;top:0;z-index:9999;
@@ -1037,7 +960,6 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
   body .context-bar,
   body .booknow,
   body .handoff,
-  body .bonus-stack,
   body .two-paths,
   body .guarantee-bar{
     background:var(--surface-2);
@@ -1049,7 +971,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
   body .cb-upgrade h2,body .cb-upgrade h3,body .story h2,
   body .how-it-works h2,body .future-pace h2,body .vstack-h2,
   body .cb-path > strong,body .tp-h2,body .ps-h2,body .stack-section h2,
-  body .secret h2,body .booknow h2,body .handoff h2,body .bonus-stack h2,
+  body .secret h2,body .booknow h2,body .handoff h2,
   body .offer-help h3{color:var(--ink);}
   body .winwin p,body .risk p,body .scheduler p,body .scheduler-intro,
   body .feels-list li,body .feels-closer,body .cb-upgrade p,
@@ -1280,6 +1202,79 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     .tier-price-mono{align-items:flex-start;margin-top:6px;}
     .tier-price-mono .tp-then{font-size:10px;}
   }
+
+  /* === v3.4.0 — mono stat chips + vstack-total dark + amber-stat === */
+  .stat-row-mono{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;
+    max-width:920px;margin:32px auto 24px;
+  }
+  @media (min-width:768px){
+    .stat-row-mono{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+  }
+  .stat-chip{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 14px;
+    text-align:left;
+    transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .stat-chip:hover{
+    border-color:var(--accent);
+    transform:translateY(-1px);
+    box-shadow:0 0 24px -10px var(--accent);
+  }
+  .stat-chip .stat-n{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:clamp(28px,5.6vw,38px);
+    font-weight:800;
+    color:var(--accent);
+    letter-spacing:-.02em;
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+    margin-bottom:8px;
+  }
+  .stat-chip .stat-n.amber-stat{color:var(--accent-amber);}
+  .stat-chip .stat-l{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px;
+    color:var(--muted);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* receipts caption mono dollar */
+  .receipt-stat{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;}
+  .receipt-stat .src{font-family:inherit;}
+
+  /* vstack-total dark + mono variant (v3.4.0) */
+  .vstack-total-mono{
+    background:var(--surface) !important;
+    border:1px solid var(--line) !important;
+  }
+  .vstack-total-mono .vstack-trust-pill{
+    background:rgba(0,214,143,.08) !important;
+    border:1px solid rgba(0,214,143,.3) !important;
+    color:var(--accent) !important;
+    letter-spacing:.12em;text-transform:uppercase;font-size:11px;
+  }
+  .vstack-total-mono .vstack-was{color:var(--muted) !important;font-size:14px;}
+  .vstack-total-mono .vstack-was s{color:var(--muted) !important;}
+  .vstack-total-mono .vstack-now{color:var(--ink) !important;font-size:18px;margin:10px 0;}
+  .vstack-total-mono .vstack-now strong{color:var(--ink);font-weight:700;}
+  .vstack-total-mono .vstack-now .tp-now-accent{
+    color:var(--accent);font-size:28px;font-weight:800;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .vstack-total-mono .vstack-now small{
+    display:inline-block;color:var(--muted);font-size:12px;font-weight:500;
+    margin-left:6px;letter-spacing:.04em;
+  }
+  .vstack-total-mono .vstack-saved{
+    color:var(--accent-amber) !important;font-size:15px;font-weight:700;
+    font-variant-numeric:tabular-nums;
+  }
 </style>
 </head>
 <body>
@@ -1316,11 +1311,11 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     <p style="margin:10px 0 0;color:var(--muted);font-size:14px;">WhatsApp first · No card upfront · Refund inside 30 days</p>
   </div>
 
-  <div class="stat-row">
-    <div class="stat"><div class="stat-n" data-count="600" data-suffix="k">0</div><div class="stat-l">Email list</div></div>
-    <div class="stat"><div class="stat-n" data-count="300" data-suffix="k">0</div><div class="stat-l">Instagram</div></div>
-    <div class="stat"><div class="stat-n" data-count="300" data-suffix="k">0</div><div class="stat-l">Shorts</div></div>
-    <div class="stat"><div class="stat-n" data-count="10" data-suffix="yr" style="color:var(--accent-amber);">0</div><div class="stat-l">YouTube</div></div>
+  <div class="stat-row stat-row-mono" aria-label="The machine">
+    <div class="stat stat-chip"><div class="stat-n mono" data-count="600" data-suffix="K">0</div><div class="stat-l">EMAIL LIST</div></div>
+    <div class="stat stat-chip"><div class="stat-n mono" data-count="160" data-suffix="K">0</div><div class="stat-l">ACTIVE SENDS</div></div>
+    <div class="stat stat-chip"><div class="stat-n mono" data-count="300" data-suffix="K">0</div><div class="stat-l">IG × 2</div></div>
+    <div class="stat stat-chip"><div class="stat-n mono amber-stat" data-count="10" data-suffix="YR">0</div><div class="stat-l">YOUTUBE</div></div>
   </div>
 
   <section class="two-paths" aria-label="How the offer works">
@@ -1392,9 +1387,9 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
   <section class="receipts" aria-label="Affiliate revenue proof">
     <div class="receipts-head">
-      <div class="kicker-inv">The easy thing · <span class="amber">the receipts</span></div>
-      <h2>Every interview I've done = <span class="amber">way over a few thousand.</span></h2>
-      <p><strong>$40k from one interview five years ago.</strong> <strong>$100k in ads alone</strong> from one live a year ago. <strong>$300k promoting HighLevel.</strong> <strong>$100k in a single month</strong> promoting Spotter Studio. Same simple thing every time: one interview, one offer, my list. Yours next.</p>
+      <div class="kicker-inv">PROOF · <span class="amber">10 YEARS OF AFFILIATE RECEIPTS</span></div>
+      <h2><span class="amber mono">$3.36M</span> tracked through this channel.</h2>
+      <p><strong class="mono">$40k</strong> from one interview five years ago. <strong class="mono">$100k</strong> in ads alone from one live a year ago. <strong class="mono">$300k</strong> promoting HighLevel. <strong class="mono">$100k</strong> in a single month promoting Spotter Studio. Same simple thing every time: one hour live, one offer, my list. Yours next.</p>
     </div>
     <div class="receipts-grid">
 
@@ -1436,15 +1431,15 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
     </div>
     <div class="receipts-foot">
-      <strong>This is the easy thing.</strong> One interview built each of these. Your $2,000 puts your offer on the same machine — 100% of the revenue routes to YOU.
+      <strong>One hour live built each of these.</strong> Your <span class="mono">$497</span> puts your offer on the same machine — 100% of the revenue routes to YOU.
     </div>
   </section>
 
-  <!-- v2.0.0: value stack — what $2k contains -->
+  <!-- v3.4.0: value stack — what $497 contains -->
   <section class="vstack">
-    <div class="vstack-kicker">What this would normally cost</div>
-    <h2 class="vstack-h2"><s class="vstack-strike">$13,500</s> of brand-rate work — <span class="vstack-flash">$2,000 once.</span></h2>
-    <p class="vstack-section-sub">Same channel. Same list. Same week. Same audience that's bought $3.36M+ through me on Stripe alone.</p>
+    <div class="vstack-kicker">THE MATH</div>
+    <h2 class="vstack-h2"><s class="vstack-strike mono">$13,500</s> of brand-rate work · <span class="vstack-flash mono">$497 once.</span></h2>
+    <p class="vstack-section-sub">Same channel. Same list. Same week. Same audience that's bought <span class="mono">$3.36M+</span> through me on Stripe alone.</p>
 
     <ul class="vstack-list">
       <li class="vstack-row">
@@ -1505,11 +1500,11 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
       </li>
     </ul>
 
-    <div class="vstack-total">
-      <div class="vstack-trust-pill">The easy thing · packaged</div>
-      <div class="vstack-was">Going-rate value: <s>$<span class="vstack-num" data-count="13500" data-comma="1">0</span></s></div>
-      <div class="vstack-now">Today's price: <strong>$2,000 once</strong></div>
-      <div class="vstack-saved">You save $<span class="vstack-num" data-count="11500" data-comma="1">0</span></div>
+    <div class="vstack-total vstack-total-mono">
+      <div class="vstack-trust-pill mono">[ THE HOUR · PACKAGED ]</div>
+      <div class="vstack-was">Going-rate value: <s class="mono">$<span class="vstack-num" data-count="13500" data-comma="1">0</span></s></div>
+      <div class="vstack-now">Today's price: <strong class="mono"><span class="tp-now-accent">$497</span> once <small>(or $2,000 without affiliate)</small></strong></div>
+      <div class="vstack-saved mono">You save $<span class="vstack-num" data-count="13003" data-comma="1">0</span></div>
     </div>
   </section>
 
@@ -1671,81 +1666,26 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     </details>
     <details>
       <summary>How fast can I get on the calendar?</summary>
-      <p>The 1-interview package is usually bookable within 7 days. The 3-interview / 3-day package needs about 2 weeks of lead time. The 30-day exclusive starts at the top of any month if there's an open week.</p>
+      <p>The hour-live (<span class="mono">$497</span>) is usually bookable within 7 days. The 3-day arc (<span class="mono">$1,997</span>) needs about 2 weeks of lead time. The 30-day exclusive (<span class="mono">$9,997</span>) starts at the top of any month if there's an open week.</p>
     </details>
     <details>
       <summary>I already bought cash.bot — does my purchase count?</summary>
-      <p>Yes. Whatever tier you bought at — Spark, Personal, Business, Enterprise — the amount you paid applies as credit toward the $2,000 interview. <strong>Founder ($1,997 lifetime) — your interview is already paid for, no additional charge.</strong> DM me with your purchase email and I'll apply it. Refund inside 30 days still on the table either way — the interview gave you the audience exposure regardless. <strong>Inheritance came in</strong>, so refunds are fast right now.</p>
+      <p>Yes. Whatever tier you bought — Spark, Personal, Business, Enterprise — the amount you paid applies as credit toward any hour-live tier. <strong>Founder (<span class="mono">$1,997</span> lifetime) — the 3-day arc is included, no additional charge.</strong> DM me with your purchase email and I'll apply it. Refund inside 30 days still on the table either way — the hour gave you the audience exposure regardless. <strong>Inheritance came in</strong>, so refunds are fast right now.</p>
+    </details>
+    <details>
+      <summary>What if I don't have an affiliate program?</summary>
+      <p>Either we spin one up on the live with me — <strong>PartnerStack, Rewardful, GoHighLevel</strong> templates are all inside cashbot, you can have a working affiliate program before the hour ends — or you pay the no-affiliate price of <span class="mono">$2,000</span> instead. Either path, same hour, same audience.</p>
+    </details>
+    <details>
+      <summary>Build vs Critique — what's the difference?</summary>
+      <p><strong class="mono">[ BUILD ]</strong> = we open cashbot templates and ship your offer / product / funnel live in the hour. You walk out with a working thing. <strong class="mono">[ CRITIQUE ]</strong> = bring what you've got — offer, funnel, pricing, hooks, traffic — I audit it live and give you a recorded teardown + fix list. Same <span class="mono">$497</span> either way, same channel, different angle. Pick at the toggle above.</p>
     </details>
     <details>
       <summary>What's the refund policy if you cancel?</summary>
-      <p>If I cancel on you, full refund — no questions. If you cancel less than 48 hours before the interview, no refund (I've already prepped). Outside that window, partial refund. <strong>$2,000 money-back guarantee for 30 days after the interview ships</strong> — see the bar at the top of this page for the current window.</p>
+      <p>If I cancel on you, full refund — no questions. If you cancel less than 48 hours before the hour, no refund (I've already prepped). Outside that window, partial refund. <strong>30-day money-back guarantee on the hour itself if it doesn't move the needle.</strong></p>
     </details>
   </div>
 
-  <div class="bonus-stack">
-    <div class="bonus-tag">Plus — book the interview today, you also get</div>
-    <h2><span class="amber">$2,740</span> of bonuses on top.</h2>
-    <p class="bonus-intro">Same one-time $2,000. Not unlocks. Not upsells. Included with every interview.</p>
-
-    <ul class="bonus-list">
-      <li class="bonus-row">
-        <div class="bonus-num">#1</div>
-        <div class="bonus-body">
-          <div class="bonus-title">30-min offer-build call before your shoot</div>
-          <p class="bonus-row-sub">We'll architect the product, price point, hook, and funnel together. If your offer's locked already — skip it.</p>
-        </div>
-        <div class="bonus-val">$500</div>
-      </li>
-      <li class="bonus-row">
-        <div class="bonus-num">#2</div>
-        <div class="bonus-body">
-          <div class="bonus-title">I write your 10-second hook + interview headline</div>
-          <p class="bonus-row-sub">The line I say on camera that decides if 600k people click. I draft it, you approve.</p>
-        </div>
-        <div class="bonus-val">$300</div>
-      </li>
-      <li class="bonus-row">
-        <div class="bonus-num">#3</div>
-        <div class="bonus-body">
-          <div class="bonus-title">30-day email retargeting to clickers who didn't buy</div>
-          <p class="bonus-row-sub">Three follow-up emails go to every clicker from my list who didn't convert on day one. Free traffic, three more swings at the same fence.</p>
-        </div>
-        <div class="bonus-val">$800</div>
-      </li>
-      <li class="bonus-row">
-        <div class="bonus-num">#4</div>
-        <div class="bonus-body">
-          <div class="bonus-title">Lifetime founder WhatsApp group</div>
-          <p class="bonus-row-sub">Private group of past interview guests. Direct line to me. Post wins, ask anything, swap intros.</p>
-        </div>
-        <div class="bonus-val">$240/yr</div>
-      </li>
-      <li class="bonus-row">
-        <div class="bonus-num">#5</div>
-        <div class="bonus-body">
-          <div class="bonus-title">Full ownership of your interview recording</div>
-          <p class="bonus-row-sub">Use it on your landing page, your YouTube, your sales calls. Forever yours, royalty-free.</p>
-        </div>
-        <div class="bonus-val">$400</div>
-      </li>
-      <li class="bonus-row">
-        <div class="bonus-num">#6</div>
-        <div class="bonus-body">
-          <div class="bonus-title">First-dibs slot in next year's "best founders" annual video</div>
-          <p class="bonus-row-sub">Every December I publish a "best founders I worked with this year" roundup. You get pre-booked into the next one.</p>
-        </div>
-        <div class="bonus-val">$500</div>
-      </li>
-    </ul>
-
-    <div class="bonus-total">
-      <div class="bonus-total-row"><span>10 years of channel access (the math above)</span><span><strong>$13,500</strong></span></div>
-      <div class="bonus-total-row"><span>Bonuses on top</span><span><strong class="amber">+ $2,740</strong></span></div>
-      <div class="bonus-total-row bonus-total-grand"><span>Real value</span><span><strong>$16,240</strong></span></div>
-      <div class="bonus-total-row bonus-total-price"><span>You pay</span><span><strong class="amber">$2,000 once</strong></span></div>
-    </div>
-  </div>
 
   <div class="booknow" id="booknow">
     <h2>Ready for <span class="amber">the hour?</span></h2>
@@ -1813,7 +1753,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
 // reveal on scroll — IntersectionObserver toggles .is-visible
 (function(){
-  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .offer-help, .bonus-stack, .winwin, .how-it-works, .booknow, .receipts, .brands, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row, .pay-options, .wa-group-pill, .two-paths, .promo-stack';
+  var sel = '.story, .secret, .future-pace, .stack-section, .feels, .handoff, .cb-upgrade, .offer-help, .winwin, .how-it-works, .booknow, .receipts, .brands, .vstack, .tier, .scheduler, .risk, .notfor, .faq, .stat-row, .pay-options, .wa-group-pill, .two-paths, .promo-stack, .format-picker';
   var els = document.querySelectorAll(sel);
   if (!els.length) return;
   els.forEach(function(el){ el.classList.add('is-revealable'); });
@@ -1938,18 +1878,6 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     });
   }
   window.addEventListener('scroll', onScroll, {passive:true});
-  // bonus-stack view (fires once when bonus-stack enters viewport)
-  if ('IntersectionObserver' in window) {
-    var bs = document.querySelector('.bonus-stack');
-    if (bs) {
-      var bsio = new IntersectionObserver(function(es){
-        es.forEach(function(en){
-          if (en.isIntersecting) { ev('bonus_stack_view', {}); bsio.unobserve(en.target); }
-        });
-      }, {threshold: 0.3});
-      bsio.observe(bs);
-    }
-  }
 })();
 
 // v3.2.0 — format selector (BUILD/CRITIQUE) with localStorage + GA4 + tier-card swap
