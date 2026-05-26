@@ -1221,9 +1221,53 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
     color:var(--accent-amber) !important;font-size:15px;font-weight:700;
     font-variant-numeric:tabular-nums;
   }
+
+  /* === v3.7.0 topbar nav — sits above sticky live-bar === */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    max-width:960px;margin:0 auto;
+    padding:14px 16px;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  .topbar-brand{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--ink);text-decoration:none;
+    font-size:14px;font-weight:700;letter-spacing:.02em;
+  }
+  .topbar-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);box-shadow:0 0 12px var(--accent);
+  }
+  .topbar-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap;}
+  .topbar-link{
+    display:inline-flex;align-items:center;
+    min-height:44px;padding:0 12px;
+    color:var(--muted);text-decoration:none;
+    font-size:13px;letter-spacing:.04em;text-transform:uppercase;
+    border:1px solid transparent;border-radius:6px;
+    transition:color .15s,border-color .15s;
+  }
+  .topbar-link:hover{color:var(--ink);border-color:var(--line);}
+  .topbar-link-active{color:var(--accent);}
+  @media (max-width:480px){
+    .topbar{padding:10px 12px;gap:8px;}
+    .topbar-link{font-size:12px;padding:0 10px;}
+  }
 </style>
 </head>
 <body>
+
+<nav class="topbar">
+  <a href="/" class="topbar-brand" aria-label="cash.bot home">
+    <span class="topbar-dot" aria-hidden="true"></span>
+    <span>cash.bot</span>
+  </a>
+  <div class="topbar-links">
+    <a href="/" class="topbar-link topbar-link-active">Book hour</a>
+    <a href="/interviews/" class="topbar-link">Apply for interview</a>
+  </div>
+</nav>
 
 <a href="#booknow" class="live-bar" id="liveBar" data-cta="live-bar" aria-label="Live today — the $497 hour with Chase — tap to book">
   <span class="lb-dot" aria-hidden="true"></span>
@@ -1657,7 +1701,7 @@ if (window.__cashbotEmail) window.__cashbotIdentify(window.__cashbotEmail, windo
 
   <footer>
     <p>Built and run by Chase Reiner · <a href="https://cash.bot/">cash.bot</a></p>
-    <p style="margin-top:8px;font-size:13px;">v3.6.0 · Last updated 2026-05-25 · "One hour. Your business. Live."</p>
+    <p style="margin-top:8px;font-size:13px;">v3.7.0 · Last updated 2026-05-25 · "One hour. Your business. Live."</p>
   </footer>
 
 </main>
