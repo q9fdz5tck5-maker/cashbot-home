@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cash.bot Setup</title>
+  <title>Cash.bot Setup Checklist</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,7 +11,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: #080a12;
       min-height: 100vh;
-      padding: 40px 24px 80px;
+      padding: 48px 24px 100px;
       overflow-x: hidden;
     }
     body::before {
@@ -29,15 +29,15 @@
       background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px);
       pointer-events: none; z-index: 0;
     }
-    .wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; }
+    .wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
 
-    /* ── header ── */
-    .header { text-align: center; margin-bottom: 48px; }
+    /* header */
+    .header { text-align: center; margin-bottom: 56px; }
     .logo {
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(2em, 6vw, 3.4em);
+      font-size: clamp(2em, 6vw, 3.2em);
       font-weight: 700; color: #fff;
-      text-shadow: 0 0 20px rgba(0,255,65,1), 0 0 50px rgba(0,255,65,0.5), 0 0 100px rgba(0,255,65,0.2);
+      text-shadow: 0 0 20px rgba(0,255,65,1), 0 0 50px rgba(0,255,65,0.5);
       letter-spacing: 0.02em;
     }
     .logo span { color: #00ff41; }
@@ -47,142 +47,149 @@
       letter-spacing: 0.18em; text-transform: uppercase; margin-top: 8px;
     }
     .tagline::before { content: '// '; }
+    .hero-desc {
+      margin-top: 20px;
+      font-size: clamp(1em, 2.5vw, 1.15em);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero-desc strong { color: #ccffcc; }
 
-    /* ── progress bar ── */
-    .progress-wrap { margin: 28px auto 0; max-width: 400px; }
-    .progress-label {
+    /* tiers grid */
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .tier {
+      background: #0d0f1e;
+      border: 1px solid rgba(0,255,65,0.18);
+      border-radius: 12px;
+      padding: 28px 24px 24px;
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tier:hover { border-color: rgba(0,255,65,0.45); box-shadow: 0 0 28px rgba(0,255,65,0.1); }
+    .tier.featured {
+      border-color: rgba(0,255,65,0.5);
+      background: rgba(0,255,65,0.03);
+    }
+    .tier.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute; top: 0; left: 0; right: 0;
+      background: #00ff41; color: #000;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7em; color: rgba(0,255,65,0.5);
-      display: flex; justify-content: space-between; margin-bottom: 8px;
+      font-size: 0.62em; font-weight: 700;
+      letter-spacing: 0.14em;
+      text-align: center; padding: 5px;
     }
-    .progress-track {
-      height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden;
+    .tier.featured { padding-top: 40px; }
+
+    .tier-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7em; font-weight: 700;
+      letter-spacing: 0.14em; color: #00ff41;
+      text-transform: uppercase;
     }
-    .progress-fill {
-      height: 100%; background: #00ff41;
-      box-shadow: 0 0 10px rgba(0,255,65,0.6);
-      border-radius: 2px;
-      transition: width 0.4s ease;
+    .tier-price {
+      display: flex; align-items: baseline; gap: 6px;
+    }
+    .tier-amount {
+      font-size: 2.4em; font-weight: 700; color: #fff; line-height: 1;
+    }
+    .tier-once {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72em; color: rgba(255,255,255,0.35);
+    }
+    .tier-phases {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75em; color: rgba(0,255,65,0.6);
+      padding: 8px 12px;
+      background: rgba(0,255,65,0.06);
+      border-radius: 6px;
+    }
+    .tier-features {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+      flex: 1;
+    }
+    .tier-features li {
+      font-size: 0.84em; color: rgba(255,255,255,0.5);
+      display: flex; align-items: flex-start; gap: 8px;
+      line-height: 1.4;
+    }
+    .tier-features li::before {
+      content: '→';
+      color: #00ff41; flex-shrink: 0; margin-top: 1px;
+    }
+    .wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: #00ff41; color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8em; font-weight: 700;
+      padding: 13px 18px; border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+      min-height: 44px;
+    }
+    .wa-btn:hover { background: #33ff66; transform: translateY(-1px); }
+    .wa-btn.free { background: transparent; border: 1px solid rgba(0,255,65,0.35); color: #00ff41; }
+    .wa-btn.free:hover { background: rgba(0,255,65,0.08); transform: translateY(-1px); }
+
+    /* free phase download */
+    .free-row {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+      border: 1px solid rgba(0,255,65,0.1);
+      border-radius: 10px;
+      background: rgba(0,255,65,0.02);
+    }
+    .free-row p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75em; color: rgba(0,255,65,0.45);
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
     }
 
-    /* ── section labels ── */
-    .section-label {
+    /* what you get section */
+    .what-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.68em; font-weight: 700;
       letter-spacing: 0.14em; color: rgba(0,255,65,0.45);
       text-transform: uppercase;
       display: flex; align-items: center; gap: 12px;
-      margin: 40px 0 18px;
+      margin: 0 0 20px;
     }
-    .section-label::after {
-      content: ''; flex: 1; height: 1px;
-      background: rgba(0,255,65,0.1);
-    }
-
-    /* ── active cards grid ── */
-    .active-grid {
+    .what-label::after { content: ''; flex: 1; height: 1px; background: rgba(0,255,65,0.1); }
+    .phase-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: #0d0f1e;
-      border: 1px solid rgba(0,255,65,0.2);
-      border-radius: 10px;
-      padding: 24px 22px 20px;
-      text-decoration: none;
-      display: flex; flex-direction: column; gap: 14px;
-      position: relative; overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-    }
-    .card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, #00ff41, transparent);
-      opacity: 0; transition: opacity 0.2s;
-    }
-    .card:hover { border-color: rgba(0,255,65,0.55); box-shadow: 0 0 28px rgba(0,255,65,0.12), 0 8px 30px rgba(0,0,0,0.4); transform: translateY(-3px); }
-    .card:hover::before { opacity: 1; }
-    .card:active { transform: translateY(0); }
-
-    .phase-dot {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68em; font-weight: 700;
-      letter-spacing: 0.12em; color: #00ff41;
-      text-transform: uppercase;
-      display: flex; align-items: center; gap: 7px;
-    }
-    .phase-dot::before {
-      content: ''; width: 6px; height: 6px; border-radius: 50%;
-      background: #00ff41; box-shadow: 0 0 8px #00ff41;
-      animation: blink 2s infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
-
-    .card-title { font-size: 1.08em; font-weight: 700; color: #ccffcc; line-height: 1.3; }
-    .card-desc { font-size: 0.82em; color: rgba(255,255,255,0.45); line-height: 1.55; flex: 1; }
-    .card-cta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.73em; color: #00ff41;
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid rgba(0,255,65,0.1); padding-top: 12px; margin-top: 4px;
-    }
-    .card-num { font-size: 1.9em; font-weight: 700; color: rgba(0,255,65,0.1); line-height: 1; }
-    .card-arrow { opacity: 0; transform: translateX(-5px); transition: all 0.2s; }
-    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
-
-    /* ── locked chips grid ── */
-    .locked-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
       gap: 7px;
+      margin-bottom: 48px;
     }
-    .chip {
-      background: #0a0c18;
-      border: 1px solid rgba(255,255,255,0.055);
-      border-radius: 6px;
-      padding: 11px 8px;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 5px;
-      cursor: not-allowed;
-      opacity: 0.55;
+    .phase-chip {
+      background: #0a0c18; border: 1px solid rgba(255,255,255,0.055);
+      border-radius: 6px; padding: 10px 6px;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
     }
-    .chip-num {
+    .phase-chip.unlocked { border-color: rgba(0,255,65,0.25); background: rgba(0,255,65,0.04); }
+    .phase-chip-num {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78em; font-weight: 700;
-      color: rgba(255,255,255,0.18); letter-spacing: 0.06em;
+      font-size: 0.74em; font-weight: 700;
+      color: rgba(255,255,255,0.15); letter-spacing: 0.06em;
     }
-    .chip-lock { font-size: 0.75em; opacity: 0.35; }
-
-    /* ── card completion ── */
-    .card-check {
-      position: absolute; top: 14px; right: 14px;
-      width: 22px; height: 22px;
-      border: 2px solid rgba(0,255,65,0.22); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.2s; z-index: 2;
-      font-size: 0.7em; color: transparent; cursor: pointer;
-      background: transparent;
-    }
-    .card-check:hover { border-color: #00ff41; background: rgba(0,255,65,0.08); }
-    .card.complete { border-color: rgba(0,255,65,0.55); background: rgba(0,255,65,0.04); }
-    .card.complete .card-check { background: #00ff41; border-color: #00ff41; color: #000; }
-    .card.complete .phase-dot::before { animation: none; }
-    .card.complete .card-cta { color: rgba(0,255,65,0.5); }
-    .dl-btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      background: #00ff41; color: #000;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78em; font-weight: 700;
-      padding: 11px 16px; border-radius: 6px;
-      border: none; cursor: pointer; width: 100%;
-      transition: background 0.15s, transform 0.1s;
-      margin-top: 4px;
-    }
-    .dl-btn:hover { background: #33ff66; transform: translateY(-1px); }
+    .phase-chip.unlocked .phase-chip-num { color: rgba(0,255,65,0.6); }
+    .phase-chip-icon { font-size: 0.7em; opacity: 0.3; }
+    .phase-chip.unlocked .phase-chip-icon { opacity: 1; }
 
     @media (max-width: 600px) {
-      .active-grid { grid-template-columns: 1fr; }
-      .locked-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); }
+      .tiers { grid-template-columns: 1fr; }
+      .phase-list { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); }
     }
   </style>
 </head>
@@ -191,117 +198,101 @@
 
     <div class="header">
       <div class="logo">CASH<span>.</span>BOT</div>
-      <div class="tagline">setup wizard</div>
-      <div class="progress-wrap">
-        <div class="progress-label">
-          <span id="prog-label">2 of 122 phases complete</span>
-          <span id="prog-pct">1.6%</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" id="prog-fill" style="width:1.6%"></div>
-        </div>
-      </div>
+      <div class="tagline">setup checklist</div>
+      <p class="hero-desc">
+        122 phases. Every tool, every system, every step to build your <strong>AI income machine</strong> —
+        downloaded to your machine, run locally, no logins needed.
+      </p>
     </div>
 
-    <!-- active -->
-    <div class="section-label">Active phases</div>
-    <div class="active-grid">
+    <!-- Free phase -->
+    <div class="free-row">
+      <p>// START FREE — NO PAYMENT NEEDED</p>
+      <a class="wa-btn free" href="setup/phase1.html" target="_blank">
+        Open Phase 01 Free →
+      </a>
+    </div>
 
-      <div class="card" id="card-01">
-        <div class="card-check" id="check-01" title="Mark complete" onclick="togglePhase('01', event)">✓</div>
-        <div class="phase-dot">Phase 01</div>
-        <div class="card-title">Install Claude Code</div>
-        <div class="card-desc">Get the CLI tool set up on Mac or Windows. Required before anything else.</div>
-        <button class="dl-btn" onclick="openPhase('phase1-setup.html','setup/phase1.html','phase1-install-claude-code.html')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Phase 01
-        </button>
+    <!-- Paid tiers -->
+    <div class="tiers">
+
+      <div class="tier">
+        <div class="tier-name">Spark</div>
+        <div class="tier-price">
+          <div class="tier-amount">$9</div>
+          <div class="tier-once">once</div>
+        </div>
+        <div class="tier-phases">// Phases 01 – 05</div>
+        <ul class="tier-features">
+          <li>Claude Code installed + configured</li>
+          <li>Windows VPS deployed on Vultr</li>
+          <li>RDP auto-login scripted</li>
+          <li>First Claude project running</li>
+          <li>5 complete setup phases</li>
+        </ul>
+        <a class="wa-btn free" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20Spark%20checklist%20(%245%20phases).%20My%20email%3A%20" target="_blank">
+          Message Chase → $9
+        </a>
       </div>
 
-      <div class="card" id="card-02">
-        <div class="card-check" id="check-02" title="Mark complete" onclick="togglePhase('02', event)">✓</div>
-        <div class="phase-dot">Phase 02</div>
-        <div class="card-title">Deploy Windows VPS</div>
-        <div class="card-desc">Create a Vultr account and spin up Windows Server 2022 using Claude.</div>
-        <button class="dl-btn" onclick="openPhase('phase2-setup.html','setup/phase2.html','phase2-deploy-windows-vps.html')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Phase 02
-        </button>
+      <div class="tier featured">
+        <div class="tier-name">Personal</div>
+        <div class="tier-price">
+          <div class="tier-amount">$113</div>
+          <div class="tier-once">once</div>
+        </div>
+        <div class="tier-phases">// Phases 01 – 15</div>
+        <ul class="tier-features">
+          <li>Everything in Spark</li>
+          <li>Full AI workflow automation</li>
+          <li>Cash.bot OS access</li>
+          <li>Income tools deployed</li>
+          <li>15 complete setup phases</li>
+        </ul>
+        <a class="wa-btn" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20Personal%20checklist%20(15%20phases).%20My%20email%3A%20" target="_blank">
+          Message Chase → $113
+        </a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">Business</div>
+        <div class="tier-price">
+          <div class="tier-amount">$497</div>
+          <div class="tier-once">once</div>
+        </div>
+        <div class="tier-phases">// Phases 01 – 40</div>
+        <ul class="tier-features">
+          <li>Everything in Personal</li>
+          <li>Full business automation stack</li>
+          <li>Client delivery systems</li>
+          <li>Revenue tracking + reporting</li>
+          <li>40 complete setup phases</li>
+        </ul>
+        <a class="wa-btn free" href="https://wa.me/18054533586?text=Hey%20Chase%20%E2%80%94%20I%20want%20the%20Business%20checklist%20(40%20phases).%20My%20email%3A%20" target="_blank">
+          Message Chase → $497
+        </a>
       </div>
 
     </div>
 
-    <!-- locked -->
-    <div class="section-label" id="locked-label">Locked — 120 phases remaining</div>
-    <div class="locked-grid" id="locked-grid"></div>
+    <!-- Phase map -->
+    <div class="what-label">What's inside — 122 phases</div>
+    <div class="phase-list" id="phase-list"></div>
 
   </div>
 
   <script>
+    const list = document.getElementById('phase-list');
+    const FREE_PHASES = 1;
     const TOTAL = 122;
-    const ACTIVE = 2;
-    const grid = document.getElementById('locked-grid');
-    for (let i = ACTIVE + 1; i <= TOTAL; i++) {
+    for (let i = 1; i <= TOTAL; i++) {
       const n = String(i).padStart(2, '0');
       const chip = document.createElement('div');
-      chip.className = 'chip';
-      chip.innerHTML = `<div class="chip-num">${n}</div><div class="chip-lock">🔒</div>`;
-      grid.appendChild(chip);
+      const unlocked = i <= FREE_PHASES;
+      chip.className = 'phase-chip' + (unlocked ? ' unlocked' : '');
+      chip.innerHTML = '<div class="phase-chip-num">' + n + '</div><div class="phase-chip-icon">' + (unlocked ? '✓' : '🔒') + '</div>';
+      list.appendChild(chip);
     }
-
-    function countComplete() {
-      let n = 0;
-      for (let i = 1; i <= ACTIVE; i++) {
-        if (localStorage.getItem('phase-' + String(i).padStart(2,'0') + '-complete') === '1') n++;
-      }
-      return n;
-    }
-
-    function updateProgress() {
-      const done = ACTIVE - ACTIVE + countComplete() + (parseInt(localStorage.getItem('phases_extra_done') || 0));
-      const total_done = Math.max(countComplete(), parseInt(localStorage.getItem('phases_done') || 0));
-      const pct = ((total_done / TOTAL) * 100).toFixed(1);
-      document.getElementById('prog-label').textContent = `${total_done} of ${TOTAL} phases complete`;
-      document.getElementById('prog-pct').textContent   = `${pct}%`;
-      document.getElementById('prog-fill').style.width  = `${pct}%`;
-    }
-
-    function applyCardState(id) {
-      const done = localStorage.getItem('phase-' + id + '-complete') === '1';
-      const card = document.getElementById('card-' + id);
-      if (done) card.classList.add('complete'); else card.classList.remove('complete');
-    }
-
-    function togglePhase(id, e) {
-      e.preventDefault(); e.stopPropagation();
-      const key = 'phase-' + id + '-complete';
-      const now = localStorage.getItem(key) === '1' ? '0' : '1';
-      localStorage.setItem(key, now);
-      applyCardState(id);
-      // keep phases_done in sync for backwards-compat
-      const c = countComplete();
-      localStorage.setItem('phases_done', c);
-      updateProgress();
-    }
-
-    function openPhase(localFile, webFile, dlName) {
-      const isLocal = location.protocol === 'file:';
-      const url = isLocal ? localFile : webFile;
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = dlName;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
-
-    // init
-    ['01','02'].forEach(applyCardState);
-    // sync phases_done from completion state if stale
-    const legacyDone = parseInt(localStorage.getItem('phases_done') || 0);
-    const actualDone = countComplete();
-    localStorage.setItem('phases_done', Math.max(legacyDone, actualDone));
-    updateProgress();
   </script>
 </body>
 </html>
