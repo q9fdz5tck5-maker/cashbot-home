@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cash.bot — Your Phases</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #080a12; min-height: 100vh;
+      padding: 32px 20px 80px;
+      overflow-x: hidden; color: rgba(255,255,255,0.7);
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,65,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,65,0.045) 1px, transparent 1px);
+      background-size: 48px 48px; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px);
+      pointer-events: none; z-index: 0;
+    }
+    .wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+
+    /* topbar */
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; gap: 12px; flex-wrap: wrap; }
+    .logo { font-family: 'JetBrains Mono', monospace; font-size: 1.3em; font-weight: 700; color: #fff; text-decoration: none; text-shadow: 0 0 16px rgba(0,255,65,0.9), 0 0 40px rgba(0,255,65,0.35); }
+    .logo span { color: #00ff41; }
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72em; font-weight: 700;
+      padding: 6px 14px; border-radius: 4px; letter-spacing: 0.12em; text-transform: uppercase;
+      background: rgba(0,255,65,0.1); border: 1px solid rgba(0,255,65,0.35); color: #00ff41;
+    }
+
+    /* hero */
+    .hero { margin-bottom: 36px; }
+    .hero-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7em; font-weight: 700; letter-spacing: 0.16em; color: #00ff41; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #00ff41; box-shadow: 0 0 8px #00ff41; animation: blink 2s infinite; flex-shrink: 0; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+    .hero h1 { font-size: clamp(1.5em, 4vw, 2.2em); font-weight: 700; color: #ccffcc; margin-bottom: 6px; }
+    .hero p { font-size: 0.88em; color: rgba(255,255,255,0.35); }
+    .hero strong { color: rgba(0,255,65,0.75); }
+
+    /* progress bar */
+    .progress-wrap { margin-bottom: 36px; }
+    .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72em; color: rgba(0,255,65,0.5); letter-spacing: 0.1em; }
+    .progress-count { font-family: 'JetBrains Mono', monospace; font-size: 0.72em; color: rgba(0,255,65,0.7); }
+    .progress-bar { height: 4px; background: rgba(0,255,65,0.08); border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #00ff41, #33ff66); border-radius: 2px; transition: width 0.8s cubic-bezier(.4,0,.2,1); width: 0%; box-shadow: 0 0 8px rgba(0,255,65,0.5); }
+
+    /* phase grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin-bottom: 40px; }
+    .phase-card {
+      position: relative; border-radius: 7px; padding: 14px 12px;
+      border: 1px solid rgba(0,255,65,0.1); background: rgba(0,255,65,0.03);
+      display: flex; flex-direction: column; gap: 6px; cursor: default;
+      transition: all 0.15s;
+    }
+    .phase-card.unlocked {
+      cursor: pointer; border-color: rgba(0,255,65,0.22);
+      background: rgba(0,255,65,0.05);
+    }
+    .phase-card.unlocked:hover {
+      border-color: #00ff41; background: rgba(0,255,65,0.1);
+      box-shadow: 0 0 16px rgba(0,255,65,0.12);
+      transform: translateY(-1px);
+    }
+    .phase-card.downloaded { border-color: rgba(0,255,65,0.45); background: rgba(0,255,65,0.08); }
+    .phase-card.downloaded .phase-num { color: #00ff41; }
+    .phase-card.locked { opacity: 0.32; }
+    .phase-num {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.65em; font-weight: 700;
+      color: rgba(0,255,65,0.55); letter-spacing: 0.1em;
+    }
+    .phase-name { font-size: 0.72em; color: rgba(255,255,255,0.55); line-height: 1.4; }
+    .phase-card.unlocked .phase-name { color: rgba(255,255,255,0.75); }
+    .phase-icon { font-size: 0.7em; margin-top: 2px; }
+    .lock-icon { font-size: 0.65em; position: absolute; top: 10px; right: 10px; opacity: 0.3; }
+    .check-icon { font-size: 0.65em; position: absolute; top: 10px; right: 10px; color: #00ff41; opacity: 0.8; }
+
+    /* upgrade strip */
+    .upgrade-strip {
+      background: rgba(0,255,65,0.04); border: 1px solid rgba(0,255,65,0.15);
+      border-radius: 10px; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .upgrade-text p { font-family: 'JetBrains Mono', monospace; font-size: 0.78em; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .upgrade-text strong { color: #fff; }
+    .upgrade-locked { font-family: 'JetBrains Mono', monospace; font-size: 0.68em; color: rgba(0,255,65,0.45); margin-top: 4px; }
+    .upgrade-btn {
+      display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+      background: #00ff41; color: #000; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8em; font-weight: 700; padding: 13px 22px; border-radius: 7px;
+      text-decoration: none; min-height: 48px;
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      transition: background 0.15s, transform 0.1s;
+    }
+    .upgrade-btn:hover { background: #33ff66; transform: translateY(-1px); }
+
+    /* gate screen */
+    #gate {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 60vh; text-align: center; gap: 24px; padding: 40px 20px;
+    }
+    #gate.show { display: flex; }
+    #gate .gate-logo { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8em, 5vw, 2.8em); font-weight: 700; color: #fff; text-shadow: 0 0 20px rgba(0,255,65,1), 0 0 60px rgba(0,255,65,0.5); }
+    #gate .gate-logo span { color: #00ff41; }
+    #gate p { color: rgba(255,255,255,0.45); font-size: 0.95em; line-height: 1.7; max-width: 360px; }
+    #gate .gate-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #00ff41; color: #000; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em; font-weight: 700; padding: 16px 32px; border-radius: 10px;
+      text-decoration: none; min-height: 56px;
+      box-shadow: 0 0 32px rgba(0,255,65,0.35);
+    }
+    #gate .gate-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.68em; color: rgba(0,255,65,0.35); letter-spacing: 0.08em; }
+
+    /* token form */
+    .token-form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 400px; }
+    .token-input {
+      flex: 1; min-width: 200px; padding: 12px 16px; background: rgba(0,255,65,0.05);
+      border: 1px solid rgba(0,255,65,0.25); border-radius: 6px;
+      color: #00ff41; font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
+      outline: none; min-height: 48px;
+    }
+    .token-input::placeholder { color: rgba(0,255,65,0.25); }
+    .token-input:focus { border-color: #00ff41; }
+    .token-submit {
+      padding: 12px 20px; background: rgba(0,255,65,0.1); border: 1px solid #00ff41;
+      border-radius: 6px; color: #00ff41; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em; font-weight: 700; cursor: pointer; min-height: 48px;
+      transition: background 0.15s;
+    }
+    .token-submit:hover { background: rgba(0,255,65,0.18); }
+
+    #main-content { display: none; }
+    #main-content.show { display: block; }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 6px; }
+      .upgrade-strip { flex-direction: column; align-items: flex-start; }
+      .upgrade-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Gate (no access) -->
+  <div id="gate">
+    <div class="gate-logo">CASH<span>.</span>BOT</div>
+    <p>You need an access code to view your phases. Message Cash.bot on WhatsApp to get yours.</p>
+    <div class="token-form">
+      <input class="token-input" id="token-input" type="text" placeholder="paste access code here" autocomplete="off" spellcheck="false">
+      <button class="token-submit" onclick="submitToken()">Unlock</button>
+    </div>
+    <a class="gate-btn" href="https://wa.me/18054533586?text=Hey%20%E2%80%94%20I%20need%20my%20Cash.bot%20access%20code." target="_blank">💬 Message Cash.bot on WhatsApp</a>
+    <div class="gate-sub">reply in minutes · get your access code instantly</div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="main-content">
+    <div class="topbar">
+      <a href="https://cash.bot" class="logo">CASH<span>.</span>BOT</a>
+      <div class="tier-badge" id="tier-label">— tier —</div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-label">Your Setup Checklist</div>
+      <h1>Download Your Phases</h1>
+      <p>Click any phase to open it in a new tab and download it to your machine. <strong>Runs locally — no logins, no cloud.</strong></p>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span class="progress-label">// phases unlocked</span>
+        <span class="progress-count" id="progress-count">0 / 122</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <div class="upgrade-strip" id="upgrade-strip" style="display:none">
+      <div class="upgrade-text">
+        <p><strong id="upgrade-headline">Unlock more phases</strong></p>
+        <div class="upgrade-locked" id="upgrade-sub"></div>
+      </div>
+      <a class="upgrade-btn" href="https://wa.me/18054533586?text=Hey%20%E2%80%94%20I%20want%20to%20upgrade%20my%20Cash.bot%20plan." target="_blank">💬 Upgrade on WhatsApp</a>
+    </div>
+
+    <div class="grid" id="phase-grid"></div>
+  </div>
+
+</div>
+
+<script>
+// ── config ──────────────────────────────────────────────────────────────────
+const SETUP_API = 'https://setup.cash.bot';
+const WA = 'https://wa.me/18054533586';
+
+const TIER_PHASES = {
+  legacy: 122, ascension: 115, inner: 100, founder: 85,
+  enterprise: 65, agency: 65, business: 40, personal: 15,
+  spark: 5, trial: 2, free: 1, anon: 0
+};
+
+const TIER_LABELS = {
+  legacy: 'Legacy', ascension: 'Ascension', inner: 'Inner Circle',
+  founder: 'Founder', enterprise: 'Enterprise', agency: 'Agency',
+  business: 'Business', personal: 'Personal', spark: 'Spark',
+  trial: 'Trial', free: 'Free', anon: 'Free'
+};
+
+// phase names (expand as phases are built)
+const PHASE_NAMES = {
+  1: 'Install Claude Code',
+  2: 'First Prompt',
+  // 3–122 auto-generated as "Phase N"
+};
+
+function getPhaseName(n) {
+  return PHASE_NAMES[n] || 'Phase ' + String(n).padStart(2,'0');
+}
+
+// phases that have actual HTML files ready
+const LIVE_PHASES = new Set([1, 2]);
+
+function phaseUrl(n) {
+  return `https://cash.bot/setup/phase${n}.html`;
+}
+
+// ── state ────────────────────────────────────────────────────────────────────
+let unlockedCount = 0;
+let downloadedPhases = JSON.parse(localStorage.getItem('cb_downloaded') || '[]');
+
+// ── init ─────────────────────────────────────────────────────────────────────
+(async function init() {
+  // priority: URL token > URL tier > localStorage token > localStorage tier
+  const params = new URLSearchParams(location.search);
+  const urlToken = params.get('token');
+  const urlTier  = params.get('tier');
+
+  let storedToken = localStorage.getItem('cb_access_token');
+  let storedTier  = localStorage.getItem('cb_tier');
+
+  const token = urlToken || storedToken;
+  const tier  = urlTier  || storedTier;
+
+  if (urlToken) localStorage.setItem('cb_access_token', urlToken);
+  if (urlTier)  localStorage.setItem('cb_tier', urlTier);
+
+  // try token verification first
+  if (token) {
+    const resolved = await verifyToken(token);
+    if (resolved) { showDashboard(resolved); return; }
+  }
+
+  // fallback to tier param (Chase can link: /dashboard?tier=personal)
+  if (tier && TIER_PHASES[tier] !== undefined) {
+    showDashboard(tier);
+    return;
+  }
+
+  showGate();
+})();
+
+async function verifyToken(token) {
+  try {
+    const res = await fetch(`${SETUP_API}/api/access?token=${encodeURIComponent(token)}`, {
+      signal: AbortSignal.timeout(6000)
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data.tier) {
+      localStorage.setItem('cb_tier', data.tier);
+      return data.tier;
+    }
+  } catch(e) {}
+  return null;
+}
+
+function submitToken() {
+  const val = document.getElementById('token-input').value.trim();
+  if (!val) return;
+  // check if it looks like a tier (direct tier name entry)
+  if (TIER_PHASES[val.toLowerCase()] !== undefined) {
+    const t = val.toLowerCase();
+    localStorage.setItem('cb_tier', t);
+    showDashboard(t);
+    return;
+  }
+  // otherwise treat as token
+  localStorage.setItem('cb_access_token', val);
+  verifyToken(val).then(resolved => {
+    if (resolved) { showDashboard(resolved); }
+    else {
+      document.getElementById('token-input').style.borderColor = '#ff4444';
+      document.getElementById('token-input').placeholder = 'invalid code — try again';
+      document.getElementById('token-input').value = '';
+    }
+  });
+}
+
+document.getElementById('token-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') submitToken();
+});
+
+// ── render ───────────────────────────────────────────────────────────────────
+function showGate() {
+  document.getElementById('gate').classList.add('show');
+}
+
+function showDashboard(tier) {
+  document.getElementById('gate').classList.remove('show');
+  document.getElementById('main-content').classList.add('show');
+
+  unlockedCount = TIER_PHASES[tier] ?? 0;
+  const label = TIER_LABELS[tier] || tier;
+
+  document.getElementById('tier-label').textContent = label;
+  document.getElementById('progress-count').textContent = `${unlockedCount} / 122`;
+  document.getElementById('progress-fill').style.width = `${(unlockedCount / 122) * 100}%`;
+
+  // upgrade strip
+  if (unlockedCount < 122) {
+    const locked = 122 - unlockedCount;
+    document.getElementById('upgrade-strip').style.display = 'flex';
+    document.getElementById('upgrade-headline').textContent = `${locked} more phases locked`;
+    document.getElementById('upgrade-sub').textContent = `Upgrade to unlock all ${122} phases`;
+  }
+
+  buildGrid(unlockedCount);
+}
+
+function buildGrid(unlocked) {
+  const grid = document.getElementById('phase-grid');
+  grid.innerHTML = '';
+  for (let i = 1; i <= 122; i++) {
+    const card = document.createElement('div');
+    const isUnlocked = i <= unlocked;
+    const isLive = LIVE_PHASES.has(i);
+    const isDone = downloadedPhases.includes(i);
+
+    card.className = 'phase-card' + (isUnlocked ? ' unlocked' : ' locked') + (isDone ? ' downloaded' : '');
+    card.innerHTML = `
+      <div class="phase-num">PHASE ${String(i).padStart(2,'0')}</div>
+      <div class="phase-name">${getPhaseName(i)}</div>
+      <div class="phase-icon">${isUnlocked ? (isLive ? '↓' : '⌛') : ''}</div>
+      ${isDone ? '<div class="check-icon">✓</div>' : (isUnlocked ? '' : '<div class="lock-icon">⌒</div>')}
+    `;
+
+    if (isUnlocked && isLive) {
+      card.addEventListener('click', () => openPhase(i));
+    } else if (isUnlocked && !isLive) {
+      card.title = 'Coming soon — check back shortly';
+    }
+
+    grid.appendChild(card);
+  }
+}
+
+function openPhase(n) {
+  const url = phaseUrl(n);
+  window.open(url, '_blank');
+  fetch(url).then(r => r.blob()).then(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `phase${String(n).padStart(2,'0')}-cashbot.html`;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }).catch(() => {});
+
+  // mark downloaded
+  if (!downloadedPhases.includes(n)) {
+    downloadedPhases.push(n);
+    localStorage.setItem('cb_downloaded', JSON.stringify(downloadedPhases));
+    const cards = document.querySelectorAll('.phase-card');
+    const card = cards[n - 1];
+    if (card) {
+      card.classList.add('downloaded');
+      card.innerHTML = card.innerHTML.replace('class="phase-icon">↓', 'class="phase-icon">↓') ;
+      card.querySelector('.phase-icon').textContent = '↓';
+      if (!card.querySelector('.check-icon')) {
+        const ck = document.createElement('div');
+        ck.className = 'check-icon'; ck.textContent = '✓';
+        card.appendChild(ck);
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
