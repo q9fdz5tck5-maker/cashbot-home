@@ -88,8 +88,9 @@
     .prompt-box { background: #06080f; border: 1px solid rgba(0,255,65,0.18); border-radius: 8px; overflow: hidden; margin: 14px 0 0; }
     .prompt-box-header { display: flex; align-items: center; justify-content: space-between; padding: 9px 14px; border-bottom: 1px solid rgba(0,255,65,0.09); background: rgba(0,255,65,0.03); }
     .prompt-box-label { font-family: 'JetBrains Mono', monospace; font-size: 0.63em; color: rgba(0,255,65,0.4); letter-spacing: 0.1em; text-transform: uppercase; }
-    .prompt-box textarea { width: 100%; padding: 13px 14px; background: transparent; border: none; color: rgba(0,255,65,0.82); font-family: 'JetBrains Mono', monospace; font-size: 0.8em; line-height: 1.65; resize: vertical; outline: none; cursor: text; overflow: auto; }
+    .prompt-box textarea { width: 100%; padding: 13px 14px; background: transparent; border: none; color: rgba(0,255,65,0.82); font-family: 'JetBrains Mono', monospace; font-size: 0.8em; line-height: 1.65; resize: vertical; min-height: 60px; outline: none; cursor: text; overflow: hidden; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word; }
     .prompt-box textarea::selection { background: rgba(0,255,65,0.2); }
+    textarea { white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word; }
 
     /* copy button BIG */
     .copy-btn {
@@ -160,6 +161,19 @@
       .nav-right { flex-direction: column; align-items: flex-end; gap: 8px; }
       .btn-row { flex-direction: column; }
       .server-row-header { flex-wrap: wrap; }
+      .os-picker { flex-wrap: wrap; }
+      .os-btn { flex: 1; min-width: 100px; }
+      .tabs { flex-wrap: wrap; }
+      .tab-btn { flex: 1; min-width: 80px; }
+      .step-body { padding: 0 14px 16px; }
+      .prompt-box textarea { font-size: 0.76em; }
+      .copy-btn { font-size: 0.78em; padding: 12px 14px; }
+      input[type="text"], input[type="password"] { font-size: 0.82em; }
+    }
+    @media (max-width: 400px) {
+      .topbar { gap: 8px; }
+      .step-header { padding: 14px 14px 0; }
+      .step-title { font-size: 0.7em; }
     }
   </style>
 </head>
@@ -167,14 +181,14 @@
 <div class="wrap">
 
   <div class="topbar">
-    <a href="home.html" class="logo">CASH<span>.</span>BOT</a>
+    <a href="https://cash.bot" class="logo">CASH<span>.</span>BOT</a>
     <div class="nav-right">
       <div class="breadcrumb">
-        <a href="home.html">home</a>
+        <a href="https://cash.bot">home</a>
         <span>/</span>
         <span style="color:rgba(0,255,65,0.65)">phase 02</span>
       </div>
-      <a href="phase1-setup.html" class="phase-nav-btn">← Phase 01</a>
+      <a href="https://cash.bot/setup/phase1.html" class="phase-nav-btn">← Phase 01</a>
     </div>
   </div>
 
@@ -495,11 +509,20 @@ Report which method succeeded and confirm the session window appeared.</textarea
   </div>
 
   <div class="bottom-nav">
-    <a href="phase1-setup.html" class="prev-btn">← Phase 01</a>
+    <a href="https://cash.bot/setup/phase1.html" class="prev-btn">← Phase 01</a>
   </div>
 
 </div>
 <script>
+  // ── Auto-resize textareas to fit content ──
+  function autoResizeTa(ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
+  function initAutoResize() {
+    document.querySelectorAll('textarea').forEach(ta => {
+      autoResizeTa(ta);
+      ta.addEventListener('input', () => autoResizeTa(ta));
+    });
+  }
+
   // ── Command generation (key-safe: uses interactive read — key never in text) ──
   const MAC_CMD = `printf 'Paste Vultr API key (hidden): '; read -rs VKEY; echo; mkdir -p ~/.cashbot && printf 'VULTR_API_KEY=%s\\n' "$VKEY" > ~/.cashbot/vultr_key.env && chmod 600 ~/.cashbot/vultr_key.env && echo "key saved"`;
   const WIN_CMD = `$k=[Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR((Read-Host "Paste Vultr API key" -AsSecureString))); New-Item -Force "$env:USERPROFILE\\.cashbot" -ItemType Directory|Out-Null; "VULTR_API_KEY=$k"|Set-Content "$env:USERPROFILE\\.cashbot\\vultr_key.env"; Write-Host "key saved"`;
@@ -758,8 +781,9 @@ Report which method succeeded and confirm the session window appeared.</textarea
       }
     } catch(e) {
       const msg = (e.message || '').toLowerCase();
-      if (msg.includes('load failed') || msg.includes('failed to fetch') || msg.includes('network')) {
-        showStatus('pull-status', '> Browser blocked the API call — open this file in Chrome, or paste Claude\'s output below', 'error');
+      if (msg.includes('load failed') || msg.includes('failed to fetch') || msg.includes('network') || msg.includes('cors')) {
+        showPullCommandFallback();
+        showStatus('pull-status', '> Browser can\'t reach Vultr directly — run this terminal command, then paste the output into the box below:', 'info');
       } else {
         showStatus('pull-status', `> ${e.message}`, 'error');
       }
@@ -767,6 +791,56 @@ Report which method succeeded and confirm the session window appeared.</textarea
       btn.innerHTML = origHtml;
       btn.disabled = false;
     }
+  }
+
+  const PULL_CLAUDE_PROMPT = `Read the file ~/.cashbot/vultr_key.env to get my Vultr API key, then use it to list my VPS instances from https://api.vultr.com/v2/instances
+
+Output ONLY this — no explanation, no extra text:
+IP: <main_ip value>
+Password: <default_password value>`;
+
+  const PULL_TERMINAL_CMD = `VULTR_API_KEY=$(grep -m1 'VULTR_API_KEY' ~/.cashbot/vultr_key.env | cut -d'=' -f2) && curl -s -H "Authorization: Bearer $VULTR_API_KEY" "https://api.vultr.com/v2/instances" | python3 -c "import sys,json; [print('IP:',i.get('main_ip',''),'\\nPassword:',i.get('default_password','')) for i in json.load(sys.stdin).get('instances',[])]"`;
+
+  function showPullCommandFallback() {
+    document.getElementById('pull-server-list').innerHTML = `
+      <div style="margin:8px 0 12px;">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span class="prompt-box-label">Copy this → paste into Claude Code → paste response below</span>
+          </div>
+          <textarea id="pull-claude-prompt-ta" onclick="this.select()" readonly style="width:100%;padding:11px 14px;background:transparent;border:none;color:rgba(0,255,65,0.82);font-family:'JetBrains Mono',monospace;font-size:0.8em;line-height:1.7;resize:vertical;outline:none;min-height:80px;white-space:pre-wrap;word-break:break-word;overflow-wrap:break-word;overflow:hidden;">${PULL_CLAUDE_PROMPT}</textarea>
+        </div>
+        <button class="copy-btn" onclick="copyPullPrompt(this)" style="margin-top:6px;"><span>⎘</span> COPY CLAUDE CODE PROMPT</button>
+        <details style="margin-top:10px;">
+          <summary style="font-family:'JetBrains Mono',monospace;font-size:0.7em;color:rgba(0,255,65,0.35);cursor:pointer;list-style:none;padding:4px 0;">▸ Terminal command instead</summary>
+          <div style="margin-top:8px;">
+            <div class="prompt-box">
+              <div class="prompt-box-header"><span class="prompt-box-label">Terminal — paste output below</span></div>
+              <textarea onclick="this.select()" readonly style="width:100%;padding:10px 14px;background:transparent;border:none;color:rgba(0,255,65,0.7);font-family:'JetBrains Mono',monospace;font-size:0.72em;line-height:1.6;resize:vertical;outline:none;min-height:60px;white-space:pre-wrap;word-break:break-all;overflow-wrap:break-word;overflow:hidden;">${PULL_TERMINAL_CMD}</textarea>
+            </div>
+            <button class="copy-btn" onclick="copyTermCmd(this)" style="margin-top:6px;font-size:0.78em;padding:10px;"><span>⎘</span> COPY TERMINAL COMMAND</button>
+          </div>
+        </details>
+      </div>`;
+    document.querySelectorAll('#pull-server-list textarea').forEach(ta => autoResizeTa(ta));
+  }
+
+  function copyPullPrompt(btn) {
+    navigator.clipboard.writeText(PULL_CLAUDE_PROMPT).then(() => {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<span>✓</span> COPIED — paste into Claude Code, then paste its response below';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 3500);
+    }).catch(() => { document.getElementById('pull-claude-prompt-ta').select(); });
+  }
+
+  function copyTermCmd(btn) {
+    navigator.clipboard.writeText(PULL_TERMINAL_CMD).then(() => {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<span>✓</span> COPIED — run it, paste output below';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 3000);
+    }).catch(() => {});
   }
 
   const _pullData = {};
@@ -794,6 +868,7 @@ Report which method succeeded and confirm the session window appeared.</textarea
     const ip = allIps.find(ip => !ip.startsWith('10.') && !ip.startsWith('192.168.') && !ip.startsWith('172.') && !ip.startsWith('127.') && !ip.startsWith('0.'));
     const passPatterns = [
       /root_password["'\s:]+([^\s"'\n,}]{6,})/i,
+      /default_password["'\s:]+([^\s"'\n,}]{6,})/i,
       /"password":\s*"([^"]+)"/i,
       /password["'\s:]+([^\s"'\n,}]{6,})/i,
       /\bpassword\b.*?([A-Za-z0-9!@#$%^&*()\-_+=]{8,})/i,
@@ -963,6 +1038,7 @@ Report which method succeeded and confirm the session window appeared.</textarea
   // ── Init ──
   window.addEventListener('DOMContentLoaded', async () => {
     initCmds();
+    initAutoResize();
 
     const savedKey = localStorage.getItem('vultr_api_key');
     if (savedKey) document.getElementById('api-key-input').value = savedKey;

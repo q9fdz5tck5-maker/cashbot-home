@@ -64,8 +64,9 @@
     .prompt-box { background: #06080f; border: 1px solid rgba(0,255,65,0.18); border-radius: 8px; overflow: hidden; margin: 12px 0; }
     .prompt-box-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid rgba(0,255,65,0.1); background: rgba(0,255,65,0.03); }
     .prompt-box-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65em; color: rgba(0,255,65,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
-    .prompt-box textarea { width: 100%; padding: 14px 16px; background: transparent; border: none; color: rgba(0,255,65,0.85); font-family: 'JetBrains Mono', monospace; font-size: 0.82em; line-height: 1.65; resize: none; outline: none; cursor: text; }
+    .prompt-box textarea { width: 100%; padding: 14px 16px; background: transparent; border: none; color: rgba(0,255,65,0.85); font-family: 'JetBrains Mono', monospace; font-size: 0.82em; line-height: 1.65; resize: vertical; min-height: 80px; outline: none; cursor: text; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word; overflow: hidden; }
     .prompt-box textarea::selection { background: rgba(0,255,65,0.2); }
+    textarea { white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word; }
 
     /* ── copy button (BIG) ── */
     .copy-btn {
@@ -94,6 +95,9 @@
 
     @media (max-width: 600px) {
       .nav-right { flex-direction: column; align-items: flex-end; gap: 8px; }
+      .tabs { flex-wrap: wrap; }
+      .tab-btn { flex: 1; min-width: 80px; font-size: 0.72em; padding: 8px 12px; }
+      .code-block { font-size: 0.78em; word-break: break-all; }
     }
   </style>
 </head>
@@ -101,14 +105,14 @@
 <div class="wrap">
 
   <div class="topbar">
-    <a href="home.html" class="logo">CASH<span>.</span>BOT</a>
+    <a href="https://cash.bot" class="logo">CASH<span>.</span>BOT</a>
     <div class="nav-right">
       <div class="breadcrumb">
-        <a href="home.html">home</a>
+        <a href="https://cash.bot">home</a>
         <span>/</span>
         <span style="color:rgba(0,255,65,0.65)">phase 01</span>
       </div>
-      <a href="phase2-setup.html" class="phase-nav-btn">Phase 02 →</a>
+      <a href="https://cash.bot/setup/phase2.html" class="phase-nav-btn">Phase 02 →</a>
     </div>
   </div>
 
@@ -201,7 +205,7 @@
   </div>
 
   <div class="bottom-nav">
-    <a href="phase2-setup.html" class="next-btn">Continue to Phase 02 →</a>
+    <a href="https://cash.bot/setup/phase2.html" class="next-btn">Continue to Phase 02 →</a>
   </div>
 
 </div>
@@ -211,6 +215,13 @@
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + id).classList.add('active');
     btn.classList.add('active');
+  }
+  function autoResizeTa(ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
+  function initAutoResize() {
+    document.querySelectorAll('textarea').forEach(ta => {
+      autoResizeTa(ta);
+      ta.addEventListener('input', () => autoResizeTa(ta));
+    });
   }
   function copyPrompt(id, btn) {
     const text = document.getElementById(id).value;
@@ -226,6 +237,7 @@
   if (navigator.platform && navigator.platform.includes('Win')) {
     document.querySelectorAll('.tab-btn')[1].click();
   }
+  document.addEventListener('DOMContentLoaded', initAutoResize);
 </script>
 </body>
 </html>

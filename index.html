@@ -30,6 +30,8 @@
       pointer-events: none; z-index: 0;
     }
     .wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; }
+
+    /* ── header ── */
     .header { text-align: center; margin-bottom: 48px; }
     .logo {
       font-family: 'JetBrains Mono', monospace;
@@ -45,30 +47,25 @@
       letter-spacing: 0.18em; text-transform: uppercase; margin-top: 8px;
     }
     .tagline::before { content: '// '; }
+
+    /* ── progress bar ── */
     .progress-wrap { margin: 28px auto 0; max-width: 400px; }
     .progress-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7em; color: rgba(0,255,65,0.5);
       display: flex; justify-content: space-between; margin-bottom: 8px;
     }
-    .progress-track { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+    .progress-track {
+      height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden;
+    }
     .progress-fill {
       height: 100%; background: #00ff41;
       box-shadow: 0 0 10px rgba(0,255,65,0.6);
-      border-radius: 2px; transition: width 0.4s ease;
+      border-radius: 2px;
+      transition: width 0.4s ease;
     }
-    .how-banner {
-      background: rgba(0,255,65,0.05);
-      border: 1px solid rgba(0,255,65,0.15);
-      border-radius: 10px;
-      padding: 18px 22px;
-      margin-bottom: 36px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75em;
-      color: rgba(0,255,65,0.6);
-      line-height: 1.7;
-    }
-    .how-banner strong { color: #00ff41; }
+
+    /* ── section labels ── */
     .section-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.68em; font-weight: 700;
@@ -77,7 +74,12 @@
       display: flex; align-items: center; gap: 12px;
       margin: 40px 0 18px;
     }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(0,255,65,0.1); }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: rgba(0,255,65,0.1);
+    }
+
+    /* ── active cards grid ── */
     .active-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -88,6 +90,7 @@
       border: 1px solid rgba(0,255,65,0.2);
       border-radius: 10px;
       padding: 24px 22px 20px;
+      text-decoration: none;
       display: flex; flex-direction: column; gap: 14px;
       position: relative; overflow: hidden;
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
@@ -99,6 +102,8 @@
     }
     .card:hover { border-color: rgba(0,255,65,0.55); box-shadow: 0 0 28px rgba(0,255,65,0.12), 0 8px 30px rgba(0,0,0,0.4); transform: translateY(-3px); }
     .card:hover::before { opacity: 1; }
+    .card:active { transform: translateY(0); }
+
     .phase-dot {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.68em; font-weight: 700;
@@ -112,19 +117,43 @@
       animation: blink 2s infinite;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
     .card-title { font-size: 1.08em; font-weight: 700; color: #ccffcc; line-height: 1.3; }
     .card-desc { font-size: 0.82em; color: rgba(255,255,255,0.45); line-height: 1.55; flex: 1; }
-    .dl-btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      background: #00ff41; color: #000;
+    .card-cta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.73em; color: #00ff41;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(0,255,65,0.1); padding-top: 12px; margin-top: 4px;
+    }
+    .card-num { font-size: 1.9em; font-weight: 700; color: rgba(0,255,65,0.1); line-height: 1; }
+    .card-arrow { opacity: 0; transform: translateX(-5px); transition: all 0.2s; }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ── locked chips grid ── */
+    .locked-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+      gap: 7px;
+    }
+    .chip {
+      background: #0a0c18;
+      border: 1px solid rgba(255,255,255,0.055);
+      border-radius: 6px;
+      padding: 11px 8px;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 5px;
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+    .chip-num {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78em; font-weight: 700;
-      padding: 11px 16px; border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.15s, transform 0.1s;
-      margin-top: 4px;
+      color: rgba(255,255,255,0.18); letter-spacing: 0.06em;
     }
-    .dl-btn:hover { background: #33ff66; transform: translateY(-1px); }
+    .chip-lock { font-size: 0.75em; opacity: 0.35; }
+
+    /* ── card completion ── */
     .card-check {
       position: absolute; top: 14px; right: 14px;
       width: 22px; height: 22px;
@@ -138,19 +167,19 @@
     .card.complete { border-color: rgba(0,255,65,0.55); background: rgba(0,255,65,0.04); }
     .card.complete .card-check { background: #00ff41; border-color: #00ff41; color: #000; }
     .card.complete .phase-dot::before { animation: none; }
-    .locked-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
-      gap: 7px;
+    .card.complete .card-cta { color: rgba(0,255,65,0.5); }
+    .dl-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: #00ff41; color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78em; font-weight: 700;
+      padding: 11px 16px; border-radius: 6px;
+      border: none; cursor: pointer; width: 100%;
+      transition: background 0.15s, transform 0.1s;
+      margin-top: 4px;
     }
-    .chip {
-      background: #0a0c18; border: 1px solid rgba(255,255,255,0.055);
-      border-radius: 6px; padding: 11px 8px;
-      display: flex; flex-direction: column; align-items: center; gap: 5px;
-      cursor: not-allowed; opacity: 0.55;
-    }
-    .chip-num { font-family: 'JetBrains Mono', monospace; font-size: 0.78em; font-weight: 700; color: rgba(255,255,255,0.18); letter-spacing: 0.06em; }
-    .chip-lock { font-size: 0.75em; opacity: 0.35; }
+    .dl-btn:hover { background: #33ff66; transform: translateY(-1px); }
+
     @media (max-width: 600px) {
       .active-grid { grid-template-columns: 1fr; }
       .locked-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); }
@@ -159,25 +188,22 @@
 </head>
 <body>
   <div class="wrap">
+
     <div class="header">
       <div class="logo">CASH<span>.</span>BOT</div>
       <div class="tagline">setup wizard</div>
       <div class="progress-wrap">
         <div class="progress-label">
-          <span id="prog-label">0 of 122 phases complete</span>
-          <span id="prog-pct">0%</span>
+          <span id="prog-label">2 of 122 phases complete</span>
+          <span id="prog-pct">1.6%</span>
         </div>
         <div class="progress-track">
-          <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+          <div class="progress-fill" id="prog-fill" style="width:1.6%"></div>
         </div>
       </div>
     </div>
 
-    <div class="how-banner">
-      <strong>How this works:</strong> each phase is a self-contained HTML file — download it, open it in your browser, follow the steps.<br>
-      Your progress saves automatically. Come back here any time to grab the next phase.
-    </div>
-
+    <!-- active -->
     <div class="section-label">Active phases</div>
     <div class="active-grid">
 
@@ -186,10 +212,10 @@
         <div class="phase-dot">Phase 01</div>
         <div class="card-title">Install Claude Code</div>
         <div class="card-desc">Get the CLI tool set up on Mac or Windows. Required before anything else.</div>
-        <a class="dl-btn" href="setup/phase1.html" target="_blank">
+        <button class="dl-btn" onclick="openPhase('phase1-setup.html','setup/phase1.html','phase1-install-claude-code.html')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Open Phase 01
-        </a>
+        </button>
       </div>
 
       <div class="card" id="card-02">
@@ -197,16 +223,18 @@
         <div class="phase-dot">Phase 02</div>
         <div class="card-title">Deploy Windows VPS</div>
         <div class="card-desc">Create a Vultr account and spin up Windows Server 2022 using Claude.</div>
-        <a class="dl-btn" href="setup/phase2.html" target="_blank">
+        <button class="dl-btn" onclick="openPhase('phase2-setup.html','setup/phase2.html','phase2-deploy-windows-vps.html')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Open Phase 02
-        </a>
+        </button>
       </div>
 
     </div>
 
+    <!-- locked -->
     <div class="section-label" id="locked-label">Locked — 120 phases remaining</div>
     <div class="locked-grid" id="locked-grid"></div>
+
   </div>
 
   <script>
@@ -217,9 +245,10 @@
       const n = String(i).padStart(2, '0');
       const chip = document.createElement('div');
       chip.className = 'chip';
-      chip.innerHTML = '<div class="chip-num">' + n + '</div><div class="chip-lock">🔒</div>';
+      chip.innerHTML = `<div class="chip-num">${n}</div><div class="chip-lock">🔒</div>`;
       grid.appendChild(chip);
     }
+
     function countComplete() {
       let n = 0;
       for (let i = 1; i <= ACTIVE; i++) {
@@ -227,29 +256,58 @@
       }
       return n;
     }
+
     function updateProgress() {
+      const done = ACTIVE - ACTIVE + countComplete() + (parseInt(localStorage.getItem('phases_extra_done') || 0));
       const total_done = Math.max(countComplete(), parseInt(localStorage.getItem('phases_done') || 0));
       const pct = ((total_done / TOTAL) * 100).toFixed(1);
-      document.getElementById('prog-label').textContent = total_done + ' of ' + TOTAL + ' phases complete';
-      document.getElementById('prog-pct').textContent = pct + '%';
-      document.getElementById('prog-fill').style.width = pct + '%';
+      document.getElementById('prog-label').textContent = `${total_done} of ${TOTAL} phases complete`;
+      document.getElementById('prog-pct').textContent   = `${pct}%`;
+      document.getElementById('prog-fill').style.width  = `${pct}%`;
     }
+
     function applyCardState(id) {
       const done = localStorage.getItem('phase-' + id + '-complete') === '1';
       const card = document.getElementById('card-' + id);
       if (done) card.classList.add('complete'); else card.classList.remove('complete');
     }
+
     function togglePhase(id, e) {
       e.preventDefault(); e.stopPropagation();
       const key = 'phase-' + id + '-complete';
       const now = localStorage.getItem(key) === '1' ? '0' : '1';
       localStorage.setItem(key, now);
       applyCardState(id);
-      localStorage.setItem('phases_done', countComplete());
+      // keep phases_done in sync for backwards-compat
+      const c = countComplete();
+      localStorage.setItem('phases_done', c);
       updateProgress();
     }
+
+    // open in new tab + trigger download simultaneously
+    function openPhase(localFile, webFile, dlName) {
+      const isLocal = location.protocol === 'file:';
+      const url = isLocal ? localFile : webFile;
+      window.open(url, '_blank');
+      if (!isLocal) {
+        fetch(url).then(r => r.blob()).then(blob => {
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = dlName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        });
+      }
+    }
+
+    // init
     ['01','02'].forEach(applyCardState);
-    localStorage.setItem('phases_done', Math.max(parseInt(localStorage.getItem('phases_done') || 0), countComplete()));
+    // sync phases_done from completion state if stale
+    const legacyDone = parseInt(localStorage.getItem('phases_done') || 0);
+    const actualDone = countComplete();
+    localStorage.setItem('phases_done', Math.max(legacyDone, actualDone));
     updateProgress();
   </script>
 </body>
