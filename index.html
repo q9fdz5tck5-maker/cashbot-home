@@ -214,7 +214,7 @@
         <div class="card-desc">Get the CLI tool set up on Mac or Windows. Required before anything else.</div>
         <button class="dl-btn" onclick="openPhase('phase1-setup.html','setup/phase1.html','phase1-install-claude-code.html')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Open Phase 01
+          Download Phase 01
         </button>
       </div>
 
@@ -225,7 +225,7 @@
         <div class="card-desc">Create a Vultr account and spin up Windows Server 2022 using Claude.</div>
         <button class="dl-btn" onclick="openPhase('phase2-setup.html','setup/phase2.html','phase2-deploy-windows-vps.html')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Open Phase 02
+          Download Phase 02
         </button>
       </div>
 
@@ -284,22 +284,15 @@
       updateProgress();
     }
 
-    // open in new tab + trigger download simultaneously
     function openPhase(localFile, webFile, dlName) {
       const isLocal = location.protocol === 'file:';
       const url = isLocal ? localFile : webFile;
-      window.open(url, '_blank');
-      if (!isLocal) {
-        fetch(url).then(r => r.blob()).then(blob => {
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = dlName;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-        });
-      }
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = dlName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
 
     // init
