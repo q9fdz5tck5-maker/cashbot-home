@@ -165,6 +165,42 @@
     }
     .hero-what strong { color: rgba(0,255,65,0.45); }
 
+    /* video pill — above fold */
+    .vp-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(0,255,65,0.05);
+      border: 1px solid rgba(0,255,65,0.2);
+      border-radius: 32px;
+      padding: 7px 18px 7px 7px;
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: all 0.2s;
+    }
+    .vp-pill:hover { background: rgba(0,255,65,0.1); border-color: rgba(0,255,65,0.4); }
+    .vp-pill-thumb { width: 42px; height: 28px; border-radius: 5px; object-fit: cover; flex-shrink: 0; }
+    .vp-pill-play { font-size: 13px; color: var(--g); }
+    .vp-pill-txt { font-family: var(--mono); font-size: 0.7em; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+    .vp-pill-txt strong { color: rgba(0,255,65,0.9); }
+
+    /* full video block */
+    .vid-block { margin: 0 auto 60px; max-width: 720px; }
+    .vid-block-lbl { font-family: var(--mono); font-size: 0.66em; letter-spacing: 0.22em; color: rgba(0,255,65,0.4); text-transform: uppercase; margin-bottom: 12px; }
+    .vid-block-lbl::before { content: '// '; color: rgba(0,255,65,0.15); }
+    .vid-thumb-wrap { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,255,65,0.12); box-shadow: 0 8px 40px rgba(0,0,0,.6); aspect-ratio: 16/9; display: block; text-decoration: none; }
+    .vid-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+    .vid-thumb-wrap:hover img { transform: scale(1.02); }
+    .vid-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.42); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: background .15s; }
+    .vid-thumb-wrap:hover .vid-overlay { background: rgba(0,0,0,.58); }
+    .vid-overlay svg { width: 56px; height: 56px; filter: drop-shadow(0 2px 12px rgba(0,0,0,.7)); }
+    .vid-overlay-txt { font-family: var(--mono); font-size: 0.72em; letter-spacing: .14em; text-transform: uppercase; color: rgba(0,255,65,0.9); margin-top: 10px; font-weight: 700; }
+    .vid-badge { position: absolute; top: 12px; left: 12px; background: rgba(239,68,68,.85); color: #fff; font-family: var(--mono); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; }
+    .vid-cta-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
+    .vid-cta-wa { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 13px 26px; background: var(--g); color: #000; border-radius: 8px; text-decoration: none; font-family: var(--mono); font-size: 0.85em; font-weight: 700; letter-spacing: 0.06em; transition: all .2s; }
+    .vid-cta-wa:hover { background: #1aff5a; transform: translateY(-1px); }
+    .vid-cta-sec { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 13px 22px; background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; text-decoration: none; font-family: var(--mono); font-size: 0.85em; letter-spacing: 0.06em; transition: all .2s; }
+    .vid-cta-sec:hover { border-color: rgba(0,255,65,0.4); color: rgba(0,255,65,0.9); }
+    @media (max-width: 640px) { .vid-cta-row { flex-direction: column; } .vid-cta-wa, .vid-cta-sec { width: 100%; } }
+
     /* typewriter */
     .tw-wrap {
       display: inline-flex; align-items: center; gap: 10px;
@@ -635,6 +671,12 @@
     </a>
     <div class="hero-what">You get: a live app + step-by-step phases via WhatsApp &nbsp;·&nbsp; <strong>nothing to download · starts today</strong></div>
 
+    <a href="https://youtu.be/rWwT9D-ISS4" target="_blank" rel="noopener" class="vp-pill">
+      <img class="vp-pill-thumb" src="https://img.youtube.com/vi/rWwT9D-ISS4/2.jpg" alt="demo">
+      <span class="vp-pill-play">▶</span>
+      <span class="vp-pill-txt"><strong>Watch the 39-min demo</strong> &nbsp;·&nbsp; see exactly how the money machine works</span>
+    </a>
+
     <div class="tw-wrap">
       <span class="tw-prefix">./building&nbsp;</span>
       <span class="tw-text" id="tw-text">&nbsp;</span>
@@ -663,6 +705,23 @@
       </div>
     </div>
   </section>
+
+  <!-- VIDEO PROOF -->
+  <div class="vid-block">
+    <div class="vid-block-lbl">the proof — full 39-min demo</div>
+    <a class="vid-thumb-wrap" href="https://youtu.be/rWwT9D-ISS4" target="_blank" rel="noopener">
+      <img src="https://img.youtube.com/vi/rWwT9D-ISS4/maxresdefault.jpg" alt="I Built an AI Tool That Makes Me Money While I Sleep — Cash.Bot Demo">
+      <div class="vid-overlay">
+        <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.8 0 34 0 34 0S12.2 0 7.4 1.7c-2.9.8-5.1 3.1-5.9 6C0 12.5 0 24 0 24s0 11.5 1.5 16.3c.8 2.9 3 5.2 5.9 6C12.2 48 34 48 34 48s21.8 0 26.6-1.7c2.9-.8 5.1-3.1 5.9-6C68 35.5 68 24 68 24s0-11.5-1.5-16.3z" fill="rgba(0,255,65,0.9)"/><path d="M27 34l18-10-18-10v20z" fill="#000"/></svg>
+        <div class="vid-overlay-txt">Play · 39:57</div>
+      </div>
+      <div class="vid-badge">FULL DEMO</div>
+    </a>
+    <div class="vid-cta-row">
+      <a href="https://wa.me/18054533586?text=Hey+Chase+%E2%80%94+I+just+watched+the+demo+and+want+in" class="vid-cta-wa">💬 Message Chase to get in →</a>
+      <a href="/3-secrets" class="vid-cta-sec">Read the 3 secrets →</a>
+    </div>
+  </div>
 
   <!-- PHASES PREVIEW -->
   <section class="phases-sec">
