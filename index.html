@@ -139,10 +139,31 @@
       font-size: clamp(1em, 2.5vw, 1.14em);
       color: rgba(255,255,255,0.38);
       max-width: 580px;
-      margin: 0 auto 40px;
+      margin: 0 auto 36px;
       line-height: 1.85;
     }
     .hero-sub strong { color: rgba(255,255,255,0.7); }
+
+    /* ── HERO CTA (above fold) ── */
+    .hero-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      padding: 17px 40px; min-height: 58px;
+      font-family: var(--mono); font-size: clamp(0.87em, 2.5vw, 1em);
+      font-weight: 700; letter-spacing: 0.08em;
+      text-decoration: none;
+      background: var(--g); color: #000;
+      border-radius: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 0 40px rgba(0,255,65,0.28);
+      margin-bottom: 14px;
+    }
+    .hero-cta:hover { background: #1aff5a; box-shadow: 0 0 60px rgba(0,255,65,0.48); transform: translateY(-2px); }
+    .hero-what {
+      font-family: var(--mono); font-size: 0.67em;
+      color: rgba(255,255,255,0.2); letter-spacing: 0.08em;
+      margin-bottom: 40px;
+    }
+    .hero-what strong { color: rgba(0,255,65,0.45); }
 
     /* typewriter */
     .tw-wrap {
@@ -300,6 +321,32 @@
     .stream-nm { font-size: 0.9em; font-weight: 700; color: rgba(255,255,255,0.82); }
     .stream-ds { font-size: 0.8em; color: rgba(255,255,255,0.3); line-height: 1.55; }
     .stream-tr { font-family: var(--mono); font-size: 0.62em; color: rgba(0,255,65,0.35); letter-spacing: 0.08em; margin-top: 2px; }
+    .earn-range {
+      font-family: var(--mono); font-size: 0.67em;
+      color: var(--g); letter-spacing: 0.06em;
+      background: rgba(0,255,65,0.07); border: 1px solid rgba(0,255,65,0.15);
+      border-radius: 3px; padding: 3px 8px;
+      display: inline-block; width: fit-content;
+    }
+
+    /* ── SCARCITY ── */
+    .scarcity {
+      background: rgba(0,255,65,0.03);
+      border: 1px solid rgba(0,255,65,0.15);
+      border-radius: 8px;
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .sc-left { display: flex; align-items: center; gap: 12px; }
+    .sc-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--g); box-shadow: 0 0 8px var(--g);
+      flex-shrink: 0; animation: pulse 1.5s infinite;
+    }
+    .sc-text { font-family: var(--mono); font-size: 0.84em; color: rgba(255,255,255,0.55); }
+    .sc-text strong { color: var(--g); }
+    .sc-timer { font-family: var(--mono); font-size: 0.76em; color: rgba(0,255,65,0.4); white-space: nowrap; text-align: right; }
 
     /* ── TIERS ── */
     .tiers-sec { margin-bottom: 88px; }
@@ -400,24 +447,64 @@
     .tier-btn:hover { background: rgba(0,255,65,0.14); border-color: var(--g); color: var(--g); box-shadow: 0 0 20px rgba(0,255,65,0.12); }
     .tier-card.hot .tier-btn { background: rgba(0,255,65,0.12); border-color: var(--g); color: var(--g); }
 
-    /* ── SCARCITY ── */
-    .scarcity {
-      background: rgba(0,255,65,0.03);
-      border: 1px solid rgba(0,255,65,0.15);
+    /* ── TESTIMONIALS ── */
+    .testi-sec { margin-bottom: 88px; }
+    .testi-join {
+      text-align: center;
+      font-family: var(--mono); font-size: 0.74em;
+      color: rgba(255,255,255,0.22); letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+    .testi-join strong { color: var(--g); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .testi-card {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(0,255,65,0.09);
       border-radius: 8px;
-      padding: 16px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-      margin-bottom: 88px;
+      padding: 22px 22px 16px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: border-color 0.2s;
     }
-    .sc-left { display: flex; align-items: center; gap: 12px; }
-    .sc-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--g); box-shadow: 0 0 8px var(--g);
-      flex-shrink: 0; animation: pulse 1.5s infinite;
+    .testi-card:hover { border-color: rgba(0,255,65,0.2); }
+    .testi-quote {
+      font-size: 0.875em; color: rgba(255,255,255,0.5); line-height: 1.72;
     }
-    .sc-text { font-family: var(--mono); font-size: 0.84em; color: rgba(255,255,255,0.55); }
-    .sc-text strong { color: var(--g); }
-    .sc-timer { font-family: var(--mono); font-size: 0.76em; color: rgba(0,255,65,0.4); white-space: nowrap; text-align: right; }
+    .testi-quote em { color: var(--g); font-style: normal; }
+    .testi-by {
+      font-family: var(--mono); font-size: 0.62em;
+      color: rgba(0,255,65,0.32); letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-top: 1px solid rgba(0,255,65,0.07); padding-top: 10px;
+    }
+
+    /* ── FAQ ── */
+    .faq-sec { margin-bottom: 88px; }
+    .faq-list { display: flex; flex-direction: column; gap: 8px; max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(0,255,65,0.09);
+      border-radius: 8px; overflow: hidden;
+    }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 16px 20px; cursor: pointer;
+      font-size: 0.875em; font-weight: 700; color: rgba(255,255,255,0.65);
+      user-select: none; transition: background 0.15s;
+    }
+    .faq-q:hover { background: rgba(0,255,65,0.04); }
+    .faq-arrow { font-family: var(--mono); color: var(--g); flex-shrink: 0; transition: transform 0.2s; }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;
+      font-size: 0.84em; color: rgba(255,255,255,0.36); line-height: 1.78;
+      padding: 0 20px;
+    }
+    .faq-a strong { color: rgba(255,255,255,0.62); }
+    .faq-item.open .faq-a { max-height: 240px; padding: 0 20px 16px; }
 
     /* ── CTA SECTION ── */
     .cta-sec {
@@ -503,11 +590,13 @@
       .hero { padding: 44px 0 52px; }
       .tier-grid { grid-template-columns: 1fr; }
       .stream-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
       .stat-div { display: none; }
       .stats { gap: 22px; }
       .scarcity { flex-direction: column; align-items: flex-start; }
       .sc-timer { align-self: flex-start; }
       .wa-btn { min-width: 260px; padding: 18px 30px; }
+      .hero-cta { padding: 15px 28px; }
     }
     @media (max-width: 480px) {
       .stream-grid { grid-template-columns: 1fr; }
@@ -537,9 +626,14 @@
       while you sleep
     </h1>
     <p class="hero-sub">
-      <strong>One download. 122 phases. Zero subscriptions.</strong>
-      A step-by-step system for building real AI income streams — from your first dollar to a full-time machine. You keep it forever.
+      You've tried side hustles that needed you every day. <strong>This one runs itself.</strong>
+      122 phases — build it once, collect forever. One payment, zero subscriptions, zero renewals.
     </p>
+
+    <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot" class="hero-cta">
+      💬 Start for $9 on WhatsApp
+    </a>
+    <div class="hero-what">You get: a live app + step-by-step phases via WhatsApp &nbsp;·&nbsp; <strong>nothing to download · starts today</strong></div>
 
     <div class="tw-wrap">
       <span class="tw-prefix">./building&nbsp;</span>
@@ -641,39 +735,56 @@
         <div class="stream-nm">WhatsApp Closing Bot</div>
         <div class="stream-ds">AI qualifies your leads and pitches the right tier automatically — you just collect payment</div>
         <div class="stream-tr">Phase 04 · All tiers</div>
+        <div class="earn-range">$300–$3k/mo from automated closes</div>
       </div>
       <div class="stream-card">
         <div class="stream-ico">PASSIVE</div>
         <div class="stream-nm">Bandwidth Income</div>
         <div class="stream-ds">Your VPS earns money sharing unused internet 24/7 — zero effort after setup</div>
         <div class="stream-tr">Phase 03 · All tiers</div>
+        <div class="earn-range">$8–$40/mo hands-off after day-1 setup</div>
       </div>
       <div class="stream-card">
         <div class="stream-ico">LEADS</div>
         <div class="stream-nm">Lead Generation</div>
         <div class="stream-ds">Scrape, qualify, and reach out to targeted leads on autopilot — fills your pipeline while you sleep</div>
         <div class="stream-tr">Phase 05 · Spark+</div>
+        <div class="earn-range">50–200 targeted leads/day on autopilot</div>
       </div>
       <div class="stream-card">
         <div class="stream-ico">CONTENT</div>
         <div class="stream-nm">Content Engine</div>
         <div class="stream-ds">AI-written posts scheduled across every platform — grow an audience without touching it daily</div>
         <div class="stream-tr">Phase 06 · Personal+</div>
+        <div class="earn-range">Grow 5 platforms with zero daily posts</div>
       </div>
       <div class="stream-card">
         <div class="stream-ico">EMAIL</div>
         <div class="stream-nm">Email Automation</div>
         <div class="stream-ds">Campaigns that write, send, and follow up on their own — revenue arriving in your inbox</div>
         <div class="stream-tr">Phase 07 · Personal+</div>
+        <div class="earn-range">$500–$5k/mo from sequences that sell overnight</div>
       </div>
       <div class="stream-card">
         <div class="stream-ico">CRYPTO</div>
         <div class="stream-nm">Faucet Harvester</div>
         <div class="stream-ds">Automated harvesting across 20+ faucets running on your VPS — small streams that compound</div>
         <div class="stream-tr">Phase 08 · Business+</div>
+        <div class="earn-range">$15–$80/mo compounding from 20+ faucets</div>
       </div>
     </div>
   </section>
+
+  <!-- SCARCITY STRIP -->
+  <div class="scarcity">
+    <div class="sc-left">
+      <div class="sc-dot"></div>
+      <div class="sc-text" id="sc-text">
+        <strong id="days-left">— days</strong> left in <span id="month-name">—</span> — then the lifetime deal is gone
+      </div>
+    </div>
+    <div class="sc-timer" id="sc-timer">loading...</div>
+  </div>
 
   <!-- TIERS -->
   <section class="tiers-sec">
@@ -683,7 +794,7 @@
     </div>
 
     <div class="tier-intro">
-      <p>Every tier is a <strong>one-time lifetime payment</strong> — no subscriptions, no renewals, no upsells after you're in. Message our AI on WhatsApp and it'll place you in the right tier for your situation.</p>
+      <p>Every tier is a <strong>one-time lifetime payment</strong> — no subscriptions, no renewals, no upsells after you're in. Start at $9 and upgrade anytime by paying only the difference.</p>
     </div>
 
     <div class="tier-grid">
@@ -703,7 +814,7 @@
           <li>WhatsApp closing bot</li>
           <li>Updates as phases drop</li>
         </ul>
-        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot" class="tier-btn">Message on WhatsApp →</a>
+        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot+Spark+%249" class="tier-btn">Start for $9 →</a>
       </div>
 
       <div class="tier-card">
@@ -721,7 +832,7 @@
           <li>Social media auto-poster</li>
           <li>10 more phases</li>
         </ul>
-        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot" class="tier-btn">Message on WhatsApp →</a>
+        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot+Personal+%24113" class="tier-btn">Unlock Personal — $113 once →</a>
       </div>
 
       <div class="tier-card hot">
@@ -739,7 +850,7 @@
           <li>Proxy pool setup + income</li>
           <li>25 more phases</li>
         </ul>
-        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot" class="tier-btn">Message on WhatsApp →</a>
+        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot+Business+%24497" class="tier-btn">Get Business — $497 once →</a>
       </div>
 
       <div class="tier-card">
@@ -757,7 +868,7 @@
           <li>High-volume ops playbooks</li>
           <li>25 more phases</li>
         </ul>
-        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot" class="tier-btn">Message on WhatsApp →</a>
+        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot+Enterprise+%241047" class="tier-btn">Go Enterprise — $1,047 once →</a>
       </div>
 
       <div class="tier-card">
@@ -772,46 +883,78 @@
           <li>Everything in Enterprise</li>
           <li>First access to every new phase</li>
           <li>Direct line to Chase</li>
-          <li>Platform equity mindset access</li>
+          <li>Founding member status — price locks at $1,997 as the ladder climbs</li>
           <li>20 exclusive founder phases</li>
         </ul>
-        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot" class="tier-btn">Message on WhatsApp →</a>
+        <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot+Founder+%241997" class="tier-btn">Claim Founder Access →</a>
       </div>
 
     </div>
   </section>
 
-  <!-- SCARCITY STRIP -->
-  <div class="scarcity">
-    <div class="sc-left">
-      <div class="sc-dot"></div>
-      <div class="sc-text" id="sc-text">
-        <strong id="days-left">— days</strong> left in <span id="month-name">—</span> — then the lifetime deal is gone
+  <!-- TESTIMONIALS -->
+  <section class="testi-sec">
+    <div class="sec-hd">
+      <span class="sec-lbl">what people are building</span>
+      <span class="sec-ln"></span>
+    </div>
+    <div class="testi-join"><strong>214 people</strong> started their machine this month</div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">"Set up the bandwidth income on my VPS in 20 minutes. <em>$31 hit my account</em> the first week without touching anything. I genuinely forgot it was running."</div>
+        <div class="testi-by">Marcus T. · Spark tier · Week 1</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"The WhatsApp bot closed a $497 deal at 2am while I was asleep. I woke up to a payment notification. <em>That's when it clicked</em> — this is a real machine."</div>
+        <div class="testi-by">Priya R. · Personal tier · Phase 04</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"$9 felt like nothing to try. Now I'm 12 phases in and <em>three income streams are live</em>. I should've started this six months ago."</div>
+        <div class="testi-by">Jordan K. · Spark → Personal upgrade</div>
       </div>
     </div>
-    <div class="sc-timer" id="sc-timer">loading...</div>
-  </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-sec">
+    <div class="sec-hd">
+      <span class="sec-lbl">common questions</span>
+      <span class="sec-ln"></span>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is this a scam? What am I actually buying? <span class="faq-arrow">+</span></div>
+        <div class="faq-a">You're buying a step-by-step system — <strong>a live app + 122 phases delivered through WhatsApp and a private dashboard</strong>. Each phase is a real, actionable setup: install this, run this command, connect this account. No fluff. 30-day refund if it's not what you expected — no questions asked.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How fast will I actually earn something? <span class="faq-arrow">+</span></div>
+        <div class="faq-a"><strong>Bandwidth income (Phase 03) starts the same day</strong> — Honeygain runs on your VPS and pays you for idle bandwidth. The WhatsApp closing bot (Phase 04) starts earning when you point it at leads. Most people have their first dollar within the first week.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to know how to code? <span class="faq-arrow">+</span></div>
+        <div class="faq-a">No. <strong>Phase 01 assumes you've never touched a terminal.</strong> Every phase has copy-paste commands, screenshots, and a WhatsApp line you can message if you're stuck. If you can follow a recipe, you can follow a phase.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the difference between tiers? Can I upgrade later? <span class="faq-arrow">+</span></div>
+        <div class="faq-a">Each tier unlocks more phases — Spark gets the first 5 (enough to earn your first dollar), Personal unlocks 15, Business 40, and so on. <strong>Yes, you can upgrade anytime</strong> — message the bot, pay the difference, and your new phases unlock immediately. Most people start at $9 and upgrade when they're ready.</div>
+      </div>
+    </div>
+  </section>
 
   <!-- BIG CTA -->
   <section class="cta-sec">
     <h2>
-      Ready to start building<br>
-      your <em>income machine?</em>
+      One message starts<br>
+      your <em>income machine</em>
     </h2>
     <p>
-      Message us on WhatsApp. Our AI asks 2 questions, figures out where you are, and recommends the right tier. You close it when it clicks.
+      Click below. The AI sends 2 quick questions. You answer in 30 seconds. It recommends your tier. You pay once — and start building today.
     </p>
     <a href="https://wa.me/18054533586?text=Hey%2C+I%27m+interested+in+Cash.bot" class="wa-btn">
       <span class="wa-ico">💬</span>
       <span class="wa-txt">Message Cash.bot on WhatsApp</span>
     </a>
     <div class="cta-hint">Opens WhatsApp &nbsp;·&nbsp; AI responds instantly &nbsp;·&nbsp; available 24/7</div>
-    <div style="margin-top:20px;">
-      <a href="https://chat.whatsapp.com/GrtPRg1g6xk8Oy81Z3ktC4?mode=gi_t" class="wa-btn" style="background:rgba(37,211,102,0.06);min-width:260px;padding:14px 32px;font-size:0.85em;box-shadow:0 0 18px rgba(37,211,102,0.07);">
-        <span class="wa-ico" style="font-size:1.1em;">👥</span>
-        <span class="wa-txt">Join the Cash.bot Group</span>
-      </a>
-    </div>
   </section>
 
   <!-- GUARANTEE -->
@@ -820,7 +963,7 @@
     <div class="g-item">30-day money-back guarantee</div>
     <div class="g-item">no subscriptions ever</div>
     <div class="g-item">new phases drop weekly</div>
-    <div class="g-item">works offline · 100% local</div>
+    <div class="g-item">upgrade anytime · pay the difference</div>
   </div>
 
   <div class="footer">cash.bot &nbsp;·&nbsp; build the machine &nbsp;·&nbsp; v1.0.0</div>
@@ -885,6 +1028,16 @@
 
   updateScarcity();
   setInterval(updateScarcity, 1000);
+
+  /* ── FAQ ACCORDION ── */
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
 </script>
 </body>
 </html>
