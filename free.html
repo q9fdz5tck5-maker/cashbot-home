@@ -91,6 +91,39 @@
     .upgrade-hd h2 em { font-style: normal; color: var(--g); }
     .upgrade-hd p { font-size: 0.82em; color: var(--muted); max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
 
+    .founder-card {
+      background: linear-gradient(135deg, rgba(0,255,65,0.07) 0%, rgba(0,255,65,0.03) 100%);
+      border: 1px solid rgba(0,255,65,0.45);
+      border-radius: 14px;
+      padding: 28px 28px 24px;
+      margin-bottom: 16px;
+      position: relative;
+      text-align: center;
+    }
+    .founder-badge {
+      display: inline-block;
+      background: var(--g); color: #000;
+      font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 14px;
+    }
+    .founder-price { font-size: clamp(2.6em, 7vw, 4em); font-weight: 700; line-height: 1; color: var(--g); text-shadow: 0 0 40px rgba(0,255,65,0.4); }
+    .founder-once { font-size: 0.7em; color: var(--muted); letter-spacing: .06em; margin: 6px 0 18px; }
+    .founder-feats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 22px; }
+    .ff { font-size: 0.72em; background: rgba(0,255,65,0.08); border: 1px solid rgba(0,255,65,0.2); border-radius: 20px; padding: 4px 12px; color: rgba(255,255,255,0.7); }
+    .ff strong { color: var(--g); }
+    .founder-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .founder-btns .pp-btn { width: auto; padding: 14px 28px; font-size: 0.85em; }
+    .founder-btns .wa-btn2 {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 46px; padding: 12px 24px;
+      background: #25d366; color: #000;
+      border: none; border-radius: 7px; cursor: pointer;
+      font-family: var(--mono); font-size: 0.85em; font-weight: 700; letter-spacing: .06em;
+      text-decoration: none; transition: background .15s, transform .15s;
+    }
+    .founder-btns .wa-btn2:hover { background: #1fba58; transform: translateY(-1px); }
+    .founder-seats { font-size: 0.65em; color: rgba(0,255,65,0.5); margin-top: 12px; letter-spacing: .06em; }
+
     .tier-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 52px; }
     @media(max-width:640px) { .tier-grid { grid-template-columns: 1fr; } }
 
@@ -238,6 +271,37 @@
   <div class="upgrade-hd">
     <h2>Want the <em>full system</em>?</h2>
     <p>The starter kit is phase 0–4. The paid plans unlock all 122 phases, the live AI OS, 100+ tools, and direct WhatsApp access to Chase.</p>
+  </div>
+
+  <!-- FOUNDER $1,997 -->
+  <div class="founder-card">
+    <div class="founder-badge">Founder Circle — 100 seats ever minted</div>
+    <div class="founder-price">$1,997</div>
+    <div class="founder-once">one-time · keep forever · locked in before the month ends</div>
+    <div class="founder-feats">
+      <span class="ff">Everything in Enterprise</span>
+      <span class="ff"><strong>Founder seat — 100 minted total</strong></span>
+      <span class="ff">Direct Chase co-build time</span>
+      <span class="ff">Equity consideration at top tiers</span>
+      <span class="ff">Name on the founder wall</span>
+      <span class="ff">All future tools free forever</span>
+    </div>
+    <div class="founder-btns">
+      <form class="pp-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:inline">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="central@shineranker.com">
+        <input type="hidden" name="item_name" value="Cash.Bot Founder Seat — Lifetime">
+        <input type="hidden" name="item_number" value="cashbot-founder">
+        <input type="hidden" name="amount" value="1997.00">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="return" value="https://cash.bot/free?upgraded=founder">
+        <input type="hidden" name="cancel_return" value="https://cash.bot/free">
+        <input type="hidden" name="no_shipping" value="1">
+        <button type="submit" class="pp-btn">💳 Pay $1,997 with PayPal</button>
+      </form>
+      <a href="https://wa.me/18054533586?text=Hey+Chase+%E2%80%94+I+want+the+Founder+seat+%241%2C997" class="wa-btn2">💬 Message Chase on WA</a>
+    </div>
+    <div class="founder-seats">Only 100 Founder seats exist — ever. When they're gone, they're gone.</div>
   </div>
 
   <div class="tier-grid">
