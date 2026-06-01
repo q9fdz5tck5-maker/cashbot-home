@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="build-version" content="deliver-v1.0.0-fulfillment-20260531">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="robots" content="noindex,nofollow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P2L1R2REWX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-P2L1R2REWX');</script>
+<title>CASH.BOT · you're in — your prompts are ready</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#f5c518;--green:#22e58a;--cyan:#00d4ff;--pink:#ff006e;--wa:#25d366;--bg:#0a0a0a;--bg2:#101012;--bg3:#16161a;--bg4:#1c1c22;--border:#22232a;--border2:#2c2d36;--fg:#f0f2f5;--muted:#888a96;--muted2:#5a5d68}
+html{background:var(--bg);color:var(--fg);font-family:'Inter',sans-serif;font-size:16px;-webkit-font-smoothing:antialiased}
+body{max-width:100%;overflow-x:hidden;min-height:100vh;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:720px;width:100%;margin:0 auto;padding:0 16px}
+.section{padding:32px 0}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+h1{font-size:clamp(28px,7vw,46px);font-weight:900;line-height:1.06;margin-bottom:14px}
+h2{font-size:clamp(20px,4.5vw,28px);font-weight:800;line-height:1.15;margin-bottom:10px}
+.lead{font-size:clamp(16px,2.4vw,19px);color:var(--fg);margin-bottom:8px}
+.muted{color:var(--muted)}
+.tierband{background:linear-gradient(135deg,rgba(34,229,138,.14),rgba(0,212,255,.06));border:1px solid var(--border2);border-radius:16px;padding:20px;margin-top:8px}
+.tierband .t{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--green);letter-spacing:1px;margin-bottom:6px}
+
+.dl{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.dlrow{display:flex;align-items:center;gap:14px;background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:16px}
+.dlrow .ic{font-size:26px;flex:none;width:44px;text-align:center}
+.dlrow .meta{flex:1;min-width:0}
+.dlrow .meta h3{font-size:16px;font-weight:800;margin-bottom:2px}
+.dlrow .meta p{font-size:13px;color:var(--muted)}
+.dlrow a.get{flex:none;background:var(--gold);color:#000;border-radius:10px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.5px;padding:12px 16px;min-height:44px;display:inline-flex;align-items:center}
+.dlrow a.get:hover{filter:brightness(1.08)}
+.dlrow.locked{opacity:.5}
+.dlrow.locked a.get{background:var(--bg4);color:var(--muted);pointer-events:none;border:1px solid var(--border2)}
+
+.wabtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--wa);color:#04140c;border-radius:14px;font-weight:800;font-size:clamp(16px,3vw,19px);min-height:58px;padding:16px;margin-top:8px}
+.wabtn:hover{filter:brightness(1.05)}
+.wahint{font-size:13px;color:var(--muted2);text-align:center;margin-top:8px}
+
+.upsell{background:linear-gradient(135deg,rgba(245,197,24,.12),transparent 60%),var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:22px;margin-top:8px;text-align:center}
+.upsell .price{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:14px;margin-bottom:10px}
+.buybtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#000;border-radius:12px;font-weight:800;font-size:16px;min-height:52px;padding:14px 28px;margin-top:6px}
+.buybtn:hover{filter:brightness(1.08)}
+.ladder{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:12px}
+.ladder span{background:var(--bg3);border:1px solid var(--border);border-radius:999px;padding:7px 12px}
+.ladder span.on{background:rgba(34,229,138,.14);border-color:var(--green);color:var(--green)}
+.note{font-size:13px;color:var(--muted2);margin-top:16px;line-height:1.7}
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted2);font-size:13px;text-align:center;margin-top:24px}
+@media(max-width:560px){.dlrow{flex-wrap:wrap}.dlrow .meta{flex:1 1 60%}.dlrow a.get{width:100%;justify-content:center;margin-top:4px}}
+</style>
+</head>
+<body>
+
+<header class="section wrap" style="padding-bottom:8px">
+  <div class="eyebrow">CASH.BOT · YOU'RE IN</div>
+  <h1>Payment in. <span id="tierName">Your tier</span> unlocked.</h1>
+  <p class="lead">Two things, right now: <strong>1)</strong> join the buyers' WhatsApp so we can get you live, <strong>2)</strong> grab your prompt PDFs below. They flow in order — each one sets up the next.</p>
+  <div class="ladder" id="ladder" aria-label="your ladder"></div>
+</header>
+
+<section class="section wrap" style="padding-top:8px">
+  <div class="tierband">
+    <div class="t">◢ STEP 1 · JOIN THE BUYERS' WHATSAPP</div>
+    <h2>This is where we get you set up</h2>
+    <p class="muted" style="font-size:14px;margin-bottom:6px">Every Cash.bot buyer goes here. Questions, setup help, and your fast-track to going live — all in one place. We're opening it for you now.</p>
+    <a class="wabtn" id="waJoin" href="https://chat.whatsapp.com/Be9uKxAKHhR60w00KLw6Q7?mode=gi_t" target="_blank" rel="noopener" onclick="gtag('event','wa_join_click')">💬 Join the Cash.bot WhatsApp →</a>
+    <p class="wahint">Didn't open automatically? Tap the green button above.</p>
+  </div>
+</section>
+
+<section class="section wrap" style="padding-top:0">
+  <div class="eyebrow">STEP 2 · YOUR PROMPTS (download + keep)</div>
+  <h2 id="bundleTitle">Your prompt pack</h2>
+  <p class="muted" style="font-size:14px">Each PDF is yours to keep. Run them in order — 0 makes your first money, 1 builds your machine, 2 turns it into a paid fleet.</p>
+  <div class="dl" id="dlList"></div>
+</section>
+
+<section class="section wrap" style="padding-top:0" id="upsellWrap"></section>
+
+<footer>
+  <div class="wrap">CASH.BOT · built by Chase Tipton · 💥 → 🔫 → 🛰️ — first money, then the machine, then the fleet.<br>Need anything? You're in the WhatsApp now — just ask.</div>
+</footer>
+
+<script>
+(function(){
+  var WA='https://chat.whatsapp.com/Be9uKxAKHhR60w00KLw6Q7?mode=gi_t';
+  var qs=new URLSearchParams(location.search);
+  var t=(qs.get('t')||qs.get('tier')||'2').toString().replace(/[^0-9]/g,'');
+  if(['0','1','2'].indexOf(t)===-1) t='2';
+
+  var TIERS={
+    '0':{name:'Prompt 0',label:'FREE',has:[0],next:{n:'Prompt 1 · LAZER. GO.',price:'$113 once · lifetime',url:'https://www.paypal.com/paypalme/rebootbase/113'}},
+    '1':{name:'Tier 1 · Prompt 1',label:'$113',has:[0,1],next:{n:'Prompt 2 · THE FLEET',price:'Business $497',url:'https://www.paypal.com/paypalme/rebootbase/497'}},
+    '2':{name:'Tier 2 · Prompt 2',label:'$497',has:[0,1,2],next:{n:'Enterprise',price:'$1,047',url:'https://www.paypal.com/paypalme/rebootbase/1047'}}
+  };
+  var PROMPTS=[
+    {ic:'💎',h:'Prompt 0 — your first money, free',p:'Copy, paste into any free AI, make your first real money today.',file:'prompt0.pdf'},
+    {ic:'🔫',h:'Prompt 1 — your always-on build machine',p:'Stand up a cloud computer with Claude on it that builds and ships for you.',file:'prompt1.pdf'},
+    {ic:'🛰️',h:'Prompt 2 — THE FLEET',p:'Land paying clients and spin up worker machines that fulfill jobs in parallel.',file:'prompt2.pdf'}
+  ];
+  var cfg=TIERS[t];
+  gtag('event','deliver_view',{tier:t});
+
+  document.getElementById('tierName').textContent=cfg.name;
+
+  // ladder
+  var ladder=document.getElementById('ladder');
+  ['Prompt 0','Prompt 1','Prompt 2'].forEach(function(lab,i){
+    var s=document.createElement('span');
+    s.textContent=lab; if(cfg.has.indexOf(i)!==-1){s.className='on';s.textContent='✓ '+lab;}
+    ladder.appendChild(s);
+  });
+
+  document.getElementById('bundleTitle').textContent=
+    cfg.has.length>1?('Your pack — '+cfg.has.length+' prompts'):'Your prompt';
+
+  // downloads (cumulative)
+  var list=document.getElementById('dlList');
+  PROMPTS.forEach(function(pr,i){
+    var owned=cfg.has.indexOf(i)!==-1;
+    var row=document.createElement('div');
+    row.className='dlrow'+(owned?'':' locked');
+    row.innerHTML='<div class="ic">'+pr.ic+'</div>'+
+      '<div class="meta"><h3>'+pr.h+'</h3><p>'+pr.p+'</p></div>'+
+      (owned
+        ? '<a class="get" href="'+pr.file+'" download onclick="gtag(\'event\',\'pdf_download\',{prompt:'+i+'})">DOWNLOAD PDF</a>'
+        : '<a class="get">🔒 locked</a>');
+    list.appendChild(row);
+  });
+
+  // upsell next rung
+  if(cfg.next){
+    document.getElementById('upsellWrap').innerHTML=
+      '<div class="eyebrow" style="color:var(--green)">NEXT RUNG</div>'+
+      '<div class="upsell"><div class="price">'+cfg.next.price+'</div>'+
+      '<h2 style="margin-bottom:8px">Ready for '+cfg.next.n+'?</h2>'+
+      '<p class="muted" style="font-size:14px;margin-bottom:6px">When you\'ve run what you\'ve got, this is the next step up the ladder.</p>'+
+      '<a class="buybtn" href="'+cfg.next.url+'" target="_blank" rel="noopener" onclick="gtag(\'event\',\'deliver_upsell_click\',{from_tier:\''+t+'\'})">Claim '+cfg.next.n+' →</a></div>';
+  }
+
+  // auto-open WhatsApp group once per buyer (popup-blocker-safe fallback = the green button)
+  try{
+    if(!sessionStorage.getItem('cb_wa_opened')){
+      sessionStorage.setItem('cb_wa_opened','1');
+      setTimeout(function(){ window.open(WA,'_blank','noopener'); gtag('event','wa_auto_open'); },1200);
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
