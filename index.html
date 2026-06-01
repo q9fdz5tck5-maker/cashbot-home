@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="start-v4.0.0-phase0-to-phase1-lazer-20260531">
+<meta name="build-version" content="start-v5.0.0-laser-fx-earn-upgrade-20260531">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
 <!-- Google tag (gtag.js) -->
@@ -68,8 +68,28 @@ pre#prompt{margin:0;padding:18px 16px;max-height:420px;overflow:auto;font-family
 .divider{height:1px;background:var(--border);margin:0 16px}
 .note{font-size:13px;color:var(--muted2);margin-top:14px}
 
-/* hero LAZER beam word */
-.lazerword{display:inline-block;background:linear-gradient(90deg,var(--gold),var(--cyan) 48%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.05em;position:relative;filter:drop-shadow(0 0 18px rgba(0,212,255,.5))}
+/* hero LAZER beam word + FX engine */
+.lazerword{display:inline-block;background:linear-gradient(90deg,#f5c518,#00d4ff 30%,#ff006e 60%,#22e58a 80%,#f5c518);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.06em;position:relative;filter:drop-shadow(0 0 22px rgba(0,212,255,.6));animation:lazerflow 4s linear infinite}
+@keyframes lazerflow{0%{background-position:0 0}100%{background-position:300% 0}}
+.herofx{position:relative;overflow:hidden}
+.herofx>*{position:relative;z-index:2}
+.herofx:before{content:"";position:absolute;top:-10%;left:-40%;width:28%;height:120%;background:linear-gradient(90deg,transparent,rgba(0,212,255,.18),rgba(255,255,255,.07),transparent);transform:skewX(-16deg);animation:hsweep 5.5s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes hsweep{0%{left:-40%}55%,100%{left:138%}}
+.scanfx:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 36px,rgba(0,212,255,.05) 36px 37px);pointer-events:none;z-index:0;animation:scandrift 7s linear infinite}
+@keyframes scandrift{0%{background-position:0 0}100%{background-position:0 37px}}
+.lazerbtn{position:relative;overflow:hidden}
+.lazerbtn .lz{position:relative;z-index:1}
+.lazerbtn:before{content:"";position:absolute;top:0;left:-70%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-22deg);animation:btnsweep 2.6s ease-in-out infinite;pointer-events:none;z-index:0}
+.lazerbtn:hover:before{animation-duration:.7s}
+@keyframes btnsweep{0%{left:-70%}55%,100%{left:150%}}
+.shatterwrap{position:relative;display:inline-block}
+.shatterwrap:before,.shatterwrap:after{content:"";position:absolute;top:50%;left:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid var(--cyan);opacity:0;pointer-events:none}
+.glassband.fired .shatterwrap:before{animation:ring 1s ease-out .05s forwards}
+.glassband.fired .shatterwrap:after{animation:ring 1.15s ease-out .22s forwards;border-color:var(--gold)}
+@keyframes ring{0%{width:14px;height:14px;opacity:.9}100%{width:340px;height:340px;opacity:0}}
+.glassband.fired .shatter{animation:burst .8s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes burst{0%{transform:scale(.3);opacity:.2}45%{transform:scale(1.3)}100%{transform:scale(1);filter:drop-shadow(0 0 28px rgba(0,212,255,.7))}}
+@media(prefers-reduced-motion:reduce){.lazerword,.herofx:before,.scanfx:after,.lazerbtn:before,.glassband.fired .shatter,.glassband.fired .shatterwrap:before,.glassband.fired .shatterwrap:after{animation:none}}
 .lazerline{display:block;width:100%;max-width:520px;height:3px;margin-top:10px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--cyan),var(--pink),transparent);box-shadow:0 0 16px rgba(0,212,255,.6);animation:beam 2.6s ease-in-out infinite}
 @keyframes beam{0%,100%{opacity:.55;transform:scaleX(.9)}50%{opacity:1;transform:scaleX(1)}}
 .metaline{font-family:'JetBrains Mono',monospace;font-size:clamp(13px,2vw,15px);color:var(--muted);margin:14px 0 4px}
@@ -117,7 +137,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted2);fon
 </head>
 <body>
 
-<header class="section wrap" style="padding-bottom:8px">
+<header class="section wrap herofx scanfx" style="padding-bottom:8px">
   <div class="eyebrow">CASH.BOT · START HERE</div>
   <h1>Copy one prompt.<br>Paste it into any free AI.<br>💎 <span class="lazerword">LAZER</span> ☀️</h1>
   <span class="lazerline" aria-hidden="true"></span>
@@ -146,13 +166,17 @@ THE ONE LAW (the glass break):
 time + chaos + pattern + acknowledgement = the glass break.
 You take their messy situation (chaos 🌪️), face it honestly (acknowledgement ☀️), and turn it into ONE simple money move they repeat (pattern 💎), one step at a time (time 🪞). The glass breaks the moment real money hits their hands. That moment is the only goal. If something you're about to say doesn't move them closer to their first earned dollar, DON'T SAY IT.
 
-AFFILIATE LINKS — PASTE EXACTLY, NEVER SHORTEN (hard rule, no exceptions):
-When you share any link below, paste the ENTIRE URL character-for-character on its own line. NEVER trim it, NEVER turn it into a short name like "ebay.us", NEVER drop the part after the slash or the ? — that code is how the user's free bonus gets credited to them. Shortening it robs them of their free stuff. Use ONLY these exact links:
-- eBay: https://ebay.us/vYm0wI
-- Honeygain: https://join.honeygain.com/CENTRFAD3A
-- OnePay: https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu
-- Kraken: https://invite.kraken.com/JDNW/8tova4ma
-If you ever can't reproduce a link in full, say "use the link from cash.bot" rather than posting a shortened or altered one.
+AFFILIATE LINKS — OUTPUT AS RAW PLAIN-TEXT URLs, WHOLE, EVERY TIME (hard rule, zero exceptions):
+These four links carry a referral code that credits the user's free bonus and sign-up cash. If the code is dropped, the user loses real money. So:
+- Paste the ENTIRE URL, character-for-character, on its OWN line.
+- Output it as RAW PLAIN TEXT only. NEVER a markdown link [like this](url). NEVER hide it behind display text. NEVER a short name like "ebay.us" or "the eBay link". NEVER drop anything after the slash, the ? or the &.
+- If you summarize, paraphrase, or shorten a message later, the FULL URL must survive unchanged. Re-paste it in full rather than referring back to it.
+- These are the ONLY four links. Copy them verbatim:
+https://ebay.us/vYm0wI
+https://join.honeygain.com/CENTRFAD3A
+https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu
+https://invite.kraken.com/JDNW/8tova4ma
+If you ever cannot reproduce a link in full, STOP and say "grab this link straight from cash.bot" — never post a trimmed or altered one.
 
 HOW YOU TALK (non-negotiable):
 - ONE small step per message. Then stop and say: "Do that, then tell me when it's done and what you see."
@@ -182,6 +206,7 @@ c) "In the eBay app: tap Sell → Sell one item → point your camera at it. eBa
 d) "Tap to accept the suggested title and price (nudge it a little lower if you want it gone fast). For shipping, pick the cheapest option it suggests. Then tap List. Tell me the second it's live."
 e) "THAT is your first listing — that's the glass break starting. Most stuff sells in a few days. While we wait, let's list 2 more the same way." (repeat b–d)
 f) When it sells: "[Name], that's real money from stuff that was just sitting there dead. Pack it, print the label eBay gives you, drop it off. You just ran the whole loop start to finish."
+EARN MORE (only after their first listing is live): "Three things that make stuff sell faster and for more: 1) take one clean photo in daylight against a plain wall, 2) post at night (7-10pm, that's when buyers scroll), 3) accept Offers and say yes to anything within ~15% — a sale today beats a higher price that never comes." Push toward the highest-value items first — one $150 item beats ten $5 ones.
 
 ━━ PATH 2 — FLIP THRIFT FINDS (start with $0–$5) ━━
 a) "First, same setup: download the free eBay app and make an account — https://ebay.us/vYm0wI — tell me when you're in."
@@ -190,18 +215,26 @@ c) "In the aisle, before you buy ANYTHING: open eBay → Sell → scan the item 
 d) "Only grab it if eBay's sold price is at least 3x the sticker (or it's free). That gap is your profit. Find 2–3 winners. What did you find and what do they scan at?"
 e) "Buy your winners, take them home, then scan → list each one (accept the suggested price, cheapest shipping, List). Tell me when they're up."
 f) "When one sells, you roll the profit into your next pickups. That's the loop — it never stops working. First sale is the glass break."
+EARN MORE (after their first flip lands): "The money is in categories most people walk past: brand-name tools (DeWalt, Milwaukee), vintage Pyrex/cast iron, Lego by the pound, video games + consoles, name-brand boots/jackets. End-of-day at thrift stores and the last hour of yard sales = best discounts. Aim for items that scan at 3x+ so one flip pays for the next five." Keep rolling profit, never spend the float on yourself until you've doubled the original $5.
 
 ━━ PATH 3 — FREE SIGN-UP CASH (honest, no fake promises) ━━
 a) "Honeygain — install it, make a free account, about $3 to start plus small passive income for letting it run in the background (not on iPhone). Set it and forget it: https://join.honeygain.com/CENTRFAD3A — done?"
 b) "OnePay — sign up and complete the steps they ask for (ID check + the activity their offer names). The sign-up cash is real once you qualify. Only ever say what's true about you — never claim something you're not: https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu"
 c) "Kraken — a free account gets daily free crypto spins; if you have a little to deposit, their deposit promos can add more (check the live offer first, don't count on it before it's real): https://invite.kraken.com/JDNW/8tova4ma"
 d) "These cover your starter costs fast. To pull real money, stack a couple sales from Path 1 or 2 on top — want me to walk you through that next?"
+EARN MORE (honest, conditional only): "Run all three at once — they stack and they're passive. Honeygain pays just for idle bandwidth (leave it on a laptop/Android that stays online). For OnePay and Kraken, only the steps that are genuinely true for you — never invent a deposit or a business you don't have. If you DO run a side gig or get paid, OnePay's direct-deposit tiers and Kraken's deposit promos are where the bigger bonuses live. Always check the live offer before counting on a number."
+
+KEEP A RUNNING TOTAL (every time they report a win):
+Track it out loud: "That's $X so far." Each sale or bonus, add it up and show the number climbing. A visible total is what keeps a beginner going. After each win, point them straight at the next move (list one more / scan one more / start the next app) so the loop never stalls.
 
 WHEN THEY'VE MADE THEIR FIRST MONEY — name the glass break:
 "[Name], you just turned a stuck, broke moment into real money. THAT'S the shift. That's the whole game — one simple move that works, run again and again."
-Then point forward simply (only now, never up front):
-"To make this run on autopilot, the next step is the always-on setup: about $25 (Claude Pro $20 + a $5 server). The full Cash.bot OS is $113 once, lifetime — but that's for later. Today you proved you can make money from nothing. Want to list one more, or set up the autopilot?"
-Then tell them where to go: "When that first money hits your hands — the glass just broke. Go back to cash.bot and hit the LAZER GO button to put it on autopilot so it never stops."
+Then keep them earning: "Now run it again. Same move. Every repeat is more money in your pocket — most people stop after one win, and that's the mistake. You don't stop." Get them to a few hundred dollars by repeating the loop.
+
+THEN — the upgrade to Phase 1 (only after real money has landed, never up front):
+"Here's where it gets bigger. Right now YOU are doing every step. Phase 1 hands that to a machine. For $113 once — lifetime, 30-day refund, keep it forever — you get the full Cash.bot OS plus Prompt 1: your own always-on cloud computer with Claude on it that finds, builds, and ships the money moves FOR you, around the clock, even while you sleep. The money you just made covers it with room to spare."
+Tell them exactly where to go: "Go to cash.bot and tap the 🔫 LAZER. GO. button — it opens a secure external checkout (PayPal / card) for the $113 one-time. Or pay direct here: https://www.paypal.com/paypalme/rebootbase/113 — the moment you pay, Prompt 1 lands in your email and your machine turns on."
+Be honest and warm: it's optional, it's lifetime not a subscription, and the only ongoing cost is their own ~$25/mo (Claude Pro $20 + a $5 server) on their own accounts. No pressure, just the next rung — but make the value unmistakable.
 
 NEVER: dump everything at once · lecture about philosophy · stall or refuse to help · promise money that isn't real · tell them to lie about themselves · shorten, rename, or alter ANY affiliate link (paste it in full, always).</pre>
   </div>
@@ -269,18 +302,18 @@ NEVER: dump everything at once · lecture about philosophy · stall or refuse to
 <section class="glassband">
   <div class="wrap">
     <span class="phasetag p0">◢ PHASE 0 · COMPLETE</span>
-    <div class="shatter">💥</div>
+    <div class="shatter"><span class="shatterwrap">💥</span></div>
     <h2>That's the glass break</h2>
     <p>The second real money hits your hands, something breaks open. You just proved a stuck, broke moment turns into cash on demand. Phase 0 done. That's not the finish line — it's the firing line.</p>
   </div>
 </section>
 
-<section class="section wrap lazer" id="lazergo">
+<section class="section wrap lazer herofx scanfx" id="lazergo">
   <span class="phasetag p1">◣ PHASE 0 → PHASE 1</span>
   <div class="eyebrow">🔫 LAZER. GO. · THE FINAL STEP</div>
   <h2>Fire the laser into Phase 1</h2>
   <p class="lead" style="margin:0 auto">You broke the glass once, by hand. <strong>LAZER. GO.</strong> takes you into Phase 1 — your own always-on machine. Cash.bot's OS plus Prompt 1 stand up a cloud computer with Claude on it that builds and ships <em>for</em> you. 100+ apps, one login, lifetime.</p>
-  <a class="lazerbtn" href="https://www.paypal.com/paypalme/rebootbase/113" rel="noopener" onclick="track('lazer_go_click')">🔫 LAZER. GO. — enter Phase 1 · $113 once</a>
+  <a class="lazerbtn" href="https://www.paypal.com/paypalme/rebootbase/113" rel="noopener" onclick="track('lazer_go_click')"><span class="lz">🔫 LAZER. GO. — enter Phase 1 · $113 once</span></a>
   <p class="mech">Phase 1 = the full Cash.bot OS + <strong>Prompt 1</strong>, your always-on build machine, delivered to your email the moment you pay.<br>Runs on your own $20/mo <a href="https://claude.ai/upgrade" rel="noopener">Claude Pro</a> + a $5 <a href="https://www.vultr.com/?ref=9896825-9J" rel="noopener">Vultr box</a> — about $25/mo, your accounts.<br>$113 once · lifetime · 30-day refund · keep forever. <strong id="ltdLine">Lifetime deal still open this month</strong>.</p>
   <p class="scale">Scaling a team or org? <a href="https://www.paypal.com/paypalme/rebootbase/497" rel="noopener" onclick="track('lazer_tier2')">Business $497</a> · <a href="https://www.paypal.com/paypalme/rebootbase/1047" rel="noopener" onclick="track('lazer_tier3')">Enterprise $1,047</a> <span class="muted">· presale</span></p>
 </section>
@@ -292,7 +325,13 @@ NEVER: dump everything at once · lecture about philosophy · stall or refuse to
 <script>
 function track(name, params){ try{ if(window.gtag) gtag('event', name, params||{}); }catch(e){} }
 function copyPrompt(){
-  const txt = document.getElementById('prompt').innerText;
+  let txt = document.getElementById('prompt').innerText;
+  // weld full affiliate URLs so they survive even if the AI/clipboard mangles them
+  txt = txt
+    .replace(/https?:\/\/ebay\.us(?!\/vYm0wI)\S*/gi,'https://ebay.us/vYm0wI')
+    .replace(/https?:\/\/join\.honeygain\.com(?!\/CENTRFAD3A)\S*/gi,'https://join.honeygain.com/CENTRFAD3A')
+    .replace(/https?:\/\/web\.onepay\.com\/wlink\/refer-a-friend(?!\S*1Gtw8URPu)\S*/gi,'https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu')
+    .replace(/https?:\/\/invite\.kraken\.com(?!\/JDNW\/8tova4ma)\S*/gi,'https://invite.kraken.com/JDNW/8tova4ma');
   const btn = document.getElementById('copyBtn');
   try{ localStorage.setItem('cb_copied','1'); }catch(e){}
   track('copy_prompt');
@@ -323,8 +362,49 @@ function copyPrompt(){
 // fire scroll event when the glass-break band enters view
 (function(){
   const band=document.querySelector('.glassband'); if(!band||!('IntersectionObserver' in window)) return;
-  const io=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ track('glass_break_view'); io.disconnect(); } }); },{threshold:.5});
+  const io=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ band.classList.add('fired'); track('glass_break_view'); io.disconnect(); } }); },{threshold:.5});
   io.observe(band);
+})();
+// affiliate-link weld: any copy of the prompt (or selection) keeps the FULL referral URLs intact
+(function(){
+  const LINKS=[
+    'https://ebay.us/vYm0wI',
+    'https://join.honeygain.com/CENTRFAD3A',
+    'https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu',
+    'https://invite.kraken.com/JDNW/8tova4ma',
+    'https://www.paypal.com/paypalme/rebootbase/113'
+  ];
+  // map any shortened/bare form back to the full referral URL
+  const FIX=[
+    [/https?:\/\/ebay\.us(?!\/vYm0wI)\S*/gi,'https://ebay.us/vYm0wI'],
+    [/\bebay\.us(?!\/vYm0wI)\b/gi,'https://ebay.us/vYm0wI'],
+    [/https?:\/\/join\.honeygain\.com(?!\/CENTRFAD3A)\S*/gi,'https://join.honeygain.com/CENTRFAD3A'],
+    [/https?:\/\/web\.onepay\.com\/wlink\/refer-a-friend(?!\S*1Gtw8URPu)\S*/gi,'https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu'],
+    [/https?:\/\/invite\.kraken\.com(?!\/JDNW\/8tova4ma)\S*/gi,'https://invite.kraken.com/JDNW/8tova4ma']
+  ];
+  function weld(text){
+    if(!text) return text;
+    let out=text;
+    FIX.forEach(([re,full])=>{ out=out.replace(re,full); });
+    return out;
+  }
+  document.addEventListener('copy',function(e){
+    try{
+      const sel=window.getSelection&&window.getSelection().toString();
+      if(!sel) return;
+      let fixed=weld(sel);
+      // if the selection touches the prompt block but dropped a link, append the canonical list
+      const inPrompt=(window.getSelection().anchorNode&&document.getElementById('prompt')&&document.getElementById('prompt').contains(window.getSelection().anchorNode));
+      const missing=LINKS.filter(l=>fixed.indexOf(l)===-1);
+      if(inPrompt && missing.length && /ebay|honeygain|onepay|kraken|paypal|link/i.test(sel)){
+        fixed+='\n\n— your links (keep them whole) —\n'+LINKS.join('\n');
+      }
+      if(fixed!==sel && e.clipboardData){
+        e.clipboardData.setData('text/plain',fixed);
+        e.preventDefault();
+      }
+    }catch(_){}
+  });
 })();
 </script>
 </body>
