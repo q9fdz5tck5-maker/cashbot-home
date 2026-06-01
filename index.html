@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="start-v3.0.0-glassbreak-lazergo-20260531">
+<meta name="build-version" content="start-v4.0.0-phase0-to-phase1-lazer-20260531">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
 <!-- Google tag (gtag.js) -->
@@ -68,6 +68,19 @@ pre#prompt{margin:0;padding:18px 16px;max-height:420px;overflow:auto;font-family
 .divider{height:1px;background:var(--border);margin:0 16px}
 .note{font-size:13px;color:var(--muted2);margin-top:14px}
 
+/* hero LAZER beam word */
+.lazerword{display:inline-block;background:linear-gradient(90deg,var(--gold),var(--cyan) 48%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.05em;position:relative;filter:drop-shadow(0 0 18px rgba(0,212,255,.5))}
+.lazerline{display:block;width:100%;max-width:520px;height:3px;margin-top:10px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--cyan),var(--pink),transparent);box-shadow:0 0 16px rgba(0,212,255,.6);animation:beam 2.6s ease-in-out infinite}
+@keyframes beam{0%,100%{opacity:.55;transform:scaleX(.9)}50%{opacity:1;transform:scaleX(1)}}
+.metaline{font-family:'JetBrains Mono',monospace;font-size:clamp(13px,2vw,15px);color:var(--muted);margin:14px 0 4px}
+
+/* phase tags */
+.phasetag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:12px}
+.phasetag.p0{color:var(--cyan);background:rgba(0,212,255,.10);border:1px solid rgba(0,212,255,.35)}
+.phasetag.p1{color:var(--gold);background:rgba(245,197,24,.12);border:1px solid rgba(245,197,24,.4)}
+
+@media(prefers-reduced-motion:reduce){.lazerline{animation:none}}
+
 /* return-loop banner */
 #backBanner{display:none;background:linear-gradient(90deg,rgba(245,197,24,.14),rgba(34,229,138,.10));border:1px solid var(--border2);border-radius:12px;padding:12px 16px;margin-top:18px;font-size:14px;font-weight:600}
 #backBanner a{color:var(--gold);text-decoration:underline;white-space:nowrap}
@@ -106,16 +119,19 @@ footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted2);fon
 
 <header class="section wrap" style="padding-bottom:8px">
   <div class="eyebrow">CASH.BOT · START HERE</div>
-  <h1>Copy one prompt.<br>Paste it into any free AI.<br>Start.</h1>
-  <p class="lead">You've got a phone, an idea, and maybe $0 on hand. That's not the wrong place to start — it's the exact starting line. Copy the prompt below, drop it into a free AI, and Cash.bot starts working <em>with</em> you, not at you.</p>
-  <p class="lead muted" style="font-size:clamp(15px,2.2vw,18px)">$0 → your first sale → autopilot. One prompt starts the whole thing.</p>
-  <div class="strip" aria-label="Shatter Equation">
-    <span>🪞 time</span><span>🌪️ chaos</span><span>💎 pattern</span><span>☀️ acknowledgement</span><span>= 💥 glass break</span><span style="background:rgba(34,229,138,.12);border-color:var(--green)">→ 🔫 LAZER GO</span>
+  <h1>Copy one prompt.<br>Paste it into any free AI.<br>💎 <span class="lazerword">LAZER</span> ☀️</h1>
+  <span class="lazerline" aria-hidden="true"></span>
+  <p class="metaline">☀️ acknowledgement + 💎 pattern, focused into one beam — that's the LAZER. One move that cuts straight to your first dollar.</p>
+  <p class="lead">You've got a phone, an idea, and maybe $0 on hand. That's not the wrong place to start — it's the exact starting line. Copy the prompt below, drop it into a free AI, and Cash.bot fires with you, not at you.</p>
+  <p class="lead muted" style="font-size:clamp(15px,2.2vw,18px)">Phase 0 → your first money, free. Phase 1 → your always-on machine, $113. One page takes you all the way.</p>
+  <div class="strip" aria-label="phase arc">
+    <span style="background:rgba(0,212,255,.10);border-color:rgba(0,212,255,.35)">PHASE 0 · free</span><span>💎 pattern</span><span>☀️ acknowledgement</span><span>→ 💥 glass break</span><span style="background:rgba(34,229,138,.12);border-color:var(--green)">🔫 LAZER. GO.</span><span style="background:rgba(245,197,24,.14);border-color:var(--gold)">PHASE 1 · $113</span>
   </div>
-  <div id="backBanner">✓ You copied the prompt. Made your first money? <a href="#lazergo">→ jump to LAZER GO</a></div>
+  <div id="backBanner">✓ You copied the prompt. Made your first money? <a href="#lazergo">→ fire the LAZER into Phase 1</a></div>
 </header>
 
 <section class="section wrap" style="padding-top:8px">
+  <span class="phasetag p0">◢ PHASE 0 · FREE · YOUR FIRST MONEY</span>
   <div class="eyebrow">STEP 1 · COPY THE PROMPT · Shatter Equation v1.0</div>
   <h2>This is Prompt 0 — the front door</h2>
   <p class="muted">One block. Copy it, paste it, answer honestly. It asks your name first — that's on purpose. This is the gateway (P.0): it gets you in, sizes you up, and finds your first cash. The deeper tiers (P.1+) unlock from here.</p>
@@ -193,6 +209,7 @@ NEVER: dump everything at once · lecture about philosophy · stall or refuse to
 </section>
 
 <section class="section wrap">
+  <span class="phasetag p0">◢ PHASE 0 · STILL FREE</span>
   <div class="eyebrow">STEP 2 · RUN IT FREE</div>
   <h2>You don't need to pay anything to start</h2>
   <p class="muted">Pick any one. Open it, paste the prompt, answer Cash.bot's questions. All three have free tiers.</p>
@@ -219,6 +236,7 @@ NEVER: dump everything at once · lecture about philosophy · stall or refuse to
 </section>
 
 <section class="section wrap">
+  <span class="phasetag p0">◢ PHASE 0 · THE PAYOFF</span>
   <div class="eyebrow">STEP 3 · MAKE YOUR FIRST MONEY</div>
   <h2>Cash.bot picks one of these for you — here's the preview</h2>
   <p class="muted">When you run the prompt at $0, Cash.bot routes you to whichever fits what you've got. No experience needed.</p>
@@ -250,18 +268,20 @@ NEVER: dump everything at once · lecture about philosophy · stall or refuse to
 
 <section class="glassband">
   <div class="wrap">
+    <span class="phasetag p0">◢ PHASE 0 · COMPLETE</span>
     <div class="shatter">💥</div>
-    <h2>This is the glass break</h2>
-    <p>The second real money hits your hands, something breaks open. You just proved a stuck, broke moment turns into cash on demand. That's the glass break — not the finish line. The firing line.</p>
+    <h2>That's the glass break</h2>
+    <p>The second real money hits your hands, something breaks open. You just proved a stuck, broke moment turns into cash on demand. Phase 0 done. That's not the finish line — it's the firing line.</p>
   </div>
 </section>
 
 <section class="section wrap lazer" id="lazergo">
-  <div class="eyebrow">🔫 LAZER GO · THE FINAL STEP</div>
-  <h2>Now make it never stop</h2>
-  <p class="lead" style="margin:0 auto">You broke the glass once by hand. LAZER GO puts the whole loop on autopilot — Cash.bot's OS runs the money moves for you, 100+ apps under one login, lifetime.</p>
-  <a class="lazerbtn" href="https://www.paypal.com/paypalme/rebootbase/113" rel="noopener" onclick="track('lazer_go_click')">🔫 LAZER GO — own the OS · $113 once</a>
-  <p class="mech">Runs on your own $20/mo <a href="https://claude.ai/upgrade" rel="noopener">Claude Pro</a> + a $5 <a href="https://www.vultr.com/?ref=9896825-9J" rel="noopener">Vultr box</a> — about $25/mo, your accounts.<br>$113 once · lifetime · 30-day refund · keep forever. <strong id="ltdLine">Lifetime deal still open this month</strong>.<br><span style="color:var(--muted2)">Your license + setup walk-through is delivered by hand, fast — straight to the email on your payment.</span></p>
+  <span class="phasetag p1">◣ PHASE 0 → PHASE 1</span>
+  <div class="eyebrow">🔫 LAZER. GO. · THE FINAL STEP</div>
+  <h2>Fire the laser into Phase 1</h2>
+  <p class="lead" style="margin:0 auto">You broke the glass once, by hand. <strong>LAZER. GO.</strong> takes you into Phase 1 — your own always-on machine. Cash.bot's OS plus Prompt 1 stand up a cloud computer with Claude on it that builds and ships <em>for</em> you. 100+ apps, one login, lifetime.</p>
+  <a class="lazerbtn" href="https://www.paypal.com/paypalme/rebootbase/113" rel="noopener" onclick="track('lazer_go_click')">🔫 LAZER. GO. — enter Phase 1 · $113 once</a>
+  <p class="mech">Phase 1 = the full Cash.bot OS + <strong>Prompt 1</strong>, your always-on build machine, delivered to your email the moment you pay.<br>Runs on your own $20/mo <a href="https://claude.ai/upgrade" rel="noopener">Claude Pro</a> + a $5 <a href="https://www.vultr.com/?ref=9896825-9J" rel="noopener">Vultr box</a> — about $25/mo, your accounts.<br>$113 once · lifetime · 30-day refund · keep forever. <strong id="ltdLine">Lifetime deal still open this month</strong>.</p>
   <p class="scale">Scaling a team or org? <a href="https://www.paypal.com/paypalme/rebootbase/497" rel="noopener" onclick="track('lazer_tier2')">Business $497</a> · <a href="https://www.paypal.com/paypalme/rebootbase/1047" rel="noopener" onclick="track('lazer_tier3')">Enterprise $1,047</a> <span class="muted">· presale</span></p>
 </section>
 
