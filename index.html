@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="chat-v1.0.0-apex-prompt-router-20260601">
+<meta name="build-version" content="chat-v1.0.1-claudecode-deeplink-honest-affiliate-20260601">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
 <meta name="description" content="Tell it what you want. It hands you one prompt to run in Claude — first money, your own always-on machine, a whole command center of apps. Free.">
@@ -160,7 +160,7 @@ function linkcard(k){ const a=AFF[k]; if(!a)return''; return '<div class="linkca
 function promptcard(label){
   if(!BLOCKS[label]) return '<div class="linkcard"><div class="body"><div class="d">Couldn\'t load "'+esc(label)+'" — pull to refresh.</div></div></div>';
   const body = BLOCKS[label];
-  return '<div class="promptcard"><div class="ph"><span>📋</span><span class="nm">'+esc(label)+'</span></div><pre>'+esc(body)+'</pre><div class="pbtns"><button class="pbtn claude" data-action="claude" data-label="'+esc(label)+'">▶ Open in Claude</button><button class="pbtn" data-action="copy" data-label="'+esc(label)+'">Copy</button></div></div>';
+  return '<div class="promptcard"><div class="ph"><span>📋</span><span class="nm">'+esc(label)+'</span></div><pre>'+esc(body)+'</pre><div class="pbtns"><button class="pbtn claude" data-action="claude" data-label="'+esc(label)+'">▶ Open in Claude Code</button><button class="pbtn" data-action="copy" data-label="'+esc(label)+'">Copy</button></div></div>';
 }
 function restartBtn(){ return '<button class="restart" data-route="restart">↺ start over</button>'; }
 
@@ -273,7 +273,7 @@ document.addEventListener('click', e=>{
   const a = e.target.closest('[data-action]');
   if(a){ const label=a.getAttribute('data-label'); const body=BLOCKS[label];
     if(!body){ alert('Still loading that prompt — give it a second and try again.'); return; }
-    if(a.getAttribute('data-action')==='claude'){ window.open('https://claude.ai/new?q='+encodeURIComponent(body),'_blank','noopener'); }
+    if(a.getAttribute('data-action')==='claude'){ window.open('https://claude.ai/code?prompt='+encodeURIComponent(body),'_blank','noopener'); }
     else { navigator.clipboard.writeText(body).then(()=>{ a.textContent='Copied ✓'; setTimeout(()=>a.textContent='Copy',1500); }); }
   }
 });
