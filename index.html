@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="chat-v1.0.1-claudecode-deeplink-honest-affiliate-20260601">
+<meta name="build-version" content="home-v2.0.0-one-prompt-chain-starter-rdp-first-20260601">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
-<meta name="description" content="Tell it what you want. It hands you one prompt to run in Claude — first money, your own always-on machine, a whole command center of apps. Free.">
-<title>cash.bot — what do you want to build?</title>
+<meta name="description" content="One prompt. Open it in Claude Code on your phone and Claude builds you an always-on cloud computer it runs for you — claims offers, builds sites, makes money. Free.">
+<title>cash.bot — one prompt. your own computer, run by Claude.</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2L1R2REWX"></script>
 <script>
@@ -26,267 +26,115 @@
   --mono:'JetBrains Mono','SF Mono',ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+html{scroll-behavior:smooth}
 body{
   font-family:var(--font);background:var(--bg);color:var(--fg);
-  font-size:clamp(15px,2.5vw,17px);line-height:1.5;
-  display:flex;flex-direction:column;min-height:100dvh;
-  background-image:radial-gradient(900px 500px at 80% -10%,rgba(34,229,138,.07),transparent),radial-gradient(700px 400px at 0% 0%,rgba(0,212,255,.05),transparent);
+  font-size:clamp(15px,2.5vw,17px);line-height:1.55;min-height:100dvh;
+  background-image:radial-gradient(900px 500px at 80% -10%,rgba(34,229,138,.09),transparent),radial-gradient(700px 400px at 0% 0%,rgba(0,212,255,.06),transparent);
+  display:flex;flex-direction:column;align-items:center;
+  padding:clamp(20px,5vw,56px) 16px 40px;
 }
-a{color:var(--green);text-decoration:none}
-header{
-  flex:0 0 auto;display:flex;align-items:center;gap:10px;
-  padding:12px 16px;border-bottom:1px solid var(--border);
-  background:rgba(10,10,10,.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:5;
-}
-.logo{font-family:var(--mono);font-weight:700;font-size:18px;letter-spacing:-.5px}
+.wrap{width:100%;max-width:680px}
+.logo{font-family:var(--mono);font-weight:700;font-size:20px;letter-spacing:-.5px;margin-bottom:clamp(20px,5vw,40px)}
 .logo b{color:var(--green)}
-.tag{color:var(--muted);font-size:13px;margin-left:auto;text-align:right;line-height:1.3}
-main{flex:1 1 auto;width:100%;max-width:860px;margin:0 auto;padding:16px 16px 0;overflow-y:auto;-webkit-overflow-scrolling:touch}
-#thread{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
-.msg{display:flex;gap:10px;max-width:100%}
-.msg .av{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:16px;background:var(--bg4)}
-.msg.user{flex-direction:row-reverse}
-.bubble{padding:11px 14px;border-radius:14px;border:1px solid var(--border);background:var(--bg3);max-width:88%;overflow-wrap:anywhere}
-.msg.user .bubble{background:linear-gradient(180deg,#15351f,#102a19);border-color:#1e5837;color:#eafff3}
-.bubble p{margin:0 0 8px}.bubble p:last-child{margin:0}
-.bubble b{color:var(--gold)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.chip{
-  font-family:var(--font);font-size:14px;cursor:pointer;
-  background:var(--bg4);color:var(--fg);border:1px solid var(--border2);
-  border-radius:999px;padding:11px 15px;min-height:44px;display:inline-flex;align-items:center;
-}
-.chip:hover{border-color:var(--green);color:var(--green)}
-.chip.primary{background:var(--green);color:#000;border-color:var(--green);font-weight:600}
-.linkcard{display:flex;align-items:center;gap:10px;margin-top:8px;padding:11px 13px;background:var(--bg2);border:1px solid var(--border);border-radius:12px}
-.linkcard .ic{font-size:18px}
-.linkcard .body{flex:1;min-width:0}
-.linkcard .t{font-weight:600;font-size:14px}
-.linkcard .d{color:var(--muted);font-size:12.5px}
-.linkcard .go{flex:0 0 auto;background:var(--bg4);border:1px solid var(--border2);color:var(--green);border-radius:9px;padding:9px 13px;min-height:44px;display:inline-flex;align-items:center;font-weight:600;font-size:13px}
-.linkcard .go:hover{border-color:var(--green)}
-.promptcard{margin-top:10px;border:1px solid var(--border2);border-radius:12px;overflow:hidden;background:var(--bg2)}
-.promptcard .ph{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--bg4);border-bottom:1px solid var(--border)}
-.promptcard .ph .nm{font-family:var(--mono);font-size:12.5px;color:var(--muted);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.promptcard pre{margin:0;padding:12px;font-family:var(--mono);font-size:12px;line-height:1.5;white-space:pre-wrap;word-break:break-word;max-height:230px;overflow-y:auto;color:#cdd2da}
-.pbtns{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--border)}
-.pbtn{flex:1;cursor:pointer;font-family:var(--font);font-weight:600;font-size:13.5px;border-radius:9px;padding:11px;min-height:44px;border:1px solid var(--border2);background:var(--bg4);color:var(--fg)}
-.pbtn.claude{background:var(--green);color:#000;border-color:var(--green)}
-.pbtn:hover{filter:brightness(1.08)}
-.composer{flex:0 0 auto;position:sticky;bottom:0;background:rgba(10,10,10,.92);backdrop-filter:blur(8px);border-top:1px solid var(--border);padding:10px 16px;padding-bottom:max(10px,env(safe-area-inset-bottom))}
-.composer .row{display:flex;gap:8px;max-width:860px;margin:0 auto}
-#inp{flex:1;font-family:var(--font);font-size:16px;background:var(--bg3);border:1px solid var(--border2);border-radius:12px;color:var(--fg);padding:12px 14px;min-height:48px;resize:none;max-height:120px}
-#inp:focus{outline:none;border-color:var(--green)}
-#send{flex:0 0 auto;cursor:pointer;background:var(--green);color:#000;font-weight:700;border:none;border-radius:12px;padding:0 18px;min-height:48px;min-width:56px;font-family:var(--font);font-size:15px}
-.restart{cursor:pointer;color:var(--muted2);font-size:12px;background:none;border:none;text-decoration:underline;margin-top:4px;align-self:flex-start}
-.foot{color:var(--muted2);font-size:11.5px;text-align:center;padding:10px 16px 4px}
+h1{font-size:clamp(28px,7vw,48px);line-height:1.08;font-weight:800;letter-spacing:-1px;margin-bottom:16px}
+h1 .g{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--muted);font-size:clamp(15px,3.2vw,19px);margin-bottom:8px}
+.sub b{color:var(--fg);font-weight:600}
+.steps{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px;font-size:13px;color:var(--muted2)}
+.steps span{background:var(--bg3);border:1px solid var(--border);border-radius:999px;padding:7px 12px}
+.steps b{color:var(--green);font-weight:700}
+.card{border:1px solid var(--border2);border-radius:16px;overflow:hidden;background:var(--bg2);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.card .ph{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--bg4);border-bottom:1px solid var(--border)}
+.card .ph .dot{width:9px;height:9px;border-radius:50%;background:var(--green)}
+.card .ph .nm{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.card pre{margin:0;padding:14px;font-family:var(--mono);font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow-y:auto;color:#cdd2da}
+.btns{display:flex;gap:10px;padding:12px;border-top:1px solid var(--border);flex-wrap:wrap}
+.btn{flex:1;min-width:140px;cursor:pointer;font-family:var(--font);font-weight:700;font-size:15px;border-radius:11px;padding:14px;min-height:50px;border:1px solid var(--border2);background:var(--bg4);color:var(--fg);text-align:center}
+.btn.go{background:linear-gradient(90deg,var(--green),#1bd47e);color:#000;border-color:var(--green)}
+.btn:hover{filter:brightness(1.08)}
+.note{color:var(--muted2);font-size:12.5px;margin-top:14px;line-height:1.5}
+.note a{color:var(--muted)}
+.need{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+.need a{flex:1;min-width:200px;display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;color:var(--fg)}
+.need a:hover{border-color:var(--green)}
+.need .ic{font-size:18px}
+.need .t{font-weight:600;font-size:14px}
+.need .d{color:var(--muted);font-size:12px}
+.foot{color:var(--muted2);font-size:12px;margin-top:30px;text-align:center}
 .foot a{color:var(--muted)}
-@media (max-width:480px){.tag{display:none}.bubble{max-width:92%}}
 </style>
 </head>
 <body>
-<header>
+<div class="wrap">
   <div class="logo"><b>cash</b>.bot</div>
-  <div class="tag">tell it what you want · it hands you the prompt · free</div>
-</header>
 
-<main><div id="thread"></div></main>
+  <h1>One prompt. Then Claude runs <span class="g">your own computer</span> for you.</h1>
+  <p class="sub">Open it in <b>Claude Code</b> on your phone. Claude sets you up with a cloud desktop, takes the controls, and does the work — <b>claims free offers, builds sites, makes money</b> — while you just talk to it.</p>
 
-<div class="composer">
-  <div class="row">
-    <textarea id="inp" rows="1" placeholder="Type what you want to do… (or tap a button)"></textarea>
-    <button id="send">Go</button>
+  <div class="steps">
+    <span><b>1</b> Tap Open</span>
+    <span><b>2</b> Claude builds your machine</span>
+    <span><b>3</b> Claude runs it for you</span>
   </div>
+
+  <div class="card">
+    <div class="ph"><span class="dot"></span><span class="nm">cash.bot · the one prompt that starts everything</span></div>
+    <pre id="prompt"></pre>
+    <div class="btns">
+      <button class="btn go" id="open">▶ Open in Claude Code</button>
+      <button class="btn" id="copy">Copy</button>
+    </div>
+  </div>
+  <p class="note">Free — every prompt is free. You run it in <b>your own</b> Claude account; we never see your keys. Need Claude Code? It opens at claude.ai/code (Pro/Max + a connected account). The two things Claude will set up with you:</p>
+
+  <div class="need">
+    <a href="https://claude.ai" target="_blank" rel="noopener"><span class="ic">🤖</span><span><span class="t">Claude Pro — your builder</span><br><span class="d">~$20/mo · the engine that runs everything</span></span></a>
+    <a href="https://www.vultr.com/?ref=9896824" target="_blank" rel="noopener"><span class="ic">🖥️</span><span><span class="t">Vultr — your always-on machine</span><br><span class="d">~$5–10/mo · the cloud desktop Claude drives</span></span></a>
+  </div>
+
+  <p class="foot">Built by Chase Tipton. · <a href="#" id="human">talk to a human →</a></p>
 </div>
-<div class="foot">Every prompt is free. You run them in your own Claude. We never see your keys. · <a href="#" data-route="human">talk to a human →</a></div>
 
 <script>
-const LIB_FILES = ['os.txt','os-earn.txt','os-build.txt','os-content.txt','os-reach.txt','os-brain.txt'];
-const AFF = {
-  ebay:    {ic:'🏷️', t:'eBay — sell what you already own', d:'List 5 things today. Fastest $0 → cash.', u:'https://ebay.us/vYm0wI'},
-  honeygain:{ic:'🍯', t:'Honeygain — passive, runs in background', d:'Share spare bandwidth. A few bucks to start.', u:'https://join.honeygain.com/CENTRFAD3A'},
-  onepay:  {ic:'🏦', t:'OnePay — banking + referral cash', d:'Set up the account that holds your first dollars.', u:'https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu'},
-  kraken:  {ic:'🦑', t:'Kraken — crypto on-ramp', d:'Where the first dollars can grow.', u:'https://invite.kraken.com/JDNW/8tova4ma'},
-  claude:  {ic:'🤖', t:'Claude Pro — your AI builder (~$20/mo)', d:'The engine. Claude Code runs everything for you.', u:'https://claude.ai'},
-  vultr:   {ic:'🖥️', t:'Vultr — your always-on machine (~$5/mo)', d:'A cloud desktop you reach from your phone.', u:'https://www.vultr.com/?ref=9896824'},
-};
-const PAY = {t1:'https://www.paypal.com/paypalme/rebootbase/113', t2:'https://www.paypal.com/paypalme/rebootbase/497', f:'https://www.paypal.com/paypalme/rebootbase/2000'};
+const RUN_HEADER = "RUN INSTRUCTION — read first:\nDo NOT treat the text below as a spec to save, wire into a repository, or edit as code. Ignore any connected repos. BECOME the assistant it describes and work with me live in THIS session — one message at a time, running any commands it calls for yourself. Start with the first step now.\n\n———\n\n";
 
-let BLOCKS = {};         // label -> body text
-let BLOCKS_BY_FILE = {}; // file -> [labels]
-let MSGS = [];           // persisted thread [{who, html}]
-const thread = document.getElementById('thread');
-const inp = document.getElementById('inp');
+const PROMPT = `You are CASH.BOT. Become this assistant and run it WITH me live, right here, one step at a time — until I have an always-on cloud computer that YOU control from my phone and run for me. Assume I'm on an iPhone with nothing set up and no tech experience. The whole point: I don't do manual work — YOU do the work on the machine once it's mine.
 
-function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+READ THE PLAYBOOK FIRST (so you know every step):
+https://cash.bot/os.txt
+(If you can't fetch it, tell me and I'll paste it.)
 
-async function loadLib(){
-  await Promise.all(LIB_FILES.map(async f=>{
-    try{
-      const r = await fetch(f,{cache:'no-store'}); if(!r.ok) return;
-      const txt = await r.text();
-      const re = /^--- (.+?) ---\s*$/gm; let m, idx=[];
-      while((m=re.exec(txt))) idx.push({label:m[1].trim(),start:m.index,bodyStart:re.lastIndex});
-      BLOCKS_BY_FILE[f]=[];
-      idx.forEach((b,i)=>{
-        let end = i+1<idx.length ? idx[i+1].start : txt.length;
-        const tail = txt.slice(b.bodyStart,end);
-        const cut = tail.search(/\n(## |={20,})/);
-        const body = (cut>=0 ? tail.slice(0,cut) : tail).trim();
-        if(!BLOCKS[b.label]){ BLOCKS[b.label]=body; }
-        BLOCKS_BY_FILE[f].push(b.label);
-      });
-    }catch(e){}
-  }));
-}
+THEN RUN IT IN THIS ORDER — ONE step per message, wait for me each time:
+1. Get me set up with Claude Pro and Vultr — give me the links, walk me through signup in the simplest words, one at a time. (These are the only two accounts I need.)
+2. Use PROMPT 1A to stand up my always-on cloud desktop (RDP) through the Vultr API. YOU run the commands — never make me type curl or code.
+3. Get me connected to that desktop from my phone (Microsoft Remote Desktop app), then have me paste PROMPT 1C so you take the controls — mouse, keyboard, browser, screen.
+4. As soon as my desktop is up, save my whole prompt folder onto it so I always have every prompt:
+   mkdir -p ~/cashbot-prompts && cd ~/cashbot-prompts && for f in os.txt os-earn.txt os-build.txt os-content.txt os-reach.txt os-brain.txt; do curl -fsSL "https://cash.bot/$f" -o "$f"; done
+5. From that point ON, YOU do everything on the machine while I just talk: claim free sign-up offers for me (PROMPT 1D), build my sites and apps (PROMPT 1B + the BUILD modules), and set up income (PROMPT 2 and on).
 
-function push(who, html, persist=true){
-  const av = who==='bot' ? '🤖' : '🧑';
-  const wrap = document.createElement('div');
-  wrap.className = 'msg '+who;
-  wrap.innerHTML = '<div class="av">'+av+'</div><div class="bubble">'+html+'</div>';
-  thread.appendChild(wrap);
-  if(persist){ MSGS.push({who,html}); save(); }
-  scroll();
-}
-function scroll(){ requestAnimationFrame(()=>{ const m=document.querySelector('main'); if(m) m.scrollTop=m.scrollHeight; }); }
-function save(){ try{ localStorage.setItem('cb_chat_v1', JSON.stringify(MSGS)); }catch(e){} }
+RULES:
+- ONE small step per message, then STOP and wait. Never dump the whole plan.
+- Keep my keys and passwords private — use them, never display or store them anywhere public.
+- Honest only: real capability, real numbers, no promises you can't keep.
+- Any affiliate link: paste it in FULL and say plainly that it's an affiliate link that supports cash.bot (and where it also gives me a bonus).
 
-function chips(list){
-  return '<div class="chips">'+list.map(c=>'<button class="chip'+(c.primary?' primary':'')+'" data-route="'+c.route+'">'+esc(c.label)+'</button>').join('')+'</div>';
-}
-function linkcard(k){ const a=AFF[k]; if(!a)return''; return '<div class="linkcard"><div class="ic">'+a.ic+'</div><div class="body"><div class="t">'+esc(a.t)+'</div><div class="d">'+esc(a.d)+'</div></div><a class="go" href="'+a.u+'" target="_blank" rel="noopener">Open</a></div>'; }
-function promptcard(label){
-  if(!BLOCKS[label]) return '<div class="linkcard"><div class="body"><div class="d">Couldn\'t load "'+esc(label)+'" — pull to refresh.</div></div></div>';
-  const body = BLOCKS[label];
-  return '<div class="promptcard"><div class="ph"><span>📋</span><span class="nm">'+esc(label)+'</span></div><pre>'+esc(body)+'</pre><div class="pbtns"><button class="pbtn claude" data-action="claude" data-label="'+esc(label)+'">▶ Open in Claude Code</button><button class="pbtn" data-action="copy" data-label="'+esc(label)+'">Copy</button></div></div>';
-}
-function restartBtn(){ return '<button class="restart" data-route="restart">↺ start over</button>'; }
+Start now: fetch https://cash.bot/os.txt, then give me step 1 — getting my Claude + Vultr set up. One step. Then wait.`;
 
-const GREET = ()=>{ push('bot',
-  '<p>Hey — you\'re in the right place. <b>I\'m cash.bot.</b> Everything here is free.</p>'+
-  '<p>Tell me where you\'re at and I\'ll hand you the exact prompt to run in Claude — one step at a time.</p>'+
-  '<p><b>What do you want to do first?</b></p>'+
-  chips([
-    {label:'💸 Make my first money now', route:'money', primary:true},
-    {label:'🖥️ Set up my always-on machine', route:'machine'},
-    {label:'🏗️ Build a command center of apps', route:'build'},
-    {label:'⚡ Just give me everything', route:'everything'},
-  ]));
-};
+document.getElementById('prompt').textContent = PROMPT;
 
-function route(key){
-  if(key==='restart'){ MSGS=[]; thread.innerHTML=''; save(); GREET(); return; }
-
-  if(key==='money'){
-    push('bot',
-      '<p>Good — you start exactly where everyone starts: <b>$0 and a phone.</b></p>'+
-      '<p>Two moves. First, run the money-finder prompt below in Claude — it walks you through your fastest real cash, one honest step at a time. Second, these are the on-ramps people use to pull together the first ~$25 (you\'ll want that for your own machine next):</p>'+
-      promptcard('cash.bot · prompt 0')+
-      linkcard('ebay')+linkcard('honeygain')+linkcard('onepay')+linkcard('kraken')+
-      '<p style="margin-top:10px">Got ~$25 together? Tap below.</p>'+
-      chips([{label:'🖥️ I have $25 — set up my machine', route:'machine', primary:true},{label:'⚡ Give me everything', route:'everything'}])+
-      restartBtn());
-    return;
-  }
-
-  if(key==='machine'){
-    push('bot',
-      '<p>This is the unlock: <b>your own always-on machine</b> you drive from your phone. Two accounts — both yours, on your own keys:</p>'+
-      linkcard('claude')+linkcard('vultr')+
-      '<p style="margin-top:10px"><b>Then run this.</b> Paste it into Claude Code (claude.ai → Code, works right on your phone). It stands up your Vultr server + remote desktop and keeps going one step at a time. You log in with <b>your own</b> Claude account and Vultr — I never touch your keys.</p>'+
-      promptcard('cash.bot · prompt 1A · runs on YOUR device')+
-      promptcard('cash.bot · prompt 1B · runs ON the cloud desktop')+
-      '<p style="margin-top:10px">Machine online? Build apps on it:</p>'+
-      chips([{label:'🏗️ Build my command center', route:'build', primary:true},{label:'⚡ The whole chain', route:'everything'}])+
-      restartBtn());
-    return;
-  }
-
-  if(key==='build'){
-    const buildLabels = (BLOCKS_BY_FILE['os-build.txt']||[]).concat(BLOCKS_BY_FILE['os-brain.txt']||[]);
-    let cards = buildLabels.slice(0,6).map(promptcard).join('');
-    if(!cards) cards = promptcard('cash.bot · prompt 2A · the offer engine');
-    push('bot',
-      '<p>Now you turn the machine into a <b>command center</b> — your own apps, your own brand, all on your server. Each prompt below builds one piece. Run them in order, on the machine you set up.</p>'+
-      '<p>Start at the top. Each one names the next when it\'s done.</p>'+
-      cards+
-      chips([{label:'⚡ See the full chain', route:'everything', primary:true},{label:'🖥️ Set up the machine first', route:'machine'}])+
-      restartBtn());
-    return;
-  }
-
-  if(key==='everything'){
-    push('bot',
-      '<p>Here\'s the master key. <b>One prompt</b> — run it in Claude and it walks the entire cash.bot chain <i>with</i> you, start to finish, one step at a time. Free money first, then your machine, then the apps.</p>'+
-      promptcard('cash.bot · ONE-PROMPT BOOT')+
-      chips([{label:'💸 Just the money part', route:'money'},{label:'🖥️ Just the machine', route:'machine'}])+
-      restartBtn());
-    return;
-  }
-
-  if(key==='human'){
-    push('bot',
-      '<p>Every prompt\'s free — what you can actually buy is <b>me, the human behind it</b>:</p>'+
-      '<div class="linkcard"><div class="ic">💬</div><div class="body"><div class="t">Tier 1 — $113 once</div><div class="d">Private WhatsApp room with me + other builders.</div></div><a class="go" href="'+PAY.t1+'" target="_blank" rel="noopener">$113</a></div>'+
-      '<div class="linkcard"><div class="ic">📲</div><div class="body"><div class="t">Tier 2 — $497 once</div><div class="d">WhatsApp + a direct DM line to me.</div></div><a class="go" href="'+PAY.t2+'" target="_blank" rel="noopener">$497</a></div>'+
-      '<div class="linkcard"><div class="ic">🤝</div><div class="body"><div class="t">Founders — $2,000/mo + % of sales</div><div class="d">1-on-1 calls, mentorship, and I promote your product as your partner.</div></div><a class="go" href="'+PAY.f+'" target="_blank" rel="noopener">Apply</a></div>'+
-      '<p style="margin-top:10px">But you don\'t need any of it to start. Tap below.</p>'+
-      chips([{label:'⚡ Give me everything (free)', route:'everything', primary:true}])+
-      restartBtn());
-    return;
-  }
-
-  push('bot', '<p>I can point you to the right prompt — pick one:</p>'+
-    chips([
-      {label:'💸 Make my first money now', route:'money', primary:true},
-      {label:'🖥️ Set up my machine', route:'machine'},
-      {label:'🏗️ Build apps', route:'build'},
-      {label:'⚡ Everything', route:'everything'},
-    ]));
-}
-
-function matchIntent(text){
-  const t = text.toLowerCase();
-  if(/(human|chase|call|mentor|whatsapp|\bdm\b|tier|partner|pay|buy)/.test(t)) return 'human';
-  if(/(server|vultr|machine|set ?up|deploy|rdp|desktop|always|claude code|host)/.test(t)) return 'machine';
-  if(/(app|build|command|center|dashboard|\bos\b|brand|tool|launch)/.test(t)) return 'build';
-  if(/(everything|all|whole|chain|master|both)/.test(t)) return 'everything';
-  if(/(broke|no money|zero|first|cash|money|earn|paid|afford|free money|claim|\$0|0)/.test(t)) return 'money';
-  return null;
-}
-
-function handleInput(){
-  const v = inp.value.trim(); if(!v) return;
-  push('user', '<p>'+esc(v)+'</p>');
-  inp.value=''; inp.style.height='auto';
-  const k = matchIntent(v);
-  setTimeout(()=>route(k||'fallback'), 160);
-}
-
-document.addEventListener('click', e=>{
-  const r = e.target.closest('[data-route]');
-  if(r){ e.preventDefault(); const k=r.getAttribute('data-route');
-    if(k!=='restart') push('user', '<p>'+esc(r.textContent.trim())+'</p>');
-    setTimeout(()=>route(k),120); return; }
-  const a = e.target.closest('[data-action]');
-  if(a){ const label=a.getAttribute('data-label'); const body=BLOCKS[label];
-    if(!body){ alert('Still loading that prompt — give it a second and try again.'); return; }
-    if(a.getAttribute('data-action')==='claude'){ window.open('https://claude.ai/code?prompt='+encodeURIComponent(body),'_blank','noopener'); }
-    else { navigator.clipboard.writeText(body).then(()=>{ a.textContent='Copied ✓'; setTimeout(()=>a.textContent='Copy',1500); }); }
-  }
+function payload(){ return RUN_HEADER + PROMPT; }
+document.getElementById('open').addEventListener('click', ()=>{
+  window.open('https://claude.ai/code?prompt='+encodeURIComponent(payload()),'_blank','noopener');
 });
-document.getElementById('send').addEventListener('click', handleInput);
-inp.addEventListener('keydown', e=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); handleInput(); }});
-inp.addEventListener('input', ()=>{ inp.style.height='auto'; inp.style.height=Math.min(inp.scrollHeight,120)+'px'; });
-
-(async ()=>{
-  await loadLib();
-  try{ MSGS = JSON.parse(localStorage.getItem('cb_chat_v1')||'[]'); }catch(e){ MSGS=[]; }
-  if(Array.isArray(MSGS) && MSGS.length){ MSGS.forEach(m=>push(m.who,m.html,false)); scroll(); }
-  else { MSGS=[]; GREET(); }
-})();
+document.getElementById('copy').addEventListener('click', e=>{
+  navigator.clipboard.writeText(payload()).then(()=>{ e.target.textContent='Copied ✓'; setTimeout(()=>e.target.textContent='Copy',1500); });
+});
+document.getElementById('human').addEventListener('click', e=>{
+  e.preventDefault();
+  const f=document.querySelector('.foot');
+  f.innerHTML='Want me in your corner? <a href="https://www.paypal.com/paypalme/rebootbase/113" target="_blank" rel="noopener">Tier 1 · $113</a> (WhatsApp group) · <a href="https://www.paypal.com/paypalme/rebootbase/497" target="_blank" rel="noopener">Tier 2 · $497</a> (+ DM line) · <a href="https://www.paypal.com/paypalme/rebootbase/2000" target="_blank" rel="noopener">Founders · $2,000/mo</a> (1-on-1 + I promote you). The prompt above is free — you never need these to start.';
+});
 </script>
 </body>
 </html>
