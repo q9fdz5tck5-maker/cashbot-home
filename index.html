@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="home-v2.1.0-three-step-vultr-apikey-claude-20260601">
+<meta name="build-version" content="home-v2.3.0-device-buttons-cockpit-fleet-20260601">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
 <meta name="description" content="Three taps. Make a Vultr account, grab your key, open Claude Code — and Claude builds you an always-on cloud computer it runs for you. Free.">
@@ -65,6 +65,9 @@ h1 .g{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-backgro
 
 .note{color:var(--muted2);font-size:12.5px;margin-top:18px;line-height:1.5}
 .note b{color:var(--muted)}
+.fleet{margin-top:24px;padding:16px;border:1px solid var(--border2);border-radius:14px;background:var(--bg2)}
+.fleet .ft{font-weight:700;font-size:16px;margin-bottom:4px}
+.fleet .fd{color:var(--muted);font-size:13.5px;line-height:1.45;margin-bottom:12px}
 .foot{color:var(--muted2);font-size:12px;margin-top:28px;text-align:center}
 .foot a{color:var(--muted)}
 </style>
@@ -126,6 +129,15 @@ h1 .g{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-backgro
 
   <p class="note"><b>Your key stays yours.</b> cash.bot never sees it — you paste it into your own Claude chat, not into this page or any link. Need Claude Code? It opens at claude.ai/code (Pro/Max + a connected account, ~$20/mo). Every prompt is free.</p>
 
+  <div class="fleet">
+    <div class="ft">Already have machines running?</div>
+    <div class="fd">Come back here any time. This prompt lets Claude command your whole fleet from one chat — see every machine, spin new ones up, shut idle ones down, get back into any of them, run one command across all at once.</div>
+    <div class="row2">
+      <button class="act go" id="fleet-open">🛰️ Command my fleet</button>
+      <button class="act" id="fleet-copy">Copy</button>
+    </div>
+  </div>
+
   <p class="foot">Built by Chase Tipton. · <a href="#" id="human">talk to a human →</a></p>
 </div>
 
@@ -154,9 +166,24 @@ RULES:
 
 Start now: fetch https://cash.bot/os.txt, then do step 1 — ask me to paste my Vultr API key. One step. Then wait.`;
 
+const FLEET_PROMPT = `You are CASH.BOT — FLEET COMMANDER. Become this assistant and run it WITH me live, one step at a time. I already own one or more cloud machines on Vultr and I want to command my whole fleet from this one chat — see them all, spin new ones up, shut idle ones down, get back into any of them, and run the same command across all at once. YOU make the API calls and SSH connections yourself; never make me type curl or code.
+
+READ THE PLAYBOOK FIRST, then run PROMPT 1E (the fleet block) from it:
+https://cash.bot/os.txt
+
+RULES:
+- FIRST, ask me to paste my Vultr API key here, then list every machine I own and read it back as a simple table (name, IP, region, status, monthly cost) with my total monthly spend.
+- ONE step per message, then STOP and wait.
+- My API key and every machine password stays private — use them, never display them (except a freshly reset password, shown once).
+- Creating a machine costs money and deleting one is permanent — tell me the cost/loss and get a clear yes before you ever create or destroy anything. Never delete a machine I didn't name.
+- Honest only: verify each machine's real state with a real call; never pretend.
+
+Start now: fetch https://cash.bot/os.txt, then ask me for my Vultr API key and show me my fleet. One step. Then wait.`;
+
 document.getElementById('prompt').textContent = PROMPT;
 
 function payload(){ return RUN_HEADER + PROMPT; }
+function fleetPayload(){ return RUN_HEADER + FLEET_PROMPT; }
 
 // mark steps done as the user taps through (visual progress, persisted)
 function markDone(id){ try{ localStorage.setItem('cb_step_'+id,'1'); }catch(e){} document.getElementById(id)?.classList.add('done'); }
@@ -171,6 +198,12 @@ document.getElementById('open').addEventListener('click', ()=>{
 document.getElementById('copy').addEventListener('click', e=>{
   markDone('s3');
   navigator.clipboard.writeText(payload()).then(()=>{ e.target.textContent='Copied ✓'; setTimeout(()=>e.target.textContent='Copy prompt',1500); });
+});
+document.getElementById('fleet-open').addEventListener('click', ()=>{
+  window.open('https://claude.ai/code?prompt='+encodeURIComponent(fleetPayload()),'_blank','noopener');
+});
+document.getElementById('fleet-copy').addEventListener('click', e=>{
+  navigator.clipboard.writeText(fleetPayload()).then(()=>{ e.target.textContent='Copied ✓'; setTimeout(()=>e.target.textContent='Copy',1500); });
 });
 document.getElementById('human').addEventListener('click', e=>{
   e.preventDefault();
