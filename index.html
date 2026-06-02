@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="home-v2.3.0-device-buttons-cockpit-fleet-20260601">
+<meta name="build-version" content="home-v2.4.0-caps-strip-device-autodetect-20260601">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
 <meta name="description" content="Three taps. Make a Vultr account, grab your key, open Claude Code — and Claude builds you an always-on cloud computer it runs for you. Free.">
@@ -63,6 +63,9 @@ h1 .g{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-backgro
 .devs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .devs .act{width:100%}
 
+.caps{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.caps span{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-size:12.5px;color:var(--fg);line-height:1.3}
+.dev-badge{opacity:.85;font-weight:600}
 .note{color:var(--muted2);font-size:12.5px;margin-top:18px;line-height:1.5}
 .note b{color:var(--muted)}
 .fleet{margin-top:24px;padding:16px;border:1px solid var(--border2);border-radius:14px;background:var(--bg2)}
@@ -78,6 +81,13 @@ h1 .g{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-backgro
 
   <h1>Three taps. Then Claude runs <span class="g">your own computer</span> for you.</h1>
   <p class="sub">Make a Vultr account, grab one key, open Claude Code. From there Claude builds your always-on cloud desktop, takes the controls, and does the work — <b>claims free offers, builds sites, makes money</b> — while you just talk to it.</p>
+
+  <div class="caps">
+    <span>🖥️ Boots into a cockpit — desktop on top, Claude terminal on the bottom</span>
+    <span>🧠 Claude already knows the cash.bot playbook + your apps</span>
+    <span>⚡ Runs hands-free — no tapping confirm, drive it from your phone</span>
+    <span>🛰️ One chat commands your whole fleet of machines</span>
+  </div>
 
   <div class="step" id="s1">
     <div class="num">1</div>
@@ -205,6 +215,18 @@ document.getElementById('fleet-open').addEventListener('click', ()=>{
 document.getElementById('fleet-copy').addEventListener('click', e=>{
   navigator.clipboard.writeText(fleetPayload()).then(()=>{ e.target.textContent='Copied ✓'; setTimeout(()=>e.target.textContent='Copy',1500); });
 });
+// auto-detect device → promote the matching connect button to first + primary
+(function(){
+  var ua=navigator.userAgent||'';
+  var map=[['d-ios',/iPhone|iPad|iPod/i],['d-and',/Android/i],['d-win',/Windows/i],['d-mac',/Macintosh|Mac OS X/i]];
+  for(var i=0;i<map.length;i++){
+    if(map[i][1].test(ua)){
+      var el=document.getElementById(map[i][0]);
+      if(el){ el.classList.add('go'); el.insertAdjacentHTML('beforeend',' <span class="dev-badge">· your device</span>'); el.parentNode.insertBefore(el, el.parentNode.firstChild); }
+      break;
+    }
+  }
+})();
 document.getElementById('human').addEventListener('click', e=>{
   e.preventDefault();
   const f=document.querySelector('.foot');

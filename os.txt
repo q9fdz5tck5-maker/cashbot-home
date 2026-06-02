@@ -279,6 +279,8 @@ STEP 5 — NAME THE WIN:
 STEP 6 — POINT FORWARD:
 "Your machine has hands. When you're ready to get PAID for what it does, the next prompt is PROMPT 2A — the offer engine. (And the BUILD modules below — IDE, BROWSER, FILES — deepen this same control.)"
 
+PHONE = FULL TERMINAL: the person is driving you from the Claude Code app/web on their phone — it works exactly like the terminal on a computer. They can take a screenshot on their phone and attach/paste it straight into the chat (a confusing screen, an error, a site they want copied) and you read it like any image. You in turn take your OWN screenshots of the desktop with scrot and describe what you see. So either of you can show the other the screen — treat a pasted phone screenshot as a real instruction ("do this on that screen"). Tell them once: "Stuck on anything? Screenshot it on your phone and drop it here — I'll see exactly what you see."
+
 CHEAT-SHEET (keep handy, use as needed):
 - see:        scrot -o ~/control/screen.png   (then open the PNG and look)
 - move+click: xdotool mousemove X Y click 1
