@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="home-v3.1.0-honest-prompts-3tiers-20260601">
+<meta name="build-version" content="home-v3.2.0-edit-from-phone-20260601">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
 <meta name="description" content="Your own computer in the cloud, built and run for you by Claude. Three taps, then you just talk from your phone — it claims offers, builds sites, makes money. Free to run.">
@@ -162,6 +162,33 @@ document.getElementById('dev-others').innerHTML=DEV.filter((_,i)=>i!==hit).map(d
 document.getElementById('human').addEventListener('click',e=>{e.preventDefault();
   const t=document.getElementById('tiers');t.style.display=t.style.display==='none'?'block':'none';
 });
+
+// ── edit-from-phone launcher (admin only — add #edit to the URL) ──
+const EDIT_PROMPT=`You're Claude Code and this session is connected to my GitHub repo "cashbot-home" — that repo IS my live homepage at https://cash.bot (GitHub Pages serves it; pushing to the main branch deploys it automatically in ~30s). I'm on my phone and I want to edit the site by just talking to you.
+
+The two files that matter:
+- index.html — the homepage (hero, the 4 setup steps, device buttons, the fleet link, the 3 tiers, and the JS prompts: RUN_HEADER, PROMPT, FLEET_PROMPT).
+- os.txt — the prompt playbook the homepage links to.
+
+How to work with me, every time:
+1. Ask me what I want changed, in my own words. ONE change at a time is fine.
+2. Make the edit in the file. Keep the existing house style (dark theme, CSS variables, mobile-first, Inter/JetBrains Mono). Don't add bloat — keep it simple.
+3. Bump the build-version meta tag in index.html (the content="home-vX.Y.Z-...-DATE" string) so we can tell it deployed — patch for small copy, minor for a feature.
+4. Commit with a short clear message and push to main. Tell me the new version string.
+5. Remind me it goes live at https://cash.bot in about 30 seconds, and how to confirm (hard-refresh, check the version).
+
+Keep my brand voice: speak to "you" (one person), honest, no SaaS filler, no income promises. If a change would break the page on a phone, say so before doing it.
+
+Start by asking me what I want to change on the homepage today.`;
+
+if(/edit/i.test(location.hash)){
+  const b=document.createElement('a');
+  b.textContent='✎ edit this page';
+  b.href='https://claude.ai/code?prompt='+enc(EDIT_PROMPT);
+  b.target='_blank';b.rel='noopener';
+  b.style.cssText='position:fixed;right:14px;bottom:14px;z-index:99;background:linear-gradient(90deg,var(--cyan),#0bb6dd);color:#001016;font-weight:700;font-size:14px;padding:12px 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:11px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.5)';
+  document.body.appendChild(b);
+}
 </script>
 </body>
 </html>
