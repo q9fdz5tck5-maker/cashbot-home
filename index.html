@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="start-v5.0.0-laser-fx-earn-upgrade-20260531">
+<meta name="build-version" content="chat-v1.0.0-apex-prompt-router-20260601">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
+<meta name="description" content="Tell it what you want. It hands you one prompt to run in Claude — first money, your own always-on machine, a whole command center of apps. Free.">
+<title>cash.bot — what do you want to build?</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2L1R2REWX"></script>
 <script>
@@ -14,398 +16,276 @@
   gtag('js', new Date());
   gtag('config', 'G-P2L1R2REWX');
 </script>
-<title>CASH.BOT — copy one prompt, start free</title>
-<meta name="description" content="You've got a phone, an idea, and maybe $0. Copy one prompt, paste it into any free AI, and Cash.bot starts working with you.">
-<link rel="canonical" href="https://cash.bot/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://cash.bot/">
-<meta property="og:title" content="CASH.BOT — copy one prompt, start free">
-<meta property="og:description" content="You've got a phone, an idea, and maybe $0. Copy one prompt, paste it into any free AI, and Cash.bot starts working with you.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CASH.BOT — copy one prompt, start free">
-<meta name="twitter:description" content="Copy one prompt. Paste it into any free AI. Make your first real money today.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --gold:#f5c518;--green:#22e58a;--cyan:#00d4ff;--pink:#ff006e;
-  --bg:#0a0a0a;--bg2:#101012;--bg3:#16161a;--bg4:#1c1c22;
-  --border:#22232a;--border2:#2c2d36;
-  --fg:#f0f2f5;--muted:#888a96;--muted2:#5a5d68;
+  --gold:#f5c518; --green:#22e58a; --cyan:#00d4ff; --pink:#ff006e; --purple:#a855f7;
+  --bg:#0a0a0a; --bg2:#101012; --bg3:#16161a; --bg4:#1c1c22;
+  --border:#22232a; --border2:#2c2d36; --fg:#f0f2f5; --muted:#888a96; --muted2:#5a5d68;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,Menlo,monospace;
 }
-html{background:var(--bg);color:var(--fg);font-family:'Inter',sans-serif;font-size:16px;-webkit-font-smoothing:antialiased}
-body{max-width:100%;overflow-x:hidden;min-height:100vh;line-height:1.5}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:860px;width:100%;margin:0 auto;padding:0 16px}
-.section{padding:48px 0}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-h1{font-size:clamp(30px,7vw,58px);font-weight:900;line-height:1.05;margin-bottom:18px}
-h2{font-size:clamp(22px,4.5vw,34px);font-weight:800;line-height:1.1;margin-bottom:14px}
-.lead{font-size:clamp(16px,2.4vw,20px);color:var(--fg);max-width:640px;margin-bottom:8px}
-.muted{color:var(--muted)}
-.strip{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0;font-family:'JetBrains Mono',monospace;font-size:13px}
-.strip span{background:var(--bg3);border:1px solid var(--border);border-radius:999px;padding:8px 14px;min-height:36px;display:inline-flex;align-items:center;gap:6px}
-
-/* prompt block */
-.promptcard{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;overflow:hidden;margin-top:20px}
-.promptbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border);background:var(--bg3);flex-wrap:wrap}
-.promptbar .tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);letter-spacing:1px}
-#copyBtn{background:var(--gold);color:#000;border:none;border-radius:10px;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:1px;font-size:13px;padding:12px 20px;min-height:44px;cursor:pointer;transition:.15s}
-#copyBtn:hover{filter:brightness(1.08)}
-#copyBtn.copied{background:var(--green)}
-pre#prompt{margin:0;padding:18px 16px;max-height:420px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.6;color:#cdd2da;white-space:pre-wrap;word-break:break-word}
-
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
-.card h3{font-size:17px;font-weight:800}
-.card p{font-size:14px;color:var(--muted)}
-.card .step{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:12px 18px;border-radius:10px;font-weight:700;font-size:14px;border:1px solid var(--border2);background:var(--bg4);margin-top:auto;width:100%}
-.btn.gold{background:var(--gold);color:#000;border-color:var(--gold)}
-.btn.green{background:var(--green);color:#04140c;border-color:var(--green)}
-.divider{height:1px;background:var(--border);margin:0 16px}
-.note{font-size:13px;color:var(--muted2);margin-top:14px}
-
-/* hero LAZER beam word + FX engine */
-.lazerword{display:inline-block;background:linear-gradient(90deg,#f5c518,#00d4ff 30%,#ff006e 60%,#22e58a 80%,#f5c518);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.06em;position:relative;filter:drop-shadow(0 0 22px rgba(0,212,255,.6));animation:lazerflow 4s linear infinite}
-@keyframes lazerflow{0%{background-position:0 0}100%{background-position:300% 0}}
-.herofx{position:relative;overflow:hidden}
-.herofx>*{position:relative;z-index:2}
-.herofx:before{content:"";position:absolute;top:-10%;left:-40%;width:28%;height:120%;background:linear-gradient(90deg,transparent,rgba(0,212,255,.18),rgba(255,255,255,.07),transparent);transform:skewX(-16deg);animation:hsweep 5.5s ease-in-out infinite;pointer-events:none;z-index:1}
-@keyframes hsweep{0%{left:-40%}55%,100%{left:138%}}
-.scanfx:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 36px,rgba(0,212,255,.05) 36px 37px);pointer-events:none;z-index:0;animation:scandrift 7s linear infinite}
-@keyframes scandrift{0%{background-position:0 0}100%{background-position:0 37px}}
-.lazerbtn{position:relative;overflow:hidden}
-.lazerbtn .lz{position:relative;z-index:1}
-.lazerbtn:before{content:"";position:absolute;top:0;left:-70%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-22deg);animation:btnsweep 2.6s ease-in-out infinite;pointer-events:none;z-index:0}
-.lazerbtn:hover:before{animation-duration:.7s}
-@keyframes btnsweep{0%{left:-70%}55%,100%{left:150%}}
-.shatterwrap{position:relative;display:inline-block}
-.shatterwrap:before,.shatterwrap:after{content:"";position:absolute;top:50%;left:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid var(--cyan);opacity:0;pointer-events:none}
-.glassband.fired .shatterwrap:before{animation:ring 1s ease-out .05s forwards}
-.glassband.fired .shatterwrap:after{animation:ring 1.15s ease-out .22s forwards;border-color:var(--gold)}
-@keyframes ring{0%{width:14px;height:14px;opacity:.9}100%{width:340px;height:340px;opacity:0}}
-.glassband.fired .shatter{animation:burst .8s cubic-bezier(.2,1.4,.4,1) forwards}
-@keyframes burst{0%{transform:scale(.3);opacity:.2}45%{transform:scale(1.3)}100%{transform:scale(1);filter:drop-shadow(0 0 28px rgba(0,212,255,.7))}}
-@media(prefers-reduced-motion:reduce){.lazerword,.herofx:before,.scanfx:after,.lazerbtn:before,.glassband.fired .shatter,.glassband.fired .shatterwrap:before,.glassband.fired .shatterwrap:after{animation:none}}
-.lazerline{display:block;width:100%;max-width:520px;height:3px;margin-top:10px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--cyan),var(--pink),transparent);box-shadow:0 0 16px rgba(0,212,255,.6);animation:beam 2.6s ease-in-out infinite}
-@keyframes beam{0%,100%{opacity:.55;transform:scaleX(.9)}50%{opacity:1;transform:scaleX(1)}}
-.metaline{font-family:'JetBrains Mono',monospace;font-size:clamp(13px,2vw,15px);color:var(--muted);margin:14px 0 4px}
-
-/* phase tags */
-.phasetag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:12px}
-.phasetag.p0{color:var(--cyan);background:rgba(0,212,255,.10);border:1px solid rgba(0,212,255,.35)}
-.phasetag.p1{color:var(--gold);background:rgba(245,197,24,.12);border:1px solid rgba(245,197,24,.4)}
-
-@media(prefers-reduced-motion:reduce){.lazerline{animation:none}}
-
-/* return-loop banner */
-#backBanner{display:none;background:linear-gradient(90deg,rgba(245,197,24,.14),rgba(34,229,138,.10));border:1px solid var(--border2);border-radius:12px;padding:12px 16px;margin-top:18px;font-size:14px;font-weight:600}
-#backBanner a{color:var(--gold);text-decoration:underline;white-space:nowrap}
-
-/* glass-break peak band */
-.glassband{position:relative;overflow:hidden;background:
-  linear-gradient(135deg,transparent 0 48%,rgba(0,212,255,.10) 49% 50%,transparent 51% 100%),
-  linear-gradient(48deg,transparent 0 60%,rgba(245,197,24,.10) 61% 62%,transparent 63% 100%),
-  radial-gradient(120% 120% at 50% 0,rgba(255,0,110,.08),transparent 60%),var(--bg2);
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.glassband .wrap{padding-top:56px;padding-bottom:56px}
-.shatter{font-size:clamp(48px,12vw,96px);line-height:1;margin-bottom:14px;filter:drop-shadow(0 0 18px rgba(0,212,255,.35))}
-.glassband h2{font-size:clamp(26px,5.5vw,44px)}
-.glassband p{font-size:clamp(16px,2.6vw,21px);color:var(--fg);max-width:660px;margin-top:10px}
-
-/* LAZER GO climax */
-.lazer{text-align:center}
-.lazer .eyebrow{color:var(--green)}
-.lazerbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:60px;padding:18px 34px;border-radius:14px;background:var(--gold);color:#000;font-family:'JetBrains Mono',monospace;font-weight:800;letter-spacing:1px;font-size:clamp(16px,3vw,21px);border:none;margin:22px auto 0;box-shadow:0 0 0 0 rgba(245,197,24,.55);animation:laserpulse 2.4s ease-out infinite;max-width:100%}
-.lazerbtn:hover{filter:brightness(1.08)}
-@keyframes laserpulse{0%{box-shadow:0 0 0 0 rgba(245,197,24,.5)}70%{box-shadow:0 0 0 22px rgba(245,197,24,0)}100%{box-shadow:0 0 0 0 rgba(245,197,24,0)}}
-.lazer .mech{font-size:14px;color:var(--muted);max-width:540px;margin:16px auto 0;line-height:1.7}
-.lazer .mech a{color:var(--cyan);text-decoration:underline}
-.lazer .scale{font-size:13px;color:var(--muted2);margin-top:18px}
-.lazer .scale a{color:var(--muted);text-decoration:underline}
-@media(prefers-reduced-motion:reduce){.lazerbtn{animation:none}}
-
-footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted2);font-size:13px;text-align:center}
-@media(max-width:640px){
-  .section{padding:36px 0}
-  .btn,.card .btn{width:100%}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--font);background:var(--bg);color:var(--fg);
+  font-size:clamp(15px,2.5vw,17px);line-height:1.5;
+  display:flex;flex-direction:column;min-height:100dvh;
+  background-image:radial-gradient(900px 500px at 80% -10%,rgba(34,229,138,.07),transparent),radial-gradient(700px 400px at 0% 0%,rgba(0,212,255,.05),transparent);
 }
+a{color:var(--green);text-decoration:none}
+header{
+  flex:0 0 auto;display:flex;align-items:center;gap:10px;
+  padding:12px 16px;border-bottom:1px solid var(--border);
+  background:rgba(10,10,10,.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:5;
+}
+.logo{font-family:var(--mono);font-weight:700;font-size:18px;letter-spacing:-.5px}
+.logo b{color:var(--green)}
+.tag{color:var(--muted);font-size:13px;margin-left:auto;text-align:right;line-height:1.3}
+main{flex:1 1 auto;width:100%;max-width:860px;margin:0 auto;padding:16px 16px 0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#thread{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+.msg{display:flex;gap:10px;max-width:100%}
+.msg .av{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:16px;background:var(--bg4)}
+.msg.user{flex-direction:row-reverse}
+.bubble{padding:11px 14px;border-radius:14px;border:1px solid var(--border);background:var(--bg3);max-width:88%;overflow-wrap:anywhere}
+.msg.user .bubble{background:linear-gradient(180deg,#15351f,#102a19);border-color:#1e5837;color:#eafff3}
+.bubble p{margin:0 0 8px}.bubble p:last-child{margin:0}
+.bubble b{color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{
+  font-family:var(--font);font-size:14px;cursor:pointer;
+  background:var(--bg4);color:var(--fg);border:1px solid var(--border2);
+  border-radius:999px;padding:11px 15px;min-height:44px;display:inline-flex;align-items:center;
+}
+.chip:hover{border-color:var(--green);color:var(--green)}
+.chip.primary{background:var(--green);color:#000;border-color:var(--green);font-weight:600}
+.linkcard{display:flex;align-items:center;gap:10px;margin-top:8px;padding:11px 13px;background:var(--bg2);border:1px solid var(--border);border-radius:12px}
+.linkcard .ic{font-size:18px}
+.linkcard .body{flex:1;min-width:0}
+.linkcard .t{font-weight:600;font-size:14px}
+.linkcard .d{color:var(--muted);font-size:12.5px}
+.linkcard .go{flex:0 0 auto;background:var(--bg4);border:1px solid var(--border2);color:var(--green);border-radius:9px;padding:9px 13px;min-height:44px;display:inline-flex;align-items:center;font-weight:600;font-size:13px}
+.linkcard .go:hover{border-color:var(--green)}
+.promptcard{margin-top:10px;border:1px solid var(--border2);border-radius:12px;overflow:hidden;background:var(--bg2)}
+.promptcard .ph{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--bg4);border-bottom:1px solid var(--border)}
+.promptcard .ph .nm{font-family:var(--mono);font-size:12.5px;color:var(--muted);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.promptcard pre{margin:0;padding:12px;font-family:var(--mono);font-size:12px;line-height:1.5;white-space:pre-wrap;word-break:break-word;max-height:230px;overflow-y:auto;color:#cdd2da}
+.pbtns{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--border)}
+.pbtn{flex:1;cursor:pointer;font-family:var(--font);font-weight:600;font-size:13.5px;border-radius:9px;padding:11px;min-height:44px;border:1px solid var(--border2);background:var(--bg4);color:var(--fg)}
+.pbtn.claude{background:var(--green);color:#000;border-color:var(--green)}
+.pbtn:hover{filter:brightness(1.08)}
+.composer{flex:0 0 auto;position:sticky;bottom:0;background:rgba(10,10,10,.92);backdrop-filter:blur(8px);border-top:1px solid var(--border);padding:10px 16px;padding-bottom:max(10px,env(safe-area-inset-bottom))}
+.composer .row{display:flex;gap:8px;max-width:860px;margin:0 auto}
+#inp{flex:1;font-family:var(--font);font-size:16px;background:var(--bg3);border:1px solid var(--border2);border-radius:12px;color:var(--fg);padding:12px 14px;min-height:48px;resize:none;max-height:120px}
+#inp:focus{outline:none;border-color:var(--green)}
+#send{flex:0 0 auto;cursor:pointer;background:var(--green);color:#000;font-weight:700;border:none;border-radius:12px;padding:0 18px;min-height:48px;min-width:56px;font-family:var(--font);font-size:15px}
+.restart{cursor:pointer;color:var(--muted2);font-size:12px;background:none;border:none;text-decoration:underline;margin-top:4px;align-self:flex-start}
+.foot{color:var(--muted2);font-size:11.5px;text-align:center;padding:10px 16px 4px}
+.foot a{color:var(--muted)}
+@media (max-width:480px){.tag{display:none}.bubble{max-width:92%}}
 </style>
 </head>
 <body>
-
-<header class="section wrap herofx scanfx" style="padding-bottom:8px">
-  <div class="eyebrow">CASH.BOT · START HERE</div>
-  <h1>Copy one prompt.<br>Paste it into any free AI.<br>💎 <span class="lazerword">LAZER</span> ☀️</h1>
-  <span class="lazerline" aria-hidden="true"></span>
-  <p class="metaline">☀️ acknowledgement + 💎 pattern, focused into one beam — that's the LAZER. One move that cuts straight to your first dollar.</p>
-  <p class="lead">You've got a phone, an idea, and maybe $0 on hand. That's not the wrong place to start — it's the exact starting line. Copy the prompt below, drop it into a free AI, and Cash.bot fires with you, not at you.</p>
-  <p class="lead muted" style="font-size:clamp(15px,2.2vw,18px)">The whole prompt system is free now — Phase 0 your first money, then your machine, a fleet, an operation, and every app. What you can buy is access to Chase.</p>
-  <div class="strip" aria-label="phase arc">
-    <span style="background:rgba(0,212,255,.10);border-color:rgba(0,212,255,.35)">PHASE 0 · free</span><span>💎 pattern</span><span>☀️ acknowledgement</span><span>→ 💥 glass break</span><span style="background:rgba(34,229,138,.12);border-color:var(--green)">🔫 LAZER. GO.</span><span style="background:rgba(245,197,24,.14);border-color:var(--gold)">PHASE 1 · $113</span>
-  </div>
-  <p style="margin:18px 0"><a href="/os.html" style="display:inline-block;background:var(--green);color:#000;font-family:'JetBrains Mono',monospace;font-weight:800;letter-spacing:.5px;font-size:15px;padding:15px 22px;min-height:44px;border-radius:12px;text-decoration:none">⚡ Get the whole Cash.bot OS — free, every prompt →</a></p>
-  <div id="backBanner">✓ You copied the prompt. Made your first money? <a href="#lazergo">→ fire the LAZER into Phase 1</a></div>
+<header>
+  <div class="logo"><b>cash</b>.bot</div>
+  <div class="tag">tell it what you want · it hands you the prompt · free</div>
 </header>
 
-<section class="section wrap" style="padding-top:8px">
-  <span class="phasetag p0">◢ PHASE 0 · FREE · YOUR FIRST MONEY</span>
-  <div class="eyebrow">STEP 1 · COPY THE PROMPT · Shatter Equation v1.0</div>
-  <h2>This is Prompt 0 — the front door</h2>
-  <p class="muted">One block. Copy it, paste it, answer honestly. It asks your name first — that's on purpose. This is the gateway (P.0): it gets you in, sizes you up, and finds your first cash. The deeper tiers (P.1+) unlock from here.</p>
-  <div class="promptcard">
-    <div class="promptbar">
-      <span class="tag">cash.bot · prompt 0</span>
-      <button id="copyBtn" onclick="copyPrompt()">COPY PROMPT</button>
-    </div>
-    <pre id="prompt">You are CASH.BOT. You help a brand-new, often broke person make their first real money — starting TODAY — then build from there. You are the warm, sharp friend who has done this and walks beside them.
+<main><div id="thread"></div></main>
 
-THE ONE LAW (the glass break):
-time + chaos + pattern + acknowledgement = the glass break.
-You take their messy situation (chaos 🌪️), face it honestly (acknowledgement ☀️), and turn it into ONE simple money move they repeat (pattern 💎), one step at a time (time 🪞). The glass breaks the moment real money hits their hands. That moment is the only goal. If something you're about to say doesn't move them closer to their first earned dollar, DON'T SAY IT.
-
-AFFILIATE LINKS — OUTPUT AS RAW PLAIN-TEXT URLs, WHOLE, EVERY TIME (hard rule, zero exceptions):
-These four links carry a referral code that credits the user's free bonus and sign-up cash. If the code is dropped, the user loses real money. So:
-- Paste the ENTIRE URL, character-for-character, on its OWN line.
-- Output it as RAW PLAIN TEXT only. NEVER a markdown link [like this](url). NEVER hide it behind display text. NEVER a short name like "ebay.us" or "the eBay link". NEVER drop anything after the slash, the ? or the &.
-- If you summarize, paraphrase, or shorten a message later, the FULL URL must survive unchanged. Re-paste it in full rather than referring back to it.
-- These are the ONLY four links. Copy them verbatim:
-https://ebay.us/vYm0wI
-https://join.honeygain.com/CENTRFAD3A
-https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu
-https://invite.kraken.com/JDNW/8tova4ma
-If you ever cannot reproduce a link in full, STOP and say "grab this link straight from cash.bot" — never post a trimmed or altered one.
-
-HOW YOU TALK (non-negotiable):
-- ONE small step per message. Then stop and say: "Do that, then tell me when it's done and what you see."
-- Never dump everything at once. Never list all the options as a wall. Never lecture about theory.
-- Plain words only. Not "liquidate your assets" — say "sell the stuff you're not using." Not "leverage" — say "use."
-- Short. A beginner reads 3 sentences, not 3 paragraphs.
-- Celebrate every win out loud — first listing, first sale, first dollar. Name it as the glass break.
-- Never refuse to help. Never stall. Never make them prove anything to you.
-
-STEP 1 — HELLO + NAME:
-Start EXACTLY with: "Hey — I'm Cash.bot. My whole job is to help you make your first real money, starting today, one small step at a time. What should I call you?"
-- They give a name → use it warmly the rest of the way.
-- They dodge → say once: "All good — I'll call you Friend. Let's go make you some money." Then move straight on. No wall, ever.
-
-STEP 2 — FIND THE STARTING POINT (ask exactly this, then WAIT for 1, 2, or 3):
-"Quick question — which one is you right now?
- 1) I've got stuff around the house I'm not using (clothes, electronics, games, tools — anything).
- 2) I've got nothing to sell, but I can get to a thrift store / Goodwill / grab free stuff.
- 3) I just want to start with free sign-up cash, no selling.
-Just reply 1, 2, or 3."
-Then walk ONLY the path they picked, ONE step per message, waiting after each.
-
-━━ PATH 1 — SELL WHAT YOU OWN (eBay's AI scanner does the hard part) ━━
-a) "Grab your phone. Download the free eBay app and make an account — about 3 minutes. Here's the link: https://ebay.us/vYm0wI — tell me when you're signed in."
-b) "Now look around your place. Grab the ONE thing worth the most that you don't need — a game console, headphones, a brand-name jacket, a power tool. Got it in your hands?"
-c) "In the eBay app: tap Sell → Sell one item → point your camera at it. eBay's scanner names it and shows what it actually sold for. What price does it show you?"
-d) "Tap to accept the suggested title and price (nudge it a little lower if you want it gone fast). For shipping, pick the cheapest option it suggests. Then tap List. Tell me the second it's live."
-e) "THAT is your first listing — that's the glass break starting. Most stuff sells in a few days. While we wait, let's list 2 more the same way." (repeat b–d)
-f) When it sells: "[Name], that's real money from stuff that was just sitting there dead. Pack it, print the label eBay gives you, drop it off. You just ran the whole loop start to finish."
-EARN MORE (only after their first listing is live): "Three things that make stuff sell faster and for more: 1) take one clean photo in daylight against a plain wall, 2) post at night (7-10pm, that's when buyers scroll), 3) accept Offers and say yes to anything within ~15% — a sale today beats a higher price that never comes." Push toward the highest-value items first — one $150 item beats ten $5 ones.
-
-━━ PATH 2 — FLIP THRIFT FINDS (start with $0–$5) ━━
-a) "First, same setup: download the free eBay app and make an account — https://ebay.us/vYm0wI — tell me when you're in."
-b) "Head to Goodwill, a thrift store, a yard sale, or your local 'free stuff' (Craigslist / Facebook Marketplace free section). You're shopping for PROFIT, not for yourself."
-c) "In the aisle, before you buy ANYTHING: open eBay → Sell → scan the item with your camera. It shows the real sold price in seconds."
-d) "Only grab it if eBay's sold price is at least 3x the sticker (or it's free). That gap is your profit. Find 2–3 winners. What did you find and what do they scan at?"
-e) "Buy your winners, take them home, then scan → list each one (accept the suggested price, cheapest shipping, List). Tell me when they're up."
-f) "When one sells, you roll the profit into your next pickups. That's the loop — it never stops working. First sale is the glass break."
-EARN MORE (after their first flip lands): "The money is in categories most people walk past: brand-name tools (DeWalt, Milwaukee), vintage Pyrex/cast iron, Lego by the pound, video games + consoles, name-brand boots/jackets. End-of-day at thrift stores and the last hour of yard sales = best discounts. Aim for items that scan at 3x+ so one flip pays for the next five." Keep rolling profit, never spend the float on yourself until you've doubled the original $5.
-
-━━ PATH 3 — FREE SIGN-UP CASH (honest, no fake promises) ━━
-a) "Honeygain — install it, make a free account, about $3 to start plus small passive income for letting it run in the background (not on iPhone). Set it and forget it: https://join.honeygain.com/CENTRFAD3A — done?"
-b) "OnePay — sign up and complete the steps they ask for (ID check + the activity their offer names). The sign-up cash is real once you qualify. Only ever say what's true about you — never claim something you're not: https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu"
-c) "Kraken — a free account gets daily free crypto spins; if you have a little to deposit, their deposit promos can add more (check the live offer first, don't count on it before it's real): https://invite.kraken.com/JDNW/8tova4ma"
-d) "These cover your starter costs fast. To pull real money, stack a couple sales from Path 1 or 2 on top — want me to walk you through that next?"
-EARN MORE (honest, conditional only): "Run all three at once — they stack and they're passive. Honeygain pays just for idle bandwidth (leave it on a laptop/Android that stays online). For OnePay and Kraken, only the steps that are genuinely true for you — never invent a deposit or a business you don't have. If you DO run a side gig or get paid, OnePay's direct-deposit tiers and Kraken's deposit promos are where the bigger bonuses live. Always check the live offer before counting on a number."
-
-KEEP A RUNNING TOTAL (every time they report a win):
-Track it out loud: "That's $X so far." Each sale or bonus, add it up and show the number climbing. A visible total is what keeps a beginner going. After each win, point them straight at the next move (list one more / scan one more / start the next app) so the loop never stalls.
-
-WHEN THEY'VE MADE THEIR FIRST MONEY — name the glass break:
-"[Name], you just turned a stuck, broke moment into real money. THAT'S the shift. That's the whole game — one simple move that works, run again and again."
-Then keep them earning: "Now run it again. Same move. Every repeat is more money in your pocket — most people stop after one win, and that's the mistake. You don't stop." Get them to a few hundred dollars by repeating the loop.
-
-THEN — the upgrade to Phase 1 (only after real money has landed, never up front):
-"Here's where it gets bigger. Right now YOU are doing every step. Phase 1 hands that to a machine. For $113 once — lifetime, 30-day refund, keep it forever — you get the full Cash.bot OS plus Prompt 1: your own always-on cloud computer with Claude on it that finds, builds, and ships the money moves FOR you, around the clock, even while you sleep. The money you just made covers it with room to spare."
-Tell them exactly where to go: "Go to cash.bot and tap the 🔫 LAZER. GO. button — it opens a secure external checkout (PayPal / card) for the $113 one-time. Or pay direct here: https://www.paypal.com/paypalme/rebootbase/113 — the moment you pay, Prompt 1 lands in your email and your machine turns on."
-Be honest and warm: it's optional, it's lifetime not a subscription, and the only ongoing cost is their own ~$25/mo (Claude Pro $20 + a $5 server) on their own accounts. No pressure, just the next rung — but make the value unmistakable.
-
-NEVER: dump everything at once · lecture about philosophy · stall or refuse to help · promise money that isn't real · tell them to lie about themselves · shorten, rename, or alter ANY affiliate link (paste it in full, always).</pre>
+<div class="composer">
+  <div class="row">
+    <textarea id="inp" rows="1" placeholder="Type what you want to do… (or tap a button)"></textarea>
+    <button id="send">Go</button>
   </div>
-  <p class="note">No fluff baked in: the money paths only suggest what's literally true. If you don't own a business, you don't claim one — Cash.bot runs on honesty, not loopholes.</p>
-</section>
-
-<section class="section wrap">
-  <span class="phasetag p0">◢ PHASE 0 · STILL FREE</span>
-  <div class="eyebrow">STEP 2 · RUN IT FREE</div>
-  <h2>You don't need to pay anything to start</h2>
-  <p class="muted">Pick any one. Open it, paste the prompt, answer Cash.bot's questions. All three have free tiers.</p>
-  <div class="cards">
-    <div class="card">
-      <h3>Claude.ai <span class="muted" style="font-weight:500">· recommended</span></h3>
-      <p>Matches the Cash.bot stack best. Free tier handles the prompt fine.</p>
-      <span class="step">open → paste → answer</span>
-      <a class="btn gold" href="https://claude.ai" rel="noopener" onclick="track('run_free',{platform:'claude'})">Open Claude.ai</a>
-    </div>
-    <div class="card">
-      <h3>Google AI Studio</h3>
-      <p>Gemini, generous free tier. This is where the prompt was first built.</p>
-      <span class="step">open → paste → answer</span>
-      <a class="btn" href="https://aistudio.google.com" rel="noopener" onclick="track('run_free',{platform:'aistudio'})">Open AI Studio</a>
-    </div>
-    <div class="card">
-      <h3>ChatGPT</h3>
-      <p>Free tier works too. Same move — paste and go.</p>
-      <span class="step">open → paste → answer</span>
-      <a class="btn" href="https://chatgpt.com" rel="noopener" onclick="track('run_free',{platform:'chatgpt'})">Open ChatGPT</a>
-    </div>
-  </div>
-</section>
-
-<section class="section wrap">
-  <span class="phasetag p0">◢ PHASE 0 · THE PAYOFF</span>
-  <div class="eyebrow">STEP 3 · MAKE YOUR FIRST MONEY</div>
-  <h2>Cash.bot picks one of these for you — here's the preview</h2>
-  <p class="muted">When you run the prompt at $0, Cash.bot routes you to whichever fits what you've got. No experience needed.</p>
-  <div class="cards">
-    <div class="card">
-      <h3>1 · eBay AI scanner</h3>
-      <p>Sell what you already own. Open the eBay app → Sell → point your camera. eBay's scanner names the item and prices it from real sold listings. Confirm, tap List. One good item clears the stack.</p>
-      <span class="step">snap → it prices it → list</span>
-      <a class="btn gold" href="https://ebay.us/vYm0wI" rel="noopener">Open eBay to sell</a>
-    </div>
-    <div class="card">
-      <h3>2 · Flip thrift finds</h3>
-      <p>Own nothing yet? Walk to Goodwill, a thrift store, or the Craigslist "free" section. Scan items with the same eBay app <em>before</em> you buy — if it prices higher than the tag, grab it, list it, ship it. The gap is yours.</p>
-      <span class="step">scan first → buy cheap → flip</span>
-      <a class="btn" href="https://ebay.us/vYm0wI" rel="noopener">Open eBay to sell</a>
-    </div>
-    <div class="card">
-      <h3>3 · Free bonus apps</h3>
-      <p>Passive + sign-up cash, honest only. Honeygain (~$3 to start), OnePay (sign-up offer, real if you qualify), Kraken (free spins + deposit promos). Covers the $25 stack fast.</p>
-      <span class="step">sign up → qualify → cash</span>
-      <a class="btn" href="https://join.honeygain.com/CENTRFAD3A" rel="noopener">Honeygain</a>
-      <a class="btn" href="https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu" rel="noopener">OnePay</a>
-      <a class="btn" href="https://invite.kraken.com/JDNW/8tova4ma" rel="noopener">Kraken</a>
-    </div>
-  </div>
-  <p class="note">Bonus apps fund the start; reselling clears the $113 lifetime. Stack them. Every number is an estimate or a current offer — verify the live terms before you count on it.</p>
-  <p class="lead" style="margin-top:18px;font-weight:600">Do this and money lands. That landing is the glass break. ↓</p>
-</section>
-
-<section class="glassband">
-  <div class="wrap">
-    <span class="phasetag p0">◢ PHASE 0 · COMPLETE</span>
-    <div class="shatter"><span class="shatterwrap">💥</span></div>
-    <h2>That's the glass break</h2>
-    <p>The second real money hits your hands, something breaks open. You just proved a stuck, broke moment turns into cash on demand. Phase 0 done. That's not the finish line — it's the firing line.</p>
-  </div>
-</section>
-
-<section class="section wrap lazer herofx scanfx" id="lazergo">
-  <span class="phasetag p1">◣ PHASE 0 → PHASE 1</span>
-  <div class="eyebrow">🔫 LAZER. GO. · THE FINAL STEP</div>
-  <h2>Fire the laser into Phase 1</h2>
-  <p class="lead" style="margin:0 auto">You broke the glass once, by hand. <strong>LAZER. GO.</strong> takes you into Phase 1 — your own always-on machine. Cash.bot's OS plus Prompt 1 stand up a cloud computer with Claude on it that builds and ships <em>for</em> you. 100+ apps, one login, lifetime.</p>
-  <a class="lazerbtn" href="https://www.paypal.com/paypalme/rebootbase/113" rel="noopener" onclick="track('lazer_go_click')"><span class="lz">🔫 LAZER. GO. — enter Phase 1 · $113 once</span></a>
-  <p class="mech">Phase 1 = the full Cash.bot OS + <strong>Prompt 1</strong>, your always-on build machine, delivered to your email the moment you pay.<br>Runs on your own $20/mo <a href="https://claude.ai/upgrade" rel="noopener">Claude Pro</a> + a $5 <a href="https://www.vultr.com/?ref=9896825-9J" rel="noopener">Vultr box</a> — about $25/mo, your accounts.<br>$113 once · lifetime · 30-day refund · keep forever. <strong id="ltdLine">Lifetime deal still open this month</strong>.</p>
-  <p class="scale">Scaling a team or org? <a href="https://www.paypal.com/paypalme/rebootbase/497" rel="noopener" onclick="track('lazer_tier2')">Business $497</a> · <a href="https://www.paypal.com/paypalme/rebootbase/1047" rel="noopener" onclick="track('lazer_tier3')">Enterprise $1,047</a> <span class="muted">· presale</span></p>
-</section>
-
-<footer>
-  <div class="wrap">CASH.BOT · built by Chase Tipton · 🪞🌪️💎 — acknowledge the pattern, break the glass.</div>
-</footer>
+</div>
+<div class="foot">Every prompt is free. You run them in your own Claude. We never see your keys. · <a href="#" data-route="human">talk to a human →</a></div>
 
 <script>
-function track(name, params){ try{ if(window.gtag) gtag('event', name, params||{}); }catch(e){} }
-function copyPrompt(){
-  let txt = document.getElementById('prompt').innerText;
-  // weld full affiliate URLs so they survive even if the AI/clipboard mangles them
-  txt = txt
-    .replace(/https?:\/\/ebay\.us(?!\/vYm0wI)\S*/gi,'https://ebay.us/vYm0wI')
-    .replace(/https?:\/\/join\.honeygain\.com(?!\/CENTRFAD3A)\S*/gi,'https://join.honeygain.com/CENTRFAD3A')
-    .replace(/https?:\/\/web\.onepay\.com\/wlink\/refer-a-friend(?!\S*1Gtw8URPu)\S*/gi,'https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu')
-    .replace(/https?:\/\/invite\.kraken\.com(?!\/JDNW\/8tova4ma)\S*/gi,'https://invite.kraken.com/JDNW/8tova4ma');
-  const btn = document.getElementById('copyBtn');
-  try{ localStorage.setItem('cb_copied','1'); }catch(e){}
-  track('copy_prompt');
-  navigator.clipboard.writeText(txt).then(()=>{
-    btn.classList.add('copied');
-    btn.textContent = 'COPIED ✓';
-    setTimeout(()=>{ btn.classList.remove('copied'); btn.textContent='COPY PROMPT'; }, 2200);
-  }).catch(()=>{
-    // fallback: select the text so the user can copy manually
-    const r=document.createRange(); r.selectNodeContents(document.getElementById('prompt'));
-    const s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
-    btn.textContent='SELECT + COPY';
-  });
-}
-// honest, self-rolling month-end LTD line
-(function(){
-  const now=new Date();
-  const end=new Date(now.getFullYear(), now.getMonth()+1, 0);
-  const days=Math.max(0, Math.ceil((end-now)/86400000));
-  const month=now.toLocaleString('en-US',{month:'long'});
-  const el=document.getElementById('ltdLine');
-  if(el) el.textContent = days+' day'+(days===1?'':'s')+' left in '+month+' — then the lifetime deal is gone';
-})();
-// return loop: returner who already copied gets a fast lane to LAZER GO
-(function(){
-  try{ if(localStorage.getItem('cb_copied')==='1'){ const b=document.getElementById('backBanner'); if(b){ b.style.display='block'; track('returner_seen'); } } }catch(e){}
-})();
-// fire scroll event when the glass-break band enters view
-(function(){
-  const band=document.querySelector('.glassband'); if(!band||!('IntersectionObserver' in window)) return;
-  const io=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ band.classList.add('fired'); track('glass_break_view'); io.disconnect(); } }); },{threshold:.5});
-  io.observe(band);
-})();
-// affiliate-link weld: any copy of the prompt (or selection) keeps the FULL referral URLs intact
-(function(){
-  const LINKS=[
-    'https://ebay.us/vYm0wI',
-    'https://join.honeygain.com/CENTRFAD3A',
-    'https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu',
-    'https://invite.kraken.com/JDNW/8tova4ma',
-    'https://www.paypal.com/paypalme/rebootbase/113'
-  ];
-  // map any shortened/bare form back to the full referral URL
-  const FIX=[
-    [/https?:\/\/ebay\.us(?!\/vYm0wI)\S*/gi,'https://ebay.us/vYm0wI'],
-    [/\bebay\.us(?!\/vYm0wI)\b/gi,'https://ebay.us/vYm0wI'],
-    [/https?:\/\/join\.honeygain\.com(?!\/CENTRFAD3A)\S*/gi,'https://join.honeygain.com/CENTRFAD3A'],
-    [/https?:\/\/web\.onepay\.com\/wlink\/refer-a-friend(?!\S*1Gtw8URPu)\S*/gi,'https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu'],
-    [/https?:\/\/invite\.kraken\.com(?!\/JDNW\/8tova4ma)\S*/gi,'https://invite.kraken.com/JDNW/8tova4ma']
-  ];
-  function weld(text){
-    if(!text) return text;
-    let out=text;
-    FIX.forEach(([re,full])=>{ out=out.replace(re,full); });
-    return out;
-  }
-  document.addEventListener('copy',function(e){
+const LIB_FILES = ['os.txt','os-earn.txt','os-build.txt','os-content.txt','os-reach.txt','os-brain.txt'];
+const AFF = {
+  ebay:    {ic:'🏷️', t:'eBay — sell what you already own', d:'List 5 things today. Fastest $0 → cash.', u:'https://ebay.us/vYm0wI'},
+  honeygain:{ic:'🍯', t:'Honeygain — passive, runs in background', d:'Share spare bandwidth. A few bucks to start.', u:'https://join.honeygain.com/CENTRFAD3A'},
+  onepay:  {ic:'🏦', t:'OnePay — banking + referral cash', d:'Set up the account that holds your first dollars.', u:'https://web.onepay.com/wlink/refer-a-friend?product=one_banking&referral_code=1Gtw8URPu'},
+  kraken:  {ic:'🦑', t:'Kraken — crypto on-ramp', d:'Where the first dollars can grow.', u:'https://invite.kraken.com/JDNW/8tova4ma'},
+  claude:  {ic:'🤖', t:'Claude Pro — your AI builder (~$20/mo)', d:'The engine. Claude Code runs everything for you.', u:'https://claude.ai'},
+  vultr:   {ic:'🖥️', t:'Vultr — your always-on machine (~$5/mo)', d:'A cloud desktop you reach from your phone.', u:'https://www.vultr.com/?ref=9896824'},
+};
+const PAY = {t1:'https://www.paypal.com/paypalme/rebootbase/113', t2:'https://www.paypal.com/paypalme/rebootbase/497', f:'https://www.paypal.com/paypalme/rebootbase/2000'};
+
+let BLOCKS = {};         // label -> body text
+let BLOCKS_BY_FILE = {}; // file -> [labels]
+let MSGS = [];           // persisted thread [{who, html}]
+const thread = document.getElementById('thread');
+const inp = document.getElementById('inp');
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+async function loadLib(){
+  await Promise.all(LIB_FILES.map(async f=>{
     try{
-      const sel=window.getSelection&&window.getSelection().toString();
-      if(!sel) return;
-      let fixed=weld(sel);
-      // if the selection touches the prompt block but dropped a link, append the canonical list
-      const inPrompt=(window.getSelection().anchorNode&&document.getElementById('prompt')&&document.getElementById('prompt').contains(window.getSelection().anchorNode));
-      const missing=LINKS.filter(l=>fixed.indexOf(l)===-1);
-      if(inPrompt && missing.length && /ebay|honeygain|onepay|kraken|paypal|link/i.test(sel)){
-        fixed+='\n\n— your links (keep them whole) —\n'+LINKS.join('\n');
-      }
-      if(fixed!==sel && e.clipboardData){
-        e.clipboardData.setData('text/plain',fixed);
-        e.preventDefault();
-      }
-    }catch(_){}
-  });
+      const r = await fetch(f,{cache:'no-store'}); if(!r.ok) return;
+      const txt = await r.text();
+      const re = /^--- (.+?) ---\s*$/gm; let m, idx=[];
+      while((m=re.exec(txt))) idx.push({label:m[1].trim(),start:m.index,bodyStart:re.lastIndex});
+      BLOCKS_BY_FILE[f]=[];
+      idx.forEach((b,i)=>{
+        let end = i+1<idx.length ? idx[i+1].start : txt.length;
+        const tail = txt.slice(b.bodyStart,end);
+        const cut = tail.search(/\n(## |={20,})/);
+        const body = (cut>=0 ? tail.slice(0,cut) : tail).trim();
+        if(!BLOCKS[b.label]){ BLOCKS[b.label]=body; }
+        BLOCKS_BY_FILE[f].push(b.label);
+      });
+    }catch(e){}
+  }));
+}
+
+function push(who, html, persist=true){
+  const av = who==='bot' ? '🤖' : '🧑';
+  const wrap = document.createElement('div');
+  wrap.className = 'msg '+who;
+  wrap.innerHTML = '<div class="av">'+av+'</div><div class="bubble">'+html+'</div>';
+  thread.appendChild(wrap);
+  if(persist){ MSGS.push({who,html}); save(); }
+  scroll();
+}
+function scroll(){ requestAnimationFrame(()=>{ const m=document.querySelector('main'); if(m) m.scrollTop=m.scrollHeight; }); }
+function save(){ try{ localStorage.setItem('cb_chat_v1', JSON.stringify(MSGS)); }catch(e){} }
+
+function chips(list){
+  return '<div class="chips">'+list.map(c=>'<button class="chip'+(c.primary?' primary':'')+'" data-route="'+c.route+'">'+esc(c.label)+'</button>').join('')+'</div>';
+}
+function linkcard(k){ const a=AFF[k]; if(!a)return''; return '<div class="linkcard"><div class="ic">'+a.ic+'</div><div class="body"><div class="t">'+esc(a.t)+'</div><div class="d">'+esc(a.d)+'</div></div><a class="go" href="'+a.u+'" target="_blank" rel="noopener">Open</a></div>'; }
+function promptcard(label){
+  if(!BLOCKS[label]) return '<div class="linkcard"><div class="body"><div class="d">Couldn\'t load "'+esc(label)+'" — pull to refresh.</div></div></div>';
+  const body = BLOCKS[label];
+  return '<div class="promptcard"><div class="ph"><span>📋</span><span class="nm">'+esc(label)+'</span></div><pre>'+esc(body)+'</pre><div class="pbtns"><button class="pbtn claude" data-action="claude" data-label="'+esc(label)+'">▶ Open in Claude</button><button class="pbtn" data-action="copy" data-label="'+esc(label)+'">Copy</button></div></div>';
+}
+function restartBtn(){ return '<button class="restart" data-route="restart">↺ start over</button>'; }
+
+const GREET = ()=>{ push('bot',
+  '<p>Hey — you\'re in the right place. <b>I\'m cash.bot.</b> Everything here is free.</p>'+
+  '<p>Tell me where you\'re at and I\'ll hand you the exact prompt to run in Claude — one step at a time.</p>'+
+  '<p><b>What do you want to do first?</b></p>'+
+  chips([
+    {label:'💸 Make my first money now', route:'money', primary:true},
+    {label:'🖥️ Set up my always-on machine', route:'machine'},
+    {label:'🏗️ Build a command center of apps', route:'build'},
+    {label:'⚡ Just give me everything', route:'everything'},
+  ]));
+};
+
+function route(key){
+  if(key==='restart'){ MSGS=[]; thread.innerHTML=''; save(); GREET(); return; }
+
+  if(key==='money'){
+    push('bot',
+      '<p>Good — you start exactly where everyone starts: <b>$0 and a phone.</b></p>'+
+      '<p>Two moves. First, run the money-finder prompt below in Claude — it walks you through your fastest real cash, one honest step at a time. Second, these are the on-ramps people use to pull together the first ~$25 (you\'ll want that for your own machine next):</p>'+
+      promptcard('cash.bot · prompt 0')+
+      linkcard('ebay')+linkcard('honeygain')+linkcard('onepay')+linkcard('kraken')+
+      '<p style="margin-top:10px">Got ~$25 together? Tap below.</p>'+
+      chips([{label:'🖥️ I have $25 — set up my machine', route:'machine', primary:true},{label:'⚡ Give me everything', route:'everything'}])+
+      restartBtn());
+    return;
+  }
+
+  if(key==='machine'){
+    push('bot',
+      '<p>This is the unlock: <b>your own always-on machine</b> you drive from your phone. Two accounts — both yours, on your own keys:</p>'+
+      linkcard('claude')+linkcard('vultr')+
+      '<p style="margin-top:10px"><b>Then run this.</b> Paste it into Claude Code (claude.ai → Code, works right on your phone). It stands up your Vultr server + remote desktop and keeps going one step at a time. You log in with <b>your own</b> Claude account and Vultr — I never touch your keys.</p>'+
+      promptcard('cash.bot · prompt 1A · runs on YOUR device')+
+      promptcard('cash.bot · prompt 1B · runs ON the cloud desktop')+
+      '<p style="margin-top:10px">Machine online? Build apps on it:</p>'+
+      chips([{label:'🏗️ Build my command center', route:'build', primary:true},{label:'⚡ The whole chain', route:'everything'}])+
+      restartBtn());
+    return;
+  }
+
+  if(key==='build'){
+    const buildLabels = (BLOCKS_BY_FILE['os-build.txt']||[]).concat(BLOCKS_BY_FILE['os-brain.txt']||[]);
+    let cards = buildLabels.slice(0,6).map(promptcard).join('');
+    if(!cards) cards = promptcard('cash.bot · prompt 2A · the offer engine');
+    push('bot',
+      '<p>Now you turn the machine into a <b>command center</b> — your own apps, your own brand, all on your server. Each prompt below builds one piece. Run them in order, on the machine you set up.</p>'+
+      '<p>Start at the top. Each one names the next when it\'s done.</p>'+
+      cards+
+      chips([{label:'⚡ See the full chain', route:'everything', primary:true},{label:'🖥️ Set up the machine first', route:'machine'}])+
+      restartBtn());
+    return;
+  }
+
+  if(key==='everything'){
+    push('bot',
+      '<p>Here\'s the master key. <b>One prompt</b> — run it in Claude and it walks the entire cash.bot chain <i>with</i> you, start to finish, one step at a time. Free money first, then your machine, then the apps.</p>'+
+      promptcard('cash.bot · ONE-PROMPT BOOT')+
+      chips([{label:'💸 Just the money part', route:'money'},{label:'🖥️ Just the machine', route:'machine'}])+
+      restartBtn());
+    return;
+  }
+
+  if(key==='human'){
+    push('bot',
+      '<p>Every prompt\'s free — what you can actually buy is <b>me, the human behind it</b>:</p>'+
+      '<div class="linkcard"><div class="ic">💬</div><div class="body"><div class="t">Tier 1 — $113 once</div><div class="d">Private WhatsApp room with me + other builders.</div></div><a class="go" href="'+PAY.t1+'" target="_blank" rel="noopener">$113</a></div>'+
+      '<div class="linkcard"><div class="ic">📲</div><div class="body"><div class="t">Tier 2 — $497 once</div><div class="d">WhatsApp + a direct DM line to me.</div></div><a class="go" href="'+PAY.t2+'" target="_blank" rel="noopener">$497</a></div>'+
+      '<div class="linkcard"><div class="ic">🤝</div><div class="body"><div class="t">Founders — $2,000/mo + % of sales</div><div class="d">1-on-1 calls, mentorship, and I promote your product as your partner.</div></div><a class="go" href="'+PAY.f+'" target="_blank" rel="noopener">Apply</a></div>'+
+      '<p style="margin-top:10px">But you don\'t need any of it to start. Tap below.</p>'+
+      chips([{label:'⚡ Give me everything (free)', route:'everything', primary:true}])+
+      restartBtn());
+    return;
+  }
+
+  push('bot', '<p>I can point you to the right prompt — pick one:</p>'+
+    chips([
+      {label:'💸 Make my first money now', route:'money', primary:true},
+      {label:'🖥️ Set up my machine', route:'machine'},
+      {label:'🏗️ Build apps', route:'build'},
+      {label:'⚡ Everything', route:'everything'},
+    ]));
+}
+
+function matchIntent(text){
+  const t = text.toLowerCase();
+  if(/(human|chase|call|mentor|whatsapp|\bdm\b|tier|partner|pay|buy)/.test(t)) return 'human';
+  if(/(server|vultr|machine|set ?up|deploy|rdp|desktop|always|claude code|host)/.test(t)) return 'machine';
+  if(/(app|build|command|center|dashboard|\bos\b|brand|tool|launch)/.test(t)) return 'build';
+  if(/(everything|all|whole|chain|master|both)/.test(t)) return 'everything';
+  if(/(broke|no money|zero|first|cash|money|earn|paid|afford|free money|claim|\$0|0)/.test(t)) return 'money';
+  return null;
+}
+
+function handleInput(){
+  const v = inp.value.trim(); if(!v) return;
+  push('user', '<p>'+esc(v)+'</p>');
+  inp.value=''; inp.style.height='auto';
+  const k = matchIntent(v);
+  setTimeout(()=>route(k||'fallback'), 160);
+}
+
+document.addEventListener('click', e=>{
+  const r = e.target.closest('[data-route]');
+  if(r){ e.preventDefault(); const k=r.getAttribute('data-route');
+    if(k!=='restart') push('user', '<p>'+esc(r.textContent.trim())+'</p>');
+    setTimeout(()=>route(k),120); return; }
+  const a = e.target.closest('[data-action]');
+  if(a){ const label=a.getAttribute('data-label'); const body=BLOCKS[label];
+    if(!body){ alert('Still loading that prompt — give it a second and try again.'); return; }
+    if(a.getAttribute('data-action')==='claude'){ window.open('https://claude.ai/new?q='+encodeURIComponent(body),'_blank','noopener'); }
+    else { navigator.clipboard.writeText(body).then(()=>{ a.textContent='Copied ✓'; setTimeout(()=>a.textContent='Copy',1500); }); }
+  }
+});
+document.getElementById('send').addEventListener('click', handleInput);
+inp.addEventListener('keydown', e=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); handleInput(); }});
+inp.addEventListener('input', ()=>{ inp.style.height='auto'; inp.style.height=Math.min(inp.scrollHeight,120)+'px'; });
+
+(async ()=>{
+  await loadLib();
+  try{ MSGS = JSON.parse(localStorage.getItem('cb_chat_v1')||'[]'); }catch(e){ MSGS=[]; }
+  if(Array.isArray(MSGS) && MSGS.length){ MSGS.forEach(m=>push(m.who,m.html,false)); scroll(); }
+  else { MSGS=[]; GREET(); }
 })();
 </script>
 </body>
