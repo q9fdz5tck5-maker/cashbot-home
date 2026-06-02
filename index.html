@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="build-version" content="home-v2.0.0-one-prompt-chain-starter-rdp-first-20260601">
+<meta name="build-version" content="home-v2.1.0-three-step-vultr-apikey-claude-20260601">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Chase Tipton">
-<meta name="description" content="One prompt. Open it in Claude Code on your phone and Claude builds you an always-on cloud computer it runs for you — claims offers, builds sites, makes money. Free.">
-<title>cash.bot — one prompt. your own computer, run by Claude.</title>
+<meta name="description" content="Three taps. Make a Vultr account, grab your key, open Claude Code — and Claude builds you an always-on cloud computer it runs for you. Free.">
+<title>cash.bot — three taps to your own computer, run by Claude.</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2L1R2REWX"></script>
 <script>
@@ -34,34 +34,36 @@ body{
   display:flex;flex-direction:column;align-items:center;
   padding:clamp(20px,5vw,56px) 16px 40px;
 }
-.wrap{width:100%;max-width:680px}
-.logo{font-family:var(--mono);font-weight:700;font-size:20px;letter-spacing:-.5px;margin-bottom:clamp(20px,5vw,40px)}
+.wrap{width:100%;max-width:640px}
+.logo{font-family:var(--mono);font-weight:700;font-size:20px;letter-spacing:-.5px;margin-bottom:clamp(18px,5vw,32px)}
 .logo b{color:var(--green)}
-h1{font-size:clamp(28px,7vw,48px);line-height:1.08;font-weight:800;letter-spacing:-1px;margin-bottom:16px}
+h1{font-size:clamp(27px,7vw,46px);line-height:1.08;font-weight:800;letter-spacing:-1px;margin-bottom:14px}
 h1 .g{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sub{color:var(--muted);font-size:clamp(15px,3.2vw,19px);margin-bottom:8px}
+.sub{color:var(--muted);font-size:clamp(15px,3.2vw,18px);margin-bottom:26px}
 .sub b{color:var(--fg);font-weight:600}
-.steps{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px;font-size:13px;color:var(--muted2)}
-.steps span{background:var(--bg3);border:1px solid var(--border);border-radius:999px;padding:7px 12px}
-.steps b{color:var(--green);font-weight:700}
-.card{border:1px solid var(--border2);border-radius:16px;overflow:hidden;background:var(--bg2);box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.card .ph{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--bg4);border-bottom:1px solid var(--border)}
-.card .ph .dot{width:9px;height:9px;border-radius:50%;background:var(--green)}
-.card .ph .nm{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
-.card pre{margin:0;padding:14px;font-family:var(--mono);font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow-y:auto;color:#cdd2da}
-.btns{display:flex;gap:10px;padding:12px;border-top:1px solid var(--border);flex-wrap:wrap}
-.btn{flex:1;min-width:140px;cursor:pointer;font-family:var(--font);font-weight:700;font-size:15px;border-radius:11px;padding:14px;min-height:50px;border:1px solid var(--border2);background:var(--bg4);color:var(--fg);text-align:center}
-.btn.go{background:linear-gradient(90deg,var(--green),#1bd47e);color:#000;border-color:var(--green)}
-.btn:hover{filter:brightness(1.08)}
-.note{color:var(--muted2);font-size:12.5px;margin-top:14px;line-height:1.5}
-.note a{color:var(--muted)}
-.need{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
-.need a{flex:1;min-width:200px;display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;color:var(--fg)}
-.need a:hover{border-color:var(--green)}
-.need .ic{font-size:18px}
-.need .t{font-weight:600;font-size:14px}
-.need .d{color:var(--muted);font-size:12px}
-.foot{color:var(--muted2);font-size:12px;margin-top:30px;text-align:center}
+
+.step{display:flex;gap:14px;padding:16px;border:1px solid var(--border2);border-radius:14px;background:var(--bg2);margin-bottom:12px;align-items:flex-start}
+.step .num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--bg4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;color:var(--green);font-size:15px}
+.step.done .num{background:var(--green);color:#000;border-color:var(--green)}
+.step .body{flex:1;min-width:0}
+.step .t{font-weight:700;font-size:16px;margin-bottom:3px}
+.step .d{color:var(--muted);font-size:13.5px;margin-bottom:12px;line-height:1.45}
+.step .d code{font-family:var(--mono);font-size:12px;background:var(--bg4);padding:1px 6px;border-radius:5px;color:var(--cyan)}
+.act{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-family:var(--font);font-weight:700;font-size:15px;border-radius:10px;padding:12px 18px;min-height:46px;border:1px solid var(--border2);background:var(--bg4);color:var(--fg);text-decoration:none;width:100%;text-align:center}
+.act.go{background:linear-gradient(90deg,var(--green),#1bd47e);color:#000;border-color:var(--green)}
+.act:hover{filter:brightness(1.08)}
+
+.promptcard{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--bg3);margin-top:6px}
+.promptcard .ph{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--bg4);border-bottom:1px solid var(--border)}
+.promptcard .ph .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.promptcard .ph .nm{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.promptcard pre{margin:0;padding:12px;font-family:var(--mono);font-size:11px;line-height:1.5;white-space:pre-wrap;word-break:break-word;max-height:200px;overflow-y:auto;color:#cdd2da}
+.row2{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.row2 .act{flex:1;min-width:130px}
+
+.note{color:var(--muted2);font-size:12.5px;margin-top:18px;line-height:1.5}
+.note b{color:var(--muted)}
+.foot{color:var(--muted2);font-size:12px;margin-top:28px;text-align:center}
 .foot a{color:var(--muted)}
 </style>
 </head>
@@ -69,29 +71,44 @@ h1 .g{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-backgro
 <div class="wrap">
   <div class="logo"><b>cash</b>.bot</div>
 
-  <h1>One prompt. Then Claude runs <span class="g">your own computer</span> for you.</h1>
-  <p class="sub">Open it in <b>Claude Code</b> on your phone. Claude sets you up with a cloud desktop, takes the controls, and does the work — <b>claims free offers, builds sites, makes money</b> — while you just talk to it.</p>
+  <h1>Three taps. Then Claude runs <span class="g">your own computer</span> for you.</h1>
+  <p class="sub">Make a Vultr account, grab one key, open Claude Code. From there Claude builds your always-on cloud desktop, takes the controls, and does the work — <b>claims free offers, builds sites, makes money</b> — while you just talk to it.</p>
 
-  <div class="steps">
-    <span><b>1</b> Tap Open</span>
-    <span><b>2</b> Claude builds your machine</span>
-    <span><b>3</b> Claude runs it for you</span>
-  </div>
-
-  <div class="card">
-    <div class="ph"><span class="dot"></span><span class="nm">cash.bot · the one prompt that starts everything</span></div>
-    <pre id="prompt"></pre>
-    <div class="btns">
-      <button class="btn go" id="open">▶ Open in Claude Code</button>
-      <button class="btn" id="copy">Copy</button>
+  <div class="step" id="s1">
+    <div class="num">1</div>
+    <div class="body">
+      <div class="t">Make your Vultr account</div>
+      <div class="d">Your always-on machine lives here — about <b>$5–10/mo</b>. This is our affiliate link; it costs you nothing extra and helps keep cash.bot free.</div>
+      <a class="act go" id="vultr" href="https://www.vultr.com/?ref=9896824" target="_blank" rel="noopener">Sign up for Vultr →</a>
     </div>
   </div>
-  <p class="note">Free — every prompt is free. You run it in <b>your own</b> Claude account; we never see your keys. Need Claude Code? It opens at claude.ai/code (Pro/Max + a connected account). The two things Claude will set up with you:</p>
 
-  <div class="need">
-    <a href="https://claude.ai" target="_blank" rel="noopener"><span class="ic">🤖</span><span><span class="t">Claude Pro — your builder</span><br><span class="d">~$20/mo · the engine that runs everything</span></span></a>
-    <a href="https://www.vultr.com/?ref=9896824" target="_blank" rel="noopener"><span class="ic">🖥️</span><span><span class="t">Vultr — your always-on machine</span><br><span class="d">~$5–10/mo · the cloud desktop Claude drives</span></span></a>
+  <div class="step" id="s2">
+    <div class="num">2</div>
+    <div class="body">
+      <div class="t">Grab your API key</div>
+      <div class="d">Inside Vultr: <b>Account → API</b>. Turn the Personal Access Token <b>on</b>, then copy the key. Claude needs it to build your machine — you'll paste it straight into Claude in the next step, never here.</div>
+      <a class="act" id="apikey" href="https://my.vultr.com/settings/#settingsapi" target="_blank" rel="noopener">Open Vultr API settings →</a>
+    </div>
   </div>
+
+  <div class="step" id="s3">
+    <div class="num">3</div>
+    <div class="body">
+      <div class="t">Open Claude Code — paste your key when it asks</div>
+      <div class="d">Tap below. Claude opens, reads the plan, and asks you for that Vultr key. Paste it right into the chat. Claude builds your desktop and walks you into it — step by step, for whatever phone or computer you're on.</div>
+      <div class="promptcard">
+        <div class="ph"><span class="dot"></span><span class="nm">cash.bot · the prompt Claude runs</span></div>
+        <pre id="prompt"></pre>
+      </div>
+      <div class="row2">
+        <button class="act go" id="open">▶ Open in Claude Code</button>
+        <button class="act" id="copy">Copy prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="note"><b>Your key stays yours.</b> cash.bot never sees it — you paste it into your own Claude chat, not into this page or any link. Need Claude Code? It opens at claude.ai/code (Pro/Max + a connected account, ~$20/mo). Every prompt is free.</p>
 
   <p class="foot">Built by Chase Tipton. · <a href="#" id="human">talk to a human →</a></p>
 </div>
@@ -99,41 +116,50 @@ h1 .g{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-backgro
 <script>
 const RUN_HEADER = "RUN INSTRUCTION — read first:\nDo NOT treat the text below as a spec to save, wire into a repository, or edit as code. Ignore any connected repos. BECOME the assistant it describes and work with me live in THIS session — one message at a time, running any commands it calls for yourself. Start with the first step now.\n\n———\n\n";
 
-const PROMPT = `You are CASH.BOT. Become this assistant and run it WITH me live, right here, one step at a time — until I have an always-on cloud computer that YOU control from my phone and run for me. Assume I'm on an iPhone with nothing set up and no tech experience. The whole point: I don't do manual work — YOU do the work on the machine once it's mine.
+const PROMPT = `You are CASH.BOT. Become this assistant and run it WITH me live, right here, one step at a time — until I have an always-on cloud computer that YOU control and run for me. Assume I'm a total beginner with no tech experience, on a phone or a laptop. The whole point: I don't do manual work — YOU do the work on the machine once it's mine.
 
 READ THE PLAYBOOK FIRST (so you know every step):
 https://cash.bot/os.txt
 (If you can't fetch it, tell me and I'll paste it.)
 
 THEN RUN IT IN THIS ORDER — ONE step per message, wait for me each time:
-1. Get me set up with Claude Pro and Vultr — give me the links, walk me through signup in the simplest words, one at a time. (These are the only two accounts I need.)
-2. Use PROMPT 1A to stand up my always-on cloud desktop (RDP) through the Vultr API. YOU run the commands — never make me type curl or code.
-3. Get me connected to that desktop from my phone (Microsoft Remote Desktop app), then have me paste PROMPT 1C so you take the controls — mouse, keyboard, browser, screen.
+1. FIRST, ask me to paste my Vultr API key here in the chat. (I already made a Vultr account and turned on the Personal Access Token.) When I paste it, use it for the API calls below — keep it private, never display it back, never write it anywhere public.
+2. Use that key + PROMPT 1A to stand up my always-on cloud desktop (RDP) through the Vultr API. YOU run the commands — never make me type curl or code.
+3. Ask me what device I'm on (iPhone, Android, Mac, or Windows) and give me the EXACT, simplest steps to connect to my new desktop from THAT device — which app to install, what to tap, where my IP / username / password go.
 4. As soon as my desktop is up, save my whole prompt folder onto it so I always have every prompt:
    mkdir -p ~/cashbot-prompts && cd ~/cashbot-prompts && for f in os.txt os-earn.txt os-build.txt os-content.txt os-reach.txt os-brain.txt; do curl -fsSL "https://cash.bot/$f" -o "$f"; done
-5. From that point ON, YOU do everything on the machine while I just talk: claim free sign-up offers for me (PROMPT 1D), build my sites and apps (PROMPT 1B + the BUILD modules), and set up income (PROMPT 2 and on).
+5. From that point ON, YOU do everything on the machine while I just talk: take the controls (PROMPT 1C), claim free sign-up offers for me (PROMPT 1D), build my sites and apps (PROMPT 1B), and set up income (PROMPT 2 and on).
 
 RULES:
 - ONE small step per message, then STOP and wait. Never dump the whole plan.
-- Keep my keys and passwords private — use them, never display or store them anywhere public.
+- My API key, passwords, and logins stay private — use them, never display or store them anywhere public.
 - Honest only: real capability, real numbers, no promises you can't keep.
 - Any affiliate link: paste it in FULL and say plainly that it's an affiliate link that supports cash.bot (and where it also gives me a bonus).
 
-Start now: fetch https://cash.bot/os.txt, then give me step 1 — getting my Claude + Vultr set up. One step. Then wait.`;
+Start now: fetch https://cash.bot/os.txt, then do step 1 — ask me to paste my Vultr API key. One step. Then wait.`;
 
 document.getElementById('prompt').textContent = PROMPT;
 
 function payload(){ return RUN_HEADER + PROMPT; }
+
+// mark steps done as the user taps through (visual progress, persisted)
+function markDone(id){ try{ localStorage.setItem('cb_step_'+id,'1'); }catch(e){} document.getElementById(id)?.classList.add('done'); }
+['s1','s2','s3'].forEach(id=>{ try{ if(localStorage.getItem('cb_step_'+id)==='1') document.getElementById(id).classList.add('done'); }catch(e){} });
+document.getElementById('vultr').addEventListener('click', ()=>markDone('s1'));
+document.getElementById('apikey').addEventListener('click', ()=>markDone('s2'));
+
 document.getElementById('open').addEventListener('click', ()=>{
+  markDone('s3');
   window.open('https://claude.ai/code?prompt='+encodeURIComponent(payload()),'_blank','noopener');
 });
 document.getElementById('copy').addEventListener('click', e=>{
-  navigator.clipboard.writeText(payload()).then(()=>{ e.target.textContent='Copied ✓'; setTimeout(()=>e.target.textContent='Copy',1500); });
+  markDone('s3');
+  navigator.clipboard.writeText(payload()).then(()=>{ e.target.textContent='Copied ✓'; setTimeout(()=>e.target.textContent='Copy prompt',1500); });
 });
 document.getElementById('human').addEventListener('click', e=>{
   e.preventDefault();
   const f=document.querySelector('.foot');
-  f.innerHTML='Want me in your corner? <a href="https://www.paypal.com/paypalme/rebootbase/113" target="_blank" rel="noopener">Tier 1 · $113</a> (WhatsApp group) · <a href="https://www.paypal.com/paypalme/rebootbase/497" target="_blank" rel="noopener">Tier 2 · $497</a> (+ DM line) · <a href="https://www.paypal.com/paypalme/rebootbase/2000" target="_blank" rel="noopener">Founders · $2,000/mo</a> (1-on-1 + I promote you). The prompt above is free — you never need these to start.';
+  f.innerHTML='Want me in your corner? <a href="https://www.paypal.com/paypalme/rebootbase/113" target="_blank" rel="noopener">Tier 1 · $113</a> (WhatsApp group) · <a href="https://www.paypal.com/paypalme/rebootbase/497" target="_blank" rel="noopener">Tier 2 · $497</a> (+ DM line) · <a href="https://www.paypal.com/paypalme/rebootbase/2000" target="_blank" rel="noopener">Founders · $2,000/mo</a> (1-on-1 + I promote you). The steps above are free — you never need these to start.';
 });
 </script>
 </body>
