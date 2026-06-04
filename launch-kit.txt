@@ -1,0 +1,155 @@
+CASH.BOT — "THE GREAT FLIP" VIDEO LAUNCH KIT
+============================================
+Goal: 1,000+ free group signups from one video.
+Funnel: VIDEO -> cash.bot (pre-sell + video) -> free Whop group -> $37 -> tiers
+============================================
+
+
+■ 1. VIDEO TITLE — pick one (front-load the hook, keep it punchy)
+----------------------------------------------------------------
+A) I Predicted AI 8 Years Ago. My Next Prediction Is Crazier.      <-- recommended
+B) I Was Right About AI. Here's My Next Prediction (It's Started)
+C) 8 Years Ago I Predicted AI On Stage. Here's My Next One.
+D) The Great Flip: Companies Are About To Start Paying YOU
+E) I Predicted AI Before ChatGPT. My Next Prediction Will Shock You
+
+Rules: keep the visible part under ~60 characters, capital Each Word,
+curiosity + credibility, no emojis in the title (save them for the thumb).
+
+
+■ 2. THE HOOK — first 15 seconds, say it almost word-for-word
+----------------------------------------------------------------
+[0-3s, look straight at camera, fast]
+"Eight years ago I stood on a stage and predicted AI.
+The whole room thought I was crazy. It made me millions."
+
+[3-8s]
+"Today I'm making my next prediction — and it's weirder than the first one."
+
+[8-15s]
+"Companies are about to stop charging you... and start PAYING you.
+Sounds insane. It's already happening. Give me 60 seconds and I'll prove it."
+
+(Pattern: bold claim -> proof of credibility -> bigger claim -> open loop -> promise.)
+
+
+■ 3. VIDEO BLUEPRINT — structure for retention (aim 60-180s, or a longer cut)
+----------------------------------------------------------------
+0:00  HOOK (above). NO slow intro. NO "what's up guys."
+0:15  THE TRACK RECORD: the stage, the AI prediction, you were right, it paid.
+0:35  THE NEXT PREDICTION: "the money is about to flip." You stop paying
+      companies; they start paying you. Call it THE GREAT FLIP.
+0:55  THE PROOF: show real offers paying NOW (banks $300/referral, AI tools
+      25% cash, apps paying you to share/play, free coins you cash out).
+      ON SCREEN: flash pages of the "Great Flip" PDF here. <-- showcase the PDF
+1:25  THE WHY (this is what makes it smart, not hype):
+      1) AI floods the internet with infinite content
+      2) people stop trusting screens — "is this even real?"
+      3) so the scarce thing = a REAL human being transparent.
+      Companies can't buy trust with ads -> they'll pay YOU for it.
+      "Transparency is the new currency. I called this 8 years ago too."
+1:55  WHAT TO DO: you hold the links + post real content = you get paid.
+      "I built the whole system. It's free."
+2:15  CTA (clear, once, strong): "I put the entire system in a free group —
+      the offers, your links, the AI prompts that make your videos, all of it.
+      Link's in the description and at cash.bot. Get in before this is obvious."
+2:30  END SCREEN: cash.bot + 'free group' + tease the next video.
+
+RETENTION NOTES:
+- Hard cuts every 3-5 seconds. Cut every "um" and pause.
+- Burn captions on (most watch muted).
+- B-roll: show the PDF, the offers, money graphics, your screen.
+- Re-open a loop before the boring part ("but here's the part nobody says...").
+- One CTA. Don't bury it; don't repeat it 5 times.
+
+REPURPOSE: cut 3-5 Shorts from this (the hook, the proof, the "why").
+Run them into Opus to auto-clip. Post daily. Every short points to cash.bot.
+
+
+■ 4. THUMBNAIL — Gemini (Imagen / "Nano Banana") image prompt
+----------------------------------------------------------------
+IMPORTANT: AI image generators misspell text. Generate the BACKGROUND with
+this prompt, then add the title text + CASH.BOT logo yourself in Canva with a
+clean monospace font (so it's razor-sharp and readable on mobile).
+
+>>> PRIMARY THUMBNAIL PROMPT (paste into Gemini, ask for 16:9):
+"A dramatic high-contrast YouTube thumbnail background, 16:9, cyberpunk hacker
+aesthetic. Pure black background (#0a0a0a) with neon glows: hot pink (#ff006e)
+in the top-left corner and cyan (#00d4ff) in the bottom-right. In the center-
+right, a massive glowing 3D U-turn arrow made of neon cash-green light
+(#22e58a), bending back toward the viewer to symbolize money flowing in reverse
+— from a corporate building back into an open hand. Floating translucent gold
+dollar signs (#f5c518) and faint streams of green matrix code in the
+background. Cinematic volumetric lighting, sharp rim light, ultra-detailed,
+glossy. Keep the LEFT THIRD darker and emptier to leave room for a person's
+photo. No text, no words, no letters anywhere."
+
+>>> OPTIONAL LOGO PROMPT (if you want an AI logo asset):
+"A sleek glowing logo wordmark reading 'CASH.BOT' in a bold monospace tech
+font, neon gradient from gold (#f5c518) to cash-green (#22e58a), on a pure
+black background, subtle glitch/scanline effect, hacker terminal vibe, crisp
+high-resolution vector style." (Double-check the spelling; if it's off, just
+type CASH.BOT in Canva with the JetBrains Mono font.)
+
+THUMBNAIL TEXT (add in Canva, big + bold, max ~4 words):
+  Main:  "THEY'LL PAY YOU"   or   "MY NEXT PREDICTION"
+  Small kicker: "I PREDICTED AI"
+  Your face: shocked / pointing, on the left third.
+  Logo: CASH.BOT bottom corner, small.
+
+
+■ 5. YOUTUBE DESCRIPTION — copy/paste (edit the [brackets])
+----------------------------------------------------------------
+8 years ago I predicted AI on a stage and people thought I was crazy. I was
+right — and it made me millions. This is my next prediction: companies are
+about to stop charging you and start PAYING you. It's already happening, and
+in this video I show you exactly why (and how to be on the right side of it).
+
+⚡ GET THE FREE SYSTEM (the offers + your links + the AI prompts that make your
+videos + the daily claimer):
+👉 https://cash.bot
+👉 Join the free group: https://whop.com/cash-bot-6661/
+
+Everything is inside the free group — no card, no catch. Get in before this is
+obvious.
+
+— What's in the free system —
+• Every company paying right now + how to get YOUR own paid link
+• The one-tap daily bonus claimer
+• AI prompts that write your short-form videos for you
+• The server build that runs the whole loop on autopilot
+
+⏱ Chapters
+0:00 The prediction I already got right
+0:35 My next prediction: the Great Flip
+0:55 Proof it's already happening
+1:25 Why now (the part nobody says)
+2:15 How to get in (free)
+
+#sidehustle #makemoneyonline #ai #passiveincome #cashbot
+
+—
+Honest note: this is not get-rich-quick. It's free to start and it's real work.
+Some offers pay cash, some pay rewards/coins; amounts change and eligibility
+varies by location. Some links may be referral/affiliate links — I may earn a
+commission at no extra cost to you. Nothing here is financial advice. 18/21+.
+
+
+■ 6. POLICY WARNING — read this before you post (important)
+----------------------------------------------------------------
+- DO NOT paste casino / sweepstakes links directly in the YouTube description
+  or pinned comment. YouTube restricts gambling links and it can get the video
+  age-gated, demonetized, or removed. Keep casinos INSIDE the free group only.
+- In the description, link ONLY: cash.bot + the free group (clean + safe).
+- Always keep the affiliate-disclosure line (FTC requires it; YouTube too).
+- If you want a "links" hub, use cash.bot — not a raw list of casino links.
+
+
+■ 7. THE NUMBERS GOAL
+----------------------------------------------------------------
+1,000 signups needs roughly 30k-60k views at a 2-4% click-to-join rate.
+So: one strong long video + 5+ Shorts cut from it + post daily for 2 weeks.
+Every piece of content ends the same way: "free system at cash.bot."
+
+============================================
+END — record it, ship it, run it back.
