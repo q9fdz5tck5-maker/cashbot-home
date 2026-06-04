@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CASH.BOT · Daily Claim Launcher</title>
+<meta name="robots" content="noindex">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0a0a0a;color:#e8ecf2;font-family:-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5;padding:18px;max-width:760px;margin:0 auto}
+  .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .eyebrow{font-family:ui-monospace,monospace;color:#22e58a;letter-spacing:2px;font-size:12px;text-transform:uppercase}
+  h1{font-size:26px;font-weight:900;margin:6px 0 2px}
+  h1 .g{color:#22e58a}
+  p.sub{color:#9aa1ad;font-size:14px;margin-bottom:14px}
+  .openall{display:block;width:100%;background:#22e58a;color:#04130b;border:none;border-radius:12px;
+    font-family:ui-monospace,monospace;font-weight:800;letter-spacing:1px;font-size:15px;padding:16px;margin:8px 0 6px;cursor:pointer}
+  .openall:active{filter:brightness(.9)}
+  .note{font-size:12px;color:#5a5d68;margin:4px 0 16px;line-height:1.6}
+  .group{font-family:ui-monospace,monospace;color:#5a5d68;letter-spacing:1px;font-size:11px;text-transform:uppercase;margin:18px 0 8px;border-top:1px solid #1c1c22;padding-top:12px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  a.tile{display:flex;align-items:center;gap:10px;background:#101012;border:1px solid #22232a;border-radius:11px;
+    padding:13px 14px;color:#e8ecf2;text-decoration:none;font-size:14px;min-height:52px}
+  a.tile:active{border-color:#22e58a}
+  a.tile .dot{width:9px;height:9px;border-radius:50%;background:#f5c518;flex:0 0 auto}
+  a.tile.cash .dot{background:#22e58a}
+  a.tile.card .dot{background:#00d4ff}
+  a.tile b{font-weight:700}
+  a.tile small{display:block;color:#5a5d68;font-size:11px;font-family:ui-monospace,monospace}
+  .phone{background:rgba(245,197,24,.06);border:1px solid #5a4d12;border-radius:11px;padding:12px 14px;margin:16px 0;font-size:13px;color:#c9c2a0}
+  .phone b{color:#f5c518}
+  footer{color:#5a5d68;font-size:12px;text-align:center;margin:22px 0 6px;font-family:ui-monospace,monospace}
+  @media(max-width:480px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="eyebrow">⚡ cash.bot · daily claim</div>
+  <h1>Your <span class="g">daily bonus</span> launcher</h1>
+  <p class="sub">Alarm goes off → open this page → tap each one → claim → done. Same time, every day.</p>
+
+  <button class="openall" onclick="openAll()">▶ OPEN ALL DAILY BONUSES</button>
+  <div class="note">Tip: your browser may ask to "allow pop-ups" the first time — say yes, then tap the button again.
+  Or just tap each tile below one at a time. Stay logged in on every site so claiming takes seconds.</div>
+
+  <div class="group">// sweepstakes casinos — daily login / wheel</div>
+  <div class="grid" id="casinos">
+    <a class="tile" href="https://crowncoinscasino.com/" target="_blank"><span class="dot"></span><span><b>Crown Coins</b><small>daily login</small></span></a>
+    <a class="tile" href="https://www.rolla.com/" target="_blank"><span class="dot"></span><span><b>Rolla</b><small>daily bonus</small></span></a>
+    <a class="tile" href="https://realprize.com/" target="_blank"><span class="dot"></span><span><b>RealPrize</b><small>daily login + drops</small></span></a>
+    <a class="tile" href="https://www.spinblitz.com/" target="_blank"><span class="dot"></span><span><b>SpinBlitz</b><small>streak login</small></span></a>
+    <a class="tile" href="https://www.mcluck.com/" target="_blank"><span class="dot"></span><span><b>McLuck</b><small>daily login</small></span></a>
+    <a class="tile" href="https://casino.click/" target="_blank"><span class="dot"></span><span><b>Casino.click</b><small>daily wheel</small></span></a>
+    <a class="tile" href="https://play.babacasino.com/" target="_blank"><span class="dot"></span><span><b>Baba Casino</b><small>daily bonus</small></span></a>
+    <a class="tile" href="https://spree.com/" target="_blank"><span class="dot"></span><span><b>Spree</b><small>daily reload</small></span></a>
+    <a class="tile" href="https://www.wowvegas.com/" target="_blank"><span class="dot"></span><span><b>Wow Vegas</b><small>daily prize wheel</small></span></a>
+    <a class="tile" href="https://www.ignitioncasino.eu/" target="_blank"><span class="dot"></span><span><b>Ignition</b><small>reload / weekly</small></span></a>
+  </div>
+
+  <div class="group">// passive + rewards — check / claim</div>
+  <div class="grid" id="rewards">
+    <a class="tile cash" href="https://dashboard.honeygain.com/" target="_blank"><span class="dot"></span><span><b>Honeygain</b><small>lucky pot</small></span></a>
+    <a class="tile card" href="https://fetch.com/" target="_blank"><span class="dot"></span><span><b>Fetch</b><small>scan receipts</small></span></a>
+  </div>
+
+  <div class="phone">📱 <b>Phone-only apps:</b> open these on your phone, not the server —
+  <b>Mistplay</b> (Android games) and <b>Blitz</b> (app). Claim their daily bonuses in the app.</div>
+
+  <div class="group">// your dashboards (track the cash)</div>
+  <div class="grid">
+    <a class="tile cash" href="https://clip.opus.pro/affiliate/sofoj2j" target="_blank"><span class="dot"></span><span><b>Opus</b><small>affiliate dashboard</small></span></a>
+    <a class="tile cash" href="https://my.vultr.com/" target="_blank"><span class="dot"></span><span><b>Vultr</b><small>credit + server</small></span></a>
+    <a class="tile cash" href="https://www.sofi.com/" target="_blank"><span class="dot"></span><span><b>SoFi</b><small>refer & earn</small></span></a>
+  </div>
+
+  <footer>cash.bot · keep this on your home screen · claim daily, win the streak</footer>
+
+<script>
+  function openAll(){
+    var links = document.querySelectorAll('#casinos a, #rewards a');
+    links.forEach(function(a,i){ setTimeout(function(){ window.open(a.href,'_blank'); }, i*350); });
+  }
+</script>
+</body>
+</html>
