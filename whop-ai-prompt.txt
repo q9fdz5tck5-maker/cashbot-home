@@ -1,0 +1,84 @@
+PROMPT FOR WHOP'S AI — paste this into the Whop AI assistant
+============================================================
+(Edit the [brackets]/prices to match what you actually want.
+ Tell it to ASK you before deleting anything or changing existing members.)
+------------------------------------------------------------
+
+You are helping me set up and fix my Whop. Do NOT delete or cancel any existing
+members, products, or content — only add and reorganize. If anything is unclear
+or a price is missing, ASK me before guessing.
+
+ABOUT MY BUSINESS
+- Brand: CASH.BOT (by Chase Tipton). Domain: cash.bot. Whop: cash-bot-6661.
+- The big idea ("The Great Flip"): free apps and companies will PAY regular
+  people to refer and share them. I teach people how to grab those paid
+  referral links, claim free bonuses daily, and use AI to make short videos
+  that bring signups — so companies end up paying THEM.
+- Traffic comes from a YouTube video -> my cash.bot landing page -> this Whop.
+- My problem: people join the free group but don't understand what it is or what
+  to do, so they never act or upgrade. Fix the clarity and the path.
+
+GOAL: turn my Whop into a clear value ladder with a strong storefront, obvious
+"start here" onboarding, and the paid tiers set up so free members ascend.
+
+1) PRODUCTS / ACCESS PASSES — create or confirm these (one-time unless noted):
+   • FREE — "CASH.BOT — The Free Group"
+       Free to join. The community + the full Free-Money Machine system.
+   • $37 (one-time) — "Fast-Start Pack"
+       Done-with-you setup: their server, the one-tap daily claimer, the AI
+       prompt vault organized, and a quick-start checklist. The easy first yes.
+   • $113 (one-time) — "The Private Room"
+       Private room + faster, direct answers from me.
+   • $497 (one-time) — "Direct Line"
+       Everything in The Private Room + a direct DM line to me.
+   • $2,000/month — "Founders"
+       1-on-1 mentorship, I help build your offer, and I promote you.
+   (If a tier already exists, keep it and just align the name/price/description.)
+
+2) STOREFRONT PAGE — make it sell. Use this copy (tighten as needed):
+   • Headline: "The money is about to flip — and you're early."
+   • Subhead: "Free apps and companies will pay YOU to share them. Get the whole
+     system free: the offers, your own links, a one-tap daily bonus claimer, and
+     AI prompts that make your videos for you."
+   • Add my promo video to the top of the page (I'll paste the YouTube link).
+   • "What you get — free" bullets:
+       - Every company paying right now + how to get YOUR own paid links
+       - The one-tap daily bonus claimer
+       - AI prompts that write your short-form videos
+       - The server build that runs the whole loop on autopilot
+       - A community doing it with you
+   • Show the value ladder (FREE -> $37 -> $113 -> $497 -> $2,000/mo).
+   • ONE primary button everywhere: "Join the free group" (the free product).
+   • Short FAQ: "Is it really free?" / "Do I need money to start?" / "How much
+     can I make?" (answer honestly — it's free to start, it's real work, results
+     vary). Keep it transparent; that's my brand.
+
+3) ONBOARDING — when someone joins the FREE group, the first thing they see is a
+   pinned "⭐ START HERE" that walks them step by step:
+   Step 1: Watch the 3-minute intro video (I'll provide it).
+   Step 2: Open the "Free-Money Machine" guide and the link vault.
+   Step 3: Do offer #1 today — sign up, grab your link, claim the bonus (a fast
+           first win).
+   Step 4: Set your daily alarm + open the daily claimer.
+   Step 5: "Want it all built for you? -> the $37 Fast-Start Pack."
+   Make this a guided checklist if Whop supports it, so people aren't lost.
+
+4) INSIDE THE FREE GROUP — set up these sections/apps:
+   • Chat/community
+   • A "Content" or "Courses" section to host my files: the Free-Money Machine
+     guide, the daily claimer, and the AI prompt pack (I'll upload them)
+   • A "Your Links" resource where members keep their own referral links
+   • An upsell/announcement that points free members to the $37 Fast-Start
+
+5) RULES
+   • Don't put casino/gambling links on the public storefront — keep those
+     inside the group only (platform policies).
+   • Keep one clear call to action; remove anything that competes with it.
+   • Keep the tone honest and transparent. No income guarantees.
+   • Confirm the final structure with me before publishing changes.
+
+Now: review my current Whop, tell me what already exists vs. what you'll create,
+then make these changes (asking me for the video link, the prices to confirm, and
+the files to upload).
+============================================================
+END

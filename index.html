@@ -67,9 +67,12 @@ h2 .g{color:var(--green)}h2 .c{color:var(--cyan)}h2 .p{color:var(--pink)}h2 .y{c
 .proof .row:last-child{border-bottom:0}
 .proof .amt{font-family:'JetBrains Mono',monospace;color:var(--gold);font-weight:700;flex:0 0 auto;min-width:64px}
 
-.ladder{max-width:560px;margin:22px auto 0;font-family:'JetBrains Mono',monospace;background:#0d0f14;border:1px solid var(--border);border-radius:14px;padding:18px 20px;font-size:13.5px;line-height:2.1;color:#cdd2da}
-.ladder .free{color:var(--green)}.ladder .lo{color:var(--cyan)}.ladder .mid{color:var(--gold)}.ladder .hi{color:var(--pink)}
-.ladder b{color:#fff}
+.tiers{max-width:520px;margin:22px auto 0;background:#0d0f14;border:1px solid var(--border);border-radius:14px;padding:8px 20px}
+.tiers .t{display:flex;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--border);font-size:15px}
+.tiers .t:last-child{border-bottom:0}
+.tiers .t .pr{font-family:'JetBrains Mono',monospace;font-weight:700;flex:0 0 auto;min-width:58px}
+.tiers .t .ds{color:#c4cad4}.tiers .t .ds b{color:#fff}
+.tiers .pr.free{color:var(--green)}.tiers .pr.lo{color:var(--cyan)}.tiers .pr.mid{color:var(--gold)}.tiers .pr.hi{color:var(--pink)}
 
 .honest{max-width:620px;margin:24px auto 0;border-left:3px solid var(--purple);padding:6px 0 6px 18px;color:#c4cad4;font-size:15px;line-height:1.7}
 .honest b{color:var(--purple)}
@@ -133,10 +136,12 @@ footer .mono{color:var(--muted)}
 <section class="wrap">
   <div class="label">// how far you take it is up to you</div>
   <h2>Start <span class="g">free</span>. Climb when ready.</h2>
-  <div class="ladder"><span class="free">FREE</span>   join the group · get the full system
-<span class="lo">$37</span>    Fast-Start Pack · <b>your machine built for you</b>
-<span class="mid">$113</span>   the private room · faster answers
-<span class="hi">$497+</span>  a direct line to me · I mentor + promote you</div>
+  <div class="tiers">
+    <div class="t"><span class="pr free">FREE</span><span class="ds">join the group · get the full system</span></div>
+    <div class="t"><span class="pr lo">$37</span><span class="ds">Fast-Start Pack — <b>your machine, built for you</b></span></div>
+    <div class="t"><span class="pr mid">$113</span><span class="ds">the private room · faster answers</span></div>
+    <div class="t"><span class="pr hi">$497+</span><span class="ds">a direct line to me · I mentor + promote you</span></div>
+  </div>
   <div class="honest"><b>The honest part:</b> this isn't get-rich-overnight. It's free to start, and it's real work — you show up daily and you post. Some offers pay coins, some pay real cash, amounts change, and not every state qualifies. I'll always tell you the truth. That's the whole point.</div>
 </section>
 

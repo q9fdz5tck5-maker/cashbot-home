@@ -52,6 +52,11 @@
   .ladder{margin-top:6mm;font-family:"DejaVu Sans Mono",monospace;font-size:13pt;line-height:2.05;color:#cdd2da}
   .ladder .free{color:#22e58a}.ladder .lo{color:#00d4ff}.ladder .mid{color:#f5c518}.ladder .hi{color:#ff006e}
   .ladder b{color:#fff}
+  .tiers{margin-top:6mm;max-width:205mm}
+  .tiers .t{display:flex;gap:7mm;align-items:baseline;padding:2.4mm 0;border-bottom:1px solid #1a1b22;font-size:13.5pt;line-height:1.3}
+  .tiers .t .pr{font-family:"DejaVu Sans Mono",monospace;font-weight:700;flex:0 0 auto;min-width:22mm}
+  .tiers .t .ds{color:#c9cfd9}.tiers .t .ds b{color:#fff}
+  .tiers .pr.free{color:#22e58a}.tiers .pr.lo{color:#00d4ff}.tiers .pr.mid{color:#f5c518}.tiers .pr.hi{color:#ff006e}
 
   .cta{margin-top:9mm;display:inline-block;border:1px solid #22e58a;border-radius:12px;background:rgba(34,229,138,.10);padding:7mm 12mm}
   .cta .u{font-family:"DejaVu Sans Mono",monospace;font-size:26pt;font-weight:800;color:#fff;letter-spacing:1px}
@@ -242,10 +247,12 @@
   <div class="kick mut">want it built for you?</div>
   <h2>Skip the setup.<br>Start <span class="c">today</span>.</h2>
   <div class="copy">The <b class="c">$37 Fast-Start Pack</b> builds your whole machine for you —<br>server, claimer, prompt vault — so you start in minutes, not days.</div>
-  <div class="ladder"><span class="free">FREE</span>   join the group · get the full system
-<span class="lo">$37</span>    Fast-Start Pack · <b>your machine, built for you</b>
-<span class="mid">$113</span>   the private room · faster answers
-<span class="hi">$497+</span>  a direct line to me · I mentor + promote you</div>
+  <div class="tiers">
+    <div class="t"><span class="pr free">FREE</span><span class="ds">join the group · get the full system</span></div>
+    <div class="t"><span class="pr lo">$37</span><span class="ds">Fast-Start Pack — <b>your machine, built for you</b></span></div>
+    <div class="t"><span class="pr mid">$113</span><span class="ds">the private room · faster answers</span></div>
+    <div class="t"><span class="pr hi">$497+</span><span class="ds">a direct line to me · I mentor + promote you</span></div>
+  </div>
   <div class="foot">CASH.BOT · THE GREAT FLIP</div><div class="num"></div>
 </section>
 
