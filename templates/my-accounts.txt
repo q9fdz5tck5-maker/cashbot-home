@@ -1,0 +1,164 @@
+MY CASH.BOT ACCOUNTS — REFERRAL LINK NOTEPAD
+=============================================
+Fill one block per platform AS YOU GO. This is your money map.
+- NEVER write your actual password here. Use a password manager.
+- "MY LINK" = the referral link YOU generate after signing up. That's
+  the one you post. The house link only gets you in the door.
+- Mark the bonus the day you claim it so nothing slips through.
+=============================================
+
+[ TEMPLATE — copy this block for every account ]
+PLATFORM:
+  Email used:
+  Username/handle:
+  Signed up:        [ ] yes   date ______
+  Verified/KYC:     [ ] done
+  MY REFERRAL LINK:
+  Signup bonus:     [ ] claimed   what I got ______
+  Daily bonus:      [ ] login  [ ] wheel  [ ] social free coins
+  Notes:
+
+------------------------------------------------------------
+--- SWEEPSTAKES CASINOS ---
+------------------------------------------------------------
+
+PLATFORM: Crown Coins Casino
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: Rolla
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: RealPrize
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: SpinBlitz
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: McLuck
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: Blitz
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: Casino.click
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: Baba Casino
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: Spree
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: Wow Vegas
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] login [ ] wheel [ ] social
+  Notes:
+
+PLATFORM: Ignition Casino
+  Email used:
+  Signed up:        [ ]    Verified:  [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]    Daily: [ ] reload [ ] weekly boost
+  Notes:
+
+------------------------------------------------------------
+--- CREATOR TOOLS ---
+------------------------------------------------------------
+
+PLATFORM: Opus Pro / OpusClip
+  Email used:
+  Signed up:        [ ]
+  MY AFFILIATE LINK:
+  Affiliate dashboard:
+  Notes:
+
+------------------------------------------------------------
+--- REWARDS / PASSIVE ---
+------------------------------------------------------------
+
+PLATFORM: Fetch
+  Email used:
+  Signed up:        [ ]
+  MY REFERRAL CODE/LINK:
+  Signup bonus:     [ ]
+  Notes:
+
+PLATFORM: Mistplay (Android)
+  Email used:
+  Signed up:        [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]
+  Notes:
+
+PLATFORM: Honeygain
+  Email used:
+  Signed up:        [ ]
+  MY REFERRAL LINK:
+  Signup bonus:     [ ]
+  Notes:
+
+------------------------------------------------------------
+--- FINANCE (SoFi — each program pays separately) ---
+------------------------------------------------------------
+
+PLATFORM: SoFi Personal Loans
+  MY REFERRAL LINK:        Bonus: [ ]
+PLATFORM: SoFi Credit Monitoring (Relay)
+  MY REFERRAL LINK:        Bonus: [ ]
+PLATFORM: SoFi Invest
+  MY REFERRAL LINK:        Bonus: [ ]
+PLATFORM: SoFi Crypto
+  MY REFERRAL LINK:        Bonus: [ ]
+PLATFORM: SoFi Money (Checking/Savings)
+  MY REFERRAL LINK:        Bonus: [ ]
+
+------------------------------------------------------------
+--- INFRASTRUCTURE ---
+------------------------------------------------------------
+
+PLATFORM: Vultr
+  Email used:
+  Signed up:        [ ]
+  MY REFERRAL LINK:
+  Notes:
+
+=============================================
+END — keep this open while you work the list.

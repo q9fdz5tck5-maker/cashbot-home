@@ -1,0 +1,96 @@
+CASH.BOT — MASTER AFFILIATE / REFERRAL LINK VAULT
+Built by Chase Tipton · keep this file as your single source of truth
+=====================================================================
+HOW TO USE: These are the HOUSE links (sign up through them once).
+After you sign up to each platform, you generate YOUR OWN referral link
+and paste it into your personal copy: templates/my-accounts.txt.
+One notepad. Every account. Every link. Always within reach.
+=====================================================================
+
+############################################################
+## SWEEPSTAKES CASINOS — free to play, no purchase necessary
+############################################################
+
+CROWN COINS CASINO
+  https://crowncoinscasino.com/?utm_campaign=8a0fea69-022f-479b-8b09-48e8460469a6&utm_source=friends
+
+ROLLA
+  https://www.rolla.com/?raf=1177873
+
+REALPRIZE
+  https://realprize.com/refer/2018465
+
+SPINBLITZ
+  https://www.spinblitz.com/lp/raf?r=0935b0ad%2F2735495799
+
+MCLUCK
+  https://www.mcluck.com/lp/raf?r=5ac6645c%2F2735506871
+
+BLITZ
+  (referral invite — share from inside the Blitz app: "Join me on Blitz!")
+
+CASINO.CLICK
+  https://casino.click/?modal=iqs-sign-up&ReferenceCode=632453&AffiliatePlatformId=200
+
+BABA CASINO
+  https://play.babacasino.com/#/?referral_id=071466df7d98f97fe7b1ed91bf8e2ff7&inv_referral=true&fb_source=invite
+
+SPREE
+  https://spree.com/?r=2285032
+
+WOW VEGAS
+  https://www.wowvegas.com/?raf=12433217
+
+IGNITION CASINO  (crypto poker/casino — refer-a-friend)
+  https://www.ignitioncasino.eu/welcome/P63874DF/join
+
+############################################################
+## CREATOR / SOFTWARE TOOLS
+############################################################
+
+OPUS PRO (OpusClip — AI short-form clipper)
+  Affiliate link: https://www.opus.pro/?via=790569
+  Affiliate dashboard login: https://clip.opus.pro/affiliate/sofoj2j
+
+############################################################
+## REWARDS / PASSIVE INCOME APPS
+############################################################
+
+FETCH (scan receipts → gift cards)
+  https://referral.fetch.com/vvv3/referralqr?code=3AX5JU   (code: 3AX5JU)
+
+MISTPLAY (earn for playing mobile games — Android)
+  https://mistplay.onelink.me/ZGRQ/yi5xdpjq
+
+HONEYGAIN (share idle bandwidth — passive)
+  https://join.honeygain.com/CENTRFAD3A
+
+############################################################
+## FINANCE — SoFi (multiple programs, each pays separately)
+############################################################
+
+SoFi PERSONAL LOANS  ($300 each after loan funds)
+  https://www.sofi.com/invite/personal-loans?gcp=03adc5f9-015e-4adf-b648-bd0c6cb3d8f1&isAliasGcp=false
+
+SoFi CREDIT SCORE MONITORING / Relay  ($10 rewards points)
+  https://www.sofi.com/invite/relay?gcp=05b66efb-03f5-4260-9648-6bed10ef45b1&isAliasGcp=false
+
+SoFi INVEST  ($25 in stock — open Active Investing w/ $25+)
+  https://www.sofi.com/invite/invest?gcp=9ca854df-3027-4ca2-b723-12d87aebac29&isAliasGcp=false
+
+SoFi CRYPTO  ($25 — open account + buy $50+)
+  https://www.sofi.com/invite/crypto?gcp=707f29be-3ef6-4041-862d-3f053acba3da&isAliasGcp=false
+
+SoFi CHECKING & SAVINGS / Money  (up to $425 in cash bonuses)
+  https://www.sofi.com/invite/money?gcp=547822fd-2195-4f86-b2ba-b5f489050d21&isAliasGcp=false
+
+############################################################
+## INFRASTRUCTURE
+############################################################
+
+VULTR (cloud hosting — runs the always-on machine)
+  https://www.vultr.com/?ref=9896825-9J
+  (API key stored privately in .secrets/apis.env — never in a public file)
+
+=====================================================================
+END OF VAULT

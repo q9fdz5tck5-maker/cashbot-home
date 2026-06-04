@@ -1,1 +1,6 @@
 index-prev-landing.html.bak
+
+# Private — never commit secrets to this PUBLIC Pages repo
+.secrets/
+*.env
+

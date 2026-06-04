@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CASH.BOT — The Affiliate Cashbot Playbook</title>
+<style>
+  @page {
+    size: A4;
+    margin: 16mm 14mm 18mm 14mm;
+    background: #0a0a0a;
+    @bottom-center {
+      content: "CASH.BOT · AFFILIATE PLAYBOOK · members only";
+      color: #5a5d68; font-family: monospace; font-size: 8pt; letter-spacing: 1px;
+    }
+    @bottom-right {
+      content: "p." counter(page);
+      color: #5a5d68; font-family: monospace; font-size: 8pt;
+    }
+  }
+  @page cover { margin: 0; @bottom-center { content: ""; } @bottom-right { content: ""; } }
+
+  * { box-sizing: border-box; }
+  html { -weasy-hyphens: none; }
+  body {
+    margin: 0; background: #0a0a0a; color: #e8ecf2;
+    font-family: "DejaVu Sans", Arial, sans-serif; font-size: 10.5pt; line-height: 1.5;
+  }
+  .mono { font-family: "DejaVu Sans Mono", monospace; }
+  h1,h2,h3 { line-height: 1.12; margin: 0; }
+
+  /* ---- COVER ---- */
+  .cover { page: cover; background:
+      radial-gradient(circle at 20% 15%, rgba(34,229,138,.12), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(0,212,255,.12), transparent 45%),
+      #0a0a0a;
+    height: 297mm; padding: 30mm 22mm; }
+  .cover .eyebrow { font-family: "DejaVu Sans Mono", monospace; color:#22e58a; letter-spacing:3px; font-size:10pt; text-transform:uppercase; }
+  .cover .brand { font-family:"DejaVu Sans Mono", monospace; font-size:15pt; color:#f5c518; letter-spacing:6px; margin-top:8mm; }
+  .cover h1 { font-size:40pt; font-weight:900; margin-top:10mm; color:#fff; letter-spacing:-1px; }
+  .cover h1 .g { color:#22e58a; }
+  .cover h1 .c { color:#00d4ff; }
+  .cover h1 .p { color:#ff006e; }
+  .cover .sub { font-size:13pt; color:#b8bec9; margin-top:8mm; max-width:150mm; line-height:1.5; }
+  .cover .term { margin-top:14mm; border:1px solid #2c2d36; border-radius:10px; background:rgba(16,16,18,.85); padding:8mm 9mm; font-family:"DejaVu Sans Mono", monospace; font-size:10pt; color:#cdd2da; }
+  .cover .term .prompt { color:#22e58a; }
+  .cover .term .dim { color:#5a5d68; }
+  .cover .foot { position:absolute; }
+  .cover .by { margin-top:16mm; font-family:"DejaVu Sans Mono", monospace; color:#888a96; font-size:9.5pt; letter-spacing:1px; }
+  .cover .ver { color:#5a5d68; }
+  .badgline { margin-top:10mm; }
+  .badge { display:inline-block; font-family:"DejaVu Sans Mono", monospace; font-size:8.5pt; letter-spacing:1px;
+    border:1px solid #2c2d36; border-radius:999px; padding:4px 11px; color:#b8bec9; margin:0 6px 6px 0; }
+  .badge.green { border-color:#22e58a; color:#22e58a; }
+  .badge.gold { border-color:#f5c518; color:#f5c518; }
+  .badge.cyan { border-color:#00d4ff; color:#00d4ff; }
+
+  /* ---- SECTIONS ---- */
+  .page { break-before: page; }
+  .branch { font-family:"DejaVu Sans Mono", monospace; color:#5a5d68; letter-spacing:2px; font-size:9pt; text-transform:uppercase; }
+  .steptag { display:inline-block; font-family:"DejaVu Sans Mono", monospace; font-weight:700; font-size:9.5pt; letter-spacing:2px;
+    padding:5px 13px; border-radius:999px; margin-bottom:5mm; }
+  .steptag.s1 { background:rgba(245,197,24,.14); color:#f5c518; border:1px solid #f5c518; }
+  .steptag.s2 { background:rgba(34,229,138,.14); color:#22e58a; border:1px solid #22e58a; }
+  .steptag.s3 { background:rgba(0,212,255,.14); color:#00d4ff; border:1px solid #00d4ff; }
+  .steptag.s4 { background:rgba(255,0,110,.14); color:#ff006e; border:1px solid #ff006e; }
+  .steptag.s0 { background:rgba(168,85,247,.14); color:#a855f7; border:1px solid #a855f7; }
+  h2.sec { font-size:25pt; font-weight:900; color:#fff; margin:2mm 0 4mm; letter-spacing:-.5px; }
+  h2.sec .accent-g{color:#22e58a} h2.sec .accent-c{color:#00d4ff} h2.sec .accent-p{color:#ff006e} h2.sec .accent-y{color:#f5c518}
+  .lead { font-size:11pt; color:#c4cad4; max-width:170mm; margin-bottom:5mm; }
+  .law { border-left:3px solid #a855f7; padding:3mm 0 3mm 6mm; margin:5mm 0; color:#cdd2da; font-size:10pt; }
+  .law b { color:#a855f7; }
+
+  hr.rule { border:none; border-top:1px dashed #2c2d36; margin:6mm 0; }
+  .asciidiv { font-family:"DejaVu Sans Mono", monospace; color:#22232a; font-size:9pt; letter-spacing:1px; margin:4mm 0; }
+
+  h3.mod { font-family:"DejaVu Sans Mono", monospace; font-size:12pt; color:#fff; margin:6mm 0 1mm; }
+  h3.mod .tick { color:#22e58a; }
+  .url { font-family:"DejaVu Sans Mono", monospace; font-size:8.3pt; color:#00d4ff; word-break:break-all; }
+
+  /* cards */
+  .card { background:#101012; border:1px solid #22232a; border-radius:11px; padding:5mm 6mm; margin:3mm 0 5mm; break-inside:avoid; }
+  .card .name { font-family:"DejaVu Sans Mono", monospace; font-size:11.5pt; font-weight:700; color:#f5c518; }
+  .card .kind { font-family:"DejaVu Sans Mono", monospace; font-size:8pt; color:#5a5d68; letter-spacing:1px; text-transform:uppercase; }
+  .card p { margin:2mm 0 0; font-size:9.6pt; color:#c4cad4; }
+  .card .how { margin-top:2.5mm; }
+  .card .how b { color:#22e58a; font-family:"DejaVu Sans Mono", monospace; font-size:8.5pt; letter-spacing:1px; }
+  .card ol { margin:1.5mm 0 0; padding-left:6mm; }
+  .card ol li { font-size:9.6pt; color:#d2d7e0; margin:1mm 0; }
+  .card .bonus { margin-top:2.5mm; font-size:9.4pt; color:#22e58a; }
+  .card .bonus b { color:#22e58a; }
+
+  ul.clean { margin:2mm 0; padding-left:6mm; }
+  ul.clean li { margin:1.5mm 0; color:#d2d7e0; font-size:10pt; }
+  ol.steps { margin:2mm 0; padding-left:6mm; }
+  ol.steps li { margin:2mm 0; color:#d2d7e0; font-size:10pt; }
+  b.k { color:#22e58a; }
+  .pill { font-family:"DejaVu Sans Mono", monospace; background:#16161a; border:1px solid #22232a; border-radius:6px; padding:1px 6px; font-size:9pt; color:#cdd2da; }
+
+  .callout { background:linear-gradient(180deg, rgba(34,229,138,.07), #101012); border:1px solid #22e58a; border-radius:11px; padding:5mm 6mm; margin:5mm 0; break-inside:avoid; }
+  .callout .h { font-family:"DejaVu Sans Mono", monospace; color:#22e58a; letter-spacing:2px; font-size:9pt; text-transform:uppercase; margin-bottom:2mm; }
+  .warn { background:linear-gradient(180deg, rgba(245,197,24,.06), #101012); border:1px solid #5a4d12; border-radius:11px; padding:5mm 6mm; margin:5mm 0; font-size:9.5pt; color:#c9c2a0; break-inside:avoid; }
+  .warn b { color:#f5c518; }
+
+  .filebox { font-family:"DejaVu Sans Mono", monospace; background:#0d0f14; border:1px solid #22232a; border-radius:9px; padding:4mm 5mm; font-size:8.6pt; color:#9fb6c9; margin:3mm 0; white-space:pre-wrap; }
+  .filebox .c { color:#5a5d68; }
+
+  footer.end { break-before: page; text-align:center; padding-top:30mm; }
+  footer.end .big { font-size:18pt; color:#fff; font-weight:900; }
+  footer.end .sm { color:#888a96; font-family:"DejaVu Sans Mono", monospace; font-size:9pt; margin-top:5mm; line-height:1.7; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div class="eyebrow">⚡ members only · do not share</div>
+  <div class="brand">C A S H . B O T</div>
+  <h1>THE <span class="g">AFFILIATE</span><br>CASHBOT <span class="c">PLAYBOOK</span></h1>
+  <div class="sub">Every account. Every referral link. Every bonus. Then the reach engine that
+  turns them into income — short-form content that copies what already works.<br>
+  Sign up → claim → save → post → repeat. One loop, run forever.</div>
+
+  <div class="term">
+    <span class="prompt">cashbot@machine</span>:<span style="color:#00d4ff">~</span>$ ./run_the_loop.sh<br>
+    <span class="dim">[1/4]</span> create accounts ......... <span style="color:#22e58a">queued</span><br>
+    <span class="dim">[2/4]</span> pull referral links ..... <span style="color:#22e58a">queued</span><br>
+    <span class="dim">[3/4]</span> claim bonuses + save ..... <span style="color:#22e58a">queued</span><br>
+    <span class="dim">[4/4]</span> monetize on short-form ... <span style="color:#22e58a">queued</span><br>
+    <span class="dim"># the glass breaks when the first referral pays you while you sleep</span>
+  </div>
+
+  <div class="badgline">
+    <span class="badge green">FREE TO PLAY</span>
+    <span class="badge gold">NO PURCHASE NECESSARY*</span>
+    <span class="badge cyan">18/21+ ONLY</span>
+    <span class="badge">HONEST · DISCLOSED</span>
+  </div>
+
+  <div class="by">built by Chase Tipton · <span class="ver">cash.bot · affiliate-playbook v1.0</span></div>
+</section>
+
+<!-- ============ THE PLAY ============ -->
+<section class="page">
+  <div class="branch">############ the play ############</div>
+  <span class="steptag s0">▸ READ FIRST</span>
+  <h2 class="sec">The whole game on <span class="accent-g">one screen</span></h2>
+  <p class="lead">You are about to build a portfolio of referral links across casinos, finance apps,
+  rewards apps, and creator tools — then point a content engine at them. Every platform here pays
+  YOU when someone signs up under your link. Your job is to own as many of those links as possible,
+  keep them in one notepad, and put them where people will see them.</p>
+
+  <div class="law"><b>THE ONE LAW:</b> time + chaos + pattern + acknowledgement = the glass break.
+  The chaos is 20 scattered apps. The pattern is one loop run on all of them. The acknowledgement
+  is the first referral notification. Run the loop; the glass breaks itself.</div>
+
+  <div class="asciidiv" style="color:#3a4150;font-size:9.5pt;line-height:1.7">
+  [ 1 SIGN UP ] --&gt; [ 2 LINK+CLAIM ] --&gt; [ 3 SAVE NOTEPAD ] --&gt; [ 4 POST SHORTS ]<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'--------------------------- ( run the loop forever ) &lt;---'</div>
+
+  <ul class="clean">
+    <li><b class="k">STEP 1 —</b> Sign up for every account on the list. One sitting, one email, knock them all out.</li>
+    <li><b class="k">STEP 2 —</b> Inside each one, find <span class="pill">Refer a Friend</span> / <span class="pill">Invite</span> / <span class="pill">Affiliate</span>, copy YOUR link, and claim the signup + daily bonuses.</li>
+    <li><b class="k">STEP 3 —</b> Paste every link into your notepad (<span class="pill">my-accounts.txt</span>) so it's all in one place.</li>
+    <li><b class="k">STEP 4 —</b> Set up your social accounts, copy short-form formats that already go viral, and put your links in every bio.</li>
+  </ul>
+
+  <div class="warn"><b>HONEST RULES OF THE ROAD.</b> The casinos here are <b>sweepstakes / social casinos</b> —
+  free to play, "no purchase necessary," and not legal in every state (commonly excluded: WA, ID, MI, NV,
+  and others — check each site). You must be of legal age (18+ or 21+). Referral and bonus terms change
+  often and are never guaranteed — always read the current promo terms. Always <b>disclose</b> that your
+  links are referral/affiliate links. Never spam. Honest and consistent beats a one-time blast every time.</div>
+</section>
+
+<!-- ============ STEP 1 ============ -->
+<section class="page">
+  <div class="branch">############ branch · sign up ############</div>
+  <span class="steptag s1">▸ STEP 1</span>
+  <h2 class="sec">Sign up for <span class="accent-y">every account</span></h2>
+  <p class="lead">Set the foundation first. You can't earn a referral on an account you don't have.
+  Block out 60–90 minutes and create every account in one run.</p>
+
+  <div class="callout">
+    <div class="h">▶ before you touch the list — set up your kit</div>
+    <ol class="steps">
+      <li><b class="k">Email:</b> use one clean email you control (a fresh Gmail is perfect). Every signup goes through it so confirmations land in one inbox.</li>
+      <li><b class="k">Password manager:</b> install one (Bitwarden is free). Generate a unique password per site. <b>Never</b> reuse passwords; never write them in the notepad.</li>
+      <li><b class="k">Phone + ID ready:</b> many of these verify by SMS, and casinos/finance apps require ID (KYC) before paying out. Have your phone and a photo of your ID handy.</li>
+      <li><b class="k">Notepad open:</b> open <span class="pill">templates/my-accounts.txt</span> side-by-side. You'll fill it as you go in Step 3.</li>
+    </ol>
+  </div>
+
+  <p class="lead">Work top to bottom. For each platform: open the link, sign up with your email, confirm,
+  and complete verification if it asks. Mark it done in your notepad. Don't stop to monetize yet — just
+  get every door open first.</p>
+
+  <div class="asciidiv">══════════════ THE SIGN-UP LIST ══════════════</div>
+
+  <ul class="clean">
+    <li><b class="k">Sweepstakes casinos:</b> Crown Coins · Rolla · RealPrize · SpinBlitz · McLuck · Blitz · Casino.click · Baba Casino · Spree · Wow Vegas · Ignition</li>
+    <li><b class="k">Creator tools:</b> Opus Pro (OpusClip)</li>
+    <li><b class="k">Rewards / passive:</b> Fetch · Mistplay (Android) · Honeygain</li>
+    <li><b class="k">Finance:</b> SoFi (Loans · Invest · Money · Crypto · Credit Monitoring)</li>
+    <li><b class="k">Infrastructure:</b> Vultr</li>
+  </ul>
+
+  <div class="warn"><b>TIP — sign up through the house links in the back of this guide.</b> They get you in the
+  door and credited correctly. Then in Step 2 you generate YOUR OWN link to share. One sweep purchase is
+  never required to play or to earn referrals on the sweepstakes sites.</div>
+</section>
+
+<!-- ============ STEP 2 ============ -->
+<section class="page">
+  <div class="branch">############ branch · link + claim ############</div>
+  <span class="steptag s2">▸ STEP 2</span>
+  <h2 class="sec">Get <span class="accent-g">your own link</span> + claim the bonus</h2>
+  <p class="lead">This is the step that turns an account into an asset. In every platform you'll do two things:
+  (1) find and copy <b>YOUR</b> unique referral/affiliate link, and (2) claim whatever signup and daily
+  bonuses are on offer. Below is exactly where to look, platform by platform.</p>
+
+  <div class="callout">
+    <div class="h">▶ the universal pattern (works on ~90% of these)</div>
+    <ol class="steps">
+      <li>Open your <b class="k">profile / account menu</b> (top-right avatar or hamburger).</li>
+      <li>Look for <span class="pill">Refer a Friend</span>, <span class="pill">Invite Friends</span>, <span class="pill">Refer & Earn</span>, <span class="pill">Affiliate</span>, or <span class="pill">Rewards</span>.</li>
+      <li>Copy the <b class="k">unique link or code</b> it shows you. That's yours.</li>
+      <li>While you're in there, hit <span class="pill">Daily bonus</span> / <span class="pill">Daily wheel</span> and any <span class="pill">follow us for free coins</span> social offers.</li>
+    </ol>
+  </div>
+
+  <div class="warn"><b>READ THIS BEFORE YOU PROMOTE A NUMBER.</b> On the sweepstakes casinos, signing up and
+  playing is free — but the <b>referral reward almost always requires your friend to make a qualifying
+  purchase</b> (buy a coin pack) before you get paid your Sweeps Coins. A few (like Baba) pay on signup alone.
+  Most pay in <b>two tiers</b>: a chunk when the friend first buys, more once their lifetime spend crosses a
+  threshold. The amounts below are current as of mid-2026 and <b>change often</b> — confirm in your own account.</div>
+
+  <div class="asciidiv">─────────────── SWEEPSTAKES CASINOS ───────────────</div>
+
+  <div class="card">
+    <span class="kind">sweepstakes casino</span>
+    <div class="name">Crown Coins Casino</div>
+    <p>Free-to-play social casino (Gold Coins for fun, Sweeps Coins redeemable for prizes).</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Log in → click the <b class="k">Rewards</b> button.</li>
+      <li>Open <span class="pill">Invite Friends</span> → copy your link or hit <b class="k">Share</b>.</li>
+      <li>Claim payouts under Rewards → Invite Friends → Claim Rewards.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> signup welcome ≈ <b>100,000 CC + 2 SC</b>; <b>daily login</b> coins + social drops. Referral ≈ <b>400,000 CC + 20 SC</b> per friend, paid after they sign up AND make a qualifying purchase (~$14.90+). No cap on referrals. <span style="color:#888a96">Restricted in WA, ID + others. 18+.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">social casino</span>
+    <div class="name">Rolla</div>
+    <p>Social/sweeps-style casino. Referral handled by the <span class="mono">?raf=</span> link.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Register + verify, then find your <b class="k">unique promo/referral code</b> in your account.</li>
+      <li>Share the code/link (your <span class="mono">raf</span> ID).</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> signup/welcome offer + daily login/spin bonuses. Referral is <b>two-tier</b>: <b>25 SC</b> when a friend registers, verifies + buys a pack, <b>+75 SC</b> once their purchases hit ~$1,500 — up to <b>100 SC/friend</b>, no cap. <span style="color:#888a96">Restricted: CA, CT, ID, MI, NV, NJ, NY, WA + more. 18+. Don't spam — abuse voids bonuses.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">sweepstakes casino</span>
+    <div class="name">RealPrize</div>
+    <p>Social casino with redeemable Sweeps Coins. Referral path: <span class="mono">/refer/</span>.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Profile → refer-a-friend section.</li>
+      <li>Copy your <span class="mono">realprize.com/refer/&lt;your-id&gt;</span> link.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> <b>daily login</b> ≈ 5,000 GC + 0.30 SC, free SC drops on X/FB/IG/YouTube, and <b>mail-in AMOE</b> (handwritten letter ≈ 1 SC). Referral two-tier: <b>100,000 GC + 20 SC</b> after a friend's ~$15+ purchase, <b>+100,000 GC + 50 SC</b> if their spend tops ~$500. No cap. <span style="color:#888a96">18+, US, KYC to redeem.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">sweepstakes casino</span>
+    <div class="name">SpinBlitz</div>
+    <p>Social casino. Referral via the <span class="mono">/lp/raf?r=</span> landing link.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Open the <b class="k">referral section in your profile</b>.</li>
+      <li>Copy your exclusive RAF link (contains your code).</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> signup ≈ 7,500 GC + 2.5 SC (no code), <b>streak daily login</b> (~500–2,000 GC + up to 0.35 SC/day; missing a day resets it). Referral two-tier: <b>20,000 GC + 10 SC</b> after a friend's ~$20+ buy, <b>+80,000 GC + 40 SC</b> at ~$500 spend — up to <b>100,000 GC + 50 SC/friend</b>. <span style="color:#888a96">18+, US, KYC to redeem.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">sweepstakes casino · 21+</span>
+    <div class="name">McLuck</div>
+    <p>Popular social casino. Referral via <span class="mono">/lp/raf?r=</span> (no separate code needed).</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Refer-a-friend / Promotions area in-app.</li>
+      <li>Copy your unique referral link.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> <b>daily login</b> ≈ 2,500 GC + 0.25 SC, plus periodic promos. Referral two-tier: <b>50,000 GC + 25 SC</b> after a friend's ~$100+ spend, <b>+150,000 GC + 75 SC</b> at ~$1,400 — up to <b>200,000 GC + 100 SC/friend</b>, no cap. <span style="color:#888a96">Note: McLuck is commonly <b>21+</b>. Restricted in many states (CA, MI, NV, NJ, NY, WA + more).</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">social casino app</span>
+    <div class="name">Blitz</div>
+    <p>App-based social casino. Referral is shared from inside the app, not a public web link.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Open the Blitz app → <span class="pill">Invite Friends</span> / <span class="pill">Refer</span>.</li>
+      <li>Use the in-app <b class="k">Share</b> button (it generates your invite + message).</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> signup coins + daily rewards in-app. You and your friend both get free coins on a successful invite.</div>
+  </div>
+
+  <div class="card">
+    <span class="kind">casino</span>
+    <div class="name">Casino.click</div>
+    <p>Referral runs on an affiliate platform (<span class="mono">ReferenceCode</span> + <span class="mono">AffiliatePlatformId</span>).</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>After signup, open the refer-a-friend / affiliate area in your account.</li>
+      <li>Copy the link carrying your own <span class="mono">ReferenceCode</span>.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> welcome ≈ <b>100,000 GC + 2 SC</b> (no purchase), <b>daily "Spin the Wheel"</b> up to ~5 SC/day, plus mail-in AMOE for free SC. <span style="color:#888a96">Referral-bonus specifics are unverified / conflicting on this newer site — confirm on its Promotions page before promoting a number. 18+, restricted states apply.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">social casino</span>
+    <div class="name">Baba Casino</div>
+    <p>Social casino. Referral via <span class="mono">referral_id</span> on the play subdomain.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Account → <span class="pill">Invite Friends</span> (babacasino.com/invite_friends).</li>
+      <li>Copy your link with your unique <span class="mono">referral_id</span>.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> welcome ≈ <b>500,000 GC + 2 SC</b> + daily bonuses. Referral pays <b>1,000 GC + 1 SC per friend</b> — and notably <b>NO purchase required</b> (friend just registers + verifies). <b>Capped at 5 friends/month.</b> <span style="color:#888a96">The easiest "free" referral on this list. 18+, KYC to redeem.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">sweepstakes casino</span>
+    <div class="name">Spree</div>
+    <p>Social casino with redeemable coins. Referral via <span class="mono">?r=</span>.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Account → refer-a-friend section.</li>
+      <li>Copy your <span class="mono">spree.com/?r=&lt;your-id&gt;</span> link.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> <b>daily reload</b> ≈ 2,000 GC + 0.3–0.4 SC per login (higher in your first ~15 days). Referral reported around <b>10–100 SC</b> per friend after a qualifying purchase — <span style="color:#888a96">exact tiers vary/unverified, confirm in-app. 18+, US, KYC to redeem.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">sweepstakes casino</span>
+    <div class="name">Wow Vegas</div>
+    <p>Major social casino. Referral via <span class="mono">?raf=</span>.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Promotions / account area → refer-a-friend.</li>
+      <li>Copy your unique <span class="mono">?raf=</span> link.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> no-purchase welcome bundle, plus a <b>daily prize wheel</b> (Promotions → Daily Login Bonus → Claim; ~750 WOW + 0.10 SC up to big VIP prizes). Referral: <b>5,000 WOW Coins + 20 SC</b> per signup once the friend buys a bundle (~$15+), <b>max 30 referrals/month</b>. <span style="color:#888a96">Not available in MI, NV, ID, WA. 18+, KYC to redeem.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">crypto poker / casino</span>
+    <div class="name">Ignition Casino</div>
+    <p>Real-money crypto poker & casino (not a sweeps site). Strong <b>Refer-a-Friend</b> program.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Dashboard → <span class="pill">Tell a Friend</span>.</li>
+      <li>Copy your personal referral link. <b class="k">Note:</b> you must have made at least one ~$20+ deposit before you can refer.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> referrer earns a <b>200% match of the friend's first deposit, capped at $100/referral</b> (friend deposits ≥$20), up to $400 across casino+poker, <b>+$25 extra if they deposit via crypto</b>. No limit on number of friends. Bonuses credit automatically. <span style="color:#888a96">Real-money gambling — 18+ (21+ some states), restricted in DE, MD, NV, NJ, NY. Gamble responsibly.</span></div>
+  </div>
+
+  <div class="asciidiv">─────────────── CREATOR TOOLS ───────────────</div>
+
+  <div class="card">
+    <span class="kind">AI short-form clipper · true affiliate program</span>
+    <div class="name">Opus Pro (OpusClip)</div>
+    <p>Turns long videos into viral shorts. Real affiliate program with a payout dashboard — this is the tool you'll also USE in Step 4.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Apply at <span class="url">opus.pro/affiliate</span> (free, ~1 min, no minimum sales).</li>
+      <li>Approval takes ~1 week; then grab your <span class="mono">?via=</span> link + dashboard (<span class="url">clip.opus.pro/affiliate/&lt;you&gt;</span>).</li>
+      <li>Share it; track clicks, signups, and commission in the dashboard.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> <b>25% recurring commission for the first year</b> of every paying subscriber you refer — real cash, paid to <b>PayPal on the 15th</b> each month ($20 minimum payout). The highest-value link in this guide for a creator. <span style="color:#888a96">Inactive links (no traffic 6 mo) may be deactivated — keep posting.</span></div>
+  </div>
+
+  <div class="asciidiv">─────────────── REWARDS / PASSIVE ───────────────</div>
+
+  <div class="card">
+    <span class="kind">receipt rewards</span>
+    <div class="name">Fetch</div>
+    <p>Snap any receipt → earn points → gift cards. Referral via a code.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>App → <span class="pill">Me</span> tab → <span class="pill">Refer a friend</span> (or "Earn More Points").</li>
+      <li>Copy your unique referral code + link (text / email / QR / share).</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> typically <b>2,000 points each</b> for you and your friend (≈ $2; higher in promos). <b>Critical:</b> the friend must enter your code <b>before scanning their first receipt</b> — otherwise it doesn't count. Then earn ongoing by scanning every receipt. <span style="color:#888a96">18+, US.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">play-to-earn · Android</span>
+    <div class="name">Mistplay</div>
+    <p>Earn "units" for playing mobile games → gift cards. Android only.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Your referral link <b class="k">unlocks at Checkpoint 5</b> — install a game from your Mistplay selection and play to Checkpoint 5.</li>
+      <li>Your unique referral link then appears automatically — copy + share it.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> <b>150 units</b> when a friend signs up + opts in via your link, <b>+350 units</b> once they reach their own Checkpoint 5, <b>plus 15% of their ongoing earnings</b> (the 15% applies to your first 5 referrals). Watch for in-app <b>bonus codes</b> — set an alert and enter them when posted. <span style="color:#888a96">Android only, 18+. Friends who don't install within a month drop off.</span></div>
+  </div>
+
+  <div class="card">
+    <span class="kind">passive bandwidth</span>
+    <div class="name">Honeygain</div>
+    <p>Share your unused internet → earn passively. Pure passive + referral.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Dashboard → <span class="pill">Referrals</span> → "Invite friends".</li>
+      <li>Copy your <span class="mono">join.honeygain.com/&lt;code&gt;</span> link.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> new users get a <b>$3 welcome bonus</b> for joining via your code; you earn <b>$5 each time a referral hits the $20 payout threshold</b>, PLUS a permanent <b>10% of that friend's ongoing earnings</b>. Plus a daily "Lucky Pot." Runs passively on phone or PC. <span style="color:#888a96">$20 payout threshold (PayPal/crypto/gift cards).</span></div>
+  </div>
+
+  <div class="asciidiv">─────────────── FINANCE · SoFi (5 separate programs) ───────────────</div>
+
+  <div class="card">
+    <span class="kind">finance · cash referral bonuses</span>
+    <div class="name">SoFi — Loans · Invest · Money · Crypto · Credit</div>
+    <p>SoFi pays a <b>separate cash referral bonus per product</b>. These are the highest dollar-value referrals here — but they require the friend to actually open & fund the product.</p>
+    <div class="how"><b>GET YOUR LINKS:</b>
+      <ol><li>Open the <b class="k">SoFi app</b> → membership / Refer & Earn (Money + Invest links live in the app).</li>
+      <li>SoFi gives you a distinct invite link per product — grab each one.</li></ol></div>
+    <div class="bonus"><b>CLAIM (referrer reward / what the new member gets):</b><br>
+      • <b>Personal Loans</b> — <b>$300</b> to you, ~90 days after the friend's loan funds.<br>
+      • <b>Invest</b> — <b>$50</b> to you, <b>$25</b> in stock to them (open Active Investing, fund $25+).<br>
+      • <b>Money (Checking/Savings)</b> — <b>$75</b> to you ($100 if you're SoFi Plus), <b>$25</b> to them — separate from their direct-deposit bonus (up to $300–$400).<br>
+      • <b>Credit Monitoring (Relay)</b> — ~<b>$10</b> in points for activating free score monitoring.<br>
+      • <b>Crypto</b> — historically $25, <span style="color:#888a96">but SoFi wound down crypto trading — verify it's still active before promoting.</span><br>
+      <span style="color:#888a96">Paid as SoFi Rewards points (1 pt = $0.01). Up to $10,000 total. US, 18+, new customers only. Confirm current terms in-app.</span></div>
+  </div>
+
+  <div class="asciidiv">─────────────── INFRASTRUCTURE ───────────────</div>
+
+  <div class="card">
+    <span class="kind">cloud hosting</span>
+    <div class="name">Vultr</div>
+    <p>Cloud servers — also what runs your always-on CASH.BOT machine. Referral pays account credit.</p>
+    <div class="how"><b>GET YOUR LINK:</b>
+      <ol><li>Dashboard → <span class="pill">Affiliate</span> (left nav).</li>
+      <li>Copy your <span class="mono">?ref=</span> link.</li></ol></div>
+    <div class="bonus"><b>CLAIM:</b> "give $100, get ~$25–$35" — the new user gets up to <b>$100 trial credit</b>; you earn account credit once they stay <b>active 30+ days</b> (and spend a qualifying amount). Paid out after the 1st and 15th. <span style="color:#888a96">Pairs perfectly with a "how I host my AI bots" video.</span></div>
+  </div>
+
+  <div class="warn"><b>KYC IS HOW YOU ACTUALLY GET PAID.</b> Casinos and finance apps will hold redemptions/bonuses
+  until your identity is verified. Do your ID verification early on each one so a referral payout never gets
+  stuck. One identity, one set of real details — never fake info.</div>
+</section>
+
+<!-- ============ STEP 3 ============ -->
+<section class="page">
+  <div class="branch">############ branch · save ############</div>
+  <span class="steptag s3">▸ STEP 3</span>
+  <h2 class="sec">Save it all to <span class="accent-c">one notepad</span></h2>
+  <p class="lead">A referral link you can't find is a referral link you don't have. Everything goes into one
+  plain notepad file — the same way the OS keeps its files. No fancy app, no spreadsheet, just one text
+  file you can open on any device and copy-paste from in two seconds.</p>
+
+  <div class="law"><b>WHY A NOTEPAD, NOT A SPREADSHEET:</b> speed. When you're filming or commenting,
+  you need to grab a link instantly. A flat text file opens anywhere, syncs everywhere, and never makes
+  you hunt across columns. One file = your whole money map.</div>
+
+  <div class="callout">
+    <div class="h">▶ build your notepad</div>
+    <ol class="steps">
+      <li>Open <span class="pill">templates/my-accounts.txt</span> from this kit (copy of the format below).</li>
+      <li>For each platform, fill: email used · signed-up ✓ · verified ✓ · <b class="k">MY referral link</b> · bonus claimed ✓.</li>
+      <li><b class="k">Never</b> store passwords here — those live in your password manager. This file is just links + status.</li>
+      <li>Save it where you'll always have it (phone notes, a synced text file, or your machine's Files). Keep it open while you work.</li>
+    </ol>
+  </div>
+
+  <div class="filebox"><span class="c"># my-accounts.txt — one block per platform</span>
+PLATFORM: McLuck
+  Email used:      you@email.com
+  Signed up:       [x]   Verified: [x]
+  MY REFERRAL LINK: https://www.mcluck.com/lp/raf?r=&lt;YOUR-CODE&gt;
+  Signup bonus:    [x] claimed
+  Daily bonus:     [x] login  [x] social free coins
+  Notes:           redeems via ...
+</div>
+
+  <p class="lead">Do this for all ~20 platforms. When the notepad is full, you're holding a complete map of
+  every link that pays you. That map is the asset. Step 4 is where you point traffic at it.</p>
+
+  <div class="warn"><b>ONE MORE FILE:</b> you'll also keep <span class="pill">templates/my-socials.txt</span> —
+  the same idea for your social accounts (handle, niche, link-in-bio, the accounts you model). Set it up
+  now; you'll fill it in Step 4.</div>
+</section>
+
+<!-- ============ STEP 4 ============ -->
+<section class="page">
+  <div class="branch">############ branch · reach ############</div>
+  <span class="steptag s4">▸ STEP 4</span>
+  <h2 class="sec">Monetize with <span class="accent-p">short-form content</span></h2>
+  <p class="lead">Links don't earn until people see them. The engine is short-form video — TikTok, Reels,
+  YouTube Shorts — and the cheat code is simple: <b>don't invent, copy what already works.</b> Find the
+  formats that are already going viral in this niche, remake them with your spin and your link, and post
+  every day.</p>
+
+  <div class="law"><b>THE ONE LAW HERE:</b> the first 3 seconds decide everything. You're not being
+  original — you're being <b>consistent with a proven format</b>. Model the structure, swap in your hook,
+  your offer, your link. Volume + iteration wins.</div>
+
+  <div class="callout">
+    <div class="h">▶ set up your social accounts (then log them in my-socials.txt)</div>
+    <ol class="steps">
+      <li><b class="k">Pick a niche per account:</b> "free money apps," "side hustles," "passive income," "casino wins." One angle, stick to it — the algorithm rewards focus.</li>
+      <li><b class="k">Make the accounts:</b> TikTok, Instagram (Reels), YouTube (Shorts). Same handle everywhere. Clean bio that says what you post + a link.</li>
+      <li><b class="k">Link hub in bio:</b> set up a free Linktree/Beacons, drop ALL your referral links in it, and put that one URL in every bio + pinned comment.</li>
+      <li><b class="k">Log it:</b> fill <span class="pill">templates/my-socials.txt</span> — handle, niche, link-in-bio, and the 3 accounts you'll model.</li>
+    </ol>
+  </div>
+
+  <h3 class="mod"><span class="tick">▸</span> THE COPY-WHAT-WORKS METHOD</h3>
+  <ol class="steps">
+    <li><b class="k">Find the winners.</b> Search your niche on TikTok/Reels. Look for videos with <b>way more views than the creator's normal</b> — that's a format that's working, not just a big account.</li>
+    <li><b class="k">Screenshot the structure.</b> Note the hook (first line/visual), the pacing, the on-screen text, the call-to-action. That skeleton is what you're copying — never the actual clip.</li>
+    <li><b class="k">Remake it with your spin.</b> Same structure, your face/voice/screen-recording, your offer ("I use this app to earn X — link in bio"). Show the app, the bonus, the payout.</li>
+    <li><b class="k">CTA every time.</b> "Link in my bio" + pin a comment with the link. Make the next step obvious.</li>
+    <li><b class="k">Post daily, study the data.</b> Keep the formats that pop, kill the ones that don't. 1 in 10 hitting is a win — that one funds everything.</li>
+  </ol>
+
+  <div class="callout">
+    <div class="h">▶ let the machine do the heavy lifting</div>
+    <p style="color:#c4cad4; font-size:9.8pt; margin:0;">You already own <b style="color:#22e58a">Opus Pro / OpusClip</b> (Step 2). Use it to slice
+    long videos into dozens of shorts, auto-caption, and reframe vertical — then post across all platforms.
+    The CASH.BOT CONTENT modules (VIRALSHORTS, CAPTIONS, VIDEOHOOKS, THUMBNAILIDEA) generate hooks, scripts,
+    and captions in bulk so you're never staring at a blank screen. One list in → a month of posts out.</p>
+  </div>
+
+  <h3 class="mod"><span class="tick">▸</span> THE WEEKLY LOOP</h3>
+  <ul class="clean">
+    <li><b class="k">Mon:</b> find 5 winning formats in your niche, save them.</li>
+    <li><b class="k">Tue–Thu:</b> remake + post 1–3 per day across TikTok / Reels / Shorts.</li>
+    <li><b class="k">Fri:</b> check which links got signups (your notepad + dashboards), double down on what paid.</li>
+    <li><b class="k">Repeat.</b> Every new follower is another set of eyes on every link in your bio.</li>
+  </ul>
+
+  <div class="warn"><b>STAY HONEST + COMPLIANT.</b> Disclose affiliate/referral links (it's required and it builds
+  trust). Don't promise guaranteed money — show what's real. Follow each platform's rules on gambling/
+  financial content (some restrict casino promos or require age-gating). Honest creators last; spammers get
+  banned and lose every link at once.</div>
+</section>
+
+<!-- ============ APPENDIX ============ -->
+<section class="page">
+  <div class="branch">############ appendix · the vault ############</div>
+  <span class="steptag s0">▸ REFERENCE</span>
+  <h2 class="sec">The house <span class="accent-y">link vault</span></h2>
+  <p class="lead">Sign up through these once (gets you in the door, credited correctly). Then generate YOUR
+  OWN links in Step 2 and keep them in your notepad. Full copy lives in <span class="pill">cashbot-affiliate-links.txt</span>.</p>
+
+  <div class="filebox"><span class="c">## SWEEPSTAKES CASINOS</span>
+Crown Coins  crowncoinscasino.com/?utm_campaign=8a0fea69...&utm_source=friends
+Rolla        rolla.com/?raf=1177873
+RealPrize    realprize.com/refer/2018465
+SpinBlitz    spinblitz.com/lp/raf?r=0935b0ad/2735495799
+McLuck       mcluck.com/lp/raf?r=5ac6645c/2735506871
+Blitz        share from inside the Blitz app
+Casino.click casino.click/?ReferenceCode=632453&AffiliatePlatformId=200
+Baba Casino  play.babacasino.com/#/?referral_id=071466df7d98...
+Spree        spree.com/?r=2285032
+Wow Vegas    wowvegas.com/?raf=12433217
+Ignition     ignitioncasino.eu/welcome/P63874DF/join
+
+<span class="c">## CREATOR TOOLS</span>
+Opus Pro     opus.pro/?via=790569   (dash: clip.opus.pro/affiliate/sofoj2j)
+
+<span class="c">## REWARDS / PASSIVE</span>
+Fetch        referral.fetch.com/vvv3/referralqr?code=3AX5JU
+Mistplay     mistplay.onelink.me/ZGRQ/yi5xdpjq
+Honeygain    join.honeygain.com/CENTRFAD3A
+
+<span class="c">## FINANCE · SoFi</span>
+Loans        sofi.com/invite/personal-loans?gcp=03adc5f9...
+Credit/Relay sofi.com/invite/relay?gcp=05b66efb...
+Invest       sofi.com/invite/invest?gcp=9ca854df...
+Crypto       sofi.com/invite/crypto?gcp=707f29be...
+Money        sofi.com/invite/money?gcp=547822fd...
+
+<span class="c">## INFRASTRUCTURE</span>
+Vultr        vultr.com/?ref=9896825-9J
+</div>
+
+  <div class="warn"><b>FINAL HONEST NOTE.</b> Sweepstakes casinos are free-to-play, "no purchase necessary,"
+  18/21+, and void in restricted states. Ignition is real-money gambling — region-restricted, gamble
+  responsibly. Finance products (SoFi) involve real money and eligibility checks. All referral and bonus
+  amounts are set by the platforms and <b>change without notice</b> — always confirm the current terms in your
+  own account before you promote a number. Disclose every affiliate link. This guide teaches a system; it
+  does not promise income.</div>
+</section>
+
+<footer class="end">
+  <div class="big">RUN THE LOOP.</div>
+  <div class="sm">sign up → link + claim → save → post → repeat<br><br>
+  CASH.BOT · The Affiliate Cashbot Playbook · members only<br>
+  built by Chase Tipton · cash.bot</div>
+</footer>
+
+</body>
+</html>
