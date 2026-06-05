@@ -3,3 +3,9 @@ App ID,Name,Branch,Priority,Injected File,Real Code Does,Verified
 2,TRADE,EARN,P1,earn/02-trade.sh,"Consent gate + conservative paper config + paper buy vs live Binance price",YES
 3,FAUCETHUB,EARN,P2,earn/03-faucethub.sh,"Seeds 6 real testnet faucets + checks Sepolia balance via public RPC",YES
 4,PAY,EARN,P1,earn/04-pay.sh,"Generates real HTML+text invoice w/ PayPal.me link + honest ledger",YES
+5,IDE,BUILD,P1,build/05-ide.sh,"Installs code-server + live project behind generated password",CODE
+6,TERMINAL,BUILD,P0,build/06-terminal.sh,"Checks/installs Claude CLI + persists key to bashrc + first real command",YES
+7,BROWSER,BUILD,P1,build/07-browser.sh,"Polite public fetch → clean text file + bookmarks CSV",YES
+8,FILES,BUILD,P0,build/08-files.sh,"Builds 33-folder Apps tree + non-destructive 7-day rsync backup + serve",YES
+9,SITES,BUILD,P1,build/09-sites.sh,"Scaffolds real one-pager HTML + serves live + deployments log",YES
+10,VNC,BUILD,P1,build/10-vnc.sh,"noVNC+VNC server localhost-only + generated password + websockify bridge",CODE
