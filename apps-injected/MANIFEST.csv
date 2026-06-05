@@ -9,3 +9,12 @@ App ID,Name,Branch,Priority,Injected File,Real Code Does,Verified
 8,FILES,BUILD,P0,build/08-files.sh,"Builds 33-folder Apps tree + non-destructive 7-day rsync backup + serve",YES
 9,SITES,BUILD,P1,build/09-sites.sh,"Scaffolds real one-pager HTML + serves live + deployments log",YES
 10,VNC,BUILD,P1,build/10-vnc.sh,"noVNC+VNC server localhost-only + generated password + websockify bridge",CODE
+11,GENERATORS,CONTENT,P1,content/11-generators.sh,"Real Claude batch: list in → CSV out (blog posts)",WIRED
+12,CAPTIONS,CONTENT,P1,content/12-captions.sh,"Real Claude batch: list in → CSV out (captions+hashtags)",WIRED
+13,VIRALSHORTS,CONTENT,P1,content/13-viralshorts.sh,"Real Claude batch: list in → CSV out (video scripts)",WIRED
+14,MARKETINGCOPY,CONTENT,P1,content/14-marketingcopy.sh,"Real Claude batch: list in → CSV out (marketing copy)",WIRED
+15,KEYWORDS,CONTENT,P1,content/15-keywords.sh,"Real Claude batch: list in → CSV out (keyword ideas by intent)",WIRED
+16,DIFFICULTY,CONTENT,P1,content/16-difficulty.sh,"Real Claude batch: list in → CSV out (difficulty scores)",WIRED
+17,THUMBNAILIDEA,CONTENT,P1,content/17-thumbnailidea.sh,"Real Claude batch: list in → CSV out (thumbnail concepts)",WIRED
+18,IMAGEPROMPT,CONTENT,P1,content/18-imageprompt.sh,"Real Claude batch: list in → CSV out (model-ready image prompts)",WIRED
+19,VIDEOHOOKS,CONTENT,P1,content/19-videohooks.sh,"Real Claude batch: list in → CSV out (scroll-stopping hooks)",WIRED
