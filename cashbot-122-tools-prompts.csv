@@ -1,0 +1,123 @@
+Tool ID,Tool Name,Tool Type,Prompt Title,Prompt Description,Implementation Language,Dependencies,Output Format,Priority,Use Case
+1,eBay Lister,Web Scraper,"Scan & List Quickly","Point camera at item, eBay AI auto-fills title & price, you hit List. Done in 30 seconds.",Go,eBay API Key,CSV + HTML,P0,Sell physical items
+2,Thrift Flipper Scout,Price Checker,"Scout thrift stores for profit","Scan item barcode → show eBay sold price → highlight 3x+ profit items",Go,Barcode API + eBay API,JSON,P1,Find resale items
+3,Honeygain Launcher,Passive Income,"Set & Forget Background Income","Install Honeygain, run daemon, collect passive $3-15/mo bandwidth earnings",Go,Honeygain API,Log file,P1,Passive money
+4,OnePay Claim,Sign-up Bonus,"Claim Free Signup Cash","Walk through OnePay signup, claim bonus, track payment to wallet",Go,OnePay API,CSV,P1,Free starter cash
+5,Kraken Spinner,Crypto Faucet,"Daily Free Crypto Spins","Hit Kraken daily spin endpoint, claim free crypto, track earnings",Go,Kraken API,CSV,P1,Free crypto
+6,Crypto Wallet Gen,Wallet Manager,"Create self-custody wallet safely","Generate new wallet, write seed phrase to encrypted file (never online), show address",Go,Solana/Ethereum libraries,TXT + JSON,P0,Receive payments
+7,Wallet Watcher,Balance Monitor,"Watch wallet balance in real-time","Poll wallet address every 5 min, alert on deposits, log to CSV",Go,Web3 library,CSV,P1,Track incoming funds
+8,Testnet Trainer,Paper Trading,"Run bot on fake money first","Connect to exchange testnet, run simple grid bot, log all trades",Go,Exchange API (paper),JSON,P1,Learn trading safe
+9,Live Trader,Automated Trading,"Deploy bot on real exchange (small)","Move testnet bot to real exchange with small approved amount, monitor closely",Go,Exchange API (real),JSON,P2,Make trading income
+10,Invoice Generator,Billing,"Create professional HTML invoice","Takes client name/job/amount → generates clean HTML invoice + text version",Go,None,HTML + TXT,P0,Get paid for work
+11,Payment Link Creator,Collections,"Paste PayPal.me + crypto address","Takes your handles → creates one-click payment links for clients",Go,None,HTML,P0,Multiple payment options
+12,Ledger Keeper,Bookkeeping,"Log all income/expenses to CSV","Parse invoice paid → log date/amount/client → calculate monthly profit",Go,None,CSV,P1,Track real profit
+13,Code Server IDE,Development,"Browser code editor on your machine","Install code-server, run on localhost:8080, serve to phone via tunnel",Go + Docker,code-server,Config file,P0,Edit code anywhere
+14,Live Preview,Development,"Edit file → see preview update instantly","Watch ~/projects folder, rebuild + reload browser preview on save",Go,None,HTML,P1,See changes live
+15,Terminal Wrapper,Command Line,"Claude CLI on your machine as command line","Install claude binary, test with claude --version, set API key",Go,Claude CLI,Log,P0,Talk to machine
+16,Command History,Logging,"Log all Claude commands + responses to file","Every claude command you run → saved to history.log with timestamp",Go,None,CSV,P1,Remember what worked
+17,Website Fetcher,Web Research,"Scrape public URLs for data","Takes URL list → fetches HTML → extracts text → saves to file",Go,Colly,CSV + TXT,P1,Gather research
+18,Price Monitor,Price Tracking,"Watch competitor prices, alert on changes","Scrape URL every 6 hours, compare price, email alert if different",Go,Colly,CSV,P1,Track market
+19,Folder Organizer,File System,"Create ~/cashbot-files structure with all subfolders","mkdir -p all the right folders (Apps, sessions, backups, etc)",Bash,None,Folders,P0,Organize output
+20,File Syncer,Backup,"Auto-backup ~/cashbot-files every night to external location","Cron job that rsync ~/cashbot-files to backup drive at 2am",Bash,rsync,Log,P0,Never lose work
+21,Website Host,Deployment,"Deploy static site to public URL","Takes HTML folder → pushes to free static host (Vercel/Netlify) → gives live URL",Go,Vercel/Netlify API,URL,P0,Go live on internet
+22,Domain Pointer,DNS,"Buy $3 domain + point to site","Walk through Namecheap, buy domain, update DNS to point at hosted site",Go,Namecheap API,JSON,P1,Custom domain
+23,VNC Server,Remote Screen,"See your desktop from phone browser","Install noVNC + VNC server, bind to localhost, give password",Go + Docker,noVNC,Config,P0,Control from anywhere
+24,Screen Recorder,Capture,"Record desktop screenshots every hour, save to folder","Screenshot daemon that runs every 60 min, saves PNG to ~/screenshots/",Go,Screenshots library,PNG files,P1,Visual backup
+25,Content Batch Generator,AI Writing,"Paste 10 topics → get 10 finished blog posts","Takes topic list → calls Claude API for each → saves to CSV",Go,Claude API,CSV,P0,Bulk content
+26,Social Caption Writer,AI Writing,"Paste video ideas → get Instagram captions + hashtags","Takes video idea → generates caption + 10 hashtags per platform",Go,Claude API,CSV,P0,Social content
+27,Video Script Writer,AI Writing,"Paste video titles → get full short-form scripts with hooks","Takes titles → generates TikTok script (hook + body + CTA)",Go,Claude API,CSV,P0,Video content
+28,Ad Copy Writer,AI Writing,"Paste products → get sales copy that converts","Takes product + audience → writes headlines + body copy (reader-first)",Go,Claude API,CSV,P0,Marketing copy
+29,Keyword Brainstormer,SEO,"Paste topic → get 50 keyword ideas grouped by intent","Takes seed topic → generates keywords (informational/comparison/transactional)",Go,Claude API,CSV,P0,Content planning
+30,Keyword Difficulty Checker,SEO,"Takes keyword list → shows which are winnable","Estimates difficulty (low/med/hard) for each keyword, why, who ranks",Go,Claude API,CSV,P1,SEO strategy
+31,Thumbnail Concept Designer,Design,"Paste video title → get thumbnail design concept (text/colors/layout)","Takes title → describes exact thumbnail (big text, colors, image, where text goes)",Go,Claude API,CSV,P0,Video design
+32,Image Prompt Optimizer,AI Images,"Paste image idea → get FLUX/Midjourney/DALL-E optimized prompt","Takes plain idea → writes detailed, model-specific prompt",Go,Claude API,CSV,P0,Image generation
+33,Video Hook Generator,Copywriting,"Paste video topic → get 5 different scroll-stopping hooks","Takes topic → writes 5 opening lines designed to stop scroll in first 3 seconds",Go,Claude API,CSV,P0,Video hooks
+34,Lead List Builder,Sales,"Describe target → scrape + enrich list of real prospects","Takes 'plumbers in Phoenix' → finds real businesses from maps/directories → saves CSV",Go,Colly + Maps API,CSV,P0,Build pipeline
+35,Contact Form Scraper,Data Collection,"Scrape contact info from business websites at scale","Takes URL list → finds email/phone/contact-form on each → saves CSV",Go,Colly,CSV,P1,Get contacts
+36,Site Cloner,Reference,"Clone competitor site for redesign reference (not to pass off as yours)","Takes URL → saves full site locally to ~/scraper/clone-DATE/ folder",Go,Colly,HTML folder,P1,Design reference
+37,Outreach Emailer,Outreach,"Send personalized emails to leads (slow, legal, with opt-out)","Takes lead CSV + template → personalizes → sends 10/day with delay + opt-out link",Go,SMTP,Log CSV,P1,Reach prospects
+38,Email Sequence Automator,Email,"Set up: if no reply in 3 days, send follow-up","Define sequence rules → check replies → auto-send follow-ups on schedule",Go,SMTP,JSON,P1,Auto-follow-up
+39,Social Media Scheduler,Social,"Schedule posts to TikTok/Reels/YouTube — whole month at once","Takes caption+video → schedules across platforms → posts automatically",Go,Social APIs,Calendar CSV,P0,Auto-post content
+40,Engagement Tracker,Analytics,"Track which posts got most likes/comments/shares","Pulls social stats every 4 hours, logs performance, flags winners",Go,Social APIs,CSV,P1,See what works
+41,Email App,Communication,"Send/receive business email from machine, draft warm replies","Connects to email account, shows inbox, helps draft replies",Go,IMAP/SMTP,HTML interface,P1,Business email
+42,Email Reply Generator,Writing,"Draft warm reply to incoming lead message","Takes incoming email → suggests reply (professional, warm, next step)",Go,Claude API,TXT,P0,Quick replies
+43,Unified Inbox,Messaging,"Funnel all replies (email + form submissions + comments) into one place","Connects email + website forms + social DMs → shows all in one view",Go,Multiple APIs,HTML,P1,Never miss reply
+44,Auto-Label System,Organization,"Tag incoming messages (lead/warm/cold/support/payment)","Set rules: if sender domain = X → tag 'warm', etc. Auto-organize inbox",Go,Rules engine,JSON,P0,Organize replies
+45,Community Forum,Growth,"Stand up simple forum where audience gathers + buys again","Creates forum signup, welcome post, discussion threads, moderation rules",Go,Forum library,HTML,P1,Own your audience
+46,Community Bot,FAQ,"Auto-reply to common questions in forum (answer FAQs, humans handle real)",Takes FAQ list → bot answers matching questions, logs to CSV",Go,Claude API,Log CSV,P1,Save time answering
+47,Competitor Research,Intelligence,"Deep research one competitor (pricing, copy, offers, messaging)","Takes competitor URL → scrapes + summarizes their positioning + pricing",Go,Colly + Claude,CSV,P1,Know your enemy
+48,Market Research,Research,"Answer market question (what do X businesses charge for Y)","Takes question → scrapes + aggregates data → gives answer with sources",Go,Colly,CSV,P1,Make smart prices
+49,Analytics Dashboard,Measurement,"Self-hosted visitor tracking (no Google, fully private)","Installs lightweight tracker, adds snippet to site, shows dashboard of visitors",Go,Analytics library,HTML,P0,See traffic
+50,Cohort Analysis,Analytics,"Compare behavior of different visitor groups (first-time vs repeat)","Segments visitors, compares conversion %, shows which group worth pursuing",Go,Analytics library,CSV,P0,Growth insights
+51,Revenue Calculator,Finance,"Calculate: visitors × conversion % × price = revenue potential","Takes traffic + conversion rate + price → shows $ opportunity",Go,None,CSV,P0,Forecast income
+52,Traffic Source Tracker,Analytics,"Show where visitors come from (organic/paid/social/direct)","Tracks referrer for each visitor, shows top sources, cost per visitor",Go,Analytics library,CSV,P1,Budget smartly
+53,Conversion Funnel,Analytics,"Track: page view → add to cart → checkout → payment","Logs each step, shows where people drop off, highlights leak",Go,Analytics library,CSV,P1,Improve sales
+54,A/B Test Runner,Experimentation,"Run 2 versions of headline/button/offer, show which wins","Split traffic 50/50, tracks which converts better, shows winner",Go,Analytics library,JSON,P1,Optimize copy
+55,Voice Call Recorder,Communication,"Record sales call + auto-transcribe (with caller consent)","Records call, runs through speech-to-text API, saves transcript + audio",Go,Twilio + Deepgram,TXT + MP3,P1,Searchable calls
+56,Call Transcript Summarizer,Writing,"Summarize call transcript into action items + next steps","Takes call transcript → extracts key points + decisions + follow-ups",Go,Claude API,TXT,P0,Remember calls
+57,AI Voice Clone,Voiceover,"Clone your voice (safely, never to deceive) for voicemail/voiceovers","Takes 1-min voice sample → trains small model → generates voice clips",Go,Voice library,MP3,P1,Voicemail greeting
+58,Voice-to-Email,Writing,"Transcribe voice note + auto-draft into email","Records voice message → transcribes → Claude drafts it as professional email",Go,Speech-to-text + Claude,TXT,P1,Write by talking
+59,Notification Sender,Alerts,"Send you SMS/Slack/email when lead replies or payment lands","Watches inbox/email, triggers notification on new message (SMS/Slack/email)",Go,Twilio/Slack/SMTP,Log,P0,Never miss event
+60,Slack Integration,Messaging,"Send all alerts (new lead/payment/post-went-live) to Slack channel","Posts to Slack channel: new lead scored, payment received, post stats",Go,Slack API,Log,P1,Team awareness
+61,Discord Bot,Community,"Auto-post updates in Discord community (mirrors forum/announcements)","Listens in Discord, posts updates, responds to common commands",Go,Discord API,Log,P1,Discord presence
+62,Daily Digest,Reporting,"Email you morning summary (new leads/replies/payments/tasks)","Runs at 6am, compiles yesterday's activity, emails you the summary",Go,SMTP + Claude,HTML email,P0,Start your day smart
+63,Weekly Report,Reporting,"Send you Friday report (revenue/leads/growth/focus next week)","Pulls data from all modules, writes human-readable weekly summary",Go,Claude API,HTML email,P0,Track progress
+64,Monthly Financial Report,Accounting,"End-of-month: revenue - expenses = profit, formatted for accountant","Totals invoices paid + expenses logged, gives final profit number",Go,None,CSV + PDF,P0,Tax prep ready
+65,Quarterly Planning,Strategy,"Set Q goals, revenue target, focus areas, resource needs","Walks through OKR setting (objectives + key results), saves to folder",Go,None,JSON,P1,Strategic plan
+66,Annual Review,Retrospective,"Year summary: revenue/growth/wins/lessons/next year plan","Pulls year data, writes narrative review, lessons learned, next year strategy",Go,Claude API,MD,P1,Year reflection
+67,Task Queue Manager,Planning,"Priority list of what to do next (urgent/important matrix)","Create tasks, set priority, board view shows what's blocking progress",Go,None,HTML,P0,What's next?
+68,Burndown Chart,Project Management,"Show remaining work on project (tasks/bugs/features left)","Tracks tasks, shows progress bar, estimates days to completion",Go,None,HTML,P1,Project health
+69,Time Tracker,Productivity,"Log time spent on projects (for billing or just awareness)","Timer you start/stop, tags work with project, tracks billable hours",Go,None,CSV,P1,Know where time goes
+70,Calendar Block Scheduler,Planning,"Block time for specific work (Wednesday = client day, don't interrupt)","Visual calendar, drag-to-create blocks, shows your availability",Go,None,HTML,P0,Protect focus time
+71,Team Capacity Viewer,Operations,"If hiring team: show who's swamped vs who has bandwidth","Dashboard showing team member workload, helps assign next task fairly",Go,None,HTML,P1,Manage people
+72,Payment Plan Splitter,Billing,"Break big invoice into installments (instead of $5k upfront, $500/mo)","Takes total + # of months → generates installment plan, sends to client",Go,None,CSV,P0,Easier closes
+73,Refund Handler,Finance,"Track refund requests, approve/deny, log reason","Customer requests refund → you approve/deny + reason → money back or note",Go,None,CSV,P1,Handle unhappy customers
+74,Tax Summary Exporter,Accounting,"Export: all income + all expenses + final tax liability for accountant","Pulls year data, formats for tax filing, ready to hand to CPA",Go,None,CSV + PDF,P0,Tax time easy
+75,Churn Predictor,Retention,"Identify customers likely to cancel soon (no engagement in 60 days)","Tracks last interaction date, flags 'at-risk' customers, suggests re-engagement",Go,None,CSV,P1,Save relationships
+76,Upsell Spotter,Sales,"Find customers ready for upgrade (bought 3+ times, high engagement)","Analyzes purchase history + activity, flags good upsell candidates",Go,None,CSV,P1,Grow per customer
+77,Lifetime Value Calculator,Finance,"Calculate how much you earned from each repeat customer total","Sums all purchases from that customer, shows LTV, ranks top customers",Go,None,CSV,P1,Know customer worth
+78,Win-Loss Analyzer,Sales,"Why did we win that deal? Why did we lose this one? (find patterns)","Logs closed wins/losses + reason, finds patterns, shows what works",Go,Claude API,CSV,P1,Improve closing
+79,Testimonial Collector,Marketing,"Request testimonials from happy customers, track responses","Auto-emails happy customers asking for quote + permission to use",Go,SMTP,CSV,P1,Social proof
+80,Review Request Sender,Reputation,"Ask customers to leave reviews on Google/Yelp/TrustPilot","Generates personalized request, links to each platform, tracks submissions",Go,SMTP,CSV,P1,Reputation
+81,Affiliate Tracker,Sales,"Track affiliate links you promote (clicks/impressions/commissions)","Tracks URL clicks, logs commissions, shows ROI per affiliate link",Go,Link shortener API,CSV,P1,Affiliate income
+82,Referral Program Manager,Growth,"Track who referred customers, pay them commission (automate rewards)","Log referral → track resulting customer → auto-pay commission on their purchases",Go,None,CSV,P1,Growth through referrals
+83,CSV Bulk Importer,Data,"Import customer/lead/product list from CSV, validate, clean data","Reads CSV, checks for dupes, validates emails, normalizes format",Go,None,CSV,P0,Data cleanup
+84,CSV Bulk Exporter,Reporting,"Export any data from system to CSV (leads, invoices, customers, etc)","Takes any data table, exports to clean CSV with headers",Go,None,CSV,P0,Data export
+85,Duplicate Remover,Data Cleaning,"Find + remove duplicate leads/customers (same email/phone)","Scans for dupes, shows comparison, lets you merge or delete",Go,None,JSON,P1,Data quality
+86,Contact Validator,Data,"Check if email/phone is valid format before reaching out","Validates emails (format + domain exists), phone format, flags bad data",Go,Email validator library,CSV,P0,Don't waste outreach
+87,API Rate Limiter,Infrastructure,"Slow down requests to respect API rate limits (don't get blocked)","Queue requests, adds delay between calls, respects X-Rate-Limit headers",Go,None,Config,P0,Stay in good standing
+88,Error Logger,Debugging,"Log all errors + stack traces, searchable for troubleshooting","Catches errors, logs with timestamp + context, shows recent errors",Go,None,Log file,P0,Fix problems faster
+89,Performance Monitor,Optimization,"Track which operations are slow, where to optimize","Times each operation, logs slowest 10, alerts if something got slower",Go,None,CSV,P1,Speed up work
+90,Data Encryption,Security,"Encrypt sensitive data (API keys, passwords) at rest","Encrypts private data with strong key, stores securely, decrypts on need",Go,Crypto library,Encrypted file,P0,Protect secrets
+91,API Key Manager,Security,"Centralize all API keys (store in .env, never in code or logs)","Stores all keys in encrypted .env file, loads on startup, never logs them",Go,Godotenv,ENV file,P0,Secure keys
+92,Audit Log,Compliance,"Log who did what when (for accountability + compliance)","Records all actions: person + time + what changed + why",Go,None,CSV,P1,Track changes
+93,Data Export for Backup,Disaster Recovery,"Export everything to JSON (all data, all settings) — ready to restore","Exports all data to single JSON file, dated, easy to restore from",Go,None,JSON,P0,Backup data
+94,Emergency Restore,Disaster Recovery,"One-click restore from backup (if something breaks catastrophically)","Reads backup JSON, restores all data to system, confirms success",Go,None,JSON,P0,Never lose data
+95,Settings Manager,Configuration,"Centralize all settings in one place (tone, prices, affiliate links, etc)","YAML config file for everything: tone/pricing/links/hours/etc",Go,None,YAML,P0,Configure once
+96,Dark Mode Toggle,UI,"Switch interface between light/dark theme (based on time of day)","Auto-switches at sunset/sunrise, manual toggle, remembers preference",Go,None,CSS,P1,Easier on eyes
+97,Mobile Responsive Checker,QA,"Test if all pages look good on phone (responsive design check)","Opens each page, checks at 320px/768px/1200px widths, flags issues",Go,Selenium,CSV,P0,Mobile ready
+98,Uptime Monitor,Operations,"Check if all your services are running (APIs, sites, servers)","Pings each service every 5 min, alerts if down, logs uptime %",Go,None,CSV,P1,Know when broken
+99,Dependency Updater,Maintenance,"Check for outdated libraries, suggest safe upgrades","Scans go.mod, finds outdated packages, checks for breaking changes",Go,None,MD,P1,Stay current
+100,Load Tester,Performance,"Simulate traffic spike (1000 visitors at once) to see if site handles it","Runs load test, shows response times, finds breaking point",Go,Load testing library,HTML report,P1,Handle growth
+101,URL Shortener,Sharing,"Convert long URLs to short trackable links (yoursite.co/abc123)","Takes URL → generates short code → redirects + tracks clicks",Go,None,CSV,P0,Track links
+102,QR Code Generator,Sharing,"Convert link/text to QR code (print on business cards)","Takes URL → generates QR code image, saves PNG",Go,QR code library,PNG,P0,Print materials
+103,Email Signature Creator,Branding,"Generate professional HTML email signature with links + social icons","Takes name/title/phone/social → generates HTML signature, copy-paste ready",Go,None,HTML,P0,Look professional
+104,Brand Voice Guide,Writing,"Define your tone + style once, reference when writing anything","Creates template: personality + sample phrases + tone examples + do's/don'ts",Go,None,MD,P0,Consistent voice
+105,Prompt Bank,Productivity,"Store your best prompts, search, use again with personalization","Library of your winning prompts (outreach/cold email/sales call) + variables",Go,None,CSV,P0,Reuse what works
+106,Template Manager,Content,"Store email/proposal/contract templates, personalize + send","Library of templates with {{variable}} placeholders, fill + use",Go,None,JSON,P0,Write faster
+107,Competitor Price Watch,Intelligence,"Track 10 competitors' prices daily, alert if they drop","Scrapes competitor sites, logs prices, emails alert if big drop",Go,Colly,CSV,P1,Stay competitive
+108,Market Sentiment Tracker,Research,"Scrape Reddit/Twitter mentions of your niche, show trending topics","Searches for mentions, counts sentiment (positive/negative), shows trends",Go,Colly,JSON,P1,Listen to market
+109,Trend Alert,Content,"Flag trending hashtags/topics in your niche (generate content about them)","Monitors trending topics hourly, emails alert, suggests content ideas",Go,Social API,CSV,P0,Ride waves
+110,Content Calendar,Planning,"Visual month/year of planned posts (what, when, where)","Drag-to-schedule posts across platforms, see full month at glance",Go,None,HTML calendar,P0,Never miss posting
+111,Evergreen Content Recycler,Efficiency,"Repost best content on schedule (top 10% of posts every 3 months)","Finds best posts, schedules them again in different wording, cycles content",Go,None,CSV,P1,Recycle winners
+112,Meme Template Scraper,Inspiration,"Grab trending meme templates (copy format, just change text)","Scrapes meme sites, downloads templates, saves locally for your use",Go,Colly,IMG folder,P1,Trend humor
+113,Stock Photo Finder,Design,"Free stock photos for your posts + sites (Unsplash/Pexels API)","Takes search term → finds free stock photos → downloads + resizes",Go,Unsplash API,IMG folder,P0,Free visuals
+114,Image Resizer,Design,"Resize images for each platform (Instagram 1080×1080, TikTok 9:16, etc)","Takes image, resizes for each platform, saves all versions",Go,Image library,PNG folder,P0,Right sizes
+115,Watermark Adder,Branding,"Add your logo/text watermark to all images before posting","Loads image, adds watermark PNG, saves new version",Go,Image library,PNG,P0,Protect images
+116,Video Trimmer,Editing,"Cut out boring parts of video (trim starts/ends or middle sections)","Takes video + timestamps → cuts segments → saves trimmed version",Go,FFmpeg,MP4,P1,Tighter videos
+117,Subtitle Generator,Accessibility,"Auto-generate captions for videos (required for TikTok volume down)","Takes MP4, runs speech-to-text, generates SRT subtitle file",Go,Deepgram API,SRT,P0,Accessibility
+118,Thumbnail Batch Creator,Design,"Turn video concepts into actual thumbnail images (not just ideas)","Takes thumbnail concepts → uses DALL-E → generates 5 image options",Go,Claude API + DALL-E API,PNG,P1,Real thumbnails
+119,Podcast Transcriber,Documentation,"Record audio, transcribe, save as searchable text + searchable database","Records audio → transcribes → saves TXT + creates searchable index",Go,Deepgram API,TXT + DB,P1,Podcast archive
+120,Meeting Notes Organizer,Documentation,"Take meeting notes, extract action items + decisions, email summary","Takes meeting transcript → highlights decisions + action items → emails attendees",Go,Claude API,TXT email,P0,Remember meetings
+121,Knowledge Base Builder,Documentation,"All your best advice in searchable wiki (FAQ + how-tos + guides)","Create pages, tag with keywords, full-text search, AI-powered answers from KB",Go,Search library,HTML,P0,Self-serve help
+122,Personal AI Assistant,Automation,"Ask your machine questions about your business (brain knows everything)","Local embedding model indexes all your data, answers questions from YOUR history",Go,Ollama + embeddings,Chat interface,P0,Your business brain
