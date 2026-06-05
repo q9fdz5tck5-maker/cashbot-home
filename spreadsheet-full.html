@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROWNS 122 Tools - Complete Spreadsheet</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            max-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 15px;
+            background: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            align-items: center;
+        }
+
+        .controls input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+            grid-column: 1 / -1;
+        }
+
+        .controls button {
+            padding: 10px 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        .controls button:hover {
+            background: #764ba2;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            padding: 10px 15px;
+            background: #f0f0ff;
+            border-bottom: 1px solid #ddd;
+            font-size: 12px;
+        }
+
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-label {
+            color: #666;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 16px;
+        }
+
+        .table-container {
+            flex: 1;
+            overflow: auto;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            background: #667eea;
+            color: white;
+            z-index: 10;
+        }
+
+        th {
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #555;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        th:hover {
+            background: #764ba2;
+        }
+
+        td {
+            padding: 10px 8px;
+            border: 1px solid #eee;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        tr:hover {
+            background: #f0f0ff;
+        }
+
+        .id { width: 40px; font-weight: bold; text-align: center; }
+        .name { width: 140px; font-weight: 600; color: #333; }
+        .type { width: 100px; background-color: #f0f0ff; }
+        .priority { width: 60px; text-align: center; font-weight: bold; }
+
+        .priority.p0 { background: #ffe0e0; color: #c62828; }
+        .priority.p1 { background: #fff3e0; color: #e65100; }
+        .priority.p2 { background: #e8f5e9; color: #2e7d32; }
+
+        .link-btn {
+            color: #667eea;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 500;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .link-btn:hover {
+            background: #f0f0ff;
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #f8f8f8;
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer button {
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>💰 CROWNS — 122 Tools Spreadsheet</h1>
+            <p>Complete affiliate system tools with prompts and links</p>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="searchBox" placeholder="Search by name, type, category...">
+            <button onclick="exportCSV()">📥 Export CSV</button>
+            <button onclick="printTable()">🖨️ Print</button>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Total Tools:</span>
+                <span class="stat-value" id="totalCount">122</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">P0 (Critical):</span>
+                <span class="stat-value" id="p0Count">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">P1 (Important):</span>
+                <span class="stat-value" id="p1Count">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">P2 (Optional):</span>
+                <span class="stat-value" id="p2Count">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">W/ Links:</span>
+                <span class="stat-value" id="linkCount">0</span>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th class="id">ID</th>
+                        <th class="name" onclick="sortTable('name')">Tool Name ↕</th>
+                        <th class="type" onclick="sortTable('type')">Type ↕</th>
+                        <th onclick="sortTable('prompt')">Prompt Title ↕</th>
+                        <th>Affiliate Link</th>
+                        <th onclick="sortTable('category')">Category ↕</th>
+                        <th onclick="sortTable('step')">Step ↕</th>
+                        <th class="priority" onclick="sortTable('priority')">Priority ↕</th>
+                        <th onclick="sortTable('status')">Status ↕</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <button onclick="exportCSV()">📥 Download CSV</button>
+            <button onclick="printTable()">🖨️ Print</button>
+            <button onclick="copyAll()">📋 Copy All</button>
+            <p style="margin-top: 10px;">Built: June 5, 2026 | CASH.BOT CROWNS v1.0</p>
+        </div>
+    </div>
+
+    <script>
+        // All 122 tools data
+        const allTools = [
+            {id: 1, name: "Affiliate Link Organizer", type: "Data Mgmt", prompt: "Parse & Store All Affiliate Links", link: "Multiple", category: "Affiliate", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 2, name: "Affiliate Signup Automator", type: "Web Auto", prompt: "Auto-Sign Up All Casinos", link: "https://crowncoinscasino.com", category: "Casino", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 3, name: "Daily Bonus Claimer", type: "Automation", prompt: "Auto-Click Daily Bonuses", link: "https://www.rolla.com/?raf=1177873", category: "Casino", step: "Daily", priority: "P0", status: "Ready"},
+            {id: 4, name: "Crypto Faucet Collector", type: "Passive", prompt: "Claim Free Crypto Daily", link: "https://www.spinblitz.com", category: "Crypto", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 5, name: "Receipt Scanner (Fetch)", type: "Rewards", prompt: "Scan Receipts & Earn", link: "https://referral.fetch.com", category: "Rewards", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 6, name: "Mobile Game Bonus", type: "Gaming", prompt: "Play Games & Earn Cash", link: "https://mistplay.onelink.me", category: "Gaming", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 7, name: "SoFi Bonus Stacker", type: "Banking", prompt: "Stack $425 in Bonuses", link: "https://www.sofi.com/invite/money", category: "Banking", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 8, name: "Honeygain Passive", type: "Background", prompt: "Earn $3-15/mo Passively", link: "https://join.honeygain.com/CENTRFAD3A", category: "Passive", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 9, name: "Vultr Server Deploy", type: "Infrastructure", prompt: "Deploy Always-On Server", link: "https://www.vultr.com/?ref=9896825-9J", category: "Infrastructure", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 10, name: "RDP Mobile", type: "Remote", prompt: "Connect from iPhone", link: "NONE", category: "Infrastructure", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 11, name: "RDP Desktop", type: "Remote", prompt: "Connect from Windows/Mac", link: "NONE", category: "Infrastructure", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 12, name: "Claude on Server", type: "CLI", prompt: "Install Claude CLI", link: "NONE", category: "Infrastructure", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 13, name: "Chrome Remote", type: "Browser", prompt: "Control Chrome on Server", link: "NONE", category: "Infrastructure", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 14, name: "Website Builder", type: "Web Dev", prompt: "Build Landing Page", link: "NONE", category: "Web", step: "Build", priority: "P0", status: "Ready"},
+            {id: 15, name: "Domain & Hosting", type: "Web Deploy", prompt: "Buy Domain + Host Site", link: "NONE", category: "Web", step: "Build", priority: "P0", status: "Ready"},
+            {id: 16, name: "Google Sheets API", type: "Data Sync", prompt: "Connect to Google Sheets", link: "NONE", category: "Automation", step: "Build", priority: "P0", status: "Ready"},
+            {id: 17, name: "Gmail Integration", type: "Email", prompt: "Auto-send Email", link: "NONE", category: "Email", step: "Build", priority: "P0", status: "Ready"},
+            {id: 18, name: "GoHighLevel CRM", type: "CRM", prompt: "Email + SMS Broadcasting", link: "https://www.self.inc/refer/I663N5ZO", category: "Email", step: "Build", priority: "P0", status: "Ready"},
+            {id: 19, name: "Email Broadcast", type: "Email", prompt: "Create Broadcast Campaign", link: "NONE", category: "Email", step: "Build", priority: "P0", status: "Ready"},
+            {id: 20, name: "Prompt Runner", type: "Automation", prompt: "Run Prompts on Server", link: "NONE", category: "Server", step: "Daily", priority: "P0", status: "Ready"},
+            {id: 21, name: "Notepad Link Opener", type: "Browser", prompt: "Open Links from File", link: "NONE", category: "Daily", step: "Daily", priority: "P0", status: "Ready"},
+            {id: 22, name: "Website Admin Panel", type: "Web Mgmt", prompt: "Edit Links + Layout Live", link: "NONE", category: "Web", step: "Admin", priority: "P0", status: "Ready"},
+            {id: 23, name: "API Key Manager", type: "Security", prompt: "Store Keys Safely", link: "NONE", category: "Infrastructure", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 24, name: "Traffic Tracker", type: "Analytics", prompt: "Track Link Clicks", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 25, name: "Earnings Dashboard", type: "Reporting", prompt: "Real-time Earnings View", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 26, name: "Link Redirector", type: "Web", prompt: "Track Clicks → Redirect", link: "NONE", category: "Web", step: "Build", priority: "P1", status: "Ready"},
+            {id: 27, name: "Bonus Tracker", type: "Data", prompt: "Master Bonus Spreadsheet", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 28, name: "Referral Tracker", type: "Finance", prompt: "Track Commissions", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 29, name: "Payout Tracker", type: "Finance", prompt: "Log Withdrawals", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 30, name: "Tax Summary", type: "Accounting", prompt: "Year-end Tax Report", link: "NONE", category: "Finance", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 31, name: "Mobile App Launcher", type: "Productivity", prompt: "Quick Launch Widget", link: "NONE", category: "Mobile", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 32, name: "Daily Checklist", type: "Automation", prompt: "Track Daily Tasks", link: "NONE", category: "Daily", step: "Daily", priority: "P0", status: "Ready"},
+            {id: 33, name: "Server Monitor", type: "Operations", prompt: "Check Uptime", link: "NONE", category: "Infrastructure", step: "Daily", priority: "P0", status: "Ready"},
+            {id: 34, name: "Backup Scheduler", type: "Backup", prompt: "Auto-backup Data", link: "NONE", category: "Infrastructure", step: "Daily", priority: "P0", status: "Ready"},
+            {id: 35, name: "Security Checker", type: "Security", prompt: "Audit Security", link: "NONE", category: "Infrastructure", step: "Setup", priority: "P0", status: "Ready"},
+            {id: 36, name: "Performance Monitor", type: "Optimization", prompt: "Track Load Speeds", link: "NONE", category: "Web", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 37, name: "SEO Optimizer", type: "Web", prompt: "Add Meta Tags", link: "NONE", category: "Web", step: "Build", priority: "P1", status: "Ready"},
+            {id: 38, name: "Social Promoter", type: "Social", prompt: "Auto-post to Social", link: "NONE", category: "Social", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 39, name: "Newsletter Builder", type: "Email", prompt: "Weekly Newsletter", link: "NONE", category: "Email", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 40, name: "Referral Leaderboard", type: "Gamification", prompt: "Show Top Referrers", link: "NONE", category: "Web", step: "Build", priority: "P1", status: "Ready"},
+            {id: 41, name: "Bonus Alert", type: "Mobile", prompt: "Push Notifications", link: "NONE", category: "Mobile", step: "Daily", priority: "P0", status: "Ready"},
+            {id: 42, name: "Crypto Portfolio", type: "Finance", prompt: "Track Crypto Value", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 43, name: "Game Reward Tracker", type: "Gaming", prompt: "Log Game Earnings", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 44, name: "Receipt Database", type: "Shopping", prompt: "Store Receipt History", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 45, name: "Monthly Report", type: "Reporting", prompt: "Monthly Summary", link: "NONE", category: "Finance", step: "Monthly", priority: "P0", status: "Ready"},
+            {id: 46, name: "Competitor Tracker", type: "Research", prompt: "Monitor Competitors", link: "NONE", category: "Research", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 47, name: "Bonus Trend", type: "Analytics", prompt: "Track Bonus Changes", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 48, name: "Platform Reputation", type: "Research", prompt: "Check Reviews", link: "NONE", category: "Research", step: "Setup", priority: "P1", status: "Ready"},
+            {id: 49, name: "Payment Methods", type: "Finance", prompt: "Track Payout Methods", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 50, name: "Tax Deductions", type: "Finance", prompt: "Track Expenses", link: "NONE", category: "Finance", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 51, name: "Link Personalization", type: "Web", prompt: "Unique Links per Source", link: "NONE", category: "Web", step: "Build", priority: "P1", status: "Ready"},
+            {id: 52, name: "A/B Test Landing", type: "Analytics", prompt: "Test Conversions", link: "NONE", category: "Web", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 53, name: "Email List Cleaner", type: "Data", prompt: "Remove Bounced Emails", link: "NONE", category: "Email", step: "Weekly", priority: "P0", status: "Ready"},
+            {id: 54, name: "Open Rate Tracker", type: "Email", prompt: "Track Email Opens", link: "NONE", category: "Email", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 55, name: "Click Rate Tracker", type: "Email", prompt: "Track Email Clicks", link: "NONE", category: "Email", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 56, name: "Unsubscribe Reasons", type: "Email", prompt: "Collect Feedback", link: "NONE", category: "Email", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 57, name: "Win-Back Campaign", type: "Email", prompt: "Re-engage Users", link: "NONE", category: "Email", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 58, name: "Spam Checker", type: "Email", prompt: "Test Deliverability", link: "NONE", category: "Email", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 59, name: "Cost Optimizer", type: "Finance", prompt: "Optimize Server Cost", link: "NONE", category: "Finance", step: "Monthly", priority: "P0", status: "Ready"},
+            {id: 60, name: "Affiliate Recruiter", type: "Growth", prompt: "Find Affiliates", link: "NONE", category: "Growth", step: "Ongoing", priority: "P1", status: "Ready"},
+            {id: 61, name: "Content Calendar", type: "Planning", prompt: "Plan Posts", link: "NONE", category: "Planning", step: "Weekly", priority: "P0", status: "Ready"},
+            {id: 62, name: "Seasonal Planner", type: "Marketing", prompt: "Holiday Campaigns", link: "NONE", category: "Planning", step: "Quarterly", priority: "P0", status: "Ready"},
+            {id: 63, name: "Trending Monitor", type: "Social", prompt: "Track Trends", link: "NONE", category: "Social", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 64, name: "Meme Creator", type: "Content", prompt: "Generate Memes", link: "NONE", category: "Content", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 65, name: "Video Script Gen", type: "Content", prompt: "Script Videos", link: "NONE", category: "Content", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 66, name: "Thumbnail Designer", type: "Content", prompt: "Design Thumbnails", link: "NONE", category: "Content", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 67, name: "YouTube Uploader", type: "Content", prompt: "Auto-upload Videos", link: "NONE", category: "Content", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 68, name: "TikTok Auto-Poster", type: "Social", prompt: "Post to TikTok", link: "NONE", category: "Social", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 69, name: "Instagram Creator", type: "Content", prompt: "Design Carousels", link: "NONE", category: "Content", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 70, name: "Reddit Automator", type: "Social", prompt: "Post to Reddit", link: "NONE", category: "Social", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 71, name: "Quora Answerer", type: "Content", prompt: "Answer on Quora", link: "NONE", category: "Content", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 72, name: "Blog Creator", type: "Content", prompt: "Write Blog Posts", link: "NONE", category: "Content", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 73, name: "Blog Commenter", type: "Growth", prompt: "Leave Comments", link: "NONE", category: "Growth", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 74, name: "Press Release", type: "PR", prompt: "Distribute Releases", link: "NONE", category: "PR", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 75, name: "Podcast Finder", type: "PR", prompt: "Pitch Podcasts", link: "NONE", category: "PR", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 76, name: "Interview Pitch", type: "PR", prompt: "Pitch Interviews", link: "NONE", category: "PR", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 77, name: "Backlink Tracker", type: "SEO", prompt: "Monitor Links", link: "NONE", category: "SEO", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 78, name: "Ranking Tracker", type: "SEO", prompt: "Track Rankings", link: "NONE", category: "SEO", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 79, name: "Competitor Spy", type: "Research", prompt: "Track Competitors", link: "NONE", category: "Research", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 80, name: "Keyword Gap", type: "SEO", prompt: "Find Opportunities", link: "NONE", category: "SEO", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 81, name: "Link Builder", type: "SEO", prompt: "Build Backlinks", link: "NONE", category: "SEO", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 82, name: "Broken Link Finder", type: "Growth", prompt: "Find Broken Links", link: "NONE", category: "Growth", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 83, name: "Directory Submit", type: "SEO", prompt: "Submit to Directories", link: "NONE", category: "SEO", step: "Quarterly", priority: "P0", status: "Ready"},
+            {id: 84, name: "Local SEO", type: "SEO", prompt: "Multi-city Targeting", link: "NONE", category: "SEO", step: "Quarterly", priority: "P1", status: "Ready"},
+            {id: 85, name: "Mobile App Ads", type: "Advertising", prompt: "Run App Ads", link: "NONE", category: "Advertising", step: "Ongoing", priority: "P1", status: "Ready"},
+            {id: 86, name: "Google Ads", type: "Advertising", prompt: "Run Search Ads", link: "NONE", category: "Advertising", step: "Ongoing", priority: "P1", status: "Ready"},
+            {id: 87, name: "Facebook Ads", type: "Advertising", prompt: "Run Social Ads", link: "NONE", category: "Advertising", step: "Ongoing", priority: "P1", status: "Ready"},
+            {id: 88, name: "Reddit Ads", type: "Advertising", prompt: "Run Reddit Ads", link: "NONE", category: "Advertising", step: "Ongoing", priority: "P1", status: "Ready"},
+            {id: 89, name: "Ad Tracker", type: "Advertising", prompt: "Track Ad ROI", link: "NONE", category: "Analytics", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 90, name: "Ad A/B Tester", type: "Advertising", prompt: "Test Ad Copy", link: "NONE", category: "Advertising", step: "Weekly", priority: "P1", status: "Ready"},
+            {id: 91, name: "Landing Page", type: "Web", prompt: "High-conversion Pages", link: "NONE", category: "Web", step: "Build", priority: "P1", status: "Ready"},
+            {id: 92, name: "Countdown Timer", type: "Web", prompt: "Add Urgency Widget", link: "NONE", category: "Web", step: "Build", priority: "P0", status: "Ready"},
+            {id: 93, name: "Social Proof", type: "Web", prompt: "FOMO Notifications", link: "NONE", category: "Web", step: "Build", priority: "P0", status: "Ready"},
+            {id: 94, name: "Exit Intent", type: "Web", prompt: "Last-chance Popup", link: "NONE", category: "Web", step: "Build", priority: "P0", status: "Ready"},
+            {id: 95, name: "Chat Bot", type: "Web", prompt: "AI Support Chat", link: "NONE", category: "Web", step: "Build", priority: "P1", status: "Ready"},
+            {id: 96, name: "Lead Magnet", type: "Growth", prompt: "Email Capture", link: "NONE", category: "Growth", step: "Build", priority: "P1", status: "Ready"},
+            {id: 97, name: "Email Sequences", type: "Email", prompt: "Auto-sequences", link: "NONE", category: "Email", step: "Build", priority: "P0", status: "Ready"},
+            {id: 98, name: "Re-engagement", type: "Email", prompt: "Win-back Emails", link: "NONE", category: "Email", step: "Monthly", priority: "P0", status: "Ready"},
+            {id: 99, name: "Review Importer", type: "Social Proof", prompt: "Display Reviews", link: "NONE", category: "Web", step: "Build", priority: "P1", status: "Ready"},
+            {id: 100, name: "Case Study", type: "Content", prompt: "Write Case Studies", link: "NONE", category: "Content", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 101, name: "Income Projector", type: "Finance", prompt: "Revenue Forecast", link: "NONE", category: "Finance", step: "Daily", priority: "P1", status: "Ready"},
+            {id: 102, name: "ROI Calculator", type: "Finance", prompt: "Calculate Returns", link: "NONE", category: "Finance", step: "Build", priority: "P1", status: "Ready"},
+            {id: 103, name: "LTV Predictor", type: "Finance", prompt: "Customer Value", link: "NONE", category: "Finance", step: "Ongoing", priority: "P1", status: "Ready"},
+            {id: 104, name: "Cohort Analysis", type: "Analytics", prompt: "User Segments", link: "NONE", category: "Analytics", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 105, name: "Churn Analysis", type: "Analytics", prompt: "Retention Issues", link: "NONE", category: "Analytics", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 106, name: "Success Path", type: "Analytics", prompt: "Winning Patterns", link: "NONE", category: "Analytics", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 107, name: "Growth Roadmap", type: "Planning", prompt: "12-month Plan", link: "NONE", category: "Planning", step: "Quarterly", priority: "P0", status: "Ready"},
+            {id: 108, name: "Expansion", type: "Strategy", prompt: "New Markets", link: "NONE", category: "Strategy", step: "Quarterly", priority: "P1", status: "Ready"},
+            {id: 109, name: "Hiring Plan", type: "Operations", prompt: "Team Growth", link: "NONE", category: "Operations", step: "Quarterly", priority: "P1", status: "Ready"},
+            {id: 110, name: "Outsourcing", type: "Operations", prompt: "Delegate Tasks", link: "NONE", category: "Operations", step: "Quarterly", priority: "P1", status: "Ready"},
+            {id: 111, name: "Tech Audit", type: "Infrastructure", prompt: "Tool Evaluation", link: "NONE", category: "Infrastructure", step: "Quarterly", priority: "P0", status: "Ready"},
+            {id: 112, name: "Automation Finder", type: "Operations", prompt: "Find Automation", link: "NONE", category: "Operations", step: "Quarterly", priority: "P1", status: "Ready"},
+            {id: 113, name: "Process Docs", type: "Operations", prompt: "Document Processes", link: "NONE", category: "Operations", step: "Quarterly", priority: "P0", status: "Ready"},
+            {id: 114, name: "System Monitor", type: "Operations", prompt: "Daily Health Check", link: "NONE", category: "Operations", step: "Daily", priority: "P0", status: "Ready"},
+            {id: 115, name: "Disaster Recovery", type: "Operations", prompt: "Backup Plan", link: "NONE", category: "Operations", step: "Quarterly", priority: "P0", status: "Ready"},
+            {id: 116, name: "Compliance", type: "Legal", prompt: "Legal Audit", link: "NONE", category: "Legal", step: "Quarterly", priority: "P0", status: "Ready"},
+            {id: 117, name: "Insurance", type: "Business", prompt: "Coverage Check", link: "NONE", category: "Business", step: "Quarterly", priority: "P1", status: "Ready"},
+            {id: 118, name: "Entity Structure", type: "Tax", prompt: "Tax Optimization", link: "NONE", category: "Tax", step: "Annually", priority: "P1", status: "Ready"},
+            {id: 119, name: "Annual Review", type: "Finance", prompt: "Year Wrap-up", link: "NONE", category: "Finance", step: "Annually", priority: "P0", status: "Ready"},
+            {id: 120, name: "Personal Brand", type: "Marketing", prompt: "Build Authority", link: "NONE", category: "Marketing", step: "Ongoing", priority: "P1", status: "Ready"},
+            {id: 121, name: "Thought Leadership", type: "Marketing", prompt: "Write Deep Content", link: "NONE", category: "Content", step: "Monthly", priority: "P1", status: "Ready"},
+            {id: 122, name: "Community", type: "Growth", prompt: "Build Discord/Telegram", link: "NONE", category: "Community", step: "Ongoing", priority: "P1", status: "Ready"},
+        ];
+
+        let sortDirection = {};
+        let currentData = [...allTools];
+
+        function renderTable(data = allTools) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            data.forEach(tool => {
+                const row = document.createElement('tr');
+                const linkHtml = tool.link !== 'NONE' && tool.link !== 'Multiple'
+                    ? `<a href="${tool.link}" target="_blank" class="link-btn">Link ↗</a>`
+                    : (tool.link === 'Multiple' ? 'Multiple Links' : '—');
+
+                row.innerHTML = `
+                    <td class="id">${tool.id}</td>
+                    <td class="name">${tool.name}</td>
+                    <td class="type">${tool.type}</td>
+                    <td>${tool.prompt}</td>
+                    <td>${linkHtml}</td>
+                    <td>${tool.category}</td>
+                    <td>${tool.step}</td>
+                    <td class="priority ${tool.priority.toLowerCase()}">${tool.priority}</td>
+                    <td>${tool.status}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            updateStats(data);
+        }
+
+        function updateStats(data) {
+            const p0 = data.filter(t => t.priority === 'P0').length;
+            const p1 = data.filter(t => t.priority === 'P1').length;
+            const p2 = data.filter(t => t.priority === 'P2').length;
+            const withLinks = data.filter(t => t.link !== 'NONE').length;
+
+            document.getElementById('totalCount').textContent = data.length;
+            document.getElementById('p0Count').textContent = p0;
+            document.getElementById('p1Count').textContent = p1;
+            document.getElementById('p2Count').textContent = p2;
+            document.getElementById('linkCount').textContent = withLinks;
+        }
+
+        function sortTable(column) {
+            const dir = sortDirection[column] === 'asc' ? 'desc' : 'asc';
+            sortDirection[column] = dir;
+
+            currentData.sort((a, b) => {
+                let aVal = a[column] || '';
+                let bVal = b[column] || '';
+
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                }
+
+                if (dir === 'asc') {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+
+            renderTable(currentData);
+        }
+
+        function searchTable() {
+            const input = document.getElementById('searchBox').value.toLowerCase();
+            currentData = allTools.filter(tool =>
+                tool.name.toLowerCase().includes(input) ||
+                tool.type.toLowerCase().includes(input) ||
+                tool.category.toLowerCase().includes(input) ||
+                tool.prompt.toLowerCase().includes(input)
+            );
+            renderTable(currentData);
+        }
+
+        function exportCSV() {
+            let csv = 'ID,Name,Type,Prompt,Link,Category,Step,Priority,Status\n';
+            currentData.forEach(tool => {
+                csv += `"${tool.id}","${tool.name}","${tool.type}","${tool.prompt}","${tool.link}","${tool.category}","${tool.step}","${tool.priority}","${tool.status}"\n`;
+            });
+
+            const blob = new Blob([csv], {type: 'text/csv'});
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'CROWNS-122-tools.csv';
+            a.click();
+        }
+
+        function printTable() {
+            window.print();
+        }
+
+        function copyAll() {
+            let text = 'CROWNS 122 Tools Spreadsheet\n\n';
+            currentData.forEach(tool => {
+                text += `${tool.id}. ${tool.name} (${tool.priority}) - ${tool.prompt}\n`;
+            });
+            navigator.clipboard.writeText(text);
+            alert('All data copied to clipboard!');
+        }
+
+        document.getElementById('searchBox').addEventListener('keyup', searchTable);
+        renderTable();
+    </script>
+</body>
+</html>
