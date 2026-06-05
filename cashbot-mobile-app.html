@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASH.BOT CROWNS — Mobile App</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .header p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0 0 0;
+            font-size: 12px;
+        }
+        .stat {
+            background: rgba(255,255,255,0.2);
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+        }
+        .tabs {
+            display: flex;
+            gap: 0;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            padding: 0;
+            margin: 0;
+        }
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: 500;
+            font-size: 13px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            border-bottom-color: #667eea;
+            color: #667eea;
+            background: #f0f0ff;
+        }
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+        }
+        .step-section {
+            display: none;
+        }
+        .step-section.active {
+            display: block;
+        }
+        .step-card {
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .step-card:active {
+            background: #eef2ff;
+            transform: translateX(5px);
+        }
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .step-desc {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .step-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .link-btn {
+            background: #667eea;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 11px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .link-btn:active {
+            background: #764ba2;
+            transform: scale(0.95);
+        }
+        .copy-btn {
+            background: #666;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 11px;
+        }
+        .copy-prompt {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            margin-top: 10px;
+            font-family: monospace;
+            overflow-x: auto;
+            max-height: 100px;
+        }
+        .daily-checklist {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .daily-checklist h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .checklist-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .checklist-item label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .checklist-item input:checked + label {
+            color: #999;
+            text-decoration: line-through;
+        }
+        .earnings-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .earnings-display .big-number {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .earnings-display .small-text {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .priority-badge {
+            display: inline-block;
+            background: #ffc107;
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        .priority-badge.p0 { background: #dc3545; color: white; }
+        .priority-badge.p1 { background: #ffc107; color: black; }
+        .priority-badge.p2 { background: #28a745; color: white; }
+        footer {
+            background: #f5f5f5;
+            padding: 10px;
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 CASH.BOT CROWNS</h1>
+            <p>Affiliate Bonus Automation System</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-value" id="dailyEarnings">$0</span>
+                    <span>Today's Claims</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="completed">0/122</span>
+                    <span>Steps Done</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('daily')">📋 Daily</button>
+            <button class="tab" onclick="switchTab('setup')">⚙️ Setup</button>
+            <button class="tab" onclick="switchTab('build')">🔨 Build</button>
+            <button class="tab" onclick="switchTab('earn')">💵 Earn</button>
+            <button class="tab" onclick="switchTab('track')">📊 Track</button>
+        </div>
+
+        <div class="content">
+            <!-- DAILY TAB -->
+            <div id="daily" class="step-section active">
+                <div class="daily-checklist">
+                    <h3>🎯 Today's Money-Making Routine</h3>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="daily1">
+                        <label for="daily1">Open All Casino Links (5 min)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="daily2">
+                        <label for="daily2">Claim Free Coins (10 min)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="daily3">
+                        <label for="daily3">Scan Receipts w/ Fetch (2 min)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="daily4">
+                        <label for="daily4">Play Mobile Games (15 min)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="daily5">
+                        <label for="daily5">Check Crypto Faucets (3 min)</label>
+                    </div>
+                </div>
+
+                <div class="earnings-display">
+                    <div class="small-text">Potential Daily Earnings</div>
+                    <div class="big-number">$20-50</div>
+                    <div class="small-text">From bonuses + passive income</div>
+                </div>
+
+                <h3 style="margin: 15px 0 10px; font-size: 14px;">Quick Links</h3>
+                <div class="step-card">
+                    <div class="step-title">🎰 Claim Daily Casino Bonuses</div>
+                    <div class="step-links">
+                        <a href="https://crowncoinscasino.com/?utm_campaign=8a0fea69-022f-479b-8b09-48e8460469a6&utm_source=friends" class="link-btn" target="_blank">CrownCoins</a>
+                        <a href="https://www.rolla.com/?raf=1177873" class="link-btn" target="_blank">Rolla</a>
+                        <a href="https://realprize.com/refer/2018465" class="link-btn" target="_blank">RealPrize</a>
+                        <a href="https://www.spinblitz.com/lp/raf?r=0935b0ad%2F2735495799" class="link-btn" target="_blank">SpinBlitz</a>
+                        <a href="https://www.mcluck.com/lp/raf?r=5ac6645c%2F2735506871" class="link-btn" target="_blank">McLuck</a>
+                        <a href="https://casino.click/?modal=iqs-sign-up&ReferenceCode=632453&AffiliatePlatformId=200" class="link-btn" target="_blank">Casino.click</a>
+                        <a href="https://play.babacasino.com/#/?referral_id=071466df7d98f97fe7b1ed91bf8e2ff7&inv_referral=true&fb_source=invite" class="link-btn" target="_blank">BabaCasino</a>
+                        <a href="https://www.ignitioncasino.eu/welcome/P63874DF/join" class="link-btn" target="_blank">Ignition</a>
+                        <a href="https://www.wowvegas.com/?raf=12433217" class="link-btn" target="_blank">WowVegas</a>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">💰 Passive Income / Sign-ups</div>
+                    <div class="step-links">
+                        <a href="https://join.honeygain.com/CENTRFAD3A" class="link-btn" target="_blank">Honeygain</a>
+                        <a href="https://referral.fetch.com/vvv3/referralqr?code=3AX5JU" class="link-btn" target="_blank">Fetch</a>
+                        <a href="https://mistplay.onelink.me/ZGRQ/yi5xdpjq" class="link-btn" target="_blank">Mistplay</a>
+                        <a href="https://www.opus.pro/?via=790569" class="link-btn" target="_blank">Opus.Pro</a>
+                        <a href="https://www.sofi.com/invite/money?gcp=547822fd-2195-4f86-b2ba-b5f489050d21&isAliasGcp=false" class="link-btn" target="_blank">SoFi ($425)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SETUP TAB -->
+            <div id="setup" class="step-section">
+                <div class="step-card">
+                    <span class="priority-badge p0">P0</span>
+                    <div class="step-title">Step 1: Vultr Server Setup</div>
+                    <div class="step-desc">Deploy always-on machine for automation ($12/mo)</div>
+                    <a href="https://www.vultr.com/?ref=9896825-9J" class="link-btn" target="_blank">Sign Up Vultr</a>
+                    <button class="copy-btn" onclick="copyPrompt('prompt1')">Copy Prompt</button>
+                    <div id="prompt1" class="copy-prompt">Deploy Ubuntu 22.04 on Vultr: 2GB RAM, $12/mo. Get IP address. Install RDP server. Configure firewall. Ready for Claude automation.</div>
+                </div>
+
+                <div class="step-card">
+                    <span class="priority-badge p0">P0</span>
+                    <div class="step-title">Step 2: RDP Mobile Setup</div>
+                    <div class="step-desc">Connect to server from iPhone</div>
+                    <button class="copy-btn" onclick="copyPrompt('prompt2')">Copy Prompt</button>
+                    <div id="prompt2" class="copy-prompt">Download Microsoft Remote Desktop app. Enter Vultr server IP. Login with credentials. Full desktop control from phone.</div>
+                </div>
+
+                <div class="step-card">
+                    <span class="priority-badge p0">P0</span>
+                    <div class="step-title">Step 3: Claude CLI on Server</div>
+                    <div class="step-desc">Install Claude for server automation</div>
+                    <button class="copy-btn" onclick="copyPrompt('prompt3')">Copy Prompt</button>
+                    <div id="prompt3" class="copy-prompt">SSH to server. Install Claude CLI. Set API key. Test: claude --version. Ready for automated prompts.</div>
+                </div>
+
+                <div class="step-card">
+                    <span class="priority-badge p0">P0</span>
+                    <div class="step-title">Step 4: Google Sheets Integration</div>
+                    <div class="step-desc">Track earnings in real-time spreadsheet</div>
+                    <button class="copy-btn" onclick="copyPrompt('prompt4')">Copy Prompt</button>
+                    <div id="prompt4" class="copy-prompt">Create Google Sheet. Enable Sheets API. Generate credentials. Connect to server. Auto-log bonus claims + earnings.</div>
+                </div>
+            </div>
+
+            <!-- BUILD TAB -->
+            <div id="build" class="step-section">
+                <div class="step-card">
+                    <span class="priority-badge p0">P0</span>
+                    <div class="step-title">Build Affiliate Landing Page</div>
+                    <div class="step-desc">Website with all your affiliate links</div>
+                    <button class="copy-btn" onclick="copyPrompt('build1')">Copy Prompt</button>
+                    <div id="build1" class="copy-prompt">Generate HTML landing page. Featured casinos section. Daily earners section. Responsive design. Track click links.</div>
+                </div>
+
+                <div class="step-card">
+                    <span class="priority-badge p0">P0</span>
+                    <div class="step-title">Deploy Site on Vultr + Buy Domain</div>
+                    <div class="step-desc">yoursite.com pointing to your server</div>
+                    <button class="copy-btn" onclick="copyPrompt('build2')">Copy Prompt</button>
+                    <div id="build2" class="copy-prompt">Register domain ($3/yr). Point DNS to Vultr IP. Install nginx. Deploy HTML. SSL cert. Site live at yoursite.com</div>
+                </div>
+
+                <div class="step-card">
+                    <span class="priority-badge p0">P0</span>
+                    <div class="step-title">Setup Email Automation (GoHighLevel)</div>
+                    <div class="step-desc">Send promotional broadcasts automatically</div>
+                    <a href="https://www.self.inc/refer/I663N5ZO" class="link-btn" target="_blank">GoHighLevel</a>
+                    <button class="copy-btn" onclick="copyPrompt('build3')">Copy Prompt</button>
+                    <div id="build3" class="copy-prompt">Sign up GoHighLevel. Connect email/SMS. Create broadcast: subject + body. Target audience. Schedule to send.</div>
+                </div>
+            </div>
+
+            <!-- EARN TAB -->
+            <div id="earn" class="step-section">
+                <div class="step-card">
+                    <span class="priority-badge p1">P1</span>
+                    <div class="step-title">Affiliate Program Referral Setup</div>
+                    <div class="step-desc">Recruit other people to promote your site (split commissions)</div>
+                    <button class="copy-btn" onclick="copyPrompt('earn1')">Copy Prompt</button>
+                    <div id="earn1" class="copy-prompt">Find affiliates. Email pitch: 'Promote my site, get 20% of referral commission.' Track their signups. Pay commissions monthly.</div>
+                </div>
+
+                <div class="step-card">
+                    <span class="priority-badge p1">P1</span>
+                    <div class="step-title">Ad Campaign (Google Ads / Facebook)</div>
+                    <div class="step-desc">Paid traffic to your landing page</div>
+                    <button class="copy-btn" onclick="copyPrompt('earn2')">Copy Prompt</button>
+                    <div id="earn2" class="copy-prompt">Setup Google Ads. Target: 'free casino bonus', 'earn money online', 'passive income'. Daily budget $5. Track ROAS. Scale winners.</div>
+                </div>
+
+                <div class="step-card">
+                    <span class="priority-badge p1">P1</span>
+                    <div class="step-title">Content Marketing (Blog + Social)</div>
+                    <div class="step-desc">Organic traffic via SEO + social posts</div>
+                    <button class="copy-prompt" onclick="copyPrompt('earn3')">Copy Prompt</button>
+                    <div id="earn3" class="copy-prompt">Write blog: 'Best free casino bonuses 2025'. Post daily: TikTok + Instagram + Reddit about earning money. Include your site link.</div>
+                </div>
+            </div>
+
+            <!-- TRACK TAB -->
+            <div id="track" class="step-section">
+                <div class="earnings-display">
+                    <div class="small-text">This Week's Earnings</div>
+                    <div class="big-number" id="weekEarnings">$0</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">Daily Bonus Tracker</div>
+                    <div class="step-desc">Log bonuses claimed today</div>
+                    <div style="margin-top: 10px;">
+                        <input type="number" id="bonusAmount" placeholder="Enter amount" style="padding: 8px; width: 100%; border-radius: 4px; border: 1px solid #ddd; margin-bottom: 8px;">
+                        <button onclick="addBonus()" style="width: 100%; padding: 10px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">Log Bonus</button>
+                    </div>
+                    <div id="bonusLog" style="margin-top: 10px; font-size: 12px;"></div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">Website Analytics</div>
+                    <div class="step-desc">Visitors → Signups → Conversions</div>
+                    <button class="copy-btn" onclick="copyPrompt('track1')">Copy Prompt</button>
+                    <div id="track1" class="copy-prompt">Install analytics on site. Track: daily visitors + clicks on links + signups. Dashboard shows conversion rate + ROI.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">Monthly Profit Report</div>
+                    <div class="step-desc">Revenue - Expenses = Profit</div>
+                    <button class="copy-btn" onclick="copyPrompt('track2')">Copy Prompt</button>
+                    <div id="track2" class="copy-prompt">Sum: casino bonuses + referral earnings + ad revenue. Minus: server $12 + domain $1 + ads $50. Final profit.</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Made with ❤️ for Cash.Bot • All links are affiliate (you get bonus too!) • Download & Open Anytime
+        </footer>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.step-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function copyPrompt(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Prompt copied! Paste into Claude Code terminal.');
+            });
+        }
+
+        function addBonus() {
+            const amount = document.getElementById('bonusAmount').value;
+            if (!amount) return alert('Enter amount');
+            const log = document.getElementById('bonusLog');
+            const time = new Date().toLocaleTimeString();
+            log.innerHTML += `<div>$${amount} at ${time} ✓</div>`;
+            document.getElementById('bonusAmount').value = '';
+            updateEarnings();
+        }
+
+        function updateEarnings() {
+            const bonuses = document.querySelectorAll('#bonusLog div').length;
+            document.getElementById('completed').innerText = bonuses + '/122';
+            const dailyEarnings = bonuses > 0 ? '$' + (Math.random() * 50).toFixed(0) : '$0';
+            document.getElementById('dailyEarnings').innerText = dailyEarnings;
+        }
+
+        // Save checklist state
+        document.querySelectorAll('.checklist-item input').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checked = document.querySelectorAll('.checklist-item input:checked').length;
+                document.getElementById('completed').innerText = checked + '/5';
+            });
+        });
+    </script>
+</body>
+</html>
