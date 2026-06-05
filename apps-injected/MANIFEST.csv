@@ -1,0 +1,5 @@
+App ID,Name,Branch,Priority,Injected File,Real Code Does,Verified
+1,WALLET,EARN,P0,earn/01-wallet.sh,"Saves public receive address + reads live ETH balance via public RPC",YES
+2,TRADE,EARN,P1,earn/02-trade.sh,"Consent gate + conservative paper config + paper buy vs live Binance price",YES
+3,FAUCETHUB,EARN,P2,earn/03-faucethub.sh,"Seeds 6 real testnet faucets + checks Sepolia balance via public RPC",YES
+4,PAY,EARN,P1,earn/04-pay.sh,"Generates real HTML+text invoice w/ PayPal.me link + honest ledger",YES
