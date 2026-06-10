@@ -1,0 +1,123 @@
+ID,Tool Name,Type,Prompt,Affiliate Link,Category,Step,Priority,Status,Notes
+1,Affiliate Link Organizer,Data Management,Parse & Store All Affiliate Links,Multiple,Affiliate System,Setup,P0,Ready,Collect all links into organized list
+2,Affiliate Signup Automator,Web Automation,Auto-Sign Up All Casinos & Platforms,https://crowncoinscasino.com/?utm_campaign=8a0fea69-022f-479b-8b09-48e8460469a6&utm_source=friends,Casino,Setup,P0,Ready,Bot walks through signup forms
+3,Daily Bonus Claimer,Automation,Auto-Click Daily Bonuses on All Sites,https://www.rolla.com/?raf=1177873,Casino,Daily,P0,Ready,Open links + click bonus buttons
+4,Crypto Faucet Collector,Passive Income,Claim Free Crypto Daily from 20+ Faucets,https://www.spinblitz.com/lp/raf?r=0935b0ad%2F2735495799,Crypto,Daily,P1,Ready,Rotate through faucets daily
+5,Receipt Scanner (Fetch),Rewards,Scan Receipts & Earn Gift Cards,https://referral.fetch.com/vvv3/referralqr?code=3AX5JU,Rewards,Daily,P1,Ready,Phone: take photo of receipt
+6,Mobile Game Bonus Collector,Gaming Rewards,Play Games & Earn Cash (Mistplay),https://mistplay.onelink.me/ZGRQ/yi5xdpjq,Gaming,Daily,P1,Ready,Open game app + play minimal time
+7,SoFi Multi-Account Bonus Stacker,Banking,Stack $425 in bonuses (checking + invest + crypto + loans),https://www.sofi.com/invite/money?gcp=547822fd-2195-4f86-b2ba-b5f489050d21&isAliasGcp=false,Banking,Setup,P0,Ready,Sign up for all SoFi products
+8,Honeygain Passive Income,Background Income,Install & forget: earn $3-15/mo from bandwidth sharing,https://join.honeygain.com/CENTRFAD3A,Passive,Setup,P0,Ready,Daemon runs 24/7 in background
+9,Vultr Cloud Server Deployer,Infrastructure,Deploy Always-On Server from Vultr API,https://www.vultr.com/?ref=9896825-9J,Infrastructure,Setup,P0,Ready,Spin up Ubuntu server for $12/mo
+10,RDP Connector Mobile,Remote Access,Connect to Vultr server from iPhone (Microsoft Remote Desktop),NONE,Infrastructure,Setup,P0,Ready,See full desktop on phone
+11,RDP Connector Desktop,Remote Access,Connect to Vultr server from Windows/Mac (TeamViewer/RDP),NONE,Infrastructure,Setup,P0,Ready,Full control from desktop
+12,Claude Installation on Server,Command Line,Install Claude CLI on Vultr server for automation,NONE,Infrastructure,Setup,P0,Ready,SSH + install + test
+13,Chrome Remote on Server,Browser Control,Install & control Chrome on server from phone prompts,NONE,Infrastructure,Setup,P0,Ready,Headless Chrome + remote debugging
+14,Website Builder (Affiliate Landing Page),Web Development,Build beautiful landing page with all affiliate links organized by category,NONE,Web,Build,P0,Ready,HTML generator for landing page
+15,Domain & Hosting Setup,Web Deployment,Buy domain + host site on Vultr,NONE,Web,Build,P0,Ready,Register domain + point DNS
+16,Google Sheets Integration,Data Sync,Connect website to Google Sheets: affiliate earnings log syncs automatically,NONE,Automation,Build,P0,Ready,API connection for real-time tracking
+17,Gmail Integration,Email Automation,Auto-send affiliate promotion emails from your Gmail account,NONE,Email,Build,P0,Ready,SMTP connection to Gmail
+18,GoHighLevel CRM Setup,CRM & Broadcast,Integrate GoHighLevel: manage leads + auto-send email/SMS broadcasts,https://www.self.inc/refer/I663N5ZO,Email,Build,P0,Ready,Email + SMS marketing platform
+19,Email Broadcast Builder,Bulk Email,Create broadcast: subject + body + select audience → send to list,NONE,Email,Build,P0,Ready,Template + send functionality
+20,Prompt Runner on Server,Automation,Run Claude prompts on Vultr server (daily bonus claiming + scraping),NONE,Server,Daily,P0,Ready,Server executes prompts automatically
+21,Notepad Link Opener,Browser Automation,Read notepad file → open all links in Chrome (for daily bonus clicking),NONE,Daily Routine,Daily,P0,Ready,Opens ~/links.txt in browser
+22,Website Edit Manager (Admin Panel),Web Management,Admin dashboard: edit affiliate links + change layout + update descriptions,NONE,Web,Admin,P0,Ready,Login → edit → push live
+23,API Key Manager,Security,Centralize all API keys (Vultr + Google + GoHighLevel + Sheets) safely,NONE,Infrastructure,Setup,P0,Ready,Encrypted .env file storage
+24,Traffic Tracker,Analytics,Track clicks on affiliate links: which casino gets most traffic? Most conversions?,NONE,Analytics,Daily,P1,Ready,Log every click with timestamp
+25,Earnings Dashboard,Reporting,Real-time dashboard: daily bonuses claimed + passive income + referral earnings + total to date,NONE,Analytics,Daily,P1,Ready,Updates hourly with totals
+26,Link Click Redirector,Web Dev,When someone clicks affiliate link on your site → track click → redirect to actual affiliate site,NONE,Web,Build,P1,Ready,yoursite.com/go/spinblitz
+27,Bonus Tracker Spreadsheet,Data,Master spreadsheet: all casinos + daily bonus amount + last claimed + days claimed in a row + total earnings,NONE,Analytics,Daily,P1,Ready,Tracks streak + totals
+28,Referral Commission Tracker,Finance,Track referral commissions: when someone signs up with your link → logs their activity → tracks your commission,NONE,Analytics,Daily,P1,Ready,Calculates commission owed
+29,Payout Tracker,Finance,Log when you withdraw earnings from each platform (casino cash → wallet → bank),NONE,Analytics,Daily,P1,Ready,Method + date + status
+30,Tax Summary for Affiliate Income,Accounting,End of year: sum all affiliate earnings across 30+ platforms → ready for tax filing,NONE,Finance,Monthly,P1,Ready,Exports for CPA
+31,Mobile App Launcher,Productivity,Home screen quick-launch for daily routine: Bonus Claimer → Receipt Scanner → Game App → Crypto Faucets,NONE,Mobile,Daily,P1,Ready,Widget on home screen
+32,Daily Routine Checklist,Automation,Check off daily tasks: opened all casinos? Claimed bonuses? Scanned receipts? Played games?,NONE,Daily Routine,Daily,P0,Ready,Checkbox tracking
+33,Server Uptime Monitor,Operations,Check if Vultr server + website + all APIs are running (hourly ping),NONE,Infrastructure,Daily,P0,Ready,Status dashboard
+34,Backup Scheduler,Disaster Recovery,Auto-backup all data (spreadsheets + site config + login credentials) nightly to encrypted drive,NONE,Infrastructure,Daily,P0,Ready,Runs at 2am
+35,Security Checker,Security,Verify API keys are hidden (not logged) + all passwords encrypted + no sensitive data in version control,NONE,Infrastructure,Setup,P0,Ready,Audit tool
+36,Performance Monitor,Optimization,Track page load speed + which affiliate links are slowest to load → optimize,NONE,Web,Daily,P1,Ready,Alerts if >3 sec
+37,SEO Optimizer,Web,Add meta tags + sitemap + robots.txt + optimize for Google search (traffic growth),NONE,Web,Build,P1,Ready,Auto-generates tags
+38,Social Media Promoter,Social,Auto-post your affiliate landing page to Twitter/LinkedIn/Reddit daily,NONE,Social,Daily,P1,Ready,Daily posts
+39,Newsletter Builder,Email,Weekly email to subscribers: best bonuses of the week + top earners + success stories,NONE,Email,Weekly,P1,Ready,Friday digest
+40,Referral Leaderboard,Gamification,Show top referrers: who brought most signups? Who earned most commissions?,NONE,Web,Build,P1,Ready,Public page with rankings
+41,Bonus Alert Notification,Mobile,Push notification when big bonus appears (e.g. 'Spinblitz: 500 free coins TODAY'),NONE,Mobile,Daily,P0,Ready,Phone alerts
+42,Crypto Portfolio Tracker,Finance,Track all crypto you earned: wallet address + coin + amount + current value → shows net worth growth,NONE,Analytics,Daily,P1,Ready,Live price tracking
+43,Game Reward Tracker,Gaming,Log all games played + time spent + earnings + which games pay best,NONE,Analytics,Daily,P1,Ready,ROI by game
+44,Receipt Database,Shopping,Store all scanned receipts (date + store + amount + points earned),NONE,Analytics,Daily,P1,Ready,Searchable history
+45,Monthly Income Report,Reporting,End of month: total bonuses + referral earnings + game rewards + passive income + final profit,NONE,Finance,Monthly,P0,Ready,PDF report
+46,Competitor Link Tracker,Research,Monitor what other affiliate promoters are using (their best casinos + offers),NONE,Research,Weekly,P1,Ready,Competitive intel
+47,Bonus Amount Tracker,Analytics,Track bonus sizes over time: has Spinblitz bonus shrunk? Do casinos offer more on weekends?,NONE,Analytics,Daily,P1,Ready,Trend analysis
+48,Platform Reputation Checker,Research,Check forum posts about each casino: are they paying out? Any complaints?,NONE,Research,Setup,P1,Ready,Sentiment analysis
+49,Payment Method Tracker,Finance,Log which sites pay which ways (crypto/ACH/Paypal) + processing time,NONE,Analytics,Daily,P1,Ready,Find fastest payouts
+50,Tax Deduction Optimizer,Finance,Categorize expenses (domain + server + phone data for daily claiming) + track for tax deduction,NONE,Finance,Monthly,P1,Ready,Maximize deductions
+51,Link Personalization Engine,Web,Generate unique referral links per traffic source (Facebook → one link, Twitter → different link),NONE,Web,Build,P1,Ready,Track by source
+52,Conversion Rate Optimizer,Analytics,A/B test landing page: different designs → measure which gets most signups → use winner,NONE,Web,Daily,P1,Ready,Split testing
+53,Email List Cleaner,Data,Remove bounced emails + unsubscribers + inactive contacts → keeps list healthy,NONE,Email,Weekly,P0,Ready,Improve deliverability
+54,Open Rate Tracker,Email,Track which email subjects get best open rate (try 10 variations per week),NONE,Email,Daily,P1,Ready,Subject line testing
+55,Click Rate Tracker,Email,Track which email body copy gets most clicks (headline vs list of links vs single CTA),NONE,Email,Daily,P1,Ready,Copy testing
+56,Unsubscribe Reason Collector,Email,When someone unsubscribes, ask why → log reason → reduce churn,NONE,Email,Daily,P1,Ready,Feedback collection
+57,Win-Back Campaign,Email,Find inactive subscribers (no opens in 30 days) → send special offer → try to re-engage,NONE,Email,Monthly,P1,Ready,Retention focus
+58,Spam Checker,Email,Verify emails aren't hitting spam folder (use Inbox Placement testing),NONE,Email,Weekly,P1,Ready,Deliverability audit
+59,Server Cost Optimizer,Finance,Monthly: check if Vultr plan is right size (or use cheaper host),NONE,Finance,Monthly,P0,Ready,Cost efficiency
+60,Affiliate Program Recruiter,Growth,Find other content creators → pitch your referral link → split commissions if they promote,NONE,Growth,Ongoing,P1,Ready,Scale through partners
+61,Content Calendar,Planning,Plan what to post when: which casino this week, which game next week, seasonal bonuses,NONE,Planning,Weekly,P0,Ready,Visual planning
+62,Seasonal Campaign Planner,Marketing,Plan campaigns around holidays: Christmas bonuses + New Year specials + Valentine promos,NONE,Planning,Quarterly,P0,Ready,Holiday strategy
+63,Trending Topics Monitor,Social,What's trending today? Can you tie your casino link to trending topic?,NONE,Social,Daily,P1,Ready,Trend alerts
+64,Meme Creator,Content,Auto-generate casino/crypto memes (funny + shareable + drive traffic),NONE,Content,Weekly,P1,Ready,Meme templates
+65,Video Script Generator,Content,Script for YouTube shorts: best casino bonuses + quick gameplay + referral link at end,NONE,Content,Weekly,P1,Ready,Video outlines
+66,Thumbnail Designer,Content,Design eye-catching thumbnails for YouTube videos (red circles + big numbers + excited face),NONE,Content,Weekly,P1,Ready,Template generator
+67,YouTube Uploader,Content,Auto-upload video to YouTube + add affiliate links in description + pin comment with link,NONE,Content,Weekly,P1,Ready,Automation tool
+68,TikTok Auto-Poster,Social,Post TikTok about casino/crypto bonuses daily (use trending sounds + captions),NONE,Social,Daily,P1,Ready,Auto-posting
+69,Instagram Carousel Creator,Content,Design 5-slide carousel: '5 ways to make $100 this week' → each slide different method,NONE,Content,Weekly,P1,Ready,Carousel templates
+70,Reddit Post Automator,Social,Find relevant subreddits (gambling/investing/passive income) → post your link naturally,NONE,Social,Weekly,P1,Ready,Subreddit posting
+71,Quora Answerer,Content,Find Quora questions about making money → answer helpfully + mention your site,NONE,Content,Weekly,P1,Ready,Q&A platform
+72,Blog Post Creator,Content,Write SEO blog post: 'Best Free Casino Bonuses 2025' → embedded links → ranks on Google,NONE,Content,Weekly,P1,Ready,Blog generator
+73,Blog Comment Poster,Growth,Find blogs about gambling + crypto → leave thoughtful comments with link in signature,NONE,Growth,Weekly,P1,Ready,Comment outreach
+74,Press Release Distributor,PR,Write press release: 'New Site Aggregates Best Casino Bonuses' → distribute to press sites,NONE,PR,Monthly,P1,Ready,PR distribution
+75,Podcast Guest Finder,PR,Find podcasts about finance/entrepreneurship/gambling → pitch as guest expert,NONE,PR,Monthly,P1,Ready,Podcast outreach
+76,Interview Pitch Creator,PR,Pitch interview angle: 'I made $5K in bonuses last month, here's how' → ready-to-send emails,NONE,PR,Monthly,P1,Ready,Email templates
+77,Backlink Tracker,SEO,Monitor who's linking to your site (for rankings) + track link quality,NONE,SEO,Weekly,P1,Ready,Backlink monitoring
+78,Ranking Tracker,SEO,Track your rankings for target keywords (e.g. 'free casino bonus' currently rank #47),NONE,SEO,Weekly,P1,Ready,Keyword rankings
+79,Competitor Ranking Spy,Research,Track competitor rankings for same keywords (are they beating you? By how much?),NONE,Research,Weekly,P1,Ready,Competitive tracking
+80,Keyword Gap Analyzer,SEO,Find keywords competitors rank for that YOU don't (new opportunities),NONE,SEO,Monthly,P1,Ready,Opportunity finder
+81,Link Building Opportunity Finder,SEO,Find websites mentioning casinos (without links) → reach out + get them to link to you,NONE,SEO,Weekly,P1,Ready,Link outreach
+82,Broken Link Finder,Growth,Find broken affiliate links on other sites → email webmaster → offer your link as replacement,NONE,Growth,Weekly,P1,Ready,Broken link outreach
+83,Directory Submission,SEO,Submit site to 50+ free directories (casino directories + earning sites + affiliate directories),NONE,SEO,Quarterly,P0,Ready,Directory automation
+84,Local SEO Setup (Multi-City),SEO,If targeting specific cities: 'best casino bonuses in Vegas' + other cities,NONE,SEO,Quarterly,P1,Ready,Geo-targeting
+85,Mobile App Ads Buyer,Advertising,Run ads in mobile gaming apps (promote your affiliate site in game ads),NONE,Advertising,Ongoing,P1,Ready,Mobile ad campaigns
+86,Google Ads Manager,Advertising,Run Google search ads for high-value keywords ('best casino bonus' = high intent),NONE,Advertising,Ongoing,P1,Ready,Search ads
+87,Facebook Ads Manager,Advertising,Run Facebook ads targeting interests: casino players + crypto enthusiasts + game players,NONE,Advertising,Ongoing,P1,Ready,Social ads
+88,Reddit Ads Manager,Advertising,Sponsor posts in gambling + crypto + passive income subreddits (native advertising),NONE,Advertising,Ongoing,P1,Ready,Reddit ads
+89,Ad Performance Tracker,Advertising,Track all ad spend vs referrals vs earnings: which ad is profitable? Which loses money?,NONE,Analytics,Daily,P1,Ready,ROI tracking
+90,Ad Copy A/B Tester,Advertising,Test different ad headlines + images → see which gets best CTR + conversion,NONE,Advertising,Weekly,P1,Ready,Ad optimization
+91,Landing Page Creator,Web,Build landing pages optimized for conversions: minimal nav + big CTA + social proof + countdown timer,NONE,Web,Build,P1,Ready,Conversion optimization
+92,Countdown Timer Widget,Web,Add countdown to limited-time offer (psychological urgency: bonus expires in 2 hours),NONE,Web,Build,P0,Ready,FOMO trigger
+93,Social Proof Widget,Web,Show real-time notifications: '@user just earned $150' + 'signed up 2 minutes ago' (FOMO),NONE,Web,Build,P0,Ready,Trust builder
+94,Exit-Intent Popup,Web,When user about to leave site: pop up with special offer ('Claim $50 bonus before you go'),NONE,Web,Build,P0,Ready,Last-chance offer
+95,Chat Bot (AI Support),Web,Visitor clicks chat → AI answers FAQs ('How do I claim bonus?' etc) → suggests signup,NONE,Web,Build,P1,Ready,24/7 support
+96,Lead Magnet Generator,Growth,Create free PDF: '50 Ways to Make $100 This Week' → gate behind email signup,NONE,Growth,Build,P1,Ready,Lead capture
+97,Email Sequence Automation,Email,New signup gets 7-email sequence: day 1 welcome + day 3 best bonuses + day 5 success story + etc,NONE,Email,Build,P0,Ready,Nurture sequence
+98,Re-engagement Campaign,Email,Segment inactive users (no activity 90 days) → send 'we miss you' sequence → try to win back,NONE,Email,Monthly,P0,Ready,Retention
+99,Customer Review Importer,Social Proof,Scrape reviews from Google/Trustpilot + display on site ('4.8 stars from 234 reviews'),NONE,Web,Build,P1,Ready,Trust signals
+100,Case Study Generator,Content,Write case study: 'How I Made $5,000 in Bonuses in 90 Days' (your own story),NONE,Content,Monthly,P1,Ready,Social proof
+101,Affiliate Income Projection,Finance,Based on current referrals + average earnings per referral → project 90-day/1-year income,NONE,Finance,Daily,P1,Ready,Revenue forecast
+102,ROI Calculator,Finance,For ads: show user 'if you spend $100 in ads + convert at 10% = $1,000 revenue',NONE,Finance,Build,P1,Ready,Value proposition
+103,Lifetime Value Predictor,Finance,Based on customer data: average customer is worth $XXX over lifetime → helps prioritize,NONE,Finance,Ongoing,P1,Ready,Customer value
+104,Cohort Analysis,Analytics,Compare: users from Jan vs Feb signups → who's more active? Who earns more?,NONE,Analytics,Monthly,P1,Ready,Segment comparison
+105,Churn Analysis,Analytics,Which users stop visiting after 30 days? What do they have in common? Early pattern?,NONE,Analytics,Monthly,P1,Ready,Retention insights
+106,Success Path Analysis,Analytics,Users who earned most: what's their pattern? (which casino first + how many they tried),NONE,Analytics,Monthly,P1,Ready,Winning playbook
+107,Growth Roadmap,Planning,12-month plan: signups/month + revenue/month + traffic targets + milestones,NONE,Planning,Quarterly,P0,Ready,Strategic planning
+108,Expansion Strategy,Growth,Next tier: once profitable → what market next? Gaming? Crypto? Loans?,NONE,Strategy,Quarterly,P1,Ready,Market expansion
+109,Team Hiring Plan,Operations,Growth too much for one person? Plan hiring: who to hire + role + salary + when,NONE,Operations,Quarterly,P1,Ready,Scaling team
+110,Outsourcing Opportunities,Operations,What tasks could you outsource? Email management? Social media? Content creation?,NONE,Operations,Quarterly,P1,Ready,Delegation plan
+111,Technology Stack Audit,Infrastructure,Review all tools: email + sheets + social + analytics → are they scalable? Cost?,NONE,Infrastructure,Quarterly,P0,Ready,Tool evaluation
+112,Automation Opportunity Finder,Operations,Where are you manually doing repetitive work? Can it be automated?,NONE,Operations,Quarterly,P1,Ready,Efficiency boost
+113,Process Documentation,Operations,Write down every process (daily routine + weekly tasks + monthly reports) so you can teach team,NONE,Operations,Quarterly,P0,Ready,Training manual
+114,System Monitoring,Operations,Run daily system health check: all services up? All data synced? Any errors?,NONE,Operations,Daily,P0,Ready,System health
+115,Disaster Recovery Plan,Operations,What if server goes down? What if data deleted? Plan to recover everything,NONE,Operations,Quarterly,P0,Ready,Contingency
+116,Compliance Check,Legal,Are affiliate disclosures clear? Privacy policy up to date? Terms of service complete?,NONE,Legal,Quarterly,P0,Ready,Legal audit
+117,Insurance Review,Business,Business liability insurance? Key-person insurance? Cyber liability?,NONE,Business,Quarterly,P1,Ready,Risk management
+118,Entity Structure Optimizer,Tax,Should you be LLC? S-Corp? C-Corp? Entity structure affects taxes,NONE,Tax,Annually,P1,Ready,Tax planning
+119,Annual Financial Review,Finance,Year summary: total revenue + net profit + tax liability + growth rate + next year goals,NONE,Finance,Annually,P0,Ready,Year wrap-up
+120,Personal Brand Building,Marketing,You = the face of the brand. Build personal brand alongside site (Twitter + LinkedIn),NONE,Marketing,Ongoing,P1,Ready,Authority building
+121,Thought Leadership Content,Marketing,Write deep-dive articles on affiliate marketing strategy (builds credibility + trust),NONE,Content,Monthly,P1,Ready,Expertise
+122,Community Building,Growth,Create community: Discord + Telegram group where members discuss best bonuses + strategies,NONE,Community,Ongoing,P1,Ready,Owned audience
