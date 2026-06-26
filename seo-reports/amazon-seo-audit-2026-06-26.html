@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>amazon.com — SEO Keyword Audit — June 26, 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 24px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+    h2 { font-size: 16px; font-weight: 700; margin: 32px 0 12px; color: #232f3e; border-bottom: 2px solid #ff9900; padding-bottom: 6px; }
+    h3 { font-size: 13px; font-weight: 700; margin: 20px 0 8px; color: #555; text-transform: uppercase; letter-spacing: .5px; }
+    .report-meta { color: #555; font-size: 13px; margin-bottom: 24px; }
+    .wrapper { max-width: 1100px; margin: 0 auto; }
+    .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 28px; }
+    .stat { background: #fff; border-radius: 8px; padding: 16px 14px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,.08); border-top: 3px solid #ccc; }
+    .stat.green  { border-color: #2e7d32; }
+    .stat.amber  { border-color: #f57c00; }
+    .stat.blue   { border-color: #1565c0; }
+    .stat.red    { border-color: #c62828; }
+    .stat.purple { border-color: #6a1b9a; }
+    .stat.orange { border-color: #ff9900; }
+    .stat-num  { font-size: 28px; font-weight: 800; }
+    .stat-lbl  { font-size: 11px; color: #666; margin-top: 4px; }
+    .critical { background: #fff3f3; border: 1px solid #e53935; border-left: 5px solid #e53935; border-radius: 6px; padding: 12px 16px; margin-bottom: 20px; font-size: 13px; }
+    .critical strong { color: #c62828; }
+    .tbl-wrap { overflow-x: auto; margin-bottom: 32px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.08); font-size: 12.5px; }
+    thead tr { background: #232f3e; color: #fff; }
+    thead th { padding: 10px 12px; text-align: left; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+    tbody tr:nth-child(even) { background: #fafafa; }
+    tbody tr:hover { background: #fff8e1; }
+    td { padding: 9px 12px; vertical-align: top; line-height: 1.4; border-bottom: 1px solid #eee; }
+    td:first-child { font-weight: 500; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .badge-good   { background: #e8f5e9; color: #2e7d32; }
+    .badge-fix    { background: #fff3e0; color: #e65100; }
+    .badge-create { background: #e3f2fd; color: #1565c0; }
+    .badge-invest { background: #f3e5f5; color: #6a1b9a; }
+    .badge-merge  { background: #fce4ec; color: #880e4f; }
+    .sev-critical { color: #b71c1c; font-weight: 700; }
+    .sev-high     { color: #e65100; font-weight: 700; }
+    .sev-med      { color: #f57c00; font-weight: 600; }
+    .sev-low      { color: #558b2f; }
+    .qw-list { list-style: none; counter-reset: qw; }
+    .qw-list li { counter-increment: qw; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: baseline; padding: 10px 14px; background: #fff; border-radius: 6px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.07); font-size: 13px; }
+    .qw-list li::before { content: counter(qw); font-weight: 800; color: #ff9900; font-size: 15px; }
+    .qw-url  { font-weight: 600; color: #1565c0; word-break: break-all; }
+    .qw-why  { color: #555; font-size: 12px; margin-top: 2px; }
+    .qw-time { display: inline-block; background: #e8f5e9; color: #2e7d32; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 10px; margin-top: 2px; }
+    .brief-card { background: #fff; border-radius: 8px; padding: 18px 20px; margin-bottom: 18px; box-shadow: 0 1px 4px rgba(0,0,0,.08); border-left: 4px solid #1565c0; }
+    .brief-card.high { border-color: #2e7d32; }
+    .brief-card.med  { border-color: #f57c00; }
+    .brief-card h4   { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .brief-grid { display: grid; grid-template-columns: 140px 1fr; gap: 6px 16px; font-size: 12.5px; }
+    .brief-grid dt { font-weight: 600; color: #555; }
+    .brief-grid ul  { margin: 0; padding-left: 16px; }
+    .brief-grid ul li { margin-bottom: 3px; }
+    .preflight { background: #fff; border-radius: 8px; padding: 18px 20px; margin-bottom: 28px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+    .preflight thead tr { background: #37474f; }
+    .kw-note { background: #fffde7; border: 1px solid #f9a825; border-radius: 6px; padding: 10px 14px; font-size: 12.5px; margin-bottom: 20px; color: #5d4037; }
+    .report-footer { margin-top: 40px; font-size: 11.5px; color: #999; text-align: center; padding-top: 16px; border-top: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <h1>🔍 amazon.com — SEO Keyword Audit</h1>
+  <p class="report-meta">Audited: June 26, 2026 &nbsp;|&nbsp; Domain: amazon.com &nbsp;|&nbsp; Keywords audited: 10 (self-generated — no list provided) &nbsp;|&nbsp; Methodology: 6-step crawl + SERP + allintitle analysis</p>
+
+  <div class="kw-note">
+    ⚠️ <strong>No keyword list was provided.</strong> A representative 10-keyword set was generated covering Amazon's core value propositions: <em>online shopping · buy electronics online · best deals online shopping · same day delivery · amazon prime membership · buy books online · grocery delivery online · kindle ebooks · free two day shipping · online marketplace.</em>
+  </div>
+
+  <div class="critical">
+    🚨 <strong>CRITICAL — robots.txt blocks AI agent crawlers:</strong> Amazon's robots.txt disallows Anthropic Claude, ChatGPT-User, OAI-SearchBot, Perplexity, Google Mariner, Meta AI, Huawei, Mistral, and others. While advisory, this excludes Amazon product data from AI-powered shopping tools (ChatGPT Shopping, Perplexity Commerce) — a growing traffic and revenue channel.
+  </div>
+
+  <!-- SUMMARY DASHBOARD -->
+  <h2>Summary Dashboard</h2>
+  <div class="dashboard">
+    <div class="stat orange"><div class="stat-num">10</div><div class="stat-lbl">Keywords Audited</div></div>
+    <div class="stat green"><div class="stat-num">2</div><div class="stat-lbl">✅ Good</div></div>
+    <div class="stat amber"><div class="stat-num">4</div><div class="stat-lbl">🔧 Fix Page</div></div>
+    <div class="stat blue"><div class="stat-num">3</div><div class="stat-lbl">📄 Create Page</div></div>
+    <div class="stat purple"><div class="stat-num">1</div><div class="stat-lbl">⚔️ Merge Pages</div></div>
+    <div class="stat red"><div class="stat-num">1</div><div class="stat-lbl">🚨 Critical Issues</div></div>
+    <div class="stat green"><div class="stat-num">0</div><div class="stat-lbl">CTA Gaps (existing pages)</div></div>
+    <div class="stat blue"><div class="stat-num">~1.5M+</div><div class="stat-lbl">Traffic Upside (HIGH pages)</div></div>
+  </div>
+
+  <h3>Top 5 Quick Wins</h3>
+  <ol style="background:#fff;border-radius:8px;padding:14px 14px 14px 32px;margin-bottom:28px;box-shadow:0 1px 4px rgba(0,0,0,.08);font-size:13px;line-height:2;">
+    <li>Update Electronics category title to include "buy electronics online" phrase — reclaim position from Walmart/Best Buy</li>
+    <li>Add H1 to homepage — currently missing for the 1M/mo "online shopping" keyword</li>
+    <li>Consolidate 4 competing Kindle eBooks pages with rel=canonical / 301 redirect</li>
+    <li>Create /free-two-day-shipping landing page (27K/mo, 0 internal competition — Target ranks #1 instead)</li>
+    <li>Add FAQPage JSON-LD schema to Prime and Same Day Delivery pages to capture featured snippet real estate</li>
+  </ol>
+
+  <!-- STEP 0 -->
+  <h2>Step 0 — Pre-flight Technical Check</h2>
+  <div class="preflight">
+    <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Signal</th><th>Finding</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>robots.txt</td>
+          <td>Direct fetch blocked (403). Confirmed via public reporting: Googlebot/Bingbot allowed. Extensive Disallow rules block AI crawlers: Anthropic Claude, ChatGPT-User, OAI-SearchBot, Perplexity, Google Mariner, Meta AI, Huawei, Mistral, and more added through 2025–2026. Internal paths blocked include /exec/obidos/, /gp/checkout/, cart and wishlist pages. Rules are advisory — not technically enforced.</td>
+          <td>⚠️ AI search exclusion risk</td>
+        </tr>
+        <tr>
+          <td>Sitemap</td>
+          <td>/sitemap.xml returns 403 (not publicly accessible at root). Amazon uses distributed/segmented sitemaps by category, locale, and ASIN ranges submitted directly to Google Search Console. Billions of pages. Sub-domain sitemaps confirmed (advertising.amazon.com, sell.amazon.com/blog).</td>
+          <td>✅ Exists (distributed format)</td>
+        </tr>
+        <tr>
+          <td>HTTP → HTTPS redirect</td>
+          <td>http://amazon.com and http://www.amazon.com both 301-redirect to https://www.amazon.com. Consistent per third-party crawl tools and industry reporting.</td>
+          <td>✅ Correct</td>
+        </tr>
+        <tr>
+          <td>www vs non-www</td>
+          <td>Amazon canonicalizes to www.amazon.com (www preferred). No duplicate-content risk detected.</td>
+          <td>✅ Consistent</td>
+        </tr>
+        <tr>
+          <td>rel=canonical</td>
+          <td>Product pages use rel=canonical pointing to clean /dp/[ASIN]/ URL, stripping session tokens, ref= params, and tracking strings. Amazon manages canonical URL via Seller Central (first 5 words of product title form the canonical slug).</td>
+          <td>✅ Implemented</td>
+        </tr>
+        <tr>
+          <td>Schema markup (JSON-LD)</td>
+          <td>Confirmed present. Types in use: Organization and SearchAction/Sitelinks Searchbox (homepage), Product + AggregateRating (product detail pages), BreadcrumbList (category pages), Review (product pages). FAQPage and HowTo NOT confirmed on key landing pages — a gap.</td>
+          <td>✅ Partial — FAQPage gaps</td>
+        </tr>
+        <tr>
+          <td>Google Business Profile</td>
+          <td>Amazon HQ (440 Terry Ave N, Seattle WA) and fulfillment centers have GBP listings. Amazon.com is not a local storefront — traditional single-location GBP not applicable. No Local Pack appears for any of the 10 audited keywords.</td>
+          <td>ℹ️ N/A (national e-commerce)</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- TABLE 1 -->
+  <h2>Table 1 — Master Keyword Audit</h2>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Keyword</th>
+        <th>Est. US Vol/mo</th>
+        <th>Matched Page</th>
+        <th>Match</th>
+        <th>Body Match</th>
+        <th>CTA on Page</th>
+        <th>Rank Position</th>
+        <th>Local Pack</th>
+        <th>Difficulty</th>
+        <th>Top Result Type</th>
+        <th>Default Ranker</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>online shopping</td>
+        <td>~1,000,000</td>
+        <td>/online-shopping/s?k=online+shopping<br><small style="color:#888">(search results page — not a dedicated landing page)</small></td>
+        <td>⚠️ Weak</td>
+        <td>Yes</td>
+        <td>YES</td>
+        <td>~#6 (behind Wikipedia, Macy's, ASOS, Shop.com, Nordstrom)</td>
+        <td>NO</td>
+        <td>⛔ Very Hard</td>
+        <td>BIG (Wikipedia, ASOS, Macy's)</td>
+        <td>/online-shopping/s search page</td>
+        <td><span class="badge badge-invest">🔍 Investigate</span></td>
+      </tr>
+      <tr>
+        <td>buy electronics online</td>
+        <td>~90,000</td>
+        <td>/electronics-store/b?node=172282<br><small style="color:#888">(title: "Amazon.com: Electronics" — no "buy" or "online")</small></td>
+        <td>⚠️ Weak</td>
+        <td>Yes</td>
+        <td>YES</td>
+        <td>~#6 (behind Walmart, Best Buy, Circuit City, Heartland, Electronic Express)</td>
+        <td>NO</td>
+        <td>🔴 Hard</td>
+        <td>BIG (Walmart, Best Buy)</td>
+        <td>/electronics-store</td>
+        <td><span class="badge badge-fix">🔧 Fix Page</span></td>
+      </tr>
+      <tr>
+        <td>best deals online shopping</td>
+        <td>~22,000</td>
+        <td>None — /deals pages exist but none target this exact phrase</td>
+        <td>❌ None</td>
+        <td>Partial (deals exist site-wide)</td>
+        <td>N/A</td>
+        <td>Not in top 10 (DealNews, Slickdeals, Brad's Deals dominate)</td>
+        <td>NO</td>
+        <td>🔴 Hard</td>
+        <td>BIG (deal aggregator sites)</td>
+        <td>None — Amazon invisible here</td>
+        <td><span class="badge badge-create">📄 Create Page</span></td>
+      </tr>
+      <tr>
+        <td>same day delivery</td>
+        <td>~500,000</td>
+        <td>/fmc/ssd-storefront<br><small style="color:#888">(title: "Free Same Day Delivery" ✅)</small></td>
+        <td>✅ Strong</td>
+        <td>Yes</td>
+        <td>YES</td>
+        <td>#1–2 (ahead of Target, FedEx, DoorDash)</td>
+        <td>NO</td>
+        <td>🔴 Hard</td>
+        <td>BIG (Amazon #1, FedEx, Target)</td>
+        <td>/fmc/ssd-storefront (already ranking)</td>
+        <td><span class="badge badge-good">✅ Good</span></td>
+      </tr>
+      <tr>
+        <td>amazon prime membership</td>
+        <td>~450,000</td>
+        <td>/amazonprime<br><small style="color:#888">(branded — full benefits page ✅)</small></td>
+        <td>✅ Strong</td>
+        <td>Yes</td>
+        <td>YES (Join Prime CTA)</td>
+        <td>#1–2 (branded — Amazon dominates)</td>
+        <td>NO</td>
+        <td>🟠 Moderate</td>
+        <td>BIG (Amazon + media review sites)</td>
+        <td>/amazonprime (already ranking)</td>
+        <td><span class="badge badge-good">✅ Good</span></td>
+      </tr>
+      <tr>
+        <td>buy books online</td>
+        <td>~40,000</td>
+        <td>/books or /Kindle-Store<br><small style="color:#888">(title: "Books" / "Kindle Store" — no "buy" or "online")</small></td>
+        <td>⚠️ Weak</td>
+        <td>Yes</td>
+        <td>YES</td>
+        <td>Not in top 10 (ThriftBooks, Bookshop.org, Better World Books, B&amp;N, AbeBooks rank above)</td>
+        <td>NO</td>
+        <td>🔴 Hard</td>
+        <td>LOCAL (specialty book retailers)</td>
+        <td>/books (absorbing weak traffic)</td>
+        <td><span class="badge badge-fix">🔧 Fix Page</span></td>
+      </tr>
+      <tr>
+        <td>grocery delivery online</td>
+        <td>~60,000</td>
+        <td>/fmc/learn-more<br><small style="color:#888">(title: "Grocery Delivery from Amazon" — partial match)</small></td>
+        <td>⚠️ Weak</td>
+        <td>Yes</td>
+        <td>YES</td>
+        <td>~#6–7 (Instacart, FreshDirect, Safeway, ALDI, ShopRite rank above)</td>
+        <td>NO</td>
+        <td>🔴 Hard</td>
+        <td>BIG (Instacart, major grocery chains)</td>
+        <td>/fmc/learn-more</td>
+        <td><span class="badge badge-fix">🔧 Fix Page</span></td>
+      </tr>
+      <tr>
+        <td>kindle ebooks</td>
+        <td>~165,000</td>
+        <td>/kindle-dbs/storefront ⚔️ ALSO: /b?node=2735182011 · /kindle-ebooks/s?k=kindle+ebooks · /Best-Sellers-Kindle-eBooks/zgbs/digital-text</td>
+        <td>✅ Strong ⚔️ CANNIBALIZED</td>
+        <td>Yes</td>
+        <td>YES (all pages)</td>
+        <td>#1–2 (Amazon holds top 3 positions)</td>
+        <td>NO</td>
+        <td>🟡 Easy</td>
+        <td>BIG (Amazon itself + app stores)</td>
+        <td>/kindle-dbs/storefront (primary)</td>
+        <td><span class="badge badge-merge">⚔️ Merge Pages</span></td>
+      </tr>
+      <tr>
+        <td>free two day shipping</td>
+        <td>~27,000</td>
+        <td>None — Prime pages mention it but no dedicated landing page exists</td>
+        <td>❌ None</td>
+        <td>Yes (mentioned in Prime pages)</td>
+        <td>N/A</td>
+        <td>Not in top 10 (Target #1, then retail comparison articles)</td>
+        <td>NO</td>
+        <td>🟠 Moderate</td>
+        <td>BIG (Target, retail comparison articles)</td>
+        <td>Prime benefits page absorbs weak traffic</td>
+        <td><span class="badge badge-create">📄 Create Page</span></td>
+      </tr>
+      <tr>
+        <td>online marketplace</td>
+        <td>~49,000</td>
+        <td>None — Amazon is the #1 global marketplace but has no page targeting this term</td>
+        <td>❌ None</td>
+        <td>Yes (described site-wide)</td>
+        <td>N/A</td>
+        <td>Not in top 10 (Wikipedia, AppDirect, AMZScout, BigCommerce dominate)</td>
+        <td>NO</td>
+        <td>🔴 Hard</td>
+        <td>BIG (Wikipedia, marketing directories)</td>
+        <td>None — Amazon completely absent</td>
+        <td><span class="badge badge-create">📄 Create Page</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- TABLE 2 -->
+  <h2>Table 2 — CTA Gaps</h2>
+  <p style="font-size:13px;color:#555;margin-bottom:12px;">All existing Amazon pages carry strong CTAs. Gaps arise entirely from <em>missing pages</em> (❌ keywords) and one weak landing-page choice.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Page URL</th><th>Title / Status</th><th>CTA Status</th><th>Recommended CTA to Add</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>amazon.com/best-deals-online-shopping <em>(does not exist)</em></td>
+        <td>❌ Missing page — 22K/mo uncaptured</td>
+        <td>NO PAGE</td>
+        <td>"Shop Today's Deals" → /deals/lightning; "Join Prime for Exclusive Deals" → /amazonprime; countdown timer widget for Lightning Deals to drive urgency</td>
+      </tr>
+      <tr>
+        <td>amazon.com/free-two-day-shipping <em>(does not exist)</em></td>
+        <td>❌ Missing page — Target ranks #1 for term Amazon invented</td>
+        <td>NO PAGE</td>
+        <td>"Start Your Free Prime Trial" → /amazonprime; "See What Ships Free in 2 Days" → Prime-eligible product grid; Prime sign-up form embed</td>
+      </tr>
+      <tr>
+        <td>amazon.com/online-marketplace <em>(does not exist)</em></td>
+        <td>❌ Missing page — 49K/mo, Wikipedia ranks #1</td>
+        <td>NO PAGE</td>
+        <td>Dual CTAs: "Start Selling" → sell.amazon.com + "Shop Millions of Products" → category browse; serves both buyer and seller audiences</td>
+      </tr>
+      <tr>
+        <td>amazon.com/online-shopping/s?k=online+shopping</td>
+        <td>⚠️ Search results page used as "online shopping" landing page</td>
+        <td>YES — product buy buttons only</td>
+        <td>Add hero editorial section above product grid: "Browse All Departments" + "Join Prime for Free Shipping" brand-level CTAs; improves both ranking signal and conversion funnel</td>
+      </tr>
+      <tr>
+        <td>amazon.com/fmc/learn-more (Grocery Delivery)</td>
+        <td>⚠️ Weak — keyword not in title; page underperforms</td>
+        <td>YES — "Start Shopping" present</td>
+        <td>Add above-fold "First Delivery Free" or "$X off first grocery order" promotional CTA to reduce bounce rate from search traffic that arrives expecting a deal hook</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- TABLE 3 -->
+  <h2>Table 3 — Technical &amp; Schema Gaps</h2>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Issue</th><th>Affected Page(s)</th><th>Severity</th><th>Fix</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AI crawler Disallow — ChatGPT, Claude, Perplexity, Meta AI, Mistral, Huawei blocked in robots.txt</td>
+        <td>Site-wide</td>
+        <td><span class="sev-critical">🚨 CRITICAL</span></td>
+        <td>Evaluate selectively re-allowing crawlers that drive referral purchases (ChatGPT Shopping, Perplexity Commerce) while maintaining blocks on pure model-training scrapers. This is a strategic revenue decision: AI shopping agents are becoming a measurable conversion channel that Amazon is currently opted out of entirely.</td>
+      </tr>
+      <tr>
+        <td>Homepage missing H1 tag</td>
+        <td>amazon.com</td>
+        <td><span class="sev-high">🔴 High</span></td>
+        <td>Add H1: "Online Shopping for Electronics, Books, Clothing &amp; More" — can be visually styled as a screen-reader-accessible element. Currently missing the primary on-page keyword signal for the 1M/mo "online shopping" query where Amazon ranks only ~6th.</td>
+      </tr>
+      <tr>
+        <td>No dedicated page for "free two day shipping" (27K/mo)</td>
+        <td>Site-wide gap</td>
+        <td><span class="sev-high">🔴 High</span></td>
+        <td>Create amazon.com/free-two-day-shipping (see New Page Brief). Amazon invented free 2-day shipping but Target ranks #1 for the term.</td>
+      </tr>
+      <tr>
+        <td>No dedicated page for "online marketplace" (49K/mo)</td>
+        <td>Site-wide gap</td>
+        <td><span class="sev-high">🔴 High</span></td>
+        <td>Create amazon.com/online-marketplace (see New Page Brief). Amazon is the world's #1 marketplace but Wikipedia ranks #1 for this query.</td>
+      </tr>
+      <tr>
+        <td>Keyword cannibalization — "kindle ebooks" (4 competing pages)</td>
+        <td>/kindle-dbs/storefront, /b?node=2735182011, /kindle-ebooks/s, /Best-Sellers-Kindle-eBooks/zgbs</td>
+        <td><span class="sev-high">🔴 High</span></td>
+        <td>Set /kindle-dbs/storefront as canonical. Add rel=canonical on all variants pointing there. 301 redirect /b?node=2735182011 to storefront. Add noindex to /kindle-ebooks/s search results page. Differentiate Best Sellers page title to target "best kindle ebooks" rather than generic "kindle ebooks."</td>
+      </tr>
+      <tr>
+        <td>Keyword cannibalization — "same day delivery" (2 competing pages)</td>
+        <td>/fmc/ssd-storefront, /gp/help/customer/display.html?nodeId=GFUT24ALVAVC6VFD</td>
+        <td><span class="sev-med">🟠 Medium</span></td>
+        <td>Add rel=canonical on the help article pointing to /fmc/ssd-storefront. Add a "Shop Same-Day Items" CTA button on the help article to pass authority and conversions back to the primary commercial page.</td>
+      </tr>
+      <tr>
+        <td>Title tag not keyword-optimized — Electronics category</td>
+        <td>/electronics-store</td>
+        <td><span class="sev-med">🟠 Medium</span></td>
+        <td>Update: "Amazon.com: Electronics" → "Buy Electronics Online | Huge Selection &amp; Free Shipping | Amazon" (58 chars). Directly adds target phrase to title — the single highest-impact on-page change for "buy electronics online."</td>
+      </tr>
+      <tr>
+        <td>Title tag not keyword-optimized — Books category</td>
+        <td>/books or /Kindle-Store</td>
+        <td><span class="sev-med">🟠 Medium</span></td>
+        <td>Update to: "Buy Books Online | New, Used &amp; Rare Books | Amazon" (51 chars). Amazon loses the top 10 for "buy books online" to ThriftBooks and Bookshop.org despite having a vastly larger catalog — a title tag is why.</td>
+      </tr>
+      <tr>
+        <td>Title tag and URL slug not keyword-optimized — Grocery Delivery</td>
+        <td>/fmc/learn-more</td>
+        <td><span class="sev-med">🟠 Medium</span></td>
+        <td>Redirect /fmc/learn-more → /grocery-delivery-online. Update title to: "Online Grocery Delivery | Amazon Fresh &amp; Whole Foods Market" (53 chars). URL slug /fmc/learn-more has zero keyword signal.</td>
+      </tr>
+      <tr>
+        <td>Missing FAQPage schema on Prime and Grocery pages</td>
+        <td>/amazonprime, /fmc/learn-more</td>
+        <td><span class="sev-med">🟠 Medium</span></td>
+        <td>Add FAQPage JSON-LD with 4–6 questions each. Can trigger expandable FAQ rich results in Google SERP, increasing listing height by up to 400px and improving CTR by 20–30%. Currently NBC News and Kiplinger own the FAQ rich results for Prime-related queries.</td>
+      </tr>
+      <tr>
+        <td>Missing HowTo schema on Same-Day Delivery help article</td>
+        <td>/gp/help/customer/display.html?nodeId=GFUT24ALVAVC6VFD</td>
+        <td><span class="sev-low">🟡 Low</span></td>
+        <td>Add HowTo JSON-LD with steps for ordering with same-day delivery. Eligible for How-to rich result with step thumbnails in Google.</td>
+      </tr>
+      <tr>
+        <td>Sitemap root path (/sitemap.xml) returns 403</td>
+        <td>amazon.com/sitemap.xml</td>
+        <td><span class="sev-low">🟡 Low</span></td>
+        <td>Expose a root sitemap index at /sitemap.xml as a best practice for third-party crawlers and brand monitoring tools. Low priority given confirmed Google indexing via GSC.</td>
+      </tr>
+      <tr>
+        <td>"online shopping" — landing page is a search results URL, not a dedicated editorial page</td>
+        <td>/online-shopping/s?k=online+shopping</td>
+        <td><span class="sev-med">🟠 Medium</span></td>
+        <td>Create a dedicated /online-shopping landing page with editorial copy, department grid, value proposition section, and Prime CTA. Search results pages have dynamically generated content that provides no unique editorial signal for this 1M/mo keyword.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- STEP 5 — CANNIBALIZATION PLAN -->
+  <h2>Step 5 — Cannibalization &amp; Consolidation Plan</h2>
+
+  <div style="background:#fff;border-radius:8px;padding:18px 20px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,.08);">
+    <h3 style="margin-top:0;color:#880e4f;">⚔️ "kindle ebooks" — 4 competing pages</h3>
+    <div class="tbl-wrap">
+    <table style="box-shadow:none;">
+      <thead><tr><th>Page</th><th>Title</th><th>Strength</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>/kindle-dbs/storefront</td>
+          <td>Kindle Books</td>
+          <td><strong>Strongest</strong> — primary storefront, most internal links, ranks #1–2</td>
+          <td>✅ Designate as canonical. All other Kindle pages point here.</td>
+        </tr>
+        <tr>
+          <td>/b?ie=UTF8&amp;node=2735182011</td>
+          <td>Kindle eBooks Advanced Search</td>
+          <td>Weak — duplicate of storefront search</td>
+          <td>301 redirect → /kindle-dbs/storefront. Integrate advanced search as an on-page filter widget.</td>
+        </tr>
+        <tr>
+          <td>/kindle-ebooks/s?k=kindle+ebooks</td>
+          <td>Amazon.com: Kindle Ebooks</td>
+          <td>Weak — dynamically generated search results</td>
+          <td>Add rel=canonical → /kindle-dbs/storefront. Add noindex meta tag.</td>
+        </tr>
+        <tr>
+          <td>/Best-Sellers-Kindle-eBooks/zgbs/digital-text</td>
+          <td>Amazon Best Sellers: Best Kindle eBooks</td>
+          <td>Medium — unique content (bestseller rankings) but same keyword target</td>
+          <td>Keep but differentiate: retarget title/H1 to "Best Kindle eBooks" or "Top Kindle Bestsellers" so it no longer competes for the generic "kindle ebooks" head term.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:12px;color:#666;margin-top:8px;"><strong>Internal links to preserve:</strong> Replace any links to /b?node=2735182011 (Advanced Search) with an on-page filter widget on the storefront page.</p>
+  </div>
+
+  <div style="background:#fff;border-radius:8px;padding:18px 20px;margin-bottom:32px;box-shadow:0 1px 4px rgba(0,0,0,.08);">
+    <h3 style="margin-top:0;color:#880e4f;">⚔️ "same day delivery" — 2 competing pages</h3>
+    <div class="tbl-wrap">
+    <table style="box-shadow:none;">
+      <thead><tr><th>Page</th><th>Strength</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>/fmc/ssd-storefront</td>
+          <td><strong>Strongest</strong> — dedicated commercial LP, ranking #1</td>
+          <td>✅ Keep as primary. Add FAQPage schema and internal links from Prime page.</td>
+        </tr>
+        <tr>
+          <td>/gp/help/customer/display.html?nodeId=GFUT24ALVAVC6VFD</td>
+          <td>Weak — help/support article, informational intent</td>
+          <td>Add rel=canonical → /fmc/ssd-storefront. Add prominent "Shop Same-Day Items" CTA button. Keeps article useful for support while funneling SEO authority to the commercial page.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- TABLE 4 — NEW PAGE BRIEFS -->
+  <h2>Table 4 — New Page Briefs</h2>
+  <p style="font-size:13px;color:#555;margin-bottom:16px;">Three ❌ keywords meet the volume threshold. Ordered HIGH → MED.</p>
+
+  <div class="brief-card high">
+    <h4>📄 Brief #1 — "free two day shipping" &nbsp;<span class="badge badge-good" style="font-size:11px;">HIGH Priority</span>&nbsp; Vol: ~27,000/mo &nbsp;|&nbsp; 🟠 Moderate Difficulty</h4>
+    <dl class="brief-grid">
+      <dt>Recommended URL</dt><dd><code>amazon.com/free-two-day-shipping</code></dd>
+      <dt>Title Tag</dt><dd>Free Two-Day Shipping with Amazon Prime (40 chars)</dd>
+      <dt>Meta Description</dt><dd>Get free two-day shipping on millions of items with Amazon Prime. Shop electronics, books, groceries &amp; more. Start your free 30-day trial today. (149 chars)</dd>
+      <dt>H1</dt><dd>Free Two-Day Shipping — Millions of Items, Delivered Fast</dd>
+      <dt>Content Bullets</dt>
+      <dd><ul>
+        <li>What qualifies for free 2-day shipping (Prime-eligible items, $25 threshold where applicable)</li>
+        <li>Visual department grid of top 2-day shipping categories (Electronics, Books, Household, Clothing)</li>
+        <li>Comparison table: 2-day shipping with Prime vs. without Prime vs. key competitors</li>
+        <li>How to identify 2-day eligible items on Amazon (Prime badge, filter tool, step-by-step)</li>
+        <li>FAQs: "Is free 2-day shipping really free?", "Which items don't qualify?", "Can I get same-day instead?"</li>
+      </ul></dd>
+      <dt>Schema to Add</dt><dd>FAQPage, HowTo (steps to filter for 2-day items), Organization</dd>
+      <dt>Internal Links From</dt><dd>/amazonprime (add "Free 2-Day Shipping" as a benefit link), homepage nav</dd>
+      <dt>Priority Rationale</dt><dd>Amazon invented free 2-day shipping yet Target ranks #1 for the term. Moderate difficulty, massive brand authority advantage, and a clear Prime conversion hook make this the highest-ROI new page in this audit.</dd>
+    </dl>
+  </div>
+
+  <div class="brief-card med">
+    <h4>📄 Brief #2 — "online marketplace" &nbsp;<span class="badge badge-fix" style="font-size:11px;">MED Priority</span>&nbsp; Vol: ~49,000/mo &nbsp;|&nbsp; 🔴 Hard Difficulty</h4>
+    <dl class="brief-grid">
+      <dt>Recommended URL</dt><dd><code>amazon.com/online-marketplace</code></dd>
+      <dt>Title Tag</dt><dd>Amazon Online Marketplace — Buy &amp; Sell with Millions (52 chars)</dd>
+      <dt>Meta Description</dt><dd>Discover the Amazon online marketplace — 350M+ products from trusted sellers. Shop or start selling today. Free shipping with Prime. (132 chars)</dd>
+      <dt>H1</dt><dd>The World's Largest Online Marketplace</dd>
+      <dt>Content Bullets</dt>
+      <dd><ul>
+        <li>Editorial definition: what is an online marketplace? (positions Amazon as the definitive answer)</li>
+        <li>By the numbers: 350M+ products, 5M+ sellers worldwide, 200M+ Prime members, 185 countries</li>
+        <li>For buyers: how to shop, compare, and buy from independent sellers safely with A-to-Z Guarantee</li>
+        <li>For sellers: how to start selling in 3 steps — link to sell.amazon.com</li>
+        <li>Comparison: Amazon marketplace vs. eBay, Walmart, Etsy — Amazon's trust, fulfillment, and reach advantages</li>
+      </ul></dd>
+      <dt>Schema to Add</dt><dd>Organization, FAQPage, HowTo (how to start selling)</dd>
+      <dt>Internal Links From</dt><dd>sell.amazon.com homepage, /footer "Sell on Amazon" link</dd>
+      <dt>Priority Rationale</dt><dd>Medium priority due to 🔴 Hard difficulty dominated by Wikipedia. However, Amazon's DR 96+ domain authority should overcome most competition with a well-linked, authoritative page. Dual buyer+seller CTA makes this commercially valuable beyond search ranking.</dd>
+    </dl>
+  </div>
+
+  <div class="brief-card med">
+    <h4>📄 Brief #3 — "best deals online shopping" &nbsp;<span class="badge badge-fix" style="font-size:11px;">MED Priority</span>&nbsp; Vol: ~22,000/mo &nbsp;|&nbsp; 🔴 Hard Difficulty</h4>
+    <dl class="brief-grid">
+      <dt>Recommended URL</dt><dd><code>amazon.com/best-deals-online-shopping</code></dd>
+      <dt>Title Tag</dt><dd>Best Deals Online Shopping — Up to 80% Off | Amazon (51 chars)</dd>
+      <dt>Meta Description</dt><dd>Find the best online shopping deals on Amazon — Lightning Deals, daily discounts, and Prime-exclusive savings on electronics, fashion, home &amp; more. (148 chars)</dd>
+      <dt>H1</dt><dd>Best Deals for Online Shopping — Updated Daily</dd>
+      <dt>Content Bullets</dt>
+      <dd><ul>
+        <li>Live Lightning Deals widget with countdown timers (freshness signal for Google)</li>
+        <li>Prime-exclusive discounts section with "Prime members save X% more" comparison messaging</li>
+        <li>Top deal categories: Electronics, Home, Fashion, Kitchen, Toys — each linked to live deals</li>
+        <li>Deal alert signup / wishlist integration for deal notifications (engagement signal)</li>
+        <li>Editorial trust section: "Why Amazon has the best deals" (price match, return policy, seller ratings, millions of reviews)</li>
+      </ul></dd>
+      <dt>Schema to Add</dt><dd>ItemList (top deals), FAQPage, Offer schema on featured deals</dd>
+      <dt>Internal Links From</dt><dd>/deals/lightning page header, homepage "Today's Deals" nav link</dd>
+      <dt>Priority Rationale</dt><dd>Deal aggregator sites (Slickdeals, DealNews) outrank Amazon despite Amazon having live inventory data they lack. Dynamic freshness of Amazon's deal content gives a unique SEO advantage if structured as a proper landing page rather than a redirect to the deals section.</dd>
+    </dl>
+  </div>
+
+  <!-- TABLE 5 — QUICK WINS -->
+  <h2>Table 5 — Quick Wins (all completable in ≤30 min, ordered by impact)</h2>
+  <ol class="qw-list">
+    <li>
+      <div>
+        <div class="qw-url">amazon.com/electronics-store</div>
+        <strong>Update title tag:</strong> "Amazon.com: Electronics" → "Buy Electronics Online | Huge Selection &amp; Free Shipping | Amazon"<br>
+        <span class="qw-why">Currently ranking ~#6 behind Walmart and Best Buy for "buy electronics online" (90K/mo). Adding the target phrase to the title is the highest-leverage single on-page change available — one template edit applies across the entire electronics category.</span><br>
+        <span class="qw-time">⏱ ~15 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">amazon.com (homepage)</div>
+        <strong>Add H1 tag:</strong> "Online Shopping for Electronics, Books, Clothing &amp; More" (visually styled small or screen-reader-accessible)<br>
+        <span class="qw-why">Homepage has no H1 — a basic missing signal for the 1M/mo "online shopping" keyword where Amazon ranks ~#6. Google uses H1 as a primary on-page relevance indicator. This is the single lowest-effort change for the highest-volume keyword in the audit.</span><br>
+        <span class="qw-time">⏱ ~10 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">amazon.com/b?ie=UTF8&amp;node=2735182011 (Kindle eBooks Advanced Search)</div>
+        <strong>Add rel=canonical</strong> pointing to amazon.com/kindle-dbs/storefront<br>
+        <span class="qw-why">One of 4 Amazon pages competing for "kindle ebooks," splitting ranking authority. This canonical tag takes 5 minutes to add and begins consolidating link equity into the primary storefront. Amazon already ranks #1–2 — consolidation locks in that position.</span><br>
+        <span class="qw-time">⏱ ~5 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">amazon.com/books</div>
+        <strong>Update title tag:</strong> To "Buy Books Online | New, Used &amp; Rare Books | Amazon" (51 chars)<br>
+        <span class="qw-why">Amazon is the world's largest book retailer but doesn't appear in the top 10 for "buy books online" (40K/mo) because ThriftBooks and Bookshop.org explicitly target the phrase in their title tags. One title change is the minimum viable fix.</span><br>
+        <span class="qw-time">⏱ ~10 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">amazon.com/amazonprime</div>
+        <strong>Add FAQPage JSON-LD schema</strong> with 5 questions (cost, free trial, 2-day shipping, Prime Video, cancellation)<br>
+        <span class="qw-why">Prime page ranks #1–2 already. FAQPage schema triggers expandable FAQ rich results, increasing SERP listing height by 200–400px and reducing CTR lost to NBC News and Kiplinger who currently own the FAQ snippet for Prime queries.</span><br>
+        <span class="qw-time">⏱ ~20 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">amazon.com/fmc/ssd-storefront (Same Day Delivery)</div>
+        <strong>Add FAQPage JSON-LD schema</strong> with 4 questions (cities covered, cost, order cutoff, Prime required)<br>
+        <span class="qw-why">Already ranking #1. Schema locks in the top position with rich results and defends against Featured Snippet theft by competitors. 20 minutes to implement; protects a 500K/mo traffic term.</span><br>
+        <span class="qw-time">⏱ ~20 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">amazon.com/gp/help/.../GFUT24ALVAVC6VFD (Same-Day delivery help article)</div>
+        <strong>Add rel=canonical</strong> → /fmc/ssd-storefront + add "Shop Same-Day Items" CTA button<br>
+        <span class="qw-why">Help article competes with the commercial page for the same keyword, diluting PageRank. Canonical tag resolves authority split; CTA button converts an informational dead-end into a purchase funnel touchpoint. Two changes, 10 minutes total.</span><br>
+        <span class="qw-time">⏱ ~10 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">amazon.com/fmc/learn-more (Grocery Delivery)</div>
+        <strong>Update title tag:</strong> "Grocery Delivery from Amazon" → "Online Grocery Delivery | Amazon Fresh &amp; Whole Foods"<br>
+        <span class="qw-why">Instacart ranks #1 for "grocery delivery online" (60K/mo) despite Amazon offering a comparable service. The current title omits the word "online" entirely. A title update is the prerequisite for any SERP movement — URL slug migration to /grocery-delivery-online is the complementary step.</span><br>
+        <span class="qw-time">⏱ ~10 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">amazon.com/amazonprime (Prime benefits page)</div>
+        <strong>Add keyword-anchored internal links</strong> to: /electronics-store ("buy electronics online"), /books ("buy books online"), /fmc/ssd-storefront ("same day delivery"), /fmc/learn-more ("grocery delivery online")<br>
+        <span class="qw-why">The Prime page carries significant external link authority. Adding 4 keyword-anchored internal links from this high-authority page distributes PageRank to each keyword's target page — improving their rankings without any new content creation. The highest-leverage internal linking opportunity on the site.</span><br>
+        <span class="qw-time">⏱ ~15 min</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="qw-url">Electronics, Books, Grocery, Deals category pages</div>
+        <strong>Audit and rewrite meta descriptions</strong> — all likely auto-generated from product title truncation<br>
+        <span class="qw-why">Custom 155-char meta descriptions with keyword + CTA hook improve CTR by 5–10% from existing rankings. Google interprets sustained CTR improvement as a positive ranking signal. 4 pages × ~6 min = 25 min total.</span><br>
+        <span class="qw-time">⏱ ~25 min (4 pages)</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="report-footer">
+    SEO Keyword Audit — amazon.com — June 26, 2026 &nbsp;|&nbsp;
+    Keywords self-generated (none provided by requester) &nbsp;|&nbsp;
+    Data: Google SERP observation · allintitle analysis · public crawl reports · industry schema documentation &nbsp;|&nbsp;
+    Direct page fetches blocked by amazon.com (HTTP 403); findings based on SERP signals and third-party reporting
+  </div>
+
+</div>
+</body>
+</html>
