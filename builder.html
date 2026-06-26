@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CASH.BOT Builder</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      background: #0b0e14;
+      color: #eaf0f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 16px;
+      height: 44px;
+      background: #0d1017;
+      border-bottom: 1px solid #1c2333;
+      flex-shrink: 0;
+    }
+    header .logo { font-size: 13px; font-weight: 800; color: #ff5e8a; letter-spacing: .06em; }
+    header .divider { width: 1px; height: 18px; background: #1c2333; }
+    header .current-file { font-size: 13px; color: #667788; }
+    .save-status { margin-left: auto; font-size: 11px; color: #445; }
+
+    /* ── Three panels ── */
+    .workspace {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── File tree ── */
+    .filetree {
+      width: 190px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      background: #0d1017;
+      border-right: 1px solid #1c2333;
+    }
+    .filetree-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-bottom: 1px solid #1c2333;
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #445;
+    }
+    .btn-new {
+      background: none;
+      border: 1px solid #ff5e8a55;
+      color: #ff5e8a;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .btn-new:hover { background: #ff5e8a18; }
+
+    .file-list { flex: 1; overflow-y: auto; padding: 4px 0; }
+    .file-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 12px 7px 14px;
+      font-size: 13px;
+      color: #7788aa;
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      user-select: none;
+    }
+    .file-item:hover { background: #131a24; color: #c9d6e3; }
+    .file-item.active {
+      background: #131a24;
+      color: #eaf0f7;
+      border-left-color: #ff5e8a;
+    }
+    .file-item .name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .del-btn {
+      opacity: 0;
+      background: none;
+      border: none;
+      color: #445;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      padding: 0 2px;
+      flex-shrink: 0;
+    }
+    .file-item:hover .del-btn { opacity: 1; }
+    .del-btn:hover { color: #ff5e8a; }
+
+    /* ── Editor ── */
+    .editor-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #1c2333;
+      min-width: 0;
+    }
+    .panel-bar {
+      padding: 7px 14px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #445;
+      background: #0d1017;
+      border-bottom: 1px solid #1c2333;
+      flex-shrink: 0;
+    }
+    #editor {
+      flex: 1;
+      background: #0b0e14;
+      color: #c9d6e3;
+      border: none;
+      outline: none;
+      resize: none;
+      padding: 16px 18px;
+      font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      tab-size: 2;
+    }
+    #editor::placeholder { color: #2a3040; }
+
+    /* ── Preview ── */
+    .preview-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    #preview {
+      flex: 1;
+      border: none;
+      background: #fff;
+    }
+
+    /* ── Mobile: stack vertically ── */
+    @media (max-width: 640px) {
+      .filetree { width: 140px; }
+      #editor { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="logo">CASH.BOT BUILDER</span>
+  <div class="divider"></div>
+  <span class="current-file" id="currentFile">—</span>
+  <span class="save-status" id="saveStatus"></span>
+</header>
+
+<div class="workspace">
+
+  <!-- File tree -->
+  <div class="filetree">
+    <div class="filetree-top">
+      <span class="section-label">Pages</span>
+      <button class="btn-new" onclick="newPage()">+ New</button>
+    </div>
+    <div class="file-list" id="fileList"></div>
+  </div>
+
+  <!-- Editor -->
+  <div class="editor-panel">
+    <div class="panel-bar">Editor</div>
+    <textarea
+      id="editor"
+      spellcheck="false"
+      placeholder="Select a page from the left to start editing…"
+      oninput="onEdit()"
+      onkeydown="handleTab(event)"
+    ></textarea>
+  </div>
+
+  <!-- Live preview -->
+  <div class="preview-panel">
+    <div class="panel-bar">Preview — live</div>
+    <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
+  </div>
+
+</div>
+
+<script>
+  const STORE = 'cashbot_builder_v1';
+  const DEFAULTS = {
+    'index.html': `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Site</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0e14;
+      color: #eaf0f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 { font-size: 3rem; font-weight: 800; color: #ff5e8a; margin-bottom: 1rem; }
+    p  { color: #8899aa; font-size: 1.1rem; max-width: 480px; line-height: 1.6; }
+    a  { color: #ff5e8a; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Your Name Here</h1>
+    <p>One line about what you do or what this site is for.</p>
+    <p class="nav"><a href="about.html">About →</a></p>
+  </div>
+</body>
+</html>`,
+
+    'about.html': `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0e14;
+      color: #eaf0f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 { font-size: 2.5rem; font-weight: 800; color: #ff5e8a; margin-bottom: 1rem; }
+    p  { color: #8899aa; font-size: 1.1rem; max-width: 480px; line-height: 1.6; }
+    a  { color: #ff5e8a; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>About</h1>
+    <p>Tell your story here — who you are, what you do, and why it matters.</p>
+    <p class="nav"><a href="index.html">← Home</a></p>
+  </div>
+</body>
+</html>`
+  };
+
+  let pages = {};
+  let current = null;
+  let saveTimer = null;
+
+  /* ── Boot ── */
+  function boot() {
+    try { pages = JSON.parse(localStorage.getItem(STORE)) || {}; } catch { pages = {}; }
+    if (!Object.keys(pages).length) pages = { ...DEFAULTS };
+    renderTree();
+    openPage(Object.keys(pages)[0]);
+  }
+
+  /* ── Persistence ── */
+  function persist() {
+    localStorage.setItem(STORE, JSON.stringify(pages));
+    const t = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('saveStatus').textContent = 'Saved ' + t;
+  }
+
+  /* ── File tree ── */
+  function renderTree() {
+    const list = document.getElementById('fileList');
+    list.innerHTML = '';
+    Object.keys(pages).sort().forEach(name => {
+      const row = document.createElement('div');
+      row.className = 'file-item' + (name === current ? ' active' : '');
+      row.innerHTML =
+        `<span class="name">${name}</span>` +
+        `<button class="del-btn" title="Delete" onclick="deletePage(event,'${name}')">×</button>`;
+      row.addEventListener('click', () => openPage(name));
+      list.appendChild(row);
+    });
+  }
+
+  /* ── Open page ── */
+  function openPage(name) {
+    current = name;
+    const ed = document.getElementById('editor');
+    ed.value = pages[name] ?? '';
+    document.getElementById('currentFile').textContent = name;
+    updatePreview();
+    renderTree();
+    ed.focus();
+  }
+
+  /* ── Live preview ── */
+  function updatePreview() {
+    document.getElementById('preview').srcdoc = pages[current] ?? '';
+  }
+
+  /* ── Edit handler ── */
+  function onEdit() {
+    if (!current) return;
+    pages[current] = document.getElementById('editor').value;
+    updatePreview();
+    document.getElementById('saveStatus').textContent = 'Saving…';
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(persist, 600);
+  }
+
+  /* ── New page ── */
+  function newPage() {
+    let name = (prompt('Page name (e.g. contact.html):') || '').trim();
+    if (!name) return;
+    if (!name.endsWith('.html')) name += '.html';
+    if (!pages[name]) {
+      const title = name.replace('.html', '');
+      pages[name] =
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>${title}</title>
+  <style>
+    body { margin:0; font-family:sans-serif; background:#0b0e14; color:#eaf0f7;
+           display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; }
+    h1 { color:#ff5e8a; }
+    a  { color:#ff5e8a; }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>${title}</h1>
+    <p><a href="index.html">← Home</a></p>
+  </div>
+</body>
+</html>`;
+      persist();
+    }
+    renderTree();
+    openPage(name);
+  }
+
+  /* ── Delete page ── */
+  function deletePage(e, name) {
+    e.stopPropagation();
+    if (Object.keys(pages).length === 1) { alert("Can't delete the last page."); return; }
+    if (!confirm(`Delete "${name}"? This can't be undone.`)) return;
+    delete pages[name];
+    persist();
+    const remaining = Object.keys(pages).sort();
+    renderTree();
+    openPage(remaining[0]);
+  }
+
+  /* ── Tab key → 2 spaces ── */
+  function handleTab(e) {
+    if (e.key !== 'Tab') return;
+    e.preventDefault();
+    const ta = e.target;
+    const s = ta.selectionStart, end = ta.selectionEnd;
+    ta.value = ta.value.slice(0, s) + '  ' + ta.value.slice(end);
+    ta.selectionStart = ta.selectionEnd = s + 2;
+    onEdit();
+  }
+
+  boot();
+</script>
+</body>
+</html>
