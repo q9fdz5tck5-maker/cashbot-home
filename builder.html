@@ -7,115 +7,58 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg:       #0b0e14;
+      --bg2:      #0d1017;
+      --border:   #1c2333;
+      --text:     #eaf0f7;
+      --muted:    #7788aa;
+      --dim:      #445;
+      --accent:   #ff5e8a;
+      --tab-h:    54px;
+      --header-h: 44px;
+    }
+
+    html, body { height: 100%; }
+
     body {
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      overflow: hidden;
-      background: #0b0e14;
-      color: #eaf0f7;
+      height: 100dvh;
+      background: var(--bg);
+      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow: hidden;
     }
 
     /* ── Header ── */
     header {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 0 16px;
-      height: 44px;
-      background: #0d1017;
-      border-bottom: 1px solid #1c2333;
+      gap: 12px;
+      padding: 0 14px;
+      height: var(--header-h);
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
-    header .logo { font-size: 13px; font-weight: 800; color: #ff5e8a; letter-spacing: .06em; }
-    header .divider { width: 1px; height: 18px; background: #1c2333; }
-    header .current-file { font-size: 13px; color: #667788; }
-    .save-status { margin-left: auto; font-size: 11px; color: #445; }
+    .logo { font-size: 13px; font-weight: 800; color: var(--accent); letter-spacing: .06em; white-space: nowrap; }
+    .divider { width: 1px; height: 16px; background: var(--border); flex-shrink: 0; }
+    .current-file { font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
+    .save-status { font-size: 11px; color: var(--dim); white-space: nowrap; flex-shrink: 0; }
 
-    /* ── Three panels ── */
+    /* ── Workspace ── */
     .workspace {
       display: flex;
       flex: 1;
       overflow: hidden;
     }
 
-    /* ── File tree ── */
-    .filetree {
-      width: 190px;
-      flex-shrink: 0;
+    /* ── Panels ── */
+    .panel {
       display: flex;
       flex-direction: column;
-      background: #0d1017;
-      border-right: 1px solid #1c2333;
-    }
-    .filetree-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px;
-      border-bottom: 1px solid #1c2333;
-    }
-    .section-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: #445;
-    }
-    .btn-new {
-      background: none;
-      border: 1px solid #ff5e8a55;
-      color: #ff5e8a;
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .15s;
-    }
-    .btn-new:hover { background: #ff5e8a18; }
-
-    .file-list { flex: 1; overflow-y: auto; padding: 4px 0; }
-    .file-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 7px 12px 7px 14px;
-      font-size: 13px;
-      color: #7788aa;
-      cursor: pointer;
-      border-left: 2px solid transparent;
-      user-select: none;
-    }
-    .file-item:hover { background: #131a24; color: #c9d6e3; }
-    .file-item.active {
-      background: #131a24;
-      color: #eaf0f7;
-      border-left-color: #ff5e8a;
-    }
-    .file-item .name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .del-btn {
-      opacity: 0;
-      background: none;
-      border: none;
-      color: #445;
-      cursor: pointer;
-      font-size: 16px;
-      line-height: 1;
-      padding: 0 2px;
-      flex-shrink: 0;
-    }
-    .file-item:hover .del-btn { opacity: 1; }
-    .del-btn:hover { color: #ff5e8a; }
-
-    /* ── Editor ── */
-    .editor-panel {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      border-right: 1px solid #1c2333;
-      min-width: 0;
+      overflow: hidden;
     }
     .panel-bar {
       padding: 7px 14px;
@@ -123,43 +66,164 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: #445;
-      background: #0d1017;
-      border-bottom: 1px solid #1c2333;
+      color: var(--dim);
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
+
+    /* File tree */
+    .filetree {
+      width: 190px;
+      flex-shrink: 0;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+    }
+    .filetree-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); }
+    .btn-new {
+      background: none;
+      border: 1px solid #ff5e8a55;
+      color: var(--accent);
+      border-radius: 5px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-new:active { background: #ff5e8a18; }
+
+    .file-list { flex: 1; overflow-y: auto; padding: 4px 0; }
+    .file-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px 10px 14px;
+      font-size: 14px;
+      color: var(--muted);
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .file-item:active, .file-item.active {
+      background: #131a24;
+      color: var(--text);
+      border-left-color: var(--accent);
+    }
+    .file-item .name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .del-btn {
+      opacity: 0;
+      background: none;
+      border: none;
+      color: var(--dim);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      padding: 0 4px;
+      flex-shrink: 0;
+    }
+    .file-item:hover .del-btn, .file-item.active .del-btn { opacity: 1; }
+    .del-btn:active { color: var(--accent); }
+
+    /* Editor */
+    .editor-panel { flex: 1; border-right: 1px solid var(--border); }
     #editor {
       flex: 1;
-      background: #0b0e14;
+      background: var(--bg);
       color: #c9d6e3;
       border: none;
       outline: none;
       resize: none;
-      padding: 16px 18px;
+      padding: 14px 16px;
       font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
       font-size: 13px;
       line-height: 1.65;
       tab-size: 2;
+      width: 100%;
+      height: 100%;
+      -webkit-appearance: none;
     }
     #editor::placeholder { color: #2a3040; }
 
-    /* ── Preview ── */
-    .preview-panel {
+    /* Preview */
+    .preview-panel { flex: 1; }
+    #preview { flex: 1; border: none; background: #fff; width: 100%; height: 100%; }
+
+    /* ── Mobile tabs ── */
+    .tab-bar {
+      display: none;
+      flex-shrink: 0;
+      height: var(--tab-h);
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    .tab-bar-inner {
+      display: flex;
+      height: var(--tab-h);
+    }
+    .tab {
       flex: 1;
       display: flex;
       flex-direction: column;
-      min-width: 0;
-    }
-    #preview {
-      flex: 1;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      cursor: pointer;
+      color: var(--dim);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
       border: none;
-      background: #fff;
+      background: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .tab svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .tab.active { color: var(--accent); }
+
+    /* ── Mobile layout ── */
+    @media (max-width: 680px) {
+      .tab-bar { display: flex; flex-direction: column; }
+
+      /* hide desktop sidebar/borders */
+      .filetree { border-right: none; width: 100%; }
+      .editor-panel { border-right: none; }
+
+      /* all panels stacked, only active one visible */
+      .workspace { position: relative; }
+      .panel { position: absolute; inset: 0; background: var(--bg); }
+      .panel.hidden { display: none; }
+
+      /* bigger tap targets in file tree */
+      .file-item { padding: 14px 16px; font-size: 15px; }
+      .del-btn { opacity: 1; font-size: 20px; padding: 0 6px; }
+
+      /* bigger editor font on mobile */
+      #editor { font-size: 14px; padding: 16px; }
+
+      /* hide panel-bar label on mobile (tab bar replaces it) */
+      .panel-bar { display: none; }
+
+      /* filetree top always visible */
+      .filetree-top { padding: 12px 16px; }
+      .btn-new { padding: 6px 14px; font-size: 13px; }
     }
 
-    /* ── Mobile: stack vertically ── */
-    @media (max-width: 640px) {
-      .filetree { width: 140px; }
-      #editor { font-size: 12px; }
+    @media (min-width: 681px) {
+      /* desktop: all panels side by side */
+      .panel { flex: 1; }
+      .filetree { flex: 0 0 190px; }
+      .workspace { display: flex; flex-direction: row; }
     }
   </style>
 </head>
@@ -175,32 +239,52 @@
 <div class="workspace">
 
   <!-- File tree -->
-  <div class="filetree">
+  <div class="panel filetree" id="panelPages">
     <div class="filetree-top">
       <span class="section-label">Pages</span>
-      <button class="btn-new" onclick="newPage()">+ New</button>
+      <button class="btn-new" onclick="newPage()">+ New Page</button>
     </div>
     <div class="file-list" id="fileList"></div>
   </div>
 
   <!-- Editor -->
-  <div class="editor-panel">
+  <div class="panel editor-panel" id="panelEditor">
     <div class="panel-bar">Editor</div>
     <textarea
       id="editor"
       spellcheck="false"
-      placeholder="Select a page from the left to start editing…"
+      autocorrect="off"
+      autocapitalize="off"
+      placeholder="Select a page to start editing…"
       oninput="onEdit()"
       onkeydown="handleTab(event)"
     ></textarea>
   </div>
 
-  <!-- Live preview -->
-  <div class="preview-panel">
+  <!-- Preview -->
+  <div class="panel preview-panel" id="panelPreview">
     <div class="panel-bar">Preview — live</div>
     <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
   </div>
 
+</div>
+
+<!-- Mobile tab bar -->
+<div class="tab-bar">
+  <div class="tab-bar-inner">
+    <button class="tab active" id="tabPages" onclick="switchTab('pages')">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="10" rx="1"/><rect x="14" y="17" width="7" height="4" rx="1"/></svg>
+      Pages
+    </button>
+    <button class="tab" id="tabEditor" onclick="switchTab('editor')">
+      <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      Editor
+    </button>
+    <button class="tab" id="tabPreview" onclick="switchTab('preview')">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Preview
+    </button>
+  </div>
 </div>
 
 <script>
@@ -229,18 +313,16 @@
     p  { color: #8899aa; font-size: 1.1rem; max-width: 480px; line-height: 1.6; }
     a  { color: #ff5e8a; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .nav { margin-top: 2rem; }
   </style>
 </head>
 <body>
   <div>
     <h1>Your Name Here</h1>
     <p>One line about what you do or what this site is for.</p>
-    <p class="nav"><a href="about.html">About →</a></p>
+    <p style="margin-top:1.5rem"><a href="about.html">About →</a></p>
   </div>
 </body>
 </html>`,
-
     'about.html': `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -263,15 +345,13 @@
     h1 { font-size: 2.5rem; font-weight: 800; color: #ff5e8a; margin-bottom: 1rem; }
     p  { color: #8899aa; font-size: 1.1rem; max-width: 480px; line-height: 1.6; }
     a  { color: #ff5e8a; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .nav { margin-top: 2rem; }
   </style>
 </head>
 <body>
   <div>
     <h1>About</h1>
     <p>Tell your story here — who you are, what you do, and why it matters.</p>
-    <p class="nav"><a href="index.html">← Home</a></p>
+    <p style="margin-top:1.5rem"><a href="index.html">← Home</a></p>
   </div>
 </body>
 </html>`
@@ -280,6 +360,7 @@
   let pages = {};
   let current = null;
   let saveTimer = null;
+  let activeTab = 'pages';
 
   /* ── Boot ── */
   function boot() {
@@ -296,6 +377,16 @@
     document.getElementById('saveStatus').textContent = 'Saved ' + t;
   }
 
+  /* ── Mobile tabs ── */
+  function switchTab(tab) {
+    activeTab = tab;
+    ['pages','editor','preview'].forEach(id => {
+      document.getElementById('panel' + id.charAt(0).toUpperCase() + id.slice(1)).classList.toggle('hidden', id !== tab);
+      document.getElementById('tab'   + id.charAt(0).toUpperCase() + id.slice(1)).classList.toggle('active', id === tab);
+    });
+    if (tab === 'editor') document.getElementById('editor').focus();
+  }
+
   /* ── File tree ── */
   function renderTree() {
     const list = document.getElementById('fileList');
@@ -306,7 +397,11 @@
       row.innerHTML =
         `<span class="name">${name}</span>` +
         `<button class="del-btn" title="Delete" onclick="deletePage(event,'${name}')">×</button>`;
-      row.addEventListener('click', () => openPage(name));
+      row.addEventListener('click', () => {
+        openPage(name);
+        // auto-switch to editor on mobile after picking a file
+        if (window.innerWidth <= 680) switchTab('editor');
+      });
       list.appendChild(row);
     });
   }
@@ -314,12 +409,10 @@
   /* ── Open page ── */
   function openPage(name) {
     current = name;
-    const ed = document.getElementById('editor');
-    ed.value = pages[name] ?? '';
+    document.getElementById('editor').value = pages[name] ?? '';
     document.getElementById('currentFile').textContent = name;
     updatePreview();
     renderTree();
-    ed.focus();
   }
 
   /* ── Live preview ── */
@@ -349,11 +442,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${title}</title>
   <style>
     body { margin:0; font-family:sans-serif; background:#0b0e14; color:#eaf0f7;
-           display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; }
-    h1 { color:#ff5e8a; }
+           display:flex; align-items:center; justify-content:center;
+           min-height:100vh; text-align:center; padding:2rem; }
+    h1 { color:#ff5e8a; margin-bottom:1rem; }
     a  { color:#ff5e8a; }
   </style>
 </head>
@@ -368,13 +463,14 @@
     }
     renderTree();
     openPage(name);
+    if (window.innerWidth <= 680) switchTab('editor');
   }
 
   /* ── Delete page ── */
   function deletePage(e, name) {
     e.stopPropagation();
     if (Object.keys(pages).length === 1) { alert("Can't delete the last page."); return; }
-    if (!confirm(`Delete "${name}"? This can't be undone.`)) return;
+    if (!confirm(`Delete "${name}"?`)) return;
     delete pages[name];
     persist();
     const remaining = Object.keys(pages).sort();
@@ -382,17 +478,26 @@
     openPage(remaining[0]);
   }
 
-  /* ── Tab key → 2 spaces ── */
+  /* ── Tab = 2 spaces ── */
   function handleTab(e) {
     if (e.key !== 'Tab') return;
     e.preventDefault();
     const ta = e.target;
-    const s = ta.selectionStart, end = ta.selectionEnd;
-    ta.value = ta.value.slice(0, s) + '  ' + ta.value.slice(end);
+    const s = ta.selectionStart;
+    ta.value = ta.value.slice(0, s) + '  ' + ta.value.slice(ta.selectionEnd);
     ta.selectionStart = ta.selectionEnd = s + 2;
     onEdit();
   }
 
+  /* ── Init mobile panel state ── */
+  function initMobile() {
+    if (window.innerWidth <= 680) {
+      document.getElementById('panelEditor').classList.add('hidden');
+      document.getElementById('panelPreview').classList.add('hidden');
+    }
+  }
+
+  initMobile();
   boot();
 </script>
 </body>
