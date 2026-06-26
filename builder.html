@@ -15,6 +15,7 @@
       --muted:    #7788aa;
       --dim:      #445;
       --accent:   #ff5e8a;
+      --green:    #3ddc84;
       --tab-h:    54px;
       --header-h: 44px;
     }
@@ -156,11 +157,165 @@
     .preview-panel { flex: 1; }
     #preview { flex: 1; border: none; background: #fff; width: 100%; height: 100%; }
 
+    /* ── Claude panel ── */
+    .claude-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; border-left: 1px solid var(--border); }
+    .claude-panel.hidden { display: none; }
+
+    .claude-key-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .claude-key-bar input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      padding: 4px 8px;
+      outline: none;
+      font-family: "SF Mono", monospace;
+    }
+    .claude-key-bar input:focus { border-color: var(--accent); color: var(--text); }
+    .key-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); white-space: nowrap; }
+    .key-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--dim); flex-shrink: 0;
+    }
+    .key-dot.live { background: var(--green); }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .chat-msg {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-width: 92%;
+    }
+    .chat-msg.user { align-self: flex-end; align-items: flex-end; }
+    .chat-msg.assistant { align-self: flex-start; align-items: flex-start; }
+    .chat-bubble {
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.55;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+    .chat-msg.user .chat-bubble { background: #1e2a3a; color: var(--text); }
+    .chat-msg.assistant .chat-bubble { background: #161d27; color: var(--text); border: 1px solid var(--border); }
+    .chat-meta { font-size: 10px; color: var(--dim); }
+    .chat-apply-btn {
+      margin-top: 4px;
+      padding: 4px 10px;
+      background: none;
+      border: 1px solid #3ddc8455;
+      color: var(--green);
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+    .chat-apply-btn:active { background: #3ddc8418; }
+
+    .chat-thinking {
+      align-self: flex-start;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--dim);
+      font-style: italic;
+    }
+
+    .chat-empty {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--dim);
+      font-size: 12px;
+      text-align: center;
+      padding: 20px;
+    }
+    .chat-empty svg { opacity: .3; }
+
+    .chat-input-row {
+      display: flex;
+      gap: 8px;
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
+      background: var(--bg2);
+      flex-shrink: 0;
+    }
+    #chatInput {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      padding: 8px 10px;
+      outline: none;
+      resize: none;
+      font-family: inherit;
+      line-height: 1.4;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+    #chatInput:focus { border-color: var(--accent); }
+    #chatInput::placeholder { color: var(--dim); }
+    .chat-send-btn {
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      cursor: pointer;
+      flex-shrink: 0;
+      align-self: flex-end;
+    }
+    .chat-send-btn:disabled { opacity: .4; cursor: default; }
+    .chat-send-btn:active:not(:disabled) { opacity: .8; }
+
+    /* Split toggle button in header */
+    .split-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 5px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .split-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+    .split-btn.active { border-color: var(--accent); color: var(--accent); }
+    .split-btn:active { opacity: .7; }
+
     /* ── Mobile tabs ── */
     .tab-bar {
       display: none;
       flex-shrink: 0;
-      height: var(--tab-h);
       background: var(--bg2);
       border-top: 1px solid var(--border);
       padding-bottom: env(safe-area-inset-bottom, 0);
@@ -198,11 +353,14 @@
       /* hide desktop sidebar/borders */
       .filetree { border-right: none; width: 100%; }
       .editor-panel { border-right: none; }
+      .claude-panel { border-left: none; }
 
       /* all panels stacked, only active one visible */
       .workspace { position: relative; }
       .panel { position: absolute; inset: 0; background: var(--bg); }
       .panel.hidden { display: none; }
+      .claude-panel.hidden { display: none; }
+      .claude-panel:not(.hidden) { position: absolute; inset: 0; display: flex; }
 
       /* bigger tap targets in file tree */
       .file-item { padding: 14px 16px; font-size: 15px; }
@@ -217,6 +375,9 @@
       /* filetree top always visible */
       .filetree-top { padding: 12px 16px; }
       .btn-new { padding: 6px 14px; font-size: 13px; }
+
+      /* hide split button on mobile (use tab instead) */
+      .split-btn { display: none; }
     }
 
     @media (min-width: 681px) {
@@ -234,6 +395,10 @@
   <div class="divider"></div>
   <span class="current-file" id="currentFile">—</span>
   <span class="save-status" id="saveStatus"></span>
+  <button class="split-btn" id="splitBtn" onclick="toggleSplit()" title="Split view with Claude">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="3" width="8" height="18" rx="1"/></svg>
+    Claude
+  </button>
 </header>
 
 <div class="workspace">
@@ -267,6 +432,25 @@
     <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
   </div>
 
+  <!-- Claude split-view panel -->
+  <div class="claude-panel hidden" id="panelClaude">
+    <div class="claude-key-bar">
+      <span class="key-label">API Key</span>
+      <span class="key-dot" id="keyDot"></span>
+      <input type="password" id="apiKeyInput" placeholder="sk-ant-…" oninput="onKeyInput()" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-empty" id="chatEmpty">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>Ask Claude to edit your page.<br>Paste your Anthropic API key above.</span>
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <textarea id="chatInput" rows="1" placeholder="Ask Claude to edit this page…" onkeydown="chatKeydown(event)" oninput="autoResize(this)"></textarea>
+      <button class="chat-send-btn" id="chatSendBtn" onclick="sendChat()">Send</button>
+    </div>
+  </div>
+
 </div>
 
 <!-- Mobile tab bar -->
@@ -284,11 +468,16 @@
       <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       Preview
     </button>
+    <button class="tab" id="tabClaude" onclick="switchTab('claude')">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Claude
+    </button>
   </div>
 </div>
 
 <script>
-  const STORE = 'cashbot_builder_v1';
+  const STORE     = 'cashbot_builder_v1';
+  const KEY_STORE = 'cashbot_apikey_v1';
   const DEFAULTS = {
     'index.html': `<!DOCTYPE html>
 <html lang="en">
@@ -357,10 +546,13 @@
 </html>`
   };
 
-  let pages = {};
-  let current = null;
+  let pages     = {};
+  let current   = null;
   let saveTimer = null;
   let activeTab = 'pages';
+  let splitOpen = false;
+  let chatHistory = [];   // {role, content} pairs for context
+  let chatBusy  = false;
 
   /* ── Boot ── */
   function boot() {
@@ -368,6 +560,13 @@
     if (!Object.keys(pages).length) pages = { ...DEFAULTS };
     renderTree();
     openPage(Object.keys(pages)[0]);
+
+    // restore saved API key
+    const saved = localStorage.getItem(KEY_STORE) || '';
+    if (saved) {
+      document.getElementById('apiKeyInput').value = saved;
+      document.getElementById('keyDot').classList.add('live');
+    }
   }
 
   /* ── Persistence ── */
@@ -377,15 +576,37 @@
     document.getElementById('saveStatus').textContent = 'Saved ' + t;
   }
 
+  /* ── API key ── */
+  function onKeyInput() {
+    const val = document.getElementById('apiKeyInput').value.trim();
+    document.getElementById('keyDot').classList.toggle('live', val.startsWith('sk-ant-'));
+    if (val) localStorage.setItem(KEY_STORE, val);
+    else localStorage.removeItem(KEY_STORE);
+  }
+
+  /* ── Split toggle (desktop) ── */
+  function toggleSplit() {
+    splitOpen = !splitOpen;
+    document.getElementById('panelClaude').classList.toggle('hidden', !splitOpen);
+    document.getElementById('splitBtn').classList.toggle('active', splitOpen);
+    if (splitOpen) document.getElementById('chatInput').focus();
+  }
+
   /* ── Mobile tabs ── */
   function switchTab(tab) {
     activeTab = tab;
     ['pages','editor','preview'].forEach(id => {
-      document.getElementById('panel' + id.charAt(0).toUpperCase() + id.slice(1)).classList.toggle('hidden', id !== tab);
-      document.getElementById('tab'   + id.charAt(0).toUpperCase() + id.slice(1)).classList.toggle('active', id === tab);
+      document.getElementById('panel' + cap(id)).classList.toggle('hidden', id !== tab);
+      document.getElementById('tab'   + cap(id)).classList.toggle('active', id === tab);
     });
+    // Claude tab on mobile
+    document.getElementById('panelClaude').classList.toggle('hidden', tab !== 'claude');
+    document.getElementById('tabClaude').classList.toggle('active', tab === 'claude');
     if (tab === 'editor') document.getElementById('editor').focus();
+    if (tab === 'claude') document.getElementById('chatInput').focus();
   }
+
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
   /* ── File tree ── */
   function renderTree() {
@@ -489,11 +710,155 @@
     onEdit();
   }
 
+  /* ── Chat helpers ── */
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+  }
+
+  function chatKeydown(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+  }
+
+  function appendMsg(role, text, extractedHtml) {
+    const empty = document.getElementById('chatEmpty');
+    if (empty) empty.remove();
+
+    const box = document.createElement('div');
+    box.className = 'chat-msg ' + role;
+
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.textContent = text;
+    box.appendChild(bubble);
+
+    if (role === 'assistant' && extractedHtml) {
+      const btn = document.createElement('button');
+      btn.className = 'chat-apply-btn';
+      btn.textContent = 'Apply to editor';
+      btn.onclick = () => applyHtml(extractedHtml, btn);
+      box.appendChild(btn);
+    }
+
+    const msgs = document.getElementById('chatMessages');
+    msgs.appendChild(box);
+    msgs.scrollTop = msgs.scrollHeight;
+    return box;
+  }
+
+  function applyHtml(html, btn) {
+    if (!current) return;
+    pages[current] = html;
+    document.getElementById('editor').value = html;
+    updatePreview();
+    persist();
+    btn.textContent = 'Applied ✓';
+    btn.disabled = true;
+  }
+
+  function showThinking() {
+    const el = document.createElement('div');
+    el.className = 'chat-thinking';
+    el.id = 'chatThinking';
+    el.textContent = 'Claude is thinking…';
+    const msgs = document.getElementById('chatMessages');
+    msgs.appendChild(el);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function hideThinking() {
+    const el = document.getElementById('chatThinking');
+    if (el) el.remove();
+  }
+
+  /* Extract the first fenced HTML block or a full HTML document from a response */
+  function extractHtml(text) {
+    const fence = text.match(/```(?:html)?\s*([\s\S]*?)```/i);
+    if (fence) return fence[1].trim();
+    if (/<html[\s>]/i.test(text) && /<\/html>/i.test(text)) {
+      const m = text.match(/(<!DOCTYPE[\s\S]*?<\/html>)/i);
+      return m ? m[1].trim() : null;
+    }
+    return null;
+  }
+
+  async function sendChat() {
+    if (chatBusy) return;
+    const input = document.getElementById('chatInput');
+    const userText = input.value.trim();
+    if (!userText) return;
+
+    const apiKey = document.getElementById('apiKeyInput').value.trim();
+    if (!apiKey.startsWith('sk-ant-')) {
+      appendMsg('assistant', 'Paste your Anthropic API key in the field above to use Claude.');
+      return;
+    }
+
+    input.value = '';
+    input.style.height = 'auto';
+    appendMsg('user', userText);
+
+    // Build system message with current page context
+    const pageCode = (current && pages[current]) ? pages[current] : '(no page open)';
+    const system = `You are a helpful website builder assistant inside CASH.BOT Builder.
+The user is editing a file called "${current || 'unknown'}". Here is the current HTML:
+
+\`\`\`html
+${pageCode}
+\`\`\`
+
+When the user asks you to change or build something, respond with the complete updated HTML in a fenced \`\`\`html block. Keep responses concise.`;
+
+    chatHistory.push({ role: 'user', content: userText });
+
+    chatBusy = true;
+    document.getElementById('chatSendBtn').disabled = true;
+    showThinking();
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-calls': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-opus-4-8',
+          max_tokens: 4096,
+          system,
+          messages: chatHistory
+        })
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error?.message || `HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      const replyText = data.content?.[0]?.text || '';
+      const html = extractHtml(replyText);
+      chatHistory.push({ role: 'assistant', content: replyText });
+      hideThinking();
+      appendMsg('assistant', replyText, html);
+    } catch (err) {
+      hideThinking();
+      appendMsg('assistant', 'Error: ' + err.message);
+      chatHistory.pop();
+    } finally {
+      chatBusy = false;
+      document.getElementById('chatSendBtn').disabled = false;
+    }
+  }
+
   /* ── Init mobile panel state ── */
   function initMobile() {
     if (window.innerWidth <= 680) {
       document.getElementById('panelEditor').classList.add('hidden');
       document.getElementById('panelPreview').classList.add('hidden');
+      document.getElementById('panelClaude').classList.add('hidden');
     }
   }
 
