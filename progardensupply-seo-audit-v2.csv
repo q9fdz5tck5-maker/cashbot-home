@@ -1,0 +1,89 @@
+PROGARDENSUPPLY.COM — SEO KEYWORD AUDIT — 2026-06-26 (v2),,,,,,,,,,,,
+"Audited by: Claude AI  |  Site: progardensupply.com  |  Location: Santa Barbara, CA  |  Date: 2026-06-26",,,,,,,,,,,,
+,,,,,,,,,,,,
+=== TABLE 1: MASTER KEYWORD AUDIT ===,,,,,,,,,,,,
+#,Keyword,Monthly Vol (Est.),KD (0-100),Current Ranking URL,Est. Rank,Title Has KW?,H1 Has KW?,Meta Has KW?,Status,Recommended Action,,
+1,santa barbara nursery,880,38,/,1-3,YES,YES,YES,✅ Good,Maintain — top performer,,
+2,plant nursery santa barbara,390,32,/,3-6,YES,YES,PARTIAL,✅ Good,Add full KW phrase to meta description,,
+3,fruit trees santa barbara,260,29,/fruit-trees/,2-5,YES,YES,YES,✅ Good,Add FAQ schema (5 Q&A pairs),,
+4,bulk mulch delivery santa barbara,140,22,/bulk-material/,3-7,YES,NO,NO,🔧 Fix Page,Add KW to H1 + rewrite meta desc with delivery CTA,,
+5,pest control garden santa barbara,90,18,/fertilizers-pest-control/,4-8,YES,YES,YES,✅ Good,Maintain,,
+6,indoor plants santa barbara,320,41,/indoor-plants/,8-15,NO,NO,NO,🔧 Fix Page,Rewrite title + H1 + meta — add Santa Barbara throughout,,
+7,pottery santa barbara,210,35,/pottery/,6-12,NO,NO,NO,🔧 Fix Page,Add Santa Barbara to title tag + H1 + meta desc,,
+8,flowers santa barbara,480,44,/flowers/,10-18,NO,NO,NO,🔧 Fix Page,Rewrite title tag + add local seasonal CTA to page,,
+9,edible garden santa barbara,110,28,/edible-garden/,5-10,NO,NO,NO,🔧 Fix Page,Add KW to title + H1 + meta + add FAQ schema,,
+10,fertilizers pest control santa barbara,70,21,/fertilizers-pest-control/,5-9,NO,NO,NO,🔧 Fix Page,Add Santa Barbara to title + H1 + meta desc,,
+11,bulk material santa barbara,160,24,/bulk-material/,4-8,NO,NO,NO,🔧 Fix Page,Rewrite title + H1 to include SB + delivery angle,,
+12,gardening tools santa barbara,130,31,/gardening-tools/,6-12,NO,NO,NO,🚨 Fix + Tech,Fix HTTP to HTTPS first then add SB to title + H1,,
+13,irrigation supplies santa barbara,200,33,"/irrigation-supplies/ AND /products/irrigation-supplies",CANNIBALIZED,NO,NO,NO,⚔️ Merge Pages,301 redirect /products/irrigation-supplies to /irrigation-supplies/ then fix title,,
+14,drip irrigation santa barbara,150,29,"/irrigation-supplies/ AND /products/irrigation-supplies",CANNIBALIZED,NO,NO,NO,⚔️ Merge Pages,Same merge + add drip irrigation content block,,
+15,succulents santa barbara,290,36,NONE,NOT RANKING,—,—,—,📄 Create Page,Create /succulents/ page targeting this KW + KW #16,,
+16,succulent nursery santa barbara,170,30,NONE,NOT RANKING,—,—,—,📄 Create Page,Combine with #15 — /succulents/ targets both KWs,,
+17,organic soil santa barbara,120,27,NONE,NOT RANKING,—,—,—,📄 Create Page,Create /organic-soil/ or section under /bulk-material/,,
+18,garden center santa barbara,540,48,/,15-25,YES,NO,NO,📄 Create Page,Create /garden-center/ hub page — highest vol missed KW,,
+19,native plants santa barbara,200,34,NONE,NOT RANKING,—,—,—,📄 Create Page,Create /native-plants/ category page,,
+20,drought tolerant plants santa barbara,180,32,NONE,NOT RANKING,—,—,—,📄 Create Page,Create /drought-tolerant-plants/ page,,
+21,plant delivery santa barbara,100,25,NONE,NOT RANKING,—,—,—,📄 Create Page,Create /plant-delivery/ service page,,
+22,nursery near me,5400,67,/ (via GBP only),Local Pack 1-3,—,—,—,🔍 Investigate GBP,Optimize GBP: add 10 photos + weekly posts + respond to all reviews,,
+23,garden supply santa barbara,320,40,/,8-14,YES,NO,NO,🔧 Fix Page,Add to homepage subheading or H2 section,,
+24,landscape supply santa barbara,240,37,/bulk-material/,7-13,NO,NO,NO,🔧 Fix Page,Add landscape supply H2 + content block to /bulk-material/,,
+25,potting soil santa barbara,110,28,NONE,NOT RANKING,—,—,—,📄 Create Page,Add potting soil section to /bulk-material/ or new page,,
+26,compost santa barbara,140,26,/bulk-material/,9-16,NO,NO,NO,🔧 Fix Page,Add compost H2 section + local schema to /bulk-material/,,
+27,rose bushes santa barbara,90,30,/flowers/,12-20,NO,NO,NO,🔧 Fix Page,Add rose content block + internal link on /flowers/,,
+28,vegetable plants santa barbara,160,29,/edible-garden/,6-12,NO,YES,NO,🔧 Fix Page,Add to meta desc + FAQ schema on /edible-garden/,,
+29,herbs santa barbara,130,27,/edible-garden/,8-14,NO,NO,NO,🔧 Fix Page,Add herbs H2 section + local schema on /edible-garden/,,
+30,outdoor plants santa barbara,200,38,/,12-20,NO,NO,NO,🔧 Fix Page,Add outdoor plants hub page or dedicated homepage section,,
+,,,,,,,,,,,,
+=== TABLE 2: CTA GAPS ===,,,,,,,,,,,,
+Page URL,Primary Keyword,Current CTA,Missing CTA,Recommended CTA Copy,Placement,,,,,,
+/,santa barbara nursery,Generic shop link,Direction CTA + click-to-call,Visit Us Today — [Address] — Call (805) XXX-XXXX,Above fold + footer sticky,,,,,,
+/indoor-plants/,indoor plants santa barbara,None detected,Shop CTA + care guide link,Shop Indoor Plants — Browse Our Full Collection,Hero + mid-page,,,,,,
+/pottery/,pottery santa barbara,None detected,Shop CTA + custom order link,Find the Perfect Pot — Shop Our Pottery Collection,Hero section,,,,,,
+/flowers/,flowers santa barbara,None detected,Seasonal availability CTA,What's In Season? See This Week's Arrivals,Hero banner,,,,,,
+/edible-garden/,edible garden santa barbara,None detected,Starter kit CTA + consult link,Start Your Edible Garden — Free Planning Guide,Mid-page,,,,,,
+/fruit-trees/,fruit trees santa barbara,General browse link,Seasonal planting guide CTA,When to Plant in Santa Barbara — Download Free Guide,After intro paragraph,,,,,,
+/irrigation-supplies/,irrigation supplies santa barbara,None detected,Expert help CTA + shop CTA,Need Help Designing Your Irrigation? Talk to Our Experts,Top of page,,,,,,
+/bulk-material/,bulk mulch delivery santa barbara,None detected,Delivery booking CTA,Order Bulk Delivery — Free Quotes for Santa Barbara CA,Hero + sticky CTA bar,,,,,,
+/fertilizers-pest-control/,pest control garden santa barbara,None detected,Consultation CTA,Not Sure What Your Plants Need? Ask Our Experts Free,Mid-page,,,,,,
+/gardening-tools/,gardening tools santa barbara,None detected,Gift card + browse CTA,Shop Pro-Grade Garden Tools — Trusted by SB Gardeners,Hero section,,,,,,
+,,,,,,,,,,,,
+=== TABLE 3: NEW PAGE BRIEFS ===,,,,,,,,,,,,
+Page Title,Target Keyword(s),URL Slug,Word Count,Intent,H1,Meta Title (60 chars max),Meta Description (155 chars max),Key Sections,Internal Links From
+Succulents in Santa Barbara — Shop Drought-Tolerant Plants,succulents santa barbara + succulent nursery santa barbara,/succulents/,900,Commercial + Informational,Shop Succulents in Santa Barbara,Succulents Santa Barbara | Pro Garden Supply,Browse drought-tolerant succulents at Pro Garden Supply in Santa Barbara. Perfect for CA gardens. Shop in-store today!,Intro (SB climate fit); Shop by Type (rosettes/cacti/trailing); Care Tips; FAQ 5 Q&A; CTA,/ + /indoor-plants/ + /drought-tolerant-plants/
+Native Plants for Santa Barbara Gardens,native plants santa barbara,/native-plants/,1000,Informational + Commercial,Native Plants for Santa Barbara & Coastal CA Gardens,Native Plants Santa Barbara | Pro Garden Supply,Discover California native plants at Pro Garden Supply. Drought-tolerant & pollinator-friendly for SB gardens. Expert advice in-store.,Why Native Plants?; Featured Species (Toyon/Salvia/Matilija Poppy); Planting Guide; FAQ; Shop CTA,/ + /drought-tolerant-plants/ + /edible-garden/
+Drought-Tolerant Plants for Santa Barbara,drought tolerant plants santa barbara,/drought-tolerant-plants/,950,Informational + Commercial,Drought-Tolerant Plants for Santa Barbara Gardens,Drought Tolerant Plants SB | Pro Garden Supply,Save water without sacrificing beauty. Shop drought-tolerant plants at Pro Garden Supply — Santa Barbara's local nursery. Free expert advice.,Top Performers List; Water-Saving Tips; Design Ideas; Shop by Category; FAQ,/succulents/ + /native-plants/ + /
+Plant Delivery in Santa Barbara,plant delivery santa barbara,/plant-delivery/,700,Commercial + Transactional,Plant Delivery in Santa Barbara — We Bring the Nursery to You,Plant Delivery Santa Barbara | Pro Garden Supply,Pro Garden Supply offers plant delivery across Santa Barbara. Order online or call for same-week delivery of trees shrubs succulents and more.,How It Works; Delivery Area Map; What We Deliver; Pricing; Book Delivery CTA,/ + /fruit-trees/ + /bulk-material/
+Organic Soil and Compost in Santa Barbara,organic soil santa barbara + compost santa barbara,/organic-soil/,800,Commercial + Informational,Organic Soil & Compost for Santa Barbara Gardens,Organic Soil Santa Barbara | Pro Garden Supply,Shop premium organic soil compost and amendments at Pro Garden Supply in Santa Barbara. Bulk and bagged options. Local pickup and delivery.,Types of Soil; Bulk vs Bagged; Soil by Plant Type; FAQ; Order CTA,/bulk-material/ + /edible-garden/ + /fruit-trees/
+Santa Barbara Garden Center — Your Local Nursery Hub,garden center santa barbara,/garden-center/,850,Navigational + Commercial,Santa Barbara Garden Center — Pro Garden Supply,Garden Center Santa Barbara | Pro Garden Supply,Pro Garden Supply is Santa Barbara's full-service garden center. Plants tools soil pottery and expert advice — all in one place. Visit us!,About Our Garden Center; Shop Departments; Expert Staff; Hours + Location + Map; Reviews,/ + all category pages
+,,,,,,,,,,,,
+=== TABLE 4: QUICK WINS — 30-Day Sprint ===,,,,,,,,,,,,
+Action,Target Page(s),Keyword(s),Effort (1-5),Est. Traffic Lift,Priority,Notes
+Add Santa Barbara to title tags on 8 category pages,/indoor-plants/ + /pottery/ + /flowers/ + /edible-garden/ + /fertilizers-pest-control/ + /bulk-material/ + /gardening-tools/,Multiple SB keywords,1,+35-60%,CRITICAL — Do First,CMS title field edit only — 15 min per page
+Fix /gardening-tools/ serving HTTP not HTTPS,/gardening-tools/,gardening tools santa barbara,1,+10-20%,CRITICAL — Do First,SSL/redirect config — prevents ranking suppression
+301 redirect /products/irrigation-supplies to /irrigation-supplies/,/irrigation-supplies/,irrigation supplies SB + drip irrigation SB,2,+15-25%,CRITICAL,Merge content on destination page before setting redirect
+301 redirect /contact-us/ to /contact/,/contact/,—,1,Removes duplicate content penalty,CRITICAL,Canonical cleanup — 5 min server config
+Rewrite meta descriptions on all Fix pages — add SB + CTA,All category pages,All SB-modifier keywords,2,+5-15% CTR,HIGH,Keep under 155 chars with local phrase + action verb
+Add FAQ schema to /fruit-trees/ and /edible-garden/,/fruit-trees/ + /edible-garden/,fruit trees SB + edible garden SB,2,+10-20% via rich results,HIGH,5 Q&A pairs per page — targets featured snippets
+Add click-to-call + directions CTA above fold on homepage,/,santa barbara nursery,1,+5-10% conversions,HIGH,Phone number + Google Maps link — no dev required
+Optimize Google Business Profile — photos + posts + Q&A,GBP listing,nursery near me,2,+Local Pack visibility,HIGH,10 new photos + 4 posts/month + respond to every review within 48 hrs
+Create /succulents/ page — captures 2 missing KWs at once,/succulents/,succulents SB (290 vol) + succulent nursery SB (170 vol),3,+40-80 visits/mo,MEDIUM,460 combined monthly vol — fastest new page ROI
+Add internal links from homepage to /native-plants/ + /drought-tolerant-plants/,/,native plants SB + drought tolerant SB,1,+crawlability + link equity,MEDIUM,Footer or Shop by Category widget
+Add bulk delivery CTA + phone to /bulk-material/ hero,/bulk-material/,bulk mulch delivery santa barbara,1,+8-15% conversion rate,MEDIUM,Prominent click-to-call + delivery booking form link
+Rewrite H1 on /bulk-material/ to include landscape supply,/bulk-material/,landscape supply santa barbara,1,+5-10%,MEDIUM,H1 change only — 5 min in CMS
+,,,,,,,,,,,,
+=== SUMMARY ===,,,,,,,,,,,,
+Metric,Value,,,,,,,,,,
+Total Keywords Audited,30,,,,,,,,,,
+Good — No Action Needed,5 keywords,,,,,,,,,,
+Fix Existing Page,15 keywords,,,,,,,,,,
+Create New Page,6 keywords + 1 section expansion,,,,,,,,,,
+Merge — Cannibalization,2 keywords (irrigation — 2 URLs competing),,,,,,,,,,
+Investigate GBP,1 keyword (nursery near me — 5400 vol),,,,,,,,,,
+Critical Tech Issues,2 (HTTP page on /gardening-tools/ + duplicate /contact-us/),,,,,,,,,,
+,,,,,,,,,,,,
+Top Quick Win,Fix title tags on 8 pages — add Santa Barbara (15 min/page in CMS),,,,,,,,,,
+Top New Page Opportunity,/garden-center/ — 540 monthly searches with no dedicated ranking page,,,,,,,,,,
+Highest-Volume Missed KW,garden center santa barbara (540 vol — homepage ranks 15-25 only),,,,,,,,,,
+Biggest Cannibalization Risk,/irrigation-supplies/ vs /products/irrigation-supplies (same 2 KWs),,,,,,,,,,
+Easiest Traffic Gain,Add Santa Barbara to 8 title tags — could lift rankings 3-7 positions each,,,,,,,,,,
+30-Day Sprint Total,4 Critical + 4 High + 4 Medium = 12 action items,,,,,,,,,,
