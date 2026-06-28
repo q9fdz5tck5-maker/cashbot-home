@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>CASH.BOT · Cloner — hosted clones</title>
+<style>
+  :root{ --bg:#0b0e14; --card:#121723; --line:#222b3a; --txt:#e6edf6; --mut:#8b97a8; --accent:#3ddc97; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--txt); font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  .wrap{ max-width:820px; margin:0 auto; padding:32px 20px 64px; }
+  h1{ font-size:22px; margin:0 0 4px; }
+  h1 .dot{ color:var(--accent); }
+  p.sub{ color:var(--mut); margin:0 0 28px; font-size:14px; }
+  .grid{ display:grid; gap:14px; }
+  a.card{ display:block; text-decoration:none; color:inherit; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; transition:border-color .15s,transform .15s; }
+  a.card:hover{ border-color:var(--accent); transform:translateY(-2px); }
+  .card .host{ font-size:17px; font-weight:600; }
+  .card .meta{ color:var(--mut); font-size:13px; margin-top:6px; }
+  .card .meta b{ color:var(--txt); font-weight:600; }
+  .empty{ color:var(--mut); font-size:14px; background:var(--card); border:1px dashed var(--line); border-radius:14px; padding:22px; text-align:center; }
+  code{ background:#0007; padding:2px 6px; border-radius:6px; font-size:13px; color:var(--accent); }
+  footer{ margin-top:34px; color:var(--mut); font-size:12px; line-height:1.7; }
+  footer a{ color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CASH.BOT <span class="dot">·</span> Cloner</h1>
+  <p class="sub">Every site the Cloner module has mirrored and hosted, two-plus levels deep. Review copies for redesign — not originals.</p>
+  <div id="grid" class="grid"></div>
+  <footer>
+    Add one: <code>./clone-and-host.sh https://example.com 2 --push</code><br>
+    Clones are public, offline-faithful copies for redesign reference only — never passed off as the original or anyone's own work.
+  </footer>
+</div>
+<script>
+fetch('manifest.json', {cache:'no-store'})
+  .then(r => r.ok ? r.json() : [])
+  .then(list => {
+    const grid = document.getElementById('grid');
+    if (!Array.isArray(list) || list.length === 0) {
+      grid.innerHTML = '<div class="empty">No clones hosted yet. Run the Cloner, then push — they show up here.</div>';
+      return;
+    }
+    list.sort((a,b) => String(b.date||'').localeCompare(String(a.date||'')));
+    grid.innerHTML = list.map(c => {
+      const href = './' + encodeURIComponent(c.name) + '/';
+      const pages = (c.pages ?? '?'), assets = (c.assets ?? '?'), date = c.date || '';
+      const host = c.host || c.name || 'clone';
+      return `<a class="card" href="${href}">
+        <div class="host">${host}</div>
+        <div class="meta"><b>${pages}</b> pages · <b>${assets}</b> assets${date ? ' · cloned ' + date : ''}</div>
+      </a>`;
+    }).join('');
+  })
+  .catch(() => {
+    document.getElementById('grid').innerHTML =
+      '<div class="empty">Could not load the clone list.</div>';
+  });
+</script>
+</body>
+</html>

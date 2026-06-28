@@ -56,13 +56,33 @@ wget \
 PAGES=$(find "$DEST" -type f -name '*.html' 2>/dev/null | wc -l | tr -d ' ')
 ASSETS=$(find "$DEST" -type f ! -name '*.html' 2>/dev/null | wc -l | tr -d ' ')
 echo "✓ cloned: $PAGES pages, $ASSETS assets  →  $DEST"
+
+# Record it in the manifest the clones/index.html page reads (upsert by name).
+MANIFEST="$REPO_ROOT/clones/manifest.json"
+[ -f "$MANIFEST" ] || echo '[]' > "$MANIFEST"
+NAME="$NAME" HOST="$HOST" PAGES="$PAGES" ASSETS="$ASSETS" DATE="$(date +%F)" \
+python3 - "$MANIFEST" <<'PY'
+import json, os, sys
+path = sys.argv[1]
+try:
+    data = json.load(open(path))
+    if not isinstance(data, list): data = []
+except Exception:
+    data = []
+entry = {"name": os.environ["NAME"], "host": os.environ["HOST"],
+         "pages": int(os.environ["PAGES"]), "assets": int(os.environ["ASSETS"]),
+         "date": os.environ["DATE"]}
+data = [e for e in data if e.get("name") != entry["name"]] + [entry]
+json.dump(data, open(path, "w"), indent=2)
+PY
+echo "✓ listed in clones/index.html"
 echo "  preview locally:  (cd '$DEST' && python3 -m http.server 7900)  then open http://localhost:7900"
 echo "  live URL once pushed:  https://$DOMAIN/clones/$NAME/"
 
 if [ "$PUSH" = "--push" ]; then
   echo "→ pushing live…"
   cd "$REPO_ROOT"
-  git add "clones/$NAME"
+  git add "clones/$NAME" "clones/manifest.json"
   git commit -q -m "clone: host $HOST at /clones/$NAME/ (redesign reference)"
   git push
   echo "✓ live (after Pages rebuilds, ~1 min):  https://$DOMAIN/clones/$NAME/"
